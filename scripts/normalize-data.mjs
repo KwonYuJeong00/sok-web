@@ -126,15 +126,15 @@ function normPhase(p) {
 }
 
 const CLASS_MATCHERS = [
-  ['code represent', 'Code representations'],
-  ['string', 'String literals'],
-  ['text stream', 'Text streams'],
-  ['graph represent', 'Graph representations'],
-  ['binary fact', 'Binary facts'],
-  ['numeric', 'Numerical statistics'],
-  ['snapshot', 'Snapshots'],
-  ['logical express', 'Logical expressions'],
-  ['test set', 'Test sets'],
+  ['code represent', 'Code representation'],
+  ['string', 'String literal'],
+  ['text stream', 'Text stream'],
+  ['graph represent', 'Graph representation'],
+  ['binary fact', 'Binary fact'],
+  ['numeric', 'Numerical statistic'],
+  ['snapshot', 'Snapshot'],
+  ['logical express', 'Logical expression'],
+  ['test set', 'Test set'],
 ];
 function normClass(seg) {
   const s = clean(seg).toLowerCase();
@@ -150,7 +150,6 @@ function normForm(f) {
   if (s.startsWith('graph') || s.startsWith('grp')) return 'Graph';
   if (s.startsWith('num')) return 'Numeric descriptor';
   if (s.startsWith('image')) return 'Image';
-  if (s.startsWith('struct')) return 'Structural transformation';
   return clean(f);
 }
 
@@ -170,7 +169,7 @@ function canonShort(raw) {
 function normTokUnit(u) {
   const s = clean(u).toLowerCase();
   if (isSkip(s) || s.length <= 1) return '';
-  if (s.includes('byte pair') || s === 'bpe' || s.includes('(bpe')) return 'Subword (BPE)';
+  if (s.includes('byte pair') || s === 'bpe' || s.includes('(bpe')) return 'Subword (Byte-pair encoding)';
   if (s.includes('pretrained')) return 'Subword (Pretrained-LLM)';
   if (s.startsWith('byte')) return 'Byte';
   if (s.includes('opcode') || s.startsWith('instruction')) return 'Instruction';
@@ -210,19 +209,19 @@ const isSequenceForm = (form) => normForm(form) === 'Sequence';
 // `fixed` stages always show their full canonical node set (all possible
 // entries, even unused). `derived` stages collect their nodes from the data.
 const STAGES = [
-  { id: 'analysis',         name: 'Analysis',         order: 0, perPath: true,  expand: true,  expandLabel: 'Goal', fixed: ['Triage', 'Static', 'Dynamic', 'Security Testing', 'Hybrid'] },
+  { id: 'analysis',         name: 'Analysis',         order: 0, perPath: true,  expand: false, expandLabel: '',     fixed: ['Triage', 'Static', 'Dynamic', 'Security Testing', 'Hybrid'] },
   { id: 'artifact-class',   name: 'Artifact class',   order: 1, perPath: true,  expand: true, expandLabel: 'Artifact',
-    fixed: ['Code representations', 'String literals', 'Text streams', 'Binary facts', 'Graph representations', 'Numerical statistics', 'Snapshots', 'Logical expressions', 'Test sets'] },
+    fixed: ['Code representation', 'String literal', 'Text stream', 'Binary fact', 'Graph representation', 'Numerical statistic', 'Snapshot', 'Logical expression', 'Test set'] },
   { id: 'artifact-form',    name: 'Artifact form',    order: 2, perPath: true,  expand: true, expandLabel: 'Transformation',
-    fixed: ['Sequence', 'Graph', 'Numeric descriptor', 'Image', 'Structural transformation'] },
+    fixed: ['Sequence', 'Graph', 'Numeric descriptor', 'Image'] },
   { id: 'canonicalization', name: 'Canonicalization', order: 3, perPath: true,  expand: true, expandLabel: 'Method',
     fixed: ['Scale', 'Replace', 'Remove', 'Map', 'Transform', 'Extract'] },
   { id: 'tokenization',     name: 'Tokenization',     order: 4, perPath: true,  expand: true, expandLabel: 'Technique', sequenceOnly: true },
-  { id: 'encoding',         name: 'Encoding',         order: 5, perPath: true,  expand: true, expandLabel: 'Techniques', fixed: ['Sparse', 'Dense'] },
-  { id: 'embedding',        name: 'Embedding',        order: 6, perPath: true,  expand: true, expandLabel: 'Techniques', fixed: ['Context-dependent', 'Context-independent'] },
+  { id: 'encoding',         name: 'Encoding',         order: 5, perPath: true,  expand: true, expandLabel: 'Technique', fixed: ['Sparse', 'Dense'] },
+  { id: 'embedding',        name: 'Embedding',        order: 6, perPath: true,  expand: true, expandLabel: 'Technique', fixed: ['Context-dependent', 'Context-independent'] },
   { id: 'combine',          name: 'Learning model',   order: 7, perPath: false, expand: false, connector: true, fixed: ['-->', '+'] },
-  { id: 'learning',         name: 'Learning',         order: 8, perPath: false, expand: true, expandLabel: 'Model' },
-  { id: 'inference',        name: 'Inference',        order: 9, perPath: false, expand: true, expandLabel: 'Metric', detailLabel: 'Subcategory' },
+  { id: 'learning',         name: 'Learning',         order: 8, perPath: false, expand: true, expandLabel: 'Model', detailLabel: 'Subcategory' },
+  { id: 'inference',        name: 'Inference',        order: 9, perPath: false, expand: true, expandLabel: 'Metric' },
 ];
 
 /* ------------------------------- load ---------------------------------- */
@@ -245,7 +244,7 @@ function laneEntries(stageId, lane) {
         else phases.push({ label: ph, detailArr: goal ? [goal] : [] });
       }
       // Phase is shown by default; its goal(s) are revealed on click (N/A if none).
-      return phases.map((p) => ({ label: p.label, reveal: p.detailArr.join(' · '), detail: '' }));
+      return phases.map((p) => ({ label: p.label, reveal: p.detailArr.join('; '), detail: '' }));
     }
     case 'artifact-class': {
       const out = [];
@@ -291,14 +290,18 @@ function sharedEntries(stageId, paper) {
   switch (stageId) {
     case 'combine':
       return paper.relationship ? [{ label: paper.relationship, reveal: '', detail: '' }] : [];
-    case 'learning':
-      return splitMulti(paper.learningSubcategory).map((l) => ({
-        label: l, reveal: paper.learningModel, detail: '',
-      }));
+    case 'learning': {
+      const out = [];
+      for (const cat of splitMulti(paper.learningCategory)) {
+        if (!out.some((x) => x.label === cat))
+          out.push({ label: cat, reveal: paper.learningModel, detail: paper.learningSubcategory });
+      }
+      return out;
+    }
     case 'inference': {
       const cat = clean(paper.inferenceCategory);
       if (isSkip(cat)) return [];
-      return [{ label: cat, reveal: paper.evaluationMetric, detail: clean(paper.inferenceSubcategory) }];
+      return [{ label: cat, reveal: paper.evaluationMetric, detail: '' }];
     }
     default:
       return [];
@@ -342,7 +345,7 @@ function analysisReveal(phaseLabel, lanes, touch) {
     for (const [ph, g] of phaseGoals(lanes[i].analysis)) {
       if (ph === phaseLabel && g && !goals.includes(g)) goals.push(g);
     }
-    return goals.length ? goals.join(' · ') : 'N/A';
+    return goals.length ? goals.join('; ') : 'N/A';
   });
   if (parts.length === 1) return parts[0] === 'N/A' ? '' : parts[0];
   return parts.join(' | ');
@@ -410,7 +413,7 @@ function buildPaper(row) {
     relationship: pathCount > 1 ? (combineRelationship(row['Learning_Model']) || '+') : '',
     learningCategory: clean(row.Learning_Category),
     learningSubcategory: clean(row.Learning_Subcategory),
-    learningModel: clean(row.Learning_Model),
+    learningModel: clean(row['for claude']),
     inferenceCategory: clean(row.Inference_Category),
     inferenceSubcategory: clean(row.Inference_Subcategory),
     inferenceOutput: clean(row.Inference_Output),
