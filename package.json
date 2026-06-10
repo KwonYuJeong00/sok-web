@@ -1,0 +1,29 @@
+{
+  "name": "sok-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Interactive AI-pipeline visualization for the SoK: AI-assisted Binary Reversing taxonomy.",
+  "scripts": {
+    "normalize": "node scripts/normalize-data.mjs",
+    "audit": "node scripts/audit.mjs",
+    "dev": "vite",
+    "build": "node scripts/normalize-data.mjs && tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}
