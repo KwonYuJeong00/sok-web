@@ -1,0 +1,9 @@
+Inference Type,Task,Output,Example
+Classification,Assigns a target to one of predefined discrete categories,A discrete label from a known reference set,"programmer ID, compiler family, malware family, cryptographic algorithm"
+Clustering,Groups similar instances into emergent clusters without labels,A group label from an emergent partition,"similar malware clustering, partition structure"
+Detection,Predicts whether a property is present,A binary label or confidence score,"code similarity detection, vulnerability, maliciousness, patch presence, code removability, function or instruction start/end detection"
+Discovery,Identifies previously unknown candidates of interest for further validation,A set of novel candidates for further validation,"unknown instance(s) of a known vulnerability class, crash-triggering input, symbolic path"
+Reconstruction,Infers latent structural relations,"A graph, layout, or relational structure","indirect call target, source-sink dependency, taint relation, value-set"
+Recovery,Recovers source-level semantics lost during compilation,A recovered artifact approximating the orginal form,"variable type, function prototype, struct layout, function/variable symbol name, source-level pseudocode"
+Restoration,Reverses intentional concealment from code/data transformations,A de-obfuscated or unpacked code snippet,"de-obfuscated or unpacked code snippet, decrypted string"
+Summarization,Produces concise semantic descriptions,A condensed natural-language or structured description,malware capability/function/behavior summary

@@ -1,0 +1,5 @@
+Split Basis,Token Units / Techniques
+Atomic units,Byte
+Syntactic units, Element;sub-token;Instruction;Trace event 
+Rule-based decomposition,Sub-element;Layout-field token;
+Data-driven segmentation,Subword (Byte Pair Encoding);Subword (Pretrained-LLM)

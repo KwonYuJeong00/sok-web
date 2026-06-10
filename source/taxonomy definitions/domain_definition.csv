@@ -1,0 +1,27 @@
+Index,Scheme,Tier,Inference Type,Domain
+D01,Foundation,T0,restoration,Code protection restoration
+D02,Foundation,T1,detection,Code boundary (instruction/function) detection
+D03,Foundation,T2,reconstruction,Data flow (taint) reconstruction
+D04,Foundation,T2,reconstruction,Indirect call target reconstruction
+D05,Foundation,T2,detection,Code similarity detection
+D06,Foundation,T2,discovery,Symbolic path discovery
+D07,Foundation,T2,recovery,Data structure/struct layout recovery
+D08,Foundation,T2,recovery,Variable type recovery
+D09,Foundation,T3,recovery,Function signature recovery
+D10,Foundation,T3,recovery,Function symbol name recovery
+D11,Foundation,T3,recovery,Variable symbol name recovery
+D12,Application,T4,classification,Programmer authorship classification
+D13,Application,T4,classification,Toolchain provenance classification
+D14,Application,T4,classification,Malware family classification
+D15,Application,T4,detection,Debloating target detection
+D16,Application,T4,detection/clustering,Known vulnerability (bug) detection/clustering
+D17,Application,T4,detection,Malware detection
+D18,Application,T4,detection,Patch presence detection (binary diffing)
+D19,Application,T4,discovery/clustering,Unknown vulnerability (bug) discovery/clustering 
+D20,Application,T4,classification,Known algorithm classification
+D21,Application,T4,summarization,Code summarization
+D22,Application,T5,recovery,Pseudocode recovery (decompilation)
+D23,Others,,,XAI
+D24,Others,,,Code representation learning
+D25,Others,,,Dataset shift
+D26,Others,,,Code obfuscation generation 

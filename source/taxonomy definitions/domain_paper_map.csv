@@ -1,0 +1,145 @@
+PID,DID,Paper Title,Conference
+P002,D02,"XDA: Accurate, Robust Disassembly with Transfer Learning",NDSS
+P003,D02,DeepDi: Learning a Relational Graph Convolutional Network Model on Instructions for Fast and Accurate Disassembly,USENIX Security
+P004,D02,Tady: A Neural Disassembler without Structural Constraint Violations,USENIX Security
+P005,D02,Recognizing Functions in Binaries with Neural Networks,USENIX Security
+P006,D02,Semantics-Aware Machine Learning for Function Recognition in Binary Code,ICSME
+P007,D02,FunProbe: Probing Functions from Binary Code through Probabilistic Analysis,ESEC/FSE
+P008,D03,Neutaint: Efficient Dynamic Taint Analysis with Neural Networks,S&P
+P009,D03,FITS: Inferring Intermediate Taint Sources for Effective Vulnerability Analysis of IoT Device Firmware,ASPLOS
+P010,D03,LLM-Powered Static Binary Taint Analysis,TOSEM
+P011,D03,One Engine To Serve ’em All: Inferring Taint Rules Without Architectural Semantics,NDSS
+P012,D03,NeuDep: Neural Binary Memory Dependence Analysis,ESEC/FSE
+P013,D03,DEEPVSA: Facilitating Value-set Analysis with Deep Learning for Postmortem Program Analysis,USENIX Security
+P014,D04,CALLEE: Recovering Call Graphs for Binaries With Transfer and Contrastive Learning,TDSC
+P015,D05,BinGo: Cross-Architecture Cross-OS Binary Search,FSE
+P016,D05,Order Matters: Semantic-Aware Neural Networks for Binary Code Similarity Detection,AAAI
+P017,D05,CodeCMR: Cross-Modal Retrieval For Function-Level Binary Source Code Matching,NeurIPS
+P018,D05,Asteria: Deep Learning-based AST-Encoding for Cross-platform Binary Code Similarity Detection,DSN
+P019,D05,jTrans: jump-aware transformer for binary code similarity detection,ISSTA
+P020,D05,Practical Binary Code Similarity Detection with BERT-based Transferable Similarity Learning,ACSAC
+P021,D05,Learning Approximate Execution Semantics From Traces for Binary Function Similarity,TSE
+P022,D05,Cross-Inlining Binary Function Similarity Detection,ICSE
+P023,D05,BinAug: Enhancing Binary Similarity Analysis with Low-Cost Input Repairing,ICSE
+P024,D05,Code is not Natural Language: Unlock the Power of Semantics-Oriented Graph Representation for Binary Code Similarity Detection,USENIX Security
+P025,D05,BinaryAI: Binary Software Composition Analysis via Intelligent Binary Source Code Matching,ICSE
+P026,D05,Improving ML-based Binary Function Similarity Detection by Assessing and Deprioritizing Control Flow Graph Features,USENIX Security
+P027,D05,Transforming Generic Coder LLMs to Effective Binary Code Embedding Models for Similarity Detection,NeurIPS
+P028,D05,Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection,CCS
+P029,D05,Safe: Self-attentive function embeddings for binary similarity,DIMVA
+P030,D05,Graph matching networks for learning the similarity of graph structured objects,ICML
+P031,D05,Neural Machine Translation Inspired Binary Code Similarity Comparison beyond Function Pairs,NDSS
+P032,D05,Asm2Vec: Boosting Static Representation Robustness for Binary Clone Search against Code Obfuscation and Compiler Optimization,S&P
+P034,D05,Improving Cross-Platform Binary Analysis using Representation Learning via Graph Alignment,ISSTA
+P035,D05,Exploring GNN Based Program Embedding Technologies for Binary Related Tasks,ICPC
+P038,D21,Source Code Foundation Models are Transferable Binary Analysis Knowledge Bases,NeurIPS
+P039,D05,CFG2VEC: Hierarchical Graph Neural Network for Cross-Architectural Software Reverse Engineering,ICSE-SEIP
+P040,D06,Learning to Explore Paths for Symbolic Execution,CCS
+P041,D07,OSPREY: Recovery of Variable and Data Structure via Probabilistic Analysis for Stripped Binary,S&P
+P042,D07,ReSym: Harnessing LLMs to Recover Variable and Data Structure Symbols from Stripped Binaries,CCS
+P043,D07,TypeForge: Synthesizing and Selecting Best-Fit Composite Data Types for Stripped Binaries,S&P
+P044,D08,StateFormer: Fine-Grained Type Recovery from Binaries using Generative State Modeling,FSE
+P045,D08,TypeMiner: Recovering Types in Binary Programs using Machine Learning,DIMVA
+P046,D08,Type Learning for Binaries and Its Applications,IEEE Transactions on Reliability
+P047,D08,CATI: Context-Assisted Type Inference from Stripped Binaries,DSN
+P048,D08,TYGR: Type Inference on Stripped Binaries using Graph Neural Networks,USENIX Security
+P049,D08,TRex: Practical Type Reconstruction for Binary Code,USENIX Security
+P050,D09,Neural Nets Can Learn Function Type Signatures From Binaries,USENIX Security
+P051,D09,Recover Function Signature from Combined Constraints,CCS
+P053,D10,Probabilistic Naming of Functions in Stripped Binaries,ACSAC
+P054,D10,Beyond Classification: Inferring Function Names in Stripped Binaries via Domain Adapted LLMs,NDSS
+P055,D10,Neural Reverse Engineering of Stripped Binaries using Augmented Control Flow Graphs,OOPSLA
+P056,D10,A lightweight framework for function name reassignment based on large-scale stripped binaries,ISSTA
+P057,D10,SymLM: Predicting Function Names in Stripped Binaries via ContextSensitive Execution-Aware Code Embeddings,CCS
+P058,D10,A Transformer-based Function Symbol Name Inference Model from an Assembly Language for Binary Reversing,AsiaCCS
+P059,D10,XFL: Naming Functions in Binaries with Extreme Multi-label Learning,S&P
+P062,D10,BLens: Contrastive Captioning of Binary Functions using Ensemble Embedding,USENIX Security
+P063,D11,Debin: Predicting Debug Information in Stripped Binaries,CCS
+P064,D11,Meaningful Variable Names for Decompiled Code: A Machine Translation Approach,ICPC
+P065,D11,DIRE: A Neural Approach to Decompiled Identifier Naming,ASE
+P066,D11,Augmenting Decompiler Output with Learned Variable Names and Types,USENIX Security
+P067,D11,"“Len or index or count, anything but v1”: Predicting Variable Names in Decompilation Output with Transfer Learning",S&P
+P068,D11,Unleashing the Power of Generative Model in Recovering Variable Names from Stripped Binary,NDSS
+P070,D12,When Coding Style Survives Compilation: De-anonymizing Programmers from Executable Binaries,NDSS
+P072,D12,BinMLM: Binary Authorship Verification with Flow-aware Mixture-of-Shared Language Model,SANER
+P073,D13,Fine-Grained Compiler Identification With Sequence-Oriented Neural Modeling,IEEE Access
+P075,D13,Improving Security Tasks Using Compiler Provenance Information Recovered At the Binary-Level,CCS
+P077,D14,A Weak Coupling of Semi-Supervised Learning with Generative Adversarial Networks for Malware Classification,ICPR
+P079,D14,MtNet: A Multi-Task Neural Network for Dynamic Malware Classification,DIMVA
+P080,D14,"Novel Feature Extraction,Selection and Fusion for Effective Malware Family Classification",CODASPY
+P081,D17,Transcending transcend: Revisiting malware classification in the presence of concept drift,S&P
+P082,D14,Classification of Malware by Using Structural Entropy on Convolutional Neural Networks,AAAI
+P083,D14,From grim reality to practical solution: Malware classification in real-world noise,S&P
+P084,D14,MalCL: Leveraging GAN-Based Generative Replay to Combat Catastrophic Forgetting in Malware Classification,AAAI
+P085,D14,Empowering convolutional networks for malware classification and analysis,IJCNN
+P086,D14,Malware class recognition using image pro cessing techniques,ICDMAI
+P087,D14,Transcend: Detecting Concept Drift in Malware Classification Models,USENIX Security
+P088,D14,Using Convolutional Neural Networks for Classification of Malware represented as Images,Journal of Computer Virology and Hacking Techniques
+P089,D14,Malware classification for the cloud via semi-supervised transfer learning,JISA
+P090,D14,IMCFN: Image-based malware classification using fine-tuned convolutional neural network architecture,Computer Networks
+P091,D14,MalFCS: An effective malware classification framework with automated feature extraction based on deep convolutional neural networks,Journal of Parallel and Distributed Computing
+P093,D15,Binary Control-Flow Trimming,CCS
+P094,D15,Input-Driven Dynamic Program Debloating for Code-Reuse Attack Mitigation,ESEC/FSE
+P095,D16,VulHawk: Cross-architecture Vulnerability Detection with Entropy-based Binary Code Search,NDSS
+P096,D16,Scalable Graph-based Bug Search for Firmware Images,CCS
+P097,D16,Discovre: Efficient cross-architecture identification of bugs in binary code.,NDSS
+P098,D16,Vulseeker-pro: Enhanced semantic learning based binary vulnerability seeker with emulation,ESEC/FSE
+P099,D16,VMPBL: Identifying Vulnerable Functions Based on Machine Learning Combining Patched Information and Binary Comparison Technique by LCS,TrustCom/BigDataSE
+P100,D16,BugGraph: Differentiating Source-Binary Code Similarity with Graph Triplet-Loss Network,AsiaCCS
+P102,D16,Binary Code Vulnerability Detection Based on Multi-Level Feature Fusion,IEEE Access
+P103,D16,Maximal Divergence Sequential Autoencoder for Binary Software Vulnerability Detection,ICLR
+P078,D17,AI-HydRa: Advanced hybrid approach using random forest and deep learning for malware classification,Information Sciences
+P105,D17,Deep neural network based malware detection using two dimensional binary program features,MALWARE
+P107,D17,Actor Critic Deep Reinforcement Learning for Neural Malware Control,AAAI
+P108,D17,Dynamic Malware Analysis with Feature Engineering and Feature Learning,AAAI
+P109,D17,You Are What You Do: Hunting Stealthy Malware via Data Provenance Analysis,NDSS
+P110,D17,Classifying Sequences of Extreme Length with Constant Memory Applied to Malware Detection,AAAI
+P113,D17,Adversarial Training for Raw-Binary Malware Classifiers,USENIX Security
+P114,D17,Feature-Space Bayesian Adversarial Learning Improved Malware Detector Robustness,AAAI
+P117,D17,"Training Robust ML-based Raw-Binary Malware Detectors in Hours, not Months",CCS
+P119,D17,Revisiting Concept Drift in Windows Malware Detection: Adaptation to Real Drifted Malware with Minimal Samples,NDSS
+P120,D17,SRDC: Semantics-based Ransomware Detection and Classifcation with LLM-assisted Pre-training,AAAI
+P121,D17,ERW-Radar: An Adaptive Detection System against Evasive Ransomware by Contextual Behavior Detection and Fine-grained Content Analysis,NDSS
+P122,D17,"Density Boosts Everything: A One-stop Strategy for Improving Performance, Robustness, and Sustainability of Malware Detectors",NDSS
+P124,D17,Feature Selection for Malware Detection Based on Reinforcement Learning,IEEE Access
+P126,D17,EVOLIoT: A Self-Supervised Contrastive Learning Framework for Detecting and Characterizing Evolving IoT Malware Variants,AsiaCCS
+P128,D18,DEEPBINDIFF: Learning Program-Wide Code Representations for Binary Diffing,NDSS
+P129,D18,BinDiffNN: Learning Distributed Representation of Assembly for Robust Binary Diffing Against Semantic Differences,TSE
+P101,D19,UVSCAN: Detecting Third-Party Component Usage Violations in IoT Firmware,USENIX Security
+P104,D19,Faster and Better: Detecting Vulnerabilities in Linux-based IoT Firmware with Optimized Reaching Definition Analysis,NDSS
+P130,D19,Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code,USENIX Security
+P131,D19,Coverage-based Greybox Fuzzing as Markov Chain,CCS
+P132,D19,NEUZZ: Efficient Fuzzing with Neural Program Smoothing,S&P
+P133,D19,V-Fuzz: Vulnerability Prediction-Assisted Evolutionary Fuzzing for Binary Programs,TCYB
+P134,D19,MTFuzz: Fuzzing with a Multi-task Neural Network,ESEC/FSE
+P135,D19,Evaluating and Improving Neural Program-Smoothing-based Fuzzing,ICSE
+P136,D19,AIFORE: Smart Fuzzing Based on Automatic Input Format Reverse Engineering,USENIX Security
+P137,D20,CryptoKnight: Generating and Modelling Compiled Cryptographic Primitives,Information
+P138,D20,A Neural Network-Based Approach for Cryptographic Function Detection in Malware,IEEE Access
+P139,D21,CP-BCS: Binary Code Summarization Guided by Control Flow Graph and Pseudo Code,EMNLP
+P140,D21,Extending Source Code Pre-Trained Language Models to Summarise Decompiled Binaries,SANER
+P141,D21,Bin2Summary: Beyond Function Name Prediction in Stripped Binaries with Functionality-Specific Code Embeddings,FSE
+P142,D21,MiSum: Multi-modality Heterogeneous Code Graph Learning for Multi-intent Binary Code Summarization,FSE
+P143,D22,Using Recurrent Neural Networks for Decompilation,SANER
+P144,D22,Coda: An End-to-End Neural Program Decompiler,NeurIPS
+P145,D22,Neutron: an attention-based neural decompiler,Cybersecurity
+P146,D22,DeGPT: Optimizing Decompiler Output with LLM,NDSS
+P147,D22,LLM4Decompile: Decompiling Binary Code with Large Language Models,EMNLP
+P148,D22,Decompiling x86 Deep Neural Network Executables,USENIX Security
+P115,D23,FINER: Enhancing State-of-the-art Classifiers with Feature Attribution to Facilitate Security Analysis,CCS
+P127,D23,LEMNA: Explaining Deep Learning based Security Applications,CCS
+P116,D24,Can a Deep Learning Model for One Architecture Be Used for Others? Retargeted-Architecture Binary Code Analysis,USENIX Security
+P033,D24,PalmTree: Learning an Assembly Language Model for Instruction Embedding,CCS
+P036,D24,CodeArt: Better Code Models by Attention Regularization When Symbols Are Lacking,FSE journal
+P037,D24,CLAP: learning transferable binary code representations with natural language supervision,ISSTA
+P052,D24,Hext5: Unified pre-training for stripped binary code information inference,ASE
+P149,D24,Nova: Generative language models for assembly code with hierarchical attention and contrastive learning,ICLR
+P111,D25,Out of Distribution Data Detection Using Dropout Bayesian Neural Networks,AAAI
+P118,D25,Detecting and Mitigating Sampling Bias in Cybersecurity with Unlabeled Data,USENIX Security
+P125,D25,CADE: Detecting and Explaining Concept Drift Samples for Security Applications,USENIX Security
+P001,D26,Can LLMs Obfuscate Code? A Systematic Analysis of Large Language Models into Assembly Code Obfuscation,AAAI
+P150,D14,EMBERSim: A Large-Scale Databank for Boosting Similarity Search in Malware Analysis,NeurIPS
+P151,D14,DeepReflect: Discovering Malicious Functionality through Binary Reconstruction,USENIX Security
+P153,D13,Binary level toolchain provenance identification with graph neural networks,SANER
+P154,D05,αDiff: Cross-version Binary Code Similarity Detection with DNN,ASE
+P155,D05,Cross-Language Binary-Source Code Matching with Intermediate Representations,SANER
