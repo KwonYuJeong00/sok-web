@@ -54,13 +54,12 @@ export function CategoryNodeView(props: Props) {
   // Detail shows inline only for non-expandable nodes; expandable nodes surface it
   // inside the popup (keeps long text from overflowing and hiding the node label).
   const detailText =
-    highlighted && !expandable && detail && detail.length ? detail.join(' · ') : '';
+    highlighted && !expandable && detail && detail.length ? detail.join('; ') : '';
 
-  // Cell affordance lists every section the popup reveals (e.g. "Subcategory · Metric").
   const expandHint = [
     detail && detail.length && detailLabel ? detailLabel : '',
     expandLabel,
-  ].filter(Boolean).join(' · ');
+  ].filter(Boolean).join('; ');
 
   const inner = (
     <>

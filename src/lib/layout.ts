@@ -4,14 +4,14 @@
 import type { Stage } from '../types';
 
 export const LAYOUT = {
-  pad: 22,
-  headerH: 48,
-  headerGap: 16,
-  colW: 158,
-  colGap: 34,
-  connectorW: 42,   // narrow slot for the Learning-model +/--> marker
-  nodeH: 50,
-  nodeGap: 8,
+  pad: 24,
+  headerH: 68,
+  headerGap: 20,
+  colW: 155,
+  colGap: 40,
+  connectorW: 48,   // narrow slot for the Learning-model +/--> marker
+  nodeH: 68,
+  nodeGap: 10,
 };
 
 export interface Box { x: number; y: number; w: number; h: number; }

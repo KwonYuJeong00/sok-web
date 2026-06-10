@@ -100,7 +100,7 @@ function PaperInfoBar({ paper }: { paper: Paper }) {
           {paper.did} · {paper.domain}
         </span>
         {paper.scheme && (
-          <span className="ib-tag">{paper.scheme}{paper.tier ? ` · ${paper.tier}` : ''}</span>
+          <span className="ib-tag">{paper.scheme}</span>
         )}
         {paper.conference && <span className="ib-tag">{paper.conference}</span>}
         {paper.isTopTier && <span className="ib-tag top">top-tier</span>}
