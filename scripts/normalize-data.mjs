@@ -552,8 +552,8 @@ const sidebar = SCHEMES_ORDER.map((scheme) => {
 const pathCounts = papers.map((p) => p.pathCount);
 const data = {
   meta: {
-    title: 'SoK: AI-assisted Binary Reversing',
-    description: 'Interactive flow-diagram map of the AI-assisted binary-reversing pipeline.',
+    title: 'SoK: AI-Augmented Binary Reversing',
+    description: 'Interactive flow-diagram map of the AI-augmented binary-reversing pipeline.',
     paperCount: papers.length,
     domainCount: sidebar.reduce((n, g) => n + g.domains.length, 0),
     stageCount: stages.length,

@@ -1,6 +1,6 @@
-# SoK: AI-assisted Binary Reversing — interactive pipeline
+# SoK: AI-Augmented Binary Reversing — interactive pipeline
 
-A static web app that visualises the AI-assisted binary-reversing pipeline as a
+A static web app that visualises the AI-augmented binary-reversing pipeline as a
 **flow diagram**. Every stage is a column listing *all of its possible entries*
 (e.g. the 9 Artifact-class nodes). Pick a paper from the left and the entries it
 uses light up, connected column-to-column into a path. Papers with several
