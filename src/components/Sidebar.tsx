@@ -70,9 +70,6 @@ export function Sidebar({ sidebar, selectedPid, filteredPids, onSelect }: Props)
                       <span className="arrow">{domCollapsed ? '▸' : '▾'}</span>
                       <span className="dom-id">{d.id}</span>
                       <span className="dom-name">{d.name}</span>
-                      {d.inferenceType && (
-                        <span className="dom-type">{d.inferenceType}</span>
-                      )}
                       <span className="dom-count">{papers.length}</span>
                     </button>
                     {!domCollapsed && (

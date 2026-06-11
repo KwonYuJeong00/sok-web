@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T01:52:52.254Z",
+    "generatedAt": "2026-06-11T02:04:18.809Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -44,12 +44,6 @@
           "stageId": "analysis",
           "label": "Security Testing",
           "paperCount": 9
-        },
-        {
-          "id": "analysis::Hybrid",
-          "stageId": "analysis",
-          "label": "Hybrid",
-          "paperCount": 0
         }
       ]
     },
@@ -212,58 +206,34 @@
       "order": 4,
       "perPath": true,
       "expand": true,
-      "expandLabel": "Technique",
+      "expandLabel": "Token unit",
       "detailLabel": "",
       "sequenceOnly": true,
       "connector": false,
       "nodes": [
         {
-          "id": "tokenization::Byte",
+          "id": "tokenization::Syntactic unit",
           "stageId": "tokenization",
-          "label": "Byte",
-          "paperCount": 11
+          "label": "Syntactic unit",
+          "paperCount": 17
         },
         {
-          "id": "tokenization::Subword (Pretrained-LLM)",
+          "id": "tokenization::Data-driven",
           "stageId": "tokenization",
-          "label": "Subword (Pretrained-LLM)",
-          "paperCount": 10
+          "label": "Data-driven",
+          "paperCount": 16
         },
         {
-          "id": "tokenization::Instruction",
+          "id": "tokenization::Atomic units",
           "stageId": "tokenization",
-          "label": "Instruction",
-          "paperCount": 7
+          "label": "Atomic units",
+          "paperCount": 12
         },
         {
-          "id": "tokenization::Element",
+          "id": "tokenization::Rule-based decomposition",
           "stageId": "tokenization",
-          "label": "Element",
-          "paperCount": 6
-        },
-        {
-          "id": "tokenization::Subword (Byte Pair Encoding)",
-          "stageId": "tokenization",
-          "label": "Subword (Byte Pair Encoding)",
-          "paperCount": 6
-        },
-        {
-          "id": "tokenization::Custom rule",
-          "stageId": "tokenization",
-          "label": "Custom rule",
+          "label": "Rule-based decomposition",
           "paperCount": 4
-        },
-        {
-          "id": "tokenization::Trace-level",
-          "stageId": "tokenization",
-          "label": "Trace-level",
-          "paperCount": 4
-        },
-        {
-          "id": "tokenization::Character",
-          "stageId": "tokenization",
-          "label": "Character",
-          "paperCount": 1
         }
       ]
     },
@@ -437,6 +407,12 @@
           "stageId": "inference",
           "label": "Summarization",
           "paperCount": 2
+        },
+        {
+          "id": "inference::Restoration",
+          "stageId": "inference",
+          "label": "Restoration",
+          "paperCount": 0
         }
       ]
     }
@@ -475,7 +451,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -508,8 +484,8 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ],
         "encoding::Sparse": [
           "One-hot"
@@ -680,7 +656,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -743,8 +719,8 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence | Graph representation -> Sequence"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ],
         "embedding::Context-dependent": [
           "RNN | Transformer-based"
@@ -792,7 +768,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -825,8 +801,8 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ],
         "encoding::Sparse": [
           "One-hot"
@@ -1111,7 +1087,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Element"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -1143,7 +1119,7 @@
             "canonicalization::Scale"
           ],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Dense"
@@ -1175,7 +1151,7 @@
             "canonicalization::Scale"
           ],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Dense"
@@ -1213,8 +1189,8 @@
         "canonicalization::Remove": [
           "element replacement"
         ],
-        "tokenization::Element": [
-          "element"
+        "tokenization::Syntactic unit": [
+          "Element"
         ],
         "embedding::Context-dependent": [
           "Transformer-based"
@@ -1225,8 +1201,8 @@
         "canonicalization::Scale": [
           "Byte value scaling | Byte value scaling"
         ],
-        "tokenization::Byte": [
-          "Byte-level | Byte-level"
+        "tokenization::Atomic units": [
+          "Byte | Byte"
         ],
         "encoding::Dense": [
           "N/A | N/A"
@@ -1276,7 +1252,7 @@
             "canonicalization::Scale"
           ],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -1312,8 +1288,8 @@
         "canonicalization::Scale": [
           "Byte value scaling"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ],
         "encoding::Sparse": [
           "One-hot"
@@ -1443,7 +1419,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Subword (Byte Pair Encoding)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -1505,6 +1481,9 @@
         ],
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
+        ],
+        "tokenization::Data-driven": [
+          "BPE"
         ],
         "embedding::Context-dependent": [
           "BERT-based | ResNet"
@@ -1614,7 +1593,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Character"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -1698,8 +1677,8 @@
         "artifact-class::String literal": [
           "Strings"
         ],
-        "tokenization::Character": [
-          "Character-level"
+        "tokenization::Atomic units": [
+          "Character"
         ],
         "artifact-class::Binary fact": [
           "constant"
@@ -1827,7 +1806,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Instruction"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -1892,6 +1871,9 @@
         ],
         "canonicalization::Replace": [
           "Granuaility-based"
+        ],
+        "tokenization::Syntactic unit": [
+          "instruction"
         ],
         "embedding::Context-dependent": [
           "i2v | Structure2Vec"
@@ -2031,7 +2013,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2064,8 +2046,8 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
-        "tokenization::Subword (Pretrained-LLM)": [
-          "Built-in llm tokenizer | Built-in llm tokenizer"
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM)"
         ],
         "embedding::Context-dependent": [
           "Transformer-based"
@@ -2112,7 +2094,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2148,8 +2130,8 @@
         "canonicalization::Replace": [
           "Assembly instruction element replacement"
         ],
-        "tokenization::Subword (Pretrained-LLM)": [
-          "Built-in llm tokenizer"
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM)"
         ],
         "embedding::Context-dependent": [
           "LLM2Vec"
@@ -2380,7 +2362,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Instruction"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2416,8 +2398,8 @@
         "canonicalization::Replace": [
           "Assembly instruction element replacement"
         ],
-        "tokenization::Instruction": [
-          "Instruction-level"
+        "tokenization::Syntactic unit": [
+          "Instruction"
         ],
         "embedding::Context-dependent": [
           "word2vec"
@@ -2465,7 +2447,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Element"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2504,8 +2486,8 @@
         "canonicalization::Replace": [
           "Assembly instruction element replacement"
         ],
-        "tokenization::Element": [
-          "Instruction-field-level"
+        "tokenization::Syntactic unit": [
+          "element"
         ],
         "embedding::Context-independent": [
           "PV-DM"
@@ -2550,7 +2532,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Instruction"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2610,7 +2592,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2649,8 +2631,8 @@
         "artifact-form::Sequence": [
           "Code representations  -> Sequence | Code representations -> Sequence"
         ],
-        "tokenization::Instruction": [
-          "Delimiter/symbol-based (inherited from CodeArt: opcode/operand separation with <INST>)"
+        "tokenization::Syntactic unit": [
+          "Instruction"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -2667,8 +2649,8 @@
         "encoding::Dense": [
           "adjacency matrix"
         ],
-        "tokenization::Subword (Pretrained-LLM)": [
-          "Black-box LLM tokenizer (GPT-3.5 / Claude-3 / Gemini-Pro)"
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM)"
         ]
       },
       "nodeDetail": {
@@ -2861,7 +2843,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2894,7 +2876,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2964,8 +2946,8 @@
         "canonicalization::Replace": [
           "Decompiled identifier replacement"
         ],
-        "tokenization::Subword (Pretrained-LLM)": [
-          "Built-in llm tokenizer"
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM) | Subword (Pretrained-LLM)"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -3053,7 +3035,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3101,8 +3083,8 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
-        "tokenization::Subword (Pretrained-LLM)": [
-          "Built-in llm tokenizer"
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM)"
         ]
       },
       "nodeDetail": {
@@ -3152,7 +3134,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Element"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3184,7 +3166,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Element"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3228,8 +3210,8 @@
         "artifact-form::Sequence": [
           "Code representations; Text streams; Text streams; Binary facts -> Sequence | Code representations -> Sequence"
         ],
-        "tokenization::Element": [
-          "Opcode/operand/punctuation tokenization; numeric constants normalized to hex"
+        "tokenization::Syntactic unit": [
+          "element | element"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -3437,7 +3419,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Instruction"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3467,7 +3449,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Instruction"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3505,8 +3487,8 @@
         "artifact-form::Sequence": [
           "Code representations; Graph representations -> Sequence | Code representations -> Sequence"
         ],
-        "tokenization::Instruction": [
-          "Instruction-level (each instruction as one hex token, e.g., push %ebp -> 0x55; Sec 3.1)"
+        "tokenization::Syntactic unit": [
+          "Instruction | Instruction"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -3634,7 +3616,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3667,8 +3649,8 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
-        "tokenization::Subword (Pretrained-LLM)": [
-          "Byte pair encoding (Subword (BPE))"
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM)"
         ],
         "embedding::Context-dependent": [
           "Transformer-based"
@@ -3715,7 +3697,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Instruction"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3778,8 +3760,8 @@
         "artifact-form::Sequence": [
           "Text streams; Text streams -> Sequence"
         ],
-        "tokenization::Instruction": [
-          "Output label: camelCase + snake_case splitting + unigram LM word segmentation from CodeSearchNet 1.5M function-name corpus (Sec 4.2)"
+        "tokenization::Syntactic unit": [
+          "Instruction"
         ],
         "embedding::Context-dependent": [
           "Transformer-based"
@@ -3986,7 +3968,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte Pair Encoding)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4018,7 +4000,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte Pair Encoding)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4086,8 +4068,8 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence | Code representations  -> Sequence"
         ],
-        "tokenization::Subword (Byte Pair Encoding)": [
-          "Instruction-level (inherited from PalmTree BERT tokenizer + CLAP tokenizer; Sec 4.1) | N/A (DEXTER produces statistical feature vector directly)"
+        "tokenization::Data-driven": [
+          "Subword (BPE) | Subword (BPE)"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -4276,7 +4258,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte Pair Encoding)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4308,7 +4290,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Custom rule"
+            "tokenization::Rule-based decomposition"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4343,8 +4325,8 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence | Binary facts -> Sequence"
         ],
-        "tokenization::Subword (Byte Pair Encoding)": [
-          "Byte pair encoding (Subword (BPE))"
+        "tokenization::Data-driven": [
+          "Subword (BPE)"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -4355,8 +4337,8 @@
         "artifact-class::Binary fact": [
           "Stack-frame layout"
         ],
-        "tokenization::Custom rule": [
-          "Delimiter/symbol-based"
+        "tokenization::Rule-based decomposition": [
+          "Custom rule"
         ]
       },
       "nodeDetail": {
@@ -4400,7 +4382,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte Pair Encoding)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4433,8 +4415,8 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
-        "tokenization::Subword (Byte Pair Encoding)": [
-          "Byte pair encoding (Subword (BPE))"
+        "tokenization::Data-driven": [
+          "Subword (BPE)"
         ],
         "embedding::Context-dependent": [
           "BERT-based"
@@ -4482,7 +4464,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4521,8 +4503,8 @@
         "canonicalization::Replace": [
           "Decompiled identifier replacement | N/A"
         ],
-        "tokenization::Subword (Pretrained-LLM)": [
-          "Inherited LLM tokenizer (CodeGemma/CodeLlama Subword (BPE)) | Inherited LLM tokenizer (CodeGemma/CodeLlama Subword (BPE))"
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM)"
         ],
         "embedding::Context-dependent": [
           "Transformer-based"
@@ -4881,7 +4863,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Custom rule"
+            "tokenization::Rule-based decomposition"
           ],
           "encoding": [
             "encoding::Dense"
@@ -4908,6 +4890,9 @@
         ],
         "artifact-form::Sequence": [
           "Numerical statistics -> Sequence"
+        ],
+        "tokenization::Rule-based decomposition": [
+          "Custom rule"
         ],
         "encoding::Dense": [
           "time-series vectors"
@@ -5313,7 +5298,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Custom rule"
+            "tokenization::Rule-based decomposition"
           ],
           "encoding": [
             "encoding::Dense"
@@ -5357,8 +5342,8 @@
         "artifact-form::Sequence": [
           "Test sets -> Sequence"
         ],
-        "tokenization::Custom rule": [
-          "Character"
+        "tokenization::Rule-based decomposition": [
+          "Custom rule"
         ],
         "embedding::Context-independent": [
           "TextCNN"
@@ -5405,7 +5390,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Element"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -5501,8 +5486,8 @@
         "canonicalization::Remove": [
           "Assembly instruction element replacement"
         ],
-        "tokenization::Element": [
-          "Instruction-level: opcode + 3 root-operand split per microcode triplet (left, right, dest)"
+        "tokenization::Syntactic unit": [
+          "Element"
         ],
         "embedding::Context-dependent": [
           "BERT-based | GCN"
@@ -5919,7 +5904,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Instruction"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -5955,8 +5940,8 @@
         "canonicalization::Remove": [
           "Assembly instruction element removal"
         ],
-        "tokenization::Instruction": [
-          "Instruction-field-level (opcode + instruction-information)"
+        "tokenization::Syntactic unit": [
+          "Instruction"
         ],
         "encoding::Sparse": [
           "one-hot"
@@ -6004,7 +5989,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6067,6 +6052,9 @@
         "artifact-form::Sequence": [
           "String Literals -> Sequence"
         ],
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM)"
+        ],
         "embedding::Context-dependent": [
           "BERT-based"
         ],
@@ -6125,7 +6113,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Trace-level"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6186,8 +6174,8 @@
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
         ],
-        "tokenization::Trace-level": [
-          "Instruction-level"
+        "tokenization::Syntactic unit": [
+          "Trace-level"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -6240,7 +6228,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Trace-level"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Dense"
@@ -6276,8 +6264,8 @@
         "canonicalization::Remove": [
           "Numeric value scaling"
         ],
-        "tokenization::Trace-level": [
-          "Instruction-level"
+        "tokenization::Syntactic unit": [
+          "Trace-level"
         ],
         "embedding::Context-dependent": [
           "Gated-CNN"
@@ -6324,7 +6312,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Custom rule"
+            "tokenization::Rule-based decomposition"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6360,8 +6348,8 @@
         "canonicalization::Remove": [
           "Event value replacement"
         ],
-        "tokenization::Custom rule": [
-          "each node/edge label in causal path = one token"
+        "tokenization::Rule-based decomposition": [
+          "Custom rule"
         ],
         "embedding::Context-independent": [
           "PV-DM"
@@ -6406,7 +6394,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6439,8 +6427,8 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ],
         "embedding::Context-independent": [
           "lookup layer"
@@ -6485,7 +6473,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6518,8 +6506,8 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ],
         "embedding::Context-independent": [
           "lookup layer"
@@ -6638,7 +6626,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6671,8 +6659,8 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ],
         "embedding::Context-independent": [
           "lookup layer"
@@ -6719,7 +6707,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte Pair Encoding)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6787,6 +6775,9 @@
         "canonicalization::Replace": [
           "CFG vertex (basic block) ?? basic blocks form CFG nodes"
         ],
+        "tokenization::Data-driven": [
+          "Subword (BPE)"
+        ],
         "embedding::Context-dependent": [
           "BERT-based (PalmTree) | GIN"
         ],
@@ -6844,7 +6835,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6880,8 +6871,8 @@
         "canonicalization::Remove": [
           "Per-feature-type segment (hierarchical splice of 11 feature types fed separately to the model)"
         ],
-        "tokenization::Subword (Pretrained-LLM)": [
-          "Byte pair encoding (BPE)"
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM"
         ],
         "embedding::Context-dependent": [
           "Transformer-based"
@@ -6928,7 +6919,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Trace-level"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6994,8 +6985,8 @@
         "canonicalization::Remove": [
           "Behavior-sequence dynamic window (compressed by decoder-based Compressor up to 2048)"
         ],
-        "tokenization::Trace-level": [
-          "OS event log-level"
+        "tokenization::Syntactic unit": [
+          "Trace-level"
         ],
         "embedding::Context-dependent": [
           "Transformer-based"
@@ -7130,7 +7121,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Element"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Dense"
@@ -7197,6 +7188,9 @@
         ],
         "canonicalization::Replace": [
           "Token-level (opcodes + operands per instruction in random walks)"
+        ],
+        "tokenization::Syntactic unit": [
+          "Element"
         ],
         "encoding::Dense": [
           "TF-IDF | Node feature mapping; adjacency matrix"
@@ -7449,7 +7443,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Dense"
@@ -7483,8 +7477,8 @@
         "artifact-form::Sequence": [
           "Test Sets; Numerical Statistics -> Sequence"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ]
       },
       "nodeDetail": {
@@ -7528,7 +7522,7 @@
             "canonicalization::Scale"
           ],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Dense"
@@ -7564,8 +7558,8 @@
         "canonicalization::Scale": [
           "File-level (input padded with 0x00 to the largest input length n in seed corpus; <=10KB threshold) | Edge-set level (3 separate bitmaps: edge_id + call_trace_id + approach_level; custom LLVM pass instrumented for each metric)"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ],
         "embedding::Context-independent": [
           "MLP"
@@ -7612,7 +7606,7 @@
             "canonicalization::Scale"
           ],
           "tokenization": [
-            "tokenization::Byte"
+            "tokenization::Atomic units"
           ],
           "encoding": [
             "encoding::Dense"
@@ -7648,8 +7642,8 @@
         "canonicalization::Scale": [
           "File-level (input padded with 0x00 to the largest input length n in seed corpus; <=10KB threshold) | Edge-set level (3 separate bitmaps: edge_id + call_trace_id + approach_level; custom LLVM pass instrumented for each metric)"
         ],
-        "tokenization::Byte": [
-          "Byte-level"
+        "tokenization::Atomic units": [
+          "Byte"
         ],
         "embedding::Context-independent": [
           "MLP"
@@ -7694,7 +7688,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Trace-level"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -7764,8 +7758,8 @@
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
         ],
-        "tokenization::Trace-level": [
-          "Byte-level"
+        "tokenization::Syntactic unit": [
+          "Trace-level"
         ],
         "analysis::Static": [
           "IR lifting; Call site analysis"
@@ -7837,7 +7831,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Element"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -7876,8 +7870,8 @@
         "canonicalization::Replace": [
           "Function-level (FCFG = ICFG with selective callee expansion; functionality-relevant blocks identified per Algorithm 1 ?? block kept if (1) function has no arguments OR (2) contains operation directly/indirectly involving any function argument)"
         ],
-        "tokenization::Element": [
-          "Instruction-field-level"
+        "tokenization::Syntactic unit": [
+          "Element"
         ],
         "embedding::Context-dependent": [
           "BERT-based (PalmTree)  | Word2Vec | Trasnformer-based(Asm2Vec) | GRU"
@@ -8010,7 +8004,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Instruction"
+            "tokenization::Syntactic unit"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -8046,8 +8040,8 @@
         "canonicalization::Replace": [
           "Function-level (50000 randomly generated program pairs per benchmark; programs short S ~15 statements and long L ~30 statements; tree depth max 3; 10-20 percent token errors injected for EC stage; 35 percent tokens masked)"
         ],
-        "tokenization::Instruction": [
-          "Instruction-level"
+        "tokenization::Syntactic unit": [
+          "Instruction"
         ],
         "embedding::Context-dependent": [
           "Tree-LSTM"
@@ -8092,7 +8086,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Subword (Pretrained-LLM)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -8120,8 +8114,8 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
-        "tokenization::Subword (Pretrained-LLM)": [
-          "Built-in llm tokenizer"
+        "tokenization::Data-driven": [
+          "Subword (Pretrained-LLM"
         ]
       },
       "nodeDetail": {
@@ -8163,7 +8157,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Subword (Byte Pair Encoding)"
+            "tokenization::Data-driven"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -8260,8 +8254,8 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
-        "tokenization::Subword (Byte Pair Encoding)": [
-          "Byte pair encoding (BPE)"
+        "tokenization::Data-driven": [
+          "Subword (BPE)"
         ],
         "embedding::Context-dependent": [
           "attention-based LSTM"
