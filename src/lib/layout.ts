@@ -7,9 +7,9 @@ export const LAYOUT = {
   pad: 24,
   headerH: 48,
   headerGap: 20,
-  colW: 170,
-  colGap: 44,
-  connectorW: 50,   // narrow slot for the Learning-model +/--> marker
+  colW: 185,
+  colGap: 52,
+  connectorW: 54,   // narrow slot for the Learning-model +/--> marker
   nodeH: 90,
   nodeGap: 10,
 };
