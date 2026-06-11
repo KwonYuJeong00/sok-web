@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-10T16:58:38.250Z",
+    "generatedAt": "2026-06-11T01:28:21.837Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -242,9 +242,9 @@
           "paperCount": 6
         },
         {
-          "id": "tokenization::Subword (Byte-pair encoding)",
+          "id": "tokenization::Subword (Byte Pair Encoding)",
           "stageId": "tokenization",
-          "label": "Subword (Byte-pair encoding)",
+          "label": "Subword (Byte Pair Encoding)",
           "paperCount": 6
         },
         {
@@ -1416,7 +1416,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Subword (Byte-pair encoding)"
+            "tokenization::Subword (Byte Pair Encoding)"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3893,7 +3893,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte-pair encoding)"
+            "tokenization::Subword (Byte Pair Encoding)"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3925,7 +3925,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte-pair encoding)"
+            "tokenization::Subword (Byte Pair Encoding)"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4177,7 +4177,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte-pair encoding)"
+            "tokenization::Subword (Byte Pair Encoding)"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4295,7 +4295,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte-pair encoding)"
+            "tokenization::Subword (Byte Pair Encoding)"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6554,7 +6554,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Subword (Byte-pair encoding)"
+            "tokenization::Subword (Byte Pair Encoding)"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -7929,7 +7929,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Subword (Byte-pair encoding)"
+            "tokenization::Subword (Byte Pair Encoding)"
           ],
           "encoding": [
             "encoding::Sparse"

@@ -169,7 +169,7 @@ function canonShort(raw) {
 function normTokUnit(u) {
   const s = clean(u).toLowerCase();
   if (isSkip(s) || s.length <= 1) return '';
-  if (s.includes('byte pair') || s === 'bpe' || s.includes('(bpe')) return 'Subword (Byte-pair encoding)';
+  if (s.includes('byte pair') || s === 'bpe' || s.includes('(bpe')) return 'Subword (Byte Pair Encoding)';
   if (s.includes('pretrained')) return 'Subword (Pretrained-LLM)';
   if (s.startsWith('byte')) return 'Byte';
   if (s.includes('opcode') || s.startsWith('instruction')) return 'Instruction';
