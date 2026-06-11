@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T02:47:14.047Z",
+    "generatedAt": "2026-06-11T03:22:38.716Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -218,9 +218,9 @@
           "paperCount": 17
         },
         {
-          "id": "tokenization::Data-driven",
+          "id": "tokenization::Data-driven segmentation",
           "stageId": "tokenization",
-          "label": "Data-driven",
+          "label": "Data-driven segmentation",
           "paperCount": 16
         },
         {
@@ -595,6 +595,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "RNN → R-GCN"
+        ],
         "learning::Discriminative": [
           "RNN → R-GCN"
         ],
@@ -716,6 +719,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "RNN  → Transformer-based"
+        ],
         "learning::Discriminative": [
           "RNN  → Transformer-based"
         ],
@@ -1183,6 +1189,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "Transformer-based || CNN || CNN"
+        ],
         "learning::Discriminative": [
           "Transformer-based || CNN || CNN"
         ],
@@ -1431,7 +1440,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -1479,6 +1488,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "BERT-based MPNN -> ResNet"
+        ],
         "learning::Discriminative": [
           "BERT-based MPNN -> ResNet"
         ],
@@ -1494,7 +1506,7 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "BPE"
         ],
         "embedding::Context-dependent": [
@@ -1653,6 +1665,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "(Hierachical BiLSTM -> GGNN) || Hierachical-LSTM || Integer-LSTM"
+        ],
         "learning::Discriminative": [
           "(Hierachical BiLSTM -> GGNN) || Hierachical-LSTM || Integer-LSTM"
         ],
@@ -1866,6 +1881,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "i2v -> Structure2Vec"
+        ],
         "learning::Discriminative": [
           "i2v -> Structure2Vec"
         ],
@@ -2029,7 +2047,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2062,7 +2080,7 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM)"
         ],
         "embedding::Context-dependent": [
@@ -2110,7 +2128,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2146,7 +2164,7 @@
         "canonicalization::Replace": [
           "Abstraction by replacement"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM)"
         ],
         "embedding::Context-dependent": [
@@ -2608,7 +2626,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2629,6 +2647,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "BERT-based  || BERT-based  | Transformer-based"
+        ],
         "learning::Generative": [
           "BERT-based  || BERT-based  | Transformer-based"
         ],
@@ -2665,7 +2686,7 @@
         "encoding::Dense": [
           "adjacency matrix"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM)"
         ]
       },
@@ -2862,7 +2883,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2895,7 +2916,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -2946,6 +2967,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "Transformer-based || Transformer-based"
+        ],
         "learning::LLM-based": [
           "Transformer-based || Transformer-based"
         ],
@@ -2967,7 +2991,7 @@
         "canonicalization::Replace": [
           "Abstraction by replacement | Abstraction by replacement"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM) | Subword (Pretrained-LLM)"
         ],
         "encoding::Sparse": [
@@ -3059,7 +3083,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3080,6 +3104,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "N/A | N/A"
+        ],
         "learning::Rule-based reasoning": [
           "N/A | N/A"
         ],
@@ -3113,7 +3140,7 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM)"
         ]
       },
@@ -3216,6 +3243,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "Transformer-based  -> Transformer-based"
+        ],
         "learning::Discriminative": [
           "Transformer-based  -> Transformer-based"
         ],
@@ -3508,6 +3538,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "Word2Vec -> GRU"
+        ],
         "learning::Discriminative": [
           "Word2Vec -> GRU"
         ],
@@ -3658,7 +3691,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -3694,7 +3727,7 @@
         "canonicalization::Replace": [
           "Abstraction by replacement"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM)"
         ],
         "embedding::Context-dependent": [
@@ -3790,6 +3823,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "Transformer-based || lookup layer"
+        ],
         "learning::Discriminative": [
           "Transformer-based || lookup layer"
         ],
@@ -3944,6 +3980,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "(LDP || BoostNE ) -> Autoencoder"
+        ],
         "learning::Discriminative": [
           "(LDP || BoostNE ) -> Autoencoder"
         ],
@@ -4019,7 +4058,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4051,7 +4090,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4104,6 +4143,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "BERT-based || BERT-based || ((LDP || BoostNE ) -> Autoencoder )"
+        ],
         "learning::Generative": [
           "BERT-based || BERT-based || ((LDP || BoostNE ) -> Autoencoder )"
         ],
@@ -4122,7 +4164,7 @@
         "canonicalization::Replace": [
           "Abstraction by replacement | Abstraction by replacement"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (BPE) | Subword (BPE)"
         ],
         "encoding::Sparse": [
@@ -4241,6 +4283,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "N/A | N/A"
+        ],
         "learning::Discriminative": [
           "N/A | N/A"
         ],
@@ -4322,7 +4367,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4374,6 +4419,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "Transformer-based || Transformer-based"
+        ],
         "learning::Generative": [
           "Transformer-based || Transformer-based"
         ],
@@ -4392,7 +4440,7 @@
         "canonicalization::Replace": [
           "Abstraction by replacement | Abstraction by replacement"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (BPE)"
         ],
         "encoding::Sparse": [
@@ -4449,7 +4497,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4485,7 +4533,7 @@
         "canonicalization::Replace": [
           "Abstraction by replacement"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (BPE)"
         ],
         "embedding::Context-dependent": [
@@ -4534,7 +4582,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -4573,7 +4621,7 @@
         "canonicalization::Replace": [
           "Abstraction by replacement"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM)"
         ],
         "embedding::Context-dependent": [
@@ -4724,6 +4772,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "N/A | N/A | N/A | N/A"
+        ],
         "learning::Discriminative": [
           "N/A | N/A | N/A | N/A"
         ],
@@ -5415,6 +5466,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "CNN || TextCNN"
+        ],
         "learning::Discriminative": [
           "CNN || TextCNN"
         ],
@@ -5569,6 +5623,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "((BERT-based -> GCN) -> ResNet)"
+        ],
         "learning::Discriminative": [
           "((BERT-based -> GCN) -> ResNet)"
         ],
@@ -6097,7 +6154,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6149,6 +6206,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "BERT-based | N/A"
+        ],
         "learning::Discriminative": [
           "BERT-based | N/A"
         ],
@@ -6164,7 +6224,7 @@
         "artifact-form::Sequence": [
           "String Literals -> Sequence"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM)"
         ],
         "embedding::Context-dependent": [
@@ -6276,6 +6336,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "attention-based LSTM | N/A"
+        ],
         "learning::Reinforcement Learning": [
           "attention-based LSTM | N/A"
         ],
@@ -6828,7 +6891,7 @@
             "canonicalization::Replace"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6878,6 +6941,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "BERT-based -> GIN"
+        ],
         "learning::Discriminative": [
           "BERT-based -> GIN"
         ],
@@ -6896,7 +6962,7 @@
         "canonicalization::Replace": [
           "Abstraction by replacement"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (BPE)"
         ],
         "embedding::Context-dependent": [
@@ -6957,7 +7023,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6996,7 +7062,7 @@
         "canonicalization::Remove": [
           "Abstraction by replacement ; Filtering by removal"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM"
         ],
         "embedding::Context-dependent": [
@@ -7094,6 +7160,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "Transformer-based | N/A"
+        ],
         "learning::Discriminative": [
           "Transformer-based | N/A"
         ],
@@ -7298,6 +7367,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "CBOW -> TADW"
+        ],
         "learning::Discriminative": [
           "CBOW -> TADW"
         ],
@@ -7431,6 +7503,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::-->": [
+          "Bag-of-nodes -> Graph2vec"
+        ],
         "learning::Discriminative": [
           "Bag-of-nodes -> Graph2vec"
         ],
@@ -7874,6 +7949,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "N/A | CNN"
+        ],
         "learning::Rule-based reasoning": [
           "N/A | CNN"
         ],
@@ -8224,7 +8302,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -8252,7 +8330,7 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (Pretrained-LLM"
         ]
       },
@@ -8295,7 +8373,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Data-driven"
+            "tokenization::Data-driven segmentation"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -8378,6 +8456,9 @@
         }
       ],
       "nodeReveal": {
+        "combine::+": [
+          "attention-based LSTM | N/A | N/A"
+        ],
         "learning::Discriminative": [
           "attention-based LSTM | N/A | N/A"
         ],
@@ -8396,7 +8477,7 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
-        "tokenization::Data-driven": [
+        "tokenization::Data-driven segmentation": [
           "Subword (BPE)"
         ],
         "embedding::Context-dependent": [

@@ -185,7 +185,7 @@ function normSplitBasis(v) {
   const s = clean(v).toLowerCase();
   if (isSkip(s) || s === 'n' || s === 'a') return '';
   if (s.startsWith('atomic')) return 'Atomic units';
-  if (s.startsWith('data-driven')) return 'Data-driven';
+  if (s.startsWith('data-driven')) return 'Data-driven segmentation';
   if (s.startsWith('rule-based')) return 'Rule-based decomposition';
   if (s.startsWith('syntactic')) return 'Syntactic unit';
   return clean(v);
@@ -304,7 +304,7 @@ function laneEntries(stageId, lane) {
 function sharedEntries(stageId, paper) {
   switch (stageId) {
     case 'combine':
-      return paper.relationship ? [{ label: paper.relationship, reveal: '', detail: '' }] : [];
+      return paper.relationship ? [{ label: paper.relationship, reveal: paper.learningModel, detail: '' }] : [];
     case 'learning': {
       const out = [];
       for (const rawCat of splitMulti(paper.learningCategory)) {
