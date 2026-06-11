@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 11,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T11:28:50.631Z",
+    "generatedAt": "2026-06-11T11:40:41.120Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -197,7 +197,7 @@
           "id": "canonicalization::Map",
           "stageId": "canonicalization",
           "label": "Map",
-          "paperCount": 9,
+          "paperCount": 10,
           "transient": false
         },
         {
@@ -5882,7 +5882,9 @@
           "artifact-form": [
             "artifact-form::Graph"
           ],
-          "canonicalization": [],
+          "canonicalization": [
+            "canonicalization::Map"
+          ],
           "tokenization": [],
           "encoding": [
             "encoding::Dense"
@@ -5965,8 +5967,11 @@
         "artifact-form::Graph": [
           "Graph representation -> Graph"
         ],
+        "canonicalization::Map": [
+          "Node attribute mapping"
+        ],
         "encoding::Dense": [
-          "adjacency matrix | N/A"
+          "Node feature mapping | N/A"
         ],
         "analysis::Triage": [
           "Binary profiling"
