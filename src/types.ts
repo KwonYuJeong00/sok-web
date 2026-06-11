@@ -48,6 +48,7 @@ export interface Paper {
   tier: string;
   inferenceType: string;
   conference: string;
+  year: string;
   isTopTier: boolean;
   codeForm: string;
   pathCount: number;

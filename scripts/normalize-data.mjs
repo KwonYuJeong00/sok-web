@@ -240,6 +240,8 @@ const PRIMARY = 'ai_pipeline_final_sheet.csv';
 const summaryRows = asObjects(readTable(PRIMARY));
 const domainRows = asObjects(readTable('taxonomy definitions/domain_definition.csv'));
 const domainByDid = Object.fromEntries(domainRows.map((r) => [clean(r.Index), r]));
+const paperMapRows = asObjects(readTable('taxonomy definitions/domain_paper_map.csv'));
+const yearByPid = Object.fromEntries(paperMapRows.map((r) => [clean(r.PID), clean(r.Year)]));
 
 const nid = (stageId, label) => `${stageId}::${label}`;
 
@@ -304,7 +306,7 @@ function laneEntries(stageId, lane) {
 function sharedEntries(stageId, paper) {
   switch (stageId) {
     case 'combine':
-      return paper.relationship ? [{ label: paper.relationship, reveal: paper.learningModel, detail: '' }] : [];
+      return paper.relationship ? [{ label: paper.relationship, reveal: '', detail: '' }] : [];
     case 'learning': {
       const out = [];
       for (const rawCat of splitMulti(paper.learningCategory)) {
@@ -422,6 +424,7 @@ function buildPaper(row) {
     tier: clean(dd.Tier) || '',
     inferenceType: clean(dd['Inference Type']) || '',
     conference: clean(row.Conference),
+    year: yearByPid[clean(row.PID)] || '',
     isTopTier: clean(row.IsTopTier).toUpperCase() === 'TRUE',
     codeForm: clean(row['Code Form']),
     pathCount,
