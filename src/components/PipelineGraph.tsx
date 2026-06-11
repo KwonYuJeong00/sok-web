@@ -142,6 +142,7 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
                 open={openId === n.id}
                 onToggle={() => toggle(n.id)}
                 stripeColors={stripeColors}
+                breakArrow={s.id === 'artifact-form'}
               />
             );
           }),
