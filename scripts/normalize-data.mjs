@@ -280,11 +280,17 @@ function laneEntries(stageId, lane) {
     }
     case 'encoding': {
       const e = normEncoding(lane.encoding);
-      return e ? [{ label: e, reveal: lane.encodingExamples, detail: '' }] : [];
+      if (e) return [{ label: e, reveal: lane.encodingExamples, detail: '' }];
+      if (lane.isMultiPath && clean(lane.encoding) && isSkip(lane.encoding))
+        return [{ label: 'N/A', reveal: '', detail: '' }];
+      return [];
     }
     case 'embedding': {
       const e = normEmbedding(lane.embeddingMethod);
-      return e ? [{ label: e, reveal: lane.embeddingExamples, detail: '' }] : [];
+      if (e) return [{ label: e, reveal: lane.embeddingExamples, detail: '' }];
+      if (lane.isMultiPath && clean(lane.embeddingMethod) && isSkip(lane.embeddingMethod))
+        return [{ label: 'N/A', reveal: '', detail: '' }];
+      return [];
     }
     default:
       return [];
@@ -322,7 +328,7 @@ function revealCell(stageId, row) {
   switch (stageId) {
     case 'artifact-class':   return row['Artifact'];
     case 'artifact-form':    return row['Transformation'];
-    case 'canonicalization': return row['Canonicalization_Method'];
+    case 'canonicalization': return row['Canonicalization'];
     case 'tokenization':     return row['Tokenization_Unit'];
     case 'encoding':         return row['Encoding examples'];
     case 'embedding':        return row['Embedding examples'];
@@ -392,6 +398,7 @@ function buildPaper(row) {
       canonRaw: v('Canonicalization'),
       canonMethod: v('Canonicalization_Method'),
       isSequence: isSequenceForm(v('Artifact form')),
+      isMultiPath: pathCount > 1,
       splitBasis: v('Split basis'),
       tokenizationUnit: v('Tokenization_Unit'),
       tokenizationTechnique: v('Tokenization_Technique'),
@@ -417,7 +424,7 @@ function buildPaper(row) {
     // Combine marker only for papers that actually fuse multiple embeddings
     // (one per input path); default an unspecified fusion to '+' (parallel).
     // A single-embedding paper has no combine step, so it gets no marker.
-    relationship: pathCount > 1 ? (combineRelationship(row['Learning_Model']) || '+') : '',
+    relationship: pathCount > 1 ? (combineRelationship(row['for claude']) || '+') : '',
     learningCategory: clean(row.Learning_Category),
     learningSubcategory: clean(row.Learning_Subcategory),
     learningModel: clean(row['for claude']),
