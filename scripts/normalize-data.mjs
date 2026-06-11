@@ -318,7 +318,15 @@ function sharedEntries(stageId, paper) {
     case 'inference': {
       const cat = clean(paper.inferenceCategory);
       if (isSkip(cat)) return [];
-      return [{ label: cat, reveal: paper.evaluationMetric, detail: '' }];
+      // A cell may list several inference types separated by ';' (e.g. "Detection; clustering").
+      // Split and normalise each part against the fixed label list (case-insensitive).
+      const INFERENCE_FIXED = ['Detection', 'Recovery', 'Discovery', 'Classification',
+        'Reconstruction', 'Clustering', 'Summarization', 'Restoration'];
+      return cat.split(';').map(s => s.trim()).filter(Boolean).map(s => {
+        const match = INFERENCE_FIXED.find(f => f.toLowerCase() === s.toLowerCase());
+        const label = match ?? (s.charAt(0).toUpperCase() + s.slice(1));
+        return { label, reveal: paper.evaluationMetric, detail: '' };
+      });
     }
     default:
       return [];
@@ -430,7 +438,8 @@ function buildPaper(row) {
     // Combine marker only for papers that actually fuse multiple embeddings
     // (one per input path); default an unspecified fusion to '+' (parallel).
     // A single-embedding paper has no combine step, so it gets no marker.
-    relationship: pathCount > 1 ? (combineRelationship(row['for claude']) || '+') : '',
+    relationship: pathCount > 1 ? combineRelationship(row['for claude']) : '',
+    forClaude: pathCount > 1 ? clean(row['for claude']) : '',
     learningCategory: clean(row.Learning_Category),
     learningSubcategory: clean(row.Learning_Subcategory),
     learningModel: clean(row['Learning_Model']),
@@ -533,6 +542,7 @@ function buildStage(stage) {
     stageId: stage.id,
     label,
     paperCount: counts.get(label) || 0,
+    transient: label === 'N/A',
   }));
 
   return {

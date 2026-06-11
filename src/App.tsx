@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { data, paperById } from './lib/data';
 import { computeLayout } from './lib/layout';
 import { backboneEdges, paperTraceEdges } from './lib/edges';
-import { computeNodeColors } from './lib/highlight';
+import { computeNodeColors, computePathColorIndices } from './lib/highlight';
 import { filterPapers, EMPTY_FILTER, isFilterActive } from './lib/filters';
 import { pathColor } from './lib/colors';
 import { cssVars } from './lib/style';
@@ -34,8 +34,8 @@ export default function App() {
 
   const edges = useMemo(() => {
     if (!selectedPaper) return backbone;
-    return [...backbone, ...paperTraceEdges(selectedPaper, data.stages, layout, nodeColors)];
-  }, [selectedPaper, backbone, layout, nodeColors]);
+    return [...backbone, ...paperTraceEdges(selectedPaper, data.stages, layout)];
+  }, [selectedPaper, backbone, layout]);
 
   const selectPaper = (pid: string) =>
     setSelection((prev) =>
@@ -78,6 +78,10 @@ export default function App() {
 }
 
 function PaperInfoBar({ paper }: { paper: Paper }) {
+  const colorIdxs = paper.pathCount > 1
+    ? computePathColorIndices(paper, data.stages)
+    : [];
+
   return (
     <header className="info-bar">
       <span className="ib-meta">
@@ -95,7 +99,7 @@ function PaperInfoBar({ paper }: { paper: Paper }) {
             const form = formId ? formId.split('::')[1] : `Input ${i + 1}`;
             return (
               <span key={i} className="ib-legend-item">
-                <span className="ib-legend-dot" style={cssVars({ '--accent': pathColor(i) })} />
+                <span className="ib-legend-dot" style={cssVars({ '--accent': pathColor(colorIdxs[i]) })} />
                 {form}
               </span>
             );

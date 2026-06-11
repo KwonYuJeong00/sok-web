@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T04:43:17.293Z",
+    "generatedAt": "2026-06-11T07:39:03.317Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -25,25 +25,29 @@
           "id": "analysis::Triage",
           "stageId": "analysis",
           "label": "Triage",
-          "paperCount": 22
+          "paperCount": 22,
+          "transient": false
         },
         {
           "id": "analysis::Static",
           "stageId": "analysis",
           "label": "Static",
-          "paperCount": 53
+          "paperCount": 53,
+          "transient": false
         },
         {
           "id": "analysis::Dynamic",
           "stageId": "analysis",
           "label": "Dynamic",
-          "paperCount": 15
+          "paperCount": 15,
+          "transient": false
         },
         {
           "id": "analysis::Security Testing",
           "stageId": "analysis",
           "label": "Security Testing",
-          "paperCount": 9
+          "paperCount": 9,
+          "transient": false
         }
       ]
     },
@@ -62,49 +66,57 @@
           "id": "artifact-class::Code representation",
           "stageId": "artifact-class",
           "label": "Code representation",
-          "paperCount": 57
+          "paperCount": 57,
+          "transient": false
         },
         {
           "id": "artifact-class::Text stream",
           "stageId": "artifact-class",
           "label": "Text stream",
-          "paperCount": 21
+          "paperCount": 21,
+          "transient": false
         },
         {
           "id": "artifact-class::Binary fact",
           "stageId": "artifact-class",
           "label": "Binary fact",
-          "paperCount": 26
+          "paperCount": 26,
+          "transient": false
         },
         {
           "id": "artifact-class::Graph representation",
           "stageId": "artifact-class",
           "label": "Graph representation",
-          "paperCount": 41
+          "paperCount": 41,
+          "transient": false
         },
         {
           "id": "artifact-class::Numerical statistic",
           "stageId": "artifact-class",
           "label": "Numerical statistic",
-          "paperCount": 11
+          "paperCount": 11,
+          "transient": false
         },
         {
           "id": "artifact-class::Snapshot",
           "stageId": "artifact-class",
           "label": "Snapshot",
-          "paperCount": 1
+          "paperCount": 1,
+          "transient": false
         },
         {
           "id": "artifact-class::Logical expression",
           "stageId": "artifact-class",
           "label": "Logical expression",
-          "paperCount": 2
+          "paperCount": 2,
+          "transient": false
         },
         {
           "id": "artifact-class::Test set",
           "stageId": "artifact-class",
           "label": "Test set",
-          "paperCount": 5
+          "paperCount": 5,
+          "transient": false
         }
       ]
     },
@@ -123,25 +135,29 @@
           "id": "artifact-form::Sequence",
           "stageId": "artifact-form",
           "label": "Sequence",
-          "paperCount": 46
+          "paperCount": 46,
+          "transient": false
         },
         {
           "id": "artifact-form::Graph",
           "stageId": "artifact-form",
           "label": "Graph",
-          "paperCount": 27
+          "paperCount": 27,
+          "transient": false
         },
         {
           "id": "artifact-form::Numeric descriptor",
           "stageId": "artifact-form",
           "label": "Numeric descriptor",
-          "paperCount": 27
+          "paperCount": 27,
+          "transient": false
         },
         {
           "id": "artifact-form::Image",
           "stageId": "artifact-form",
           "label": "Image",
-          "paperCount": 1
+          "paperCount": 1,
+          "transient": false
         }
       ]
     },
@@ -160,37 +176,43 @@
           "id": "canonicalization::Scale",
           "stageId": "canonicalization",
           "label": "Scale",
-          "paperCount": 16
+          "paperCount": 16,
+          "transient": false
         },
         {
           "id": "canonicalization::Replace",
           "stageId": "canonicalization",
           "label": "Replace",
-          "paperCount": 19
+          "paperCount": 19,
+          "transient": false
         },
         {
           "id": "canonicalization::Remove",
           "stageId": "canonicalization",
           "label": "Remove",
-          "paperCount": 8
+          "paperCount": 8,
+          "transient": false
         },
         {
           "id": "canonicalization::Map",
           "stageId": "canonicalization",
           "label": "Map",
-          "paperCount": 9
+          "paperCount": 9,
+          "transient": false
         },
         {
           "id": "canonicalization::Transform",
           "stageId": "canonicalization",
           "label": "Transform",
-          "paperCount": 15
+          "paperCount": 15,
+          "transient": false
         },
         {
           "id": "canonicalization::Extract",
           "stageId": "canonicalization",
           "label": "Extract",
-          "paperCount": 1
+          "paperCount": 1,
+          "transient": false
         }
       ]
     },
@@ -209,25 +231,29 @@
           "id": "tokenization::Syntactic unit",
           "stageId": "tokenization",
           "label": "Syntactic unit",
-          "paperCount": 17
+          "paperCount": 17,
+          "transient": false
         },
         {
           "id": "tokenization::Data-driven segmentation",
           "stageId": "tokenization",
           "label": "Data-driven segmentation",
-          "paperCount": 16
+          "paperCount": 16,
+          "transient": false
         },
         {
           "id": "tokenization::Atomic units",
           "stageId": "tokenization",
           "label": "Atomic units",
-          "paperCount": 12
+          "paperCount": 12,
+          "transient": false
         },
         {
           "id": "tokenization::Rule-based decomposition",
           "stageId": "tokenization",
           "label": "Rule-based decomposition",
-          "paperCount": 4
+          "paperCount": 4,
+          "transient": false
         }
       ]
     },
@@ -246,19 +272,22 @@
           "id": "encoding::Sparse",
           "stageId": "encoding",
           "label": "Sparse",
-          "paperCount": 44
+          "paperCount": 44,
+          "transient": false
         },
         {
           "id": "encoding::Dense",
           "stageId": "encoding",
           "label": "Dense",
-          "paperCount": 51
+          "paperCount": 51,
+          "transient": false
         },
         {
           "id": "encoding::N/A",
           "stageId": "encoding",
           "label": "N/A",
-          "paperCount": 1
+          "paperCount": 1,
+          "transient": true
         }
       ]
     },
@@ -277,19 +306,22 @@
           "id": "embedding::Context-dependent",
           "stageId": "embedding",
           "label": "Context-dependent",
-          "paperCount": 45
+          "paperCount": 45,
+          "transient": false
         },
         {
           "id": "embedding::Context-independent",
           "stageId": "embedding",
           "label": "Context-independent",
-          "paperCount": 18
+          "paperCount": 18,
+          "transient": false
         },
         {
           "id": "embedding::N/A",
           "stageId": "embedding",
           "label": "N/A",
-          "paperCount": 11
+          "paperCount": 11,
+          "transient": true
         }
       ]
     },
@@ -308,13 +340,15 @@
           "id": "combine::-->",
           "stageId": "combine",
           "label": "-->",
-          "paperCount": 10
+          "paperCount": 10,
+          "transient": false
         },
         {
           "id": "combine::+",
           "stageId": "combine",
           "label": "+",
-          "paperCount": 19
+          "paperCount": 9,
+          "transient": false
         }
       ]
     },
@@ -333,31 +367,36 @@
           "id": "learning::Discriminative",
           "stageId": "learning",
           "label": "Discriminative",
-          "paperCount": 58
+          "paperCount": 58,
+          "transient": false
         },
         {
           "id": "learning::Rule-based reasoning",
           "stageId": "learning",
           "label": "Rule-based reasoning",
-          "paperCount": 11
+          "paperCount": 11,
+          "transient": false
         },
         {
           "id": "learning::LLM-based",
           "stageId": "learning",
           "label": "LLM-based",
-          "paperCount": 8
+          "paperCount": 8,
+          "transient": false
         },
         {
           "id": "learning::Generative",
           "stageId": "learning",
           "label": "Generative",
-          "paperCount": 6
+          "paperCount": 6,
+          "transient": false
         },
         {
           "id": "learning::Reinforcement Learning",
           "stageId": "learning",
           "label": "Reinforcement Learning",
-          "paperCount": 1
+          "paperCount": 1,
+          "transient": false
         }
       ]
     },
@@ -376,49 +415,57 @@
           "id": "inference::Detection",
           "stageId": "inference",
           "label": "Detection",
-          "paperCount": 39
+          "paperCount": 37,
+          "transient": false
         },
         {
           "id": "inference::Recovery",
           "stageId": "inference",
           "label": "Recovery",
-          "paperCount": 19
+          "paperCount": 19,
+          "transient": false
         },
         {
           "id": "inference::Discovery",
           "stageId": "inference",
           "label": "Discovery",
-          "paperCount": 7
+          "paperCount": 9,
+          "transient": false
         },
         {
           "id": "inference::Classification",
           "stageId": "inference",
           "label": "Classification",
-          "paperCount": 6
+          "paperCount": 8,
+          "transient": false
         },
         {
           "id": "inference::Reconstruction",
           "stageId": "inference",
           "label": "Reconstruction",
-          "paperCount": 4
+          "paperCount": 4,
+          "transient": false
         },
         {
           "id": "inference::Clustering",
           "stageId": "inference",
           "label": "Clustering",
-          "paperCount": 3
+          "paperCount": 13,
+          "transient": false
         },
         {
           "id": "inference::Summarization",
           "stageId": "inference",
           "label": "Summarization",
-          "paperCount": 2
+          "paperCount": 3,
+          "transient": false
         },
         {
           "id": "inference::Restoration",
           "stageId": "inference",
           "label": "Restoration",
-          "paperCount": 0
+          "paperCount": 0,
+          "transient": false
         }
       ]
     }
@@ -438,6 +485,7 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BERT-based + MLP classifier",
@@ -521,6 +569,7 @@
       "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
+      "forClaude": "RNN → R-GCN",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(RNN → R-GCN) + MLP classifer",
@@ -645,6 +694,7 @@
       "codeForm": "Byte",
       "pathCount": 2,
       "relationship": "-->",
+      "forClaude": "RNN  → Transformer-based",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(RNN -> Transformer-based) + MLP classifier + PDT-based post-processing",
@@ -758,6 +808,7 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BiRNN + MLP classifier",
@@ -841,10 +892,11 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Probabilistic reasoning",
       "learningModel": "Bayesian Network + belief propagation",
-      "inferenceCategory": "Recovery",
+      "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Per-address P(function-start) posterior",
       "evaluationMetric": "Precision; Recall; F1",
@@ -875,7 +927,7 @@
             "learning::Rule-based reasoning"
           ],
           "inference": [
-            "inference::Recovery"
+            "inference::Detection"
           ]
         }
       ],
@@ -883,7 +935,7 @@
         "learning::Rule-based reasoning": [
           "Bayesian Network + belief propagation"
         ],
-        "inference::Recovery": [
+        "inference::Detection": [
           "Precision; Recall; F1"
         ],
         "analysis::Triage": [
@@ -931,6 +983,7 @@
       "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "FC layer",
@@ -1014,6 +1067,7 @@
       "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "ESPRESSO Boolean minimizer",
@@ -1088,6 +1142,7 @@
       "codeForm": "Fetched instruction, Assembly",
       "pathCount": 3,
       "relationship": "+",
+      "forClaude": "Transformer-based || CNN || CNN",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(Transformer-based || CNN || CNN) + MLP classifier",
@@ -1213,7 +1268,7 @@
           "Filtering by removal"
         ],
         "tokenization::Syntactic unit": [
-          "Element"
+          "Instruction/IR-level"
         ],
         "embedding::Context-dependent": [
           "Transformer-based"
@@ -1254,6 +1309,7 @@
       "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "Hierachical BiLSTM + softmax classifier",
@@ -1342,6 +1398,7 @@
       "codeForm": "REIL",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "Jaccard containment of function models",
@@ -1428,6 +1485,7 @@
       "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
+      "forClaude": "BERT-based MPNN -> ResNet",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(BERT-based MPNN -> ResNet) + Siamese MLP head",
@@ -1547,6 +1605,7 @@
       "codeForm": "Assembly",
       "pathCount": 4,
       "relationship": "+",
+      "forClaude": "(Hierachical BiLSTM -> GGNN) || Hierachical-LSTM || Integer-LSTM",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(HBMP-> GGNN) || Hierachical-LSTM || Integer-LSTM",
@@ -1734,6 +1793,7 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "GNN ensemble +  Euclidean similarity",
@@ -1816,9 +1876,10 @@
       "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
+      "forClaude": "BERT-based -> Structure2Vec",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
-      "learningModel": "Siamese(i2v -> Structure2Vec) + cosin similarity",
+      "learningModel": "Siamese(BERT-based -> Structure2Vec) + cosin similarity",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
@@ -1887,7 +1948,7 @@
       ],
       "nodeReveal": {
         "learning::Discriminative": [
-          "Siamese(i2v -> Structure2Vec) + cosin similarity"
+          "Siamese(BERT-based -> Structure2Vec) + cosin similarity"
         ],
         "inference::Detection": [
           "Precision@K"
@@ -1905,10 +1966,10 @@
           "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
-          "instruction"
+          "whole instruction"
         ],
         "embedding::Context-dependent": [
-          "i2v | Structure2Vec"
+          "BERT-based | Structure2Vec"
         ],
         "artifact-class::Graph representation": [
           "CFG"
@@ -1940,6 +2001,7 @@
       "codeForm": "Pcode IR",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(Bidirectional GGNN with GRU) + cosin similarity",
@@ -2031,6 +2093,7 @@
       "codeForm": "Source code, Decompiled code",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "Transformer-based (Pythia) + cosine similarity",
@@ -2111,13 +2174,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "Transformer-based with LLM2Vec + contrastive learning (cosine retriever)",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Cosine similarity; threshold-based pair decision",
-      "evaluationMetric": "AUC; Precision@50; Top-K accuracy",
+      "evaluationMetric": "Pair AUC; Triplet accuracy",
       "pathNodeIds": [
         {
           "analysis": [
@@ -2155,7 +2219,7 @@
           "Transformer-based with LLM2Vec + contrastive learning (cosine retriever)"
         ],
         "inference::Detection": [
-          "AUC; Precision@50; Top-K accuracy"
+          "Pair AUC; Triplet accuracy"
         ],
         "analysis::Static": [
           "Disassembly"
@@ -2196,13 +2260,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Structure2vec with SiameseNN + cosine similarity",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
-      "evaluationMetric": "Pair AUC; Triplet accuracy",
+      "evaluationMetric": "AUC; ROC",
       "pathNodeIds": [
         {
           "analysis": [
@@ -2242,7 +2307,7 @@
           "Structure2vec with SiameseNN + cosine similarity"
         ],
         "inference::Detection": [
-          "Pair AUC; Triplet accuracy"
+          "AUC; ROC"
         ],
         "analysis::Static": [
           "Disassembly; Control-flow analysis"
@@ -2295,13 +2360,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "GNN + Hamming similarity",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
-      "evaluationMetric": "AUC; ROC",
+      "evaluationMetric": "Precision@1; Recall@K; Precision-Recall curve",
       "pathNodeIds": [
         {
           "analysis": [
@@ -2338,7 +2404,7 @@
           "GNN + Hamming similarity"
         ],
         "inference::Detection": [
-          "AUC; ROC"
+          "Precision@1; Recall@K; Precision-Recall curve"
         ],
         "analysis::Static": [
           "Disassembly; Control-flow analysis"
@@ -2382,13 +2448,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(word2vec -> Siamese LSTM) + ICFG path LCS matching",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
-      "evaluationMetric": "Precision@1; Recall@K; Precision-Recall curve",
+      "evaluationMetric": "CHRF; GPT4-based functionality score; GPT4-based context relevance score; token-level precision; token-level recall; token-level F1; character-level BLEU; character-level ROUGE-L; character-level METEOR",
       "pathNodeIds": [
         {
           "analysis": [
@@ -2426,7 +2493,7 @@
           "(word2vec -> Siamese LSTM) + ICFG path LCS matching"
         ],
         "inference::Detection": [
-          "Precision@1; Recall@K; Precision-Recall curve"
+          "CHRF; GPT4-based functionality score; GPT4-based context relevance score; token-level precision; token-level recall; token-level F1; character-level BLEU; character-level ROUGE-L; character-level METEOR"
         ],
         "analysis::Static": [
           "Disassembly"
@@ -2441,7 +2508,7 @@
           "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
-          "Instruction"
+          "whole instruction"
         ],
         "embedding::Context-dependent": [
           "word2vec"
@@ -2467,13 +2534,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "PV-DM + cosin similarity",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
-      "evaluationMetric": "CHRF; GPT4-based functionality score; GPT4-based context relevance score; token-level precision; token-level recall; token-level F1; character-level BLEU; character-level ROUGE-L; character-level METEOR",
+      "evaluationMetric": "line coverage/ELOC",
       "pathNodeIds": [
         {
           "analysis": [
@@ -2512,7 +2580,7 @@
           "PV-DM + cosin similarity"
         ],
         "inference::Detection": [
-          "CHRF; GPT4-based functionality score; GPT4-based context relevance score; token-level precision; token-level recall; token-level F1; character-level BLEU; character-level ROUGE-L; character-level METEOR"
+          "line coverage/ELOC"
         ],
         "analysis::Static": [
           "Disassembly; Control-flow analysis; Call-site analysis"
@@ -2530,7 +2598,7 @@
           "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
-          "element"
+          "Instruction/IR-level"
         ],
         "embedding::Context-independent": [
           "PV-DM"
@@ -2556,13 +2624,14 @@
       "codeForm": "Assembly, Decompiled code",
       "pathCount": 3,
       "relationship": "+",
+      "forClaude": "BERT-based  || BERT-based  | Transformer-based",
       "learningCategory": "Generative | LLM-based",
       "learningSubcategory": "Generative | LLM-based prompting",
       "learningModel": "(BERT-based  || BERT-based  ) +  LLM prompting",
-      "inferenceCategory": "Detection",
+      "inferenceCategory": "Summarization",
       "inferenceSubcategory": "",
       "inferenceOutput": "Recovered source/binary mapping",
-      "evaluationMetric": "line coverage/ELOC",
+      "evaluationMetric": "Precision; Recall; F1; tree difference",
       "pathNodeIds": [
         {
           "analysis": [
@@ -2592,7 +2661,7 @@
             "learning::LLM-based"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Summarization"
           ]
         },
         {
@@ -2621,7 +2690,7 @@
             "learning::LLM-based"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Summarization"
           ]
         },
         {
@@ -2652,7 +2721,7 @@
             "learning::LLM-based"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Summarization"
           ]
         }
       ],
@@ -2663,8 +2732,8 @@
         "learning::LLM-based": [
           "(BERT-based  || BERT-based  ) +  LLM prompting"
         ],
-        "inference::Detection": [
-          "line coverage/ELOC"
+        "inference::Summarization": [
+          "Precision; Recall; F1; tree difference"
         ],
         "analysis::Static": [
           "Disassembly | Program-dependence analysis | Decompilation"
@@ -2676,7 +2745,7 @@
           "Code representations  -> Sequence | Code representations -> Sequence"
         ],
         "tokenization::Syntactic unit": [
-          "Instruction"
+          "whole instruction"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -2720,13 +2789,14 @@
       "codeForm": "LLVM IR",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "MLP regressor",
       "inferenceCategory": "Discovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Path priority regression score",
-      "evaluationMetric": "Precision; Recall; F1; tree difference",
+      "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
           "analysis": [
@@ -2758,7 +2828,7 @@
           "MLP regressor"
         ],
         "inference::Discovery": [
-          "Precision; Recall; F1; tree difference"
+          "Precision; Recall; F1"
         ],
         "analysis::Security Testing": [
           "Symbolic execution"
@@ -2790,6 +2860,7 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Probabilistic reasoning",
       "learningModel": "Factor graph +  belief propagation",
@@ -2876,13 +2947,14 @@
       "codeForm": "Decompiled code",
       "pathCount": 3,
       "relationship": "+",
+      "forClaude": "Transformer-based || Transformer-based",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "(Transformer-based || Transformer-based)  -> Deterministic reasoning",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Recovered variable/struct fact",
-      "evaluationMetric": "Precision; Recall; F1",
+      "evaluationMetric": "Accuracy; Precision; Recall; F1 score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -2987,7 +3059,7 @@
           "(Transformer-based || Transformer-based)  -> Deterministic reasoning"
         ],
         "inference::Recovery": [
-          "Precision; Recall; F1"
+          "Accuracy; Precision; Recall; F1 score"
         ],
         "analysis::Static": [
           "Decompilation; Stack-frame analysis | Decompilation; Stack-frame analysis | Data-flow analysis; Pointer/alias analysis; Call-site analysis"
@@ -3042,14 +3114,15 @@
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 2,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "N/A | N/A",
       "learningCategory": "Rule-based reasoning | LLM-based",
       "learningSubcategory": "Deterministic reasoning | LLM-based prompting",
       "learningModel": "TFG-based deterministic type synthesis -> GPT-4o mini LLM-assisted double-elimination selector",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Recovered variable/struct fact",
-      "evaluationMetric": "Accuracy; Precision; Recall; F1 score",
+      "evaluationMetric": "Overall accuracy; struct accuracy; Precision; Recall; F1 score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -3074,9 +3147,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Rule-based reasoning",
             "learning::LLM-based"
@@ -3105,9 +3176,7 @@
           "embedding": [
             "embedding::Context-dependent"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Rule-based reasoning",
             "learning::LLM-based"
@@ -3125,7 +3194,7 @@
           "TFG-based deterministic type synthesis -> GPT-4o mini LLM-assisted double-elimination selector"
         ],
         "inference::Recovery": [
-          "Accuracy; Precision; Recall; F1 score"
+          "Overall accuracy; struct accuracy; Precision; Recall; F1 score"
         ],
         "analysis::Static": [
           "Decompilation; IR lifting; Data-flow analysis; Call-site analysis; Stack-frame analysis | Decompilation"
@@ -3178,13 +3247,14 @@
       "codeForm": "Assembly, Fetched instruction",
       "pathCount": 2,
       "relationship": "-->",
+      "forClaude": "Transformer-based  -> Transformer-based",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "(Transformer-based  -> Transformer-based) -> MLP classifier",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Predicted variable type label",
-      "evaluationMetric": "Overall accuracy; struct accuracy; Precision; Recall; F1 score",
+      "evaluationMetric": "Precision; Recall; F1; mean score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -3259,7 +3329,7 @@
           "(Transformer-based  -> Transformer-based) -> MLP classifier"
         ],
         "inference::Recovery": [
-          "Overall accuracy; struct accuracy; Precision; Recall; F1 score"
+          "Precision; Recall; F1; mean score"
         ],
         "analysis::Static": [
           "Disassembly | Disassembly"
@@ -3283,7 +3353,7 @@
           "Abstraction by replacement | Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
-          "element | element"
+          "Instruction/IR-level | Instruction/IR-level"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -3312,13 +3382,14 @@
       "codeForm": "VEX IR",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "R-GCN + MLP classifier",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Predicted variable type label",
-      "evaluationMetric": "Precision; Recall; F1; mean score",
+      "evaluationMetric": "Precision; Recall; Accuracy; F1 score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -3355,7 +3426,7 @@
           "R-GCN + MLP classifier"
         ],
         "inference::Recovery": [
-          "Precision; Recall; F1; mean score"
+          "Precision; Recall; Accuracy; F1 score"
         ],
         "analysis::Static": [
           "IR lifting; Control-flow analysis; Data-flow analysis"
@@ -3399,6 +3470,7 @@
       "codeForm": "Custom IR",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "Deductive type reconstruction (deductive constraint generation/solving + type rounding + nominal-type reconstruction)",
@@ -3482,13 +3554,14 @@
       "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
+      "forClaude": "Word2Vec -> GRU",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "(Word2Vec -> GRU) | MLP classifeir",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Per-argument count and type label",
-      "evaluationMetric": "Precision; Recall; Accuracy; F1 score",
+      "evaluationMetric": "Precision; Recall; F1 score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -3557,7 +3630,7 @@
           "(Word2Vec -> GRU) | MLP classifeir"
         ],
         "inference::Recovery": [
-          "Precision; Recall; Accuracy; F1 score"
+          "Precision; Recall; F1 score"
         ],
         "analysis::Static": [
           "Disassembly; Call-site analysis | Disassembly"
@@ -3572,7 +3645,7 @@
           "Code representations; Graph representations -> Sequence | Code representations -> Sequence"
         ],
         "tokenization::Syntactic unit": [
-          "Instruction | Instruction"
+          "whole instruction | whole instruction"
         ],
         "encoding::Sparse": [
           "N/A | N/A"
@@ -3604,6 +3677,7 @@
       "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Probabilistic reasoning",
       "learningModel": "factor graph probabilistic graphical model + belief propagation",
@@ -3686,13 +3760,14 @@
       "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "Code Llama (with Lora)",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Generated function name (subword sequence)",
-      "evaluationMetric": "Precision; Recall; F1 score",
+      "evaluationMetric": "Precision; Recall; F1; AUC",
       "pathNodeIds": [
         {
           "analysis": [
@@ -3730,7 +3805,7 @@
           "Code Llama (with Lora)"
         ],
         "inference::Recovery": [
-          "Precision; Recall; F1 score"
+          "Precision; Recall; F1; AUC"
         ],
         "analysis::Static": [
           "Decompilation"
@@ -3771,13 +3846,14 @@
       "codeForm": "Fetched instruction, Assembly",
       "pathCount": 2,
       "relationship": "+",
+      "forClaude": "Transformer-based || lookup layer",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "(Transformer-based; Trex || lookup layer) + MLP decoder",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Generated function name (subword sequence)",
-      "evaluationMetric": "Precision; Recall; F1; AUC",
+      "evaluationMetric": "Precision; Recall; F1; RougeL; Bleu; VarCLR",
       "pathNodeIds": [
         {
           "analysis": [
@@ -3845,7 +3921,7 @@
           "(Transformer-based; Trex || lookup layer) + MLP decoder"
         ],
         "inference::Recovery": [
-          "Precision; Recall; F1; AUC"
+          "Precision; Recall; F1; RougeL; Bleu; VarCLR"
         ],
         "analysis::Dynamic": [
           "Forced execution"
@@ -3860,7 +3936,7 @@
           "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
-          "Instruction"
+          "whole instruction"
         ],
         "embedding::Context-dependent": [
           "Transformer-based"
@@ -3898,13 +3974,14 @@
       "codeForm": "Assembly, VEX IR",
       "pathCount": 3,
       "relationship": "+",
+      "forClaude": "(LDP || BoostNE ) -> Autoencoder",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "((LDP || BoostNE ) -> Autoencoder ) + MLP classifier",
-      "inferenceCategory": "Classification",
+      "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Multi-hot function name label vector",
-      "evaluationMetric": "Precision; Recall; F1; RougeL; Bleu; VarCLR",
+      "evaluationMetric": "Accuracy; Precision; Recall; F1 score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -3931,7 +4008,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Classification"
+            "inference::Recovery"
           ]
         },
         {
@@ -3959,7 +4036,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Classification"
+            "inference::Recovery"
           ]
         },
         {
@@ -3991,7 +4068,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Classification"
+            "inference::Recovery"
           ]
         }
       ],
@@ -3999,8 +4076,8 @@
         "learning::Discriminative": [
           "((LDP || BoostNE ) -> Autoencoder ) + MLP classifier"
         ],
-        "inference::Classification": [
-          "Precision; Recall; F1; RougeL; Bleu; VarCLR"
+        "inference::Recovery": [
+          "Accuracy; Precision; Recall; F1 score"
         ],
         "analysis::Static": [
           "Control-flow analysis | call-site analysis | Disassembly; IR lifting; static taint analysis"
@@ -4050,13 +4127,14 @@
       "codeForm": "Assembly",
       "pathCount": 3,
       "relationship": "+",
+      "forClaude": "BERT-based || BERT-based || ((LDP || BoostNE ) -> Autoencoder )",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "(PalmTree || CLAP || (LDP || BoostNE ) -> Autoencoder))  +  LORD Transformer decoder",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Generated function name caption",
-      "evaluationMetric": "Accuracy; Precision; Recall; F1 score",
+      "evaluationMetric": "Name Match; Type Match; prediction accuracy",
       "pathNodeIds": [
         {
           "analysis": [
@@ -4161,7 +4239,7 @@
           "(PalmTree || CLAP || (LDP || BoostNE ) -> Autoencoder))  +  LORD Transformer decoder"
         ],
         "inference::Recovery": [
-          "Accuracy; Precision; Recall; F1 score"
+          "Name Match; Type Match; prediction accuracy"
         ],
         "analysis::Static": [
           "Disassembly; Control-dependence analysis; Data-dependence analysis | Disassembly | Control-flow analysis; call-site analysis; Disassembly; IR lifting; static taint analysis"
@@ -4222,14 +4300,15 @@
       "isTopTier": true,
       "codeForm": "Assembly, BAP-IR",
       "pathCount": 2,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "N/A | N/A",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "Extremely Randomized Trees -> CRF + MAP",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Variable name posterior",
-      "evaluationMetric": "Name Match; Type Match; prediction accuracy",
+      "evaluationMetric": "Top-1 accuracy; Top-3 accuracy; Top-5 accuracy; average edit distance (AED); character error rate (CER); Accuracy; F1",
       "pathNodeIds": [
         {
           "analysis": [
@@ -4253,9 +4332,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -4283,9 +4360,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -4299,7 +4374,7 @@
           "Extremely Randomized Trees -> CRF + MAP"
         ],
         "inference::Recovery": [
-          "Name Match; Type Match; prediction accuracy"
+          "Top-1 accuracy; Top-3 accuracy; Top-5 accuracy; average edit distance (AED); character error rate (CER); Accuracy; F1"
         ],
         "analysis::Static": [
           "IR lifting; Data-flow analysis; Data-dependence analysis; Call-site analysis; Stack-frame analysis | Data-dependence analysis"
@@ -4355,13 +4430,14 @@
       "codeForm": "Decompiled code",
       "pathCount": 2,
       "relationship": "+",
+      "forClaude": "Transformer-based || Transformer-based",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "(Transformer-based || Transformer-based) + Transformer-based",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Variable name + variable type",
-      "evaluationMetric": "Top-1 accuracy; Top-3 accuracy; Top-5 accuracy; average edit distance (AED); character error rate (CER); Accuracy; F1",
+      "evaluationMetric": "Precision; Recall; GPT4Evaluator score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -4433,7 +4509,7 @@
           "(Transformer-based || Transformer-based) + Transformer-based"
         ],
         "inference::Recovery": [
-          "Top-1 accuracy; Top-3 accuracy; Top-5 accuracy; average edit distance (AED); character error rate (CER); Accuracy; F1"
+          "Precision; Recall; GPT4Evaluator score"
         ],
         "analysis::Static": [
           "Decompilation | Stack-frame analysis"
@@ -4483,13 +4559,14 @@
       "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "BERT-based + MLP classifier",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Predicted variable name; predicted variable type",
-      "evaluationMetric": "Precision; Recall; GPT4Evaluator score",
+      "evaluationMetric": "Accuracy",
       "pathNodeIds": [
         {
           "analysis": [
@@ -4527,7 +4604,7 @@
           "BERT-based + MLP classifier"
         ],
         "inference::Recovery": [
-          "Precision; Recall; GPT4Evaluator score"
+          "Accuracy"
         ],
         "analysis::Static": [
           "Decompilation"
@@ -4568,13 +4645,14 @@
       "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "CLM fine-tuning (CodeGemma/CodeLlama ) + SymPO + post-processing (iterative call-graph context propagation + data-flow name validation)",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Generated variable name sequence",
-      "evaluationMetric": "Accuracy",
+      "evaluationMetric": "Recall; F-1 score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -4613,7 +4691,7 @@
           "CLM fine-tuning (CodeGemma/CodeLlama ) + SymPO + post-processing (iterative call-graph context propagation + data-flow name validation)"
         ],
         "inference::Recovery": [
-          "Accuracy"
+          "Recall; F-1 score"
         ],
         "analysis::Static": [
           "Decompilation; call-site analysis"
@@ -4656,14 +4734,15 @@
       "isTopTier": true,
       "codeForm": "Assembly, Decompiled code",
       "pathCount": 4,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "N/A | N/A | N/A | N/A",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "Random Forest",
       "inferenceCategory": "Classification",
       "inferenceSubcategory": "",
       "inferenceOutput": "Programmer ID label",
-      "evaluationMetric": "Recall; F-1 score",
+      "evaluationMetric": "F1; Precision; Recall; Area Under Time (AUT); rejection rate",
       "pathNodeIds": [
         {
           "analysis": [
@@ -4686,9 +4765,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -4714,9 +4791,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -4742,9 +4817,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -4770,9 +4843,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -4786,7 +4857,7 @@
           "Random Forest"
         ],
         "inference::Classification": [
-          "Recall; F-1 score"
+          "F1; Precision; Recall; Area Under Time (AUT); rejection rate"
         ],
         "analysis::Static": [
           "Disassembly | Control-flow analysis | Decompilation | Decompilation"
@@ -4836,13 +4907,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "LightGBM",
       "inferenceCategory": "Classification",
       "inferenceSubcategory": "",
       "inferenceOutput": "Optimization-pass label vector",
-      "evaluationMetric": "F1; Precision; Recall; Area Under Time (AUT); rejection rate",
+      "evaluationMetric": "Accuracy; F1 score; Logloss",
       "pathNodeIds": [
         {
           "analysis": [
@@ -4876,7 +4948,7 @@
           "LightGBM"
         ],
         "inference::Classification": [
-          "F1; Precision; Recall; Area Under Time (AUT); rejection rate"
+          "Accuracy; F1 score; Logloss"
         ],
         "analysis::Static": [
           "Disassembly"
@@ -4911,13 +4983,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "GBDT +  ICE conformal evaluator (p-value based)",
-      "inferenceCategory": "Clustering",
+      "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Conformal credibility/confidence; rejection flag",
-      "evaluationMetric": "Accuracy; F1 score; Logloss",
+      "evaluationMetric": "Accuracy; Precision; Recall; F1",
       "pathNodeIds": [
         {
           "analysis": [
@@ -4944,7 +5017,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Clustering"
+            "inference::Detection"
           ]
         }
       ],
@@ -4952,8 +5025,8 @@
         "learning::Discriminative": [
           "GBDT +  ICE conformal evaluator (p-value based)"
         ],
-        "inference::Clustering": [
-          "Accuracy; F1 score; Logloss"
+        "inference::Detection": [
+          "Accuracy; Precision; Recall; F1"
         ],
         "analysis::Triage": [
           "Structural analysis; Binary profiling"
@@ -4994,13 +5067,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "CNN + mlp classifeir",
       "inferenceCategory": "Classification",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malware family label",
-      "evaluationMetric": "Accuracy; Precision; Recall; F1",
+      "evaluationMetric": "Accuracy",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5034,7 +5108,7 @@
           "CNN + mlp classifeir"
         ],
         "inference::Classification": [
-          "Accuracy; Precision; Recall; F1"
+          "Accuracy"
         ],
         "analysis::Triage": [
           "Binary profiling"
@@ -5072,13 +5146,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "MLP with ReLU",
       "inferenceCategory": "Classification",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malware family label",
-      "evaluationMetric": "Accuracy",
+      "evaluationMetric": "Precision; Recall; F1-score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5114,7 +5189,7 @@
           "MLP with ReLU"
         ],
         "inference::Classification": [
-          "Accuracy"
+          "Precision; Recall; F1-score"
         ],
         "analysis::Triage": [
           "Binary profiling; Structural analysis"
@@ -5158,13 +5233,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "Generator: CNN; Classifier: CNN + FC",
       "inferenceCategory": "Classification",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malware family label",
-      "evaluationMetric": "Precision; Recall; F1-score",
+      "evaluationMetric": "False positive ratio; false negative ratio; accuracy; reachable executable code bytes reduction",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5199,7 +5275,7 @@
           "Generator: CNN; Classifier: CNN + FC"
         ],
         "inference::Classification": [
-          "Precision; Recall; F1-score"
+          "False positive ratio; false negative ratio; accuracy; reachable executable code bytes reduction"
         ],
         "analysis::Triage": [
           "Structural analysis; Binary profiling"
@@ -5237,13 +5313,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "XGBoost classifier +  ICE conformal evaluator (p-value based)",
-      "inferenceCategory": "Clustering",
+      "inferenceCategory": "Classification",
       "inferenceSubcategory": "",
       "inferenceOutput": "p-value conformal score; rejection flag",
-      "evaluationMetric": "False positive ratio; false negative ratio; accuracy; reachable executable code bytes reduction",
+      "evaluationMetric": "Prediction accuracy; FNR; code size reduction",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5266,7 +5343,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Clustering"
+            "inference::Classification"
           ]
         }
       ],
@@ -5274,8 +5351,8 @@
         "learning::Discriminative": [
           "XGBoost classifier +  ICE conformal evaluator (p-value based)"
         ],
-        "inference::Clustering": [
-          "False positive ratio; false negative ratio; accuracy; reachable executable code bytes reduction"
+        "inference::Classification": [
+          "Prediction accuracy; FNR; code size reduction"
         ],
         "analysis::Static": [
           "Disassembly"
@@ -5309,14 +5386,15 @@
       "isTopTier": true,
       "codeForm": "Fetched instruction, Assembly",
       "pathCount": 2,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "N/A",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "decision tree forest + IRM ( in-lined reference monitor) enforcement",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Removable control-flow region",
-      "evaluationMetric": "Prediction accuracy; FNR; code size reduction",
+      "evaluationMetric": "AUC; Recall@K; Precision; Recall",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5339,9 +5417,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -5369,9 +5445,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -5385,7 +5459,7 @@
           "decision tree forest + IRM ( in-lined reference monitor) enforcement"
         ],
         "inference::Detection": [
-          "Prediction accuracy; FNR; code size reduction"
+          "AUC; Recall@K; Precision; Recall"
         ],
         "analysis::Static": [
           "Disassembly; Control-flow analysis"
@@ -5432,13 +5506,14 @@
       "codeForm": "Byte",
       "pathCount": 2,
       "relationship": "+",
+      "forClaude": "CNN || TextCNN",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "CNN + FC || TextCNN + FC",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Per-API debloating decision",
-      "evaluationMetric": "AUC; Recall@K; Precision; Recall",
+      "evaluationMetric": "Recall rate; false positive rate",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5506,7 +5581,7 @@
           "CNN + FC || TextCNN + FC"
         ],
         "inference::Detection": [
-          "AUC; Recall@K; Precision; Recall"
+          "Recall rate; false positive rate"
         ],
         "analysis::Security Testing": [
           "Fuzzing | Fuzzing"
@@ -5556,13 +5631,14 @@
       "codeForm": "Byte",
       "pathCount": 3,
       "relationship": "-->",
+      "forClaude": "((BERT-based -> GCN) -> ResNet)",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "((BERT-based -> GCN) -> ResNet) + MLP classifier",
-      "inferenceCategory": "Detection",
+      "inferenceCategory": "Detection; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Vulnerable function candidates ranked by similarity",
-      "evaluationMetric": "Recall rate; false positive rate",
+      "evaluationMetric": "Percent correct; rank",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5594,7 +5670,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Detection",
+            "inference::Clustering"
           ]
         },
         {
@@ -5622,7 +5699,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Detection",
+            "inference::Clustering"
           ]
         },
         {
@@ -5652,7 +5730,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Detection",
+            "inference::Clustering"
           ]
         }
       ],
@@ -5661,7 +5740,10 @@
           "((BERT-based -> GCN) -> ResNet) + MLP classifier"
         ],
         "inference::Detection": [
-          "Recall rate; false positive rate"
+          "Percent correct; rank"
+        ],
+        "inference::Clustering": [
+          "Percent correct; rank"
         ],
         "analysis::Static": [
           "IR lifting | control flow analysis"
@@ -5679,7 +5761,7 @@
           "Abstraction by replacement ; Filtering by removal"
         ],
         "tokenization::Syntactic unit": [
-          "Element"
+          "Instruction/IR-level"
         ],
         "embedding::Context-dependent": [
           "BERT-based | GCN"
@@ -5728,14 +5810,15 @@
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 2,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "N/A",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Spectral clustering",
-      "inferenceCategory": "Detection",
+      "inferenceCategory": "Detection; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Vulnerable function candidates from codebook search",
-      "evaluationMetric": "Percent correct; rank",
+      "evaluationMetric": "Average rank; Top-1 candidates found; Top-5 candidates found",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5755,14 +5838,13 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Detection",
+            "inference::Clustering"
           ]
         },
         {
@@ -5783,14 +5865,13 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Detection",
+            "inference::Clustering"
           ]
         }
       ],
@@ -5799,7 +5880,10 @@
           "Spectral clustering"
         ],
         "inference::Detection": [
-          "Percent correct; rank"
+          "Average rank; Top-1 candidates found; Top-5 candidates found"
+        ],
+        "inference::Clustering": [
+          "Average rank; Top-1 candidates found; Top-5 candidates found"
         ],
         "analysis::Static": [
           "Disassembly | control flow analysis"
@@ -5837,13 +5921,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "KNN",
-      "inferenceCategory": "Detection",
+      "inferenceCategory": "Detection; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "k-NN candidate functions",
-      "evaluationMetric": "Average rank; Top-1 candidates found; Top-5 candidates found",
+      "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5870,7 +5955,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Detection",
+            "inference::Clustering"
           ]
         }
       ],
@@ -5879,7 +5965,10 @@
           "KNN"
         ],
         "inference::Detection": [
-          "Average rank; Top-1 candidates found; Top-5 candidates found"
+          "Precision; Recall; F1"
+        ],
+        "inference::Clustering": [
+          "Precision; Recall; F1"
         ],
         "analysis::Static": [
           "Disassembly; Call-site analysis; Stack-frame analysis; Control-flow analysis"
@@ -5923,13 +6012,14 @@
       "codeForm": "Assembly, Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Structure2vec with SiameseNN (Gemini) + cosine top-M retrieval -> emulation semantic-signature Jaccard reordering",
-      "inferenceCategory": "Detection",
+      "inferenceCategory": "Detection; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Re-ranked vulnerable function candidates",
-      "evaluationMetric": "Precision; Recall; F1",
+      "evaluationMetric": "Accuracy; Recall; Precision; F1; AUC",
       "pathNodeIds": [
         {
           "analysis": [
@@ -5957,7 +6047,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Detection",
+            "inference::Clustering"
           ]
         }
       ],
@@ -5966,7 +6057,10 @@
           "Structure2vec with SiameseNN (Gemini) + cosine top-M retrieval -> emulation semantic-signature Jaccard reordering"
         ],
         "inference::Detection": [
-          "Precision; Recall; F1"
+          "Accuracy; Recall; Precision; F1; AUC"
+        ],
+        "inference::Clustering": [
+          "Accuracy; Recall; Precision; F1; AUC"
         ],
         "analysis::Static": [
           "Disassembly; Control-flow analysis"
@@ -6010,13 +6104,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "Datalog rule-driven checker",
-      "inferenceCategory": "Detection",
+      "inferenceCategory": "Discovery; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Relevant TPC usage label per function",
-      "evaluationMetric": "Accuracy; Recall; Precision; F1; AUC",
+      "evaluationMetric": "TP; FP; TPR; FPR; number of vulnerabilities",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6042,7 +6137,8 @@
             "learning::Rule-based reasoning"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         }
       ],
@@ -6050,8 +6146,11 @@
         "learning::Rule-based reasoning": [
           "Datalog rule-driven checker"
         ],
-        "inference::Detection": [
-          "Accuracy; Recall; Precision; F1; AUC"
+        "inference::Discovery": [
+          "TP; FP; TPR; FPR; number of vulnerabilities"
+        ],
+        "inference::Clustering": [
+          "TP; FP; TPR; FPR; number of vulnerabilities"
         ],
         "analysis::Static": [
           "Disassembly; Call-site analysis"
@@ -6092,13 +6191,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "RNN-VAE/MDSAE + mlp classifer",
-      "inferenceCategory": "Detection",
+      "inferenceCategory": "Detection; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Vulnerable/safe sample label",
-      "evaluationMetric": "TP; FP; TPR; FPR; number of vulnerabilities",
+      "evaluationMetric": "TPR at 1% FPR; false positive rate",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6127,7 +6227,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Detection",
+            "inference::Clustering"
           ]
         }
       ],
@@ -6136,7 +6237,10 @@
           "RNN-VAE/MDSAE + mlp classifer"
         ],
         "inference::Detection": [
-          "TP; FP; TPR; FPR; number of vulnerabilities"
+          "TPR at 1% FPR; false positive rate"
+        ],
+        "inference::Clustering": [
+          "TPR at 1% FPR; false positive rate"
         ],
         "analysis::Static": [
           "Disassembly"
@@ -6151,7 +6255,7 @@
           "Filtering by removal"
         ],
         "tokenization::Syntactic unit": [
-          "Instruction"
+          "whole instruction"
         ],
         "encoding::Sparse": [
           "one-hot"
@@ -6179,14 +6283,15 @@
       "isTopTier": true,
       "codeForm": "IR",
       "pathCount": 2,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "BERT-based | N/A",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BERT-based + cosine similarity + fuzzy matching -> source candidate identification -> enhanced CFG + RDA/def-use graph reverse lookup + constraint checks",
-      "inferenceCategory": "Detection",
+      "inferenceCategory": "Discovery; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Suspicious function similarity score",
-      "evaluationMetric": "TPR at 1% FPR; false positive rate",
+      "evaluationMetric": "AUC; Accuracy; Recall at 0.1% FPR",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6208,14 +6313,13 @@
           "embedding": [
             "embedding::Context-dependent"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         },
         {
@@ -6240,14 +6344,13 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         }
       ],
@@ -6255,8 +6358,11 @@
         "learning::Discriminative": [
           "BERT-based + cosine similarity + fuzzy matching -> source candidate identification -> enhanced CFG + RDA/def-use graph reverse lookup + constraint checks"
         ],
-        "inference::Detection": [
-          "TPR at 1% FPR; false positive rate"
+        "inference::Discovery": [
+          "AUC; Accuracy; Recall at 0.1% FPR"
+        ],
+        "inference::Clustering": [
+          "AUC; Accuracy; Recall at 0.1% FPR"
         ],
         "analysis::Triage": [
           "Binary profiling"
@@ -6311,14 +6417,15 @@
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 2,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "attention-based LSTM | N/A",
       "learningCategory": "Reinforcement Learning",
       "learningSubcategory": "Reinforcement Learning",
       "learningModel": "attention-based LSTM + classifier + Actor-Critic",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label with stopping policy",
-      "evaluationMetric": "AUC; Accuracy; Recall at 0.1% FPR",
+      "evaluationMetric": "Precision; Recall; F1-score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6340,9 +6447,7 @@
           "embedding": [
             "embedding::Context-dependent"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Reinforcement Learning"
           ],
@@ -6368,9 +6473,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Reinforcement Learning"
           ],
@@ -6384,7 +6487,7 @@
           "attention-based LSTM + classifier + Actor-Critic"
         ],
         "inference::Detection": [
-          "AUC; Accuracy; Recall at 0.1% FPR"
+          "Precision; Recall; F1-score"
         ],
         "analysis::Dynamic": [
           "Behavioral monitoring | Behavioral monitoring"
@@ -6428,13 +6531,14 @@
       "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Gated CNN + BiLSTM + FC",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label",
-      "evaluationMetric": "Precision; Recall; F1-score",
+      "evaluationMetric": "Accuracy; AUC",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6472,7 +6576,7 @@
           "Gated CNN + BiLSTM + FC"
         ],
         "inference::Detection": [
-          "Precision; Recall; F1-score"
+          "Accuracy; AUC"
         ],
         "analysis::Dynamic": [
           "Behavioral monitoring"
@@ -6513,13 +6617,14 @@
       "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "PV-DM + Local Outlier Factor anomaly detector (LOF)",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label",
-      "evaluationMetric": "Accuracy; AUC",
+      "evaluationMetric": "TPR at 0.1% FPR; natural accuracy; attack success rate",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6558,7 +6663,7 @@
           "PV-DM + Local Outlier Factor anomaly detector (LOF)"
         ],
         "inference::Detection": [
-          "Accuracy; AUC"
+          "TPR at 0.1% FPR; natural accuracy; attack success rate"
         ],
         "analysis::Dynamic": [
           "Behavioral monitoring"
@@ -6602,13 +6707,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "CNN + FC",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label",
-      "evaluationMetric": "TPR at 0.1% FPR; natural accuracy; attack success rate",
+      "evaluationMetric": "True Positive Rate; False Positive Rate; robustness",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6644,7 +6750,7 @@
           "CNN + FC"
         ],
         "inference::Detection": [
-          "TPR at 0.1% FPR; natural accuracy; attack success rate"
+          "True Positive Rate; False Positive Rate; robustness"
         ],
         "analysis::Triage": [
           "Structural analysis"
@@ -6682,13 +6788,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "CNN + FC (using adversarial examples)",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label",
-      "evaluationMetric": "True Positive Rate; False Positive Rate; robustness",
+      "evaluationMetric": "TPR at 0.1% FPR; natural accuracy; attack success rate",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6724,7 +6831,7 @@
           "CNN + FC (using adversarial examples)"
         ],
         "inference::Detection": [
-          "True Positive Rate; False Positive Rate; robustness"
+          "TPR at 0.1% FPR; natural accuracy; attack success rate"
         ],
         "analysis::Triage": [
           "Structural analysis"
@@ -6762,13 +6869,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Bayesian neural network + feature-space adversarial training",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label",
-      "evaluationMetric": "TPR at 0.1% FPR; natural accuracy; attack success rate",
+      "evaluationMetric": "F1; Accuracy",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6802,7 +6910,7 @@
           "Bayesian neural network + feature-space adversarial training"
         ],
         "inference::Detection": [
-          "TPR at 0.1% FPR; natural accuracy; attack success rate"
+          "F1; Accuracy"
         ],
         "analysis::Triage": [
           "Structural analysis; Binary profiling"
@@ -6840,13 +6948,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "CNN + FC (GreedyBlock data-augmentation)",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label",
-      "evaluationMetric": "F1; Accuracy",
+      "evaluationMetric": "Balanced Accuracy; Accuracy; Recall; F1-score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6882,7 +6991,7 @@
           "CNN + FC (GreedyBlock data-augmentation)"
         ],
         "inference::Detection": [
-          "F1; Accuracy"
+          "Balanced Accuracy; Accuracy; Recall; F1-score"
         ],
         "analysis::Triage": [
           "Structural analysis"
@@ -6920,13 +7029,14 @@
       "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
+      "forClaude": "BERT-based -> GIN",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(BERT-based -> GIN ) + MLP classifier",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malware label adapted to drifted distribution",
-      "evaluationMetric": "Balanced Accuracy; Accuracy; Recall; F1-score",
+      "evaluationMetric": "Accuracy; FPR; Recall; Precision; F1-Score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -6996,7 +7106,7 @@
           "(BERT-based -> GIN ) + MLP classifier"
         ],
         "inference::Detection": [
-          "Balanced Accuracy; Accuracy; Recall; F1-score"
+          "Accuracy; FPR; Recall; Precision; F1-Score"
         ],
         "analysis::Static": [
           "Control flow analysis | Disassembly"
@@ -7049,13 +7159,14 @@
       "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "SRDC-GPT + linear classifier",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label",
-      "evaluationMetric": "Accuracy; FPR; Recall; Precision; F1-Score",
+      "evaluationMetric": "F1; Precision; Recall; Area Under Time (AUT); attack success rate (ASR)",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7094,7 +7205,7 @@
           "SRDC-GPT + linear classifier"
         ],
         "inference::Detection": [
-          "Accuracy; FPR; Recall; Precision; F1-Score"
+          "F1; Precision; Recall; Area Under Time (AUT); attack success rate (ASR)"
         ],
         "analysis::Dynamic": [
           "Behavioral monitoring"
@@ -7137,14 +7248,15 @@
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 2,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "Transformer-based | N/A",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Transformer-based + classifier | Random Forest",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label",
-      "evaluationMetric": "F1; Precision; Recall; Area Under Time (AUT); attack success rate (ASR)",
+      "evaluationMetric": "Precision; Recall; F1-score",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7168,9 +7280,7 @@
           "embedding": [
             "embedding::Context-dependent"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -7198,9 +7308,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -7214,7 +7322,7 @@
           "Transformer-based + classifier | Random Forest"
         ],
         "inference::Detection": [
-          "F1; Precision; Recall; Area Under Time (AUT); attack success rate (ASR)"
+          "Precision; Recall; F1-score"
         ],
         "analysis::Dynamic": [
           "Behavioral monitoring | Behavioral monitoring"
@@ -7264,13 +7372,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "SCBNN with DB training (density-boosting)",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Malicious/benign label",
-      "evaluationMetric": "Precision; Recall; F1-score",
+      "evaluationMetric": "# reports; # bugs found; true positive rate; false positive rate; # CVEs",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7306,7 +7415,7 @@
           "SCBNN with DB training (density-boosting)"
         ],
         "inference::Detection": [
-          "Precision; Recall; F1-score"
+          "# reports; # bugs found; true positive rate; false positive rate; # CVEs"
         ],
         "analysis::Triage": [
           "Structural analysis; Binary profiling"
@@ -7347,13 +7456,14 @@
       "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
+      "forClaude": "CBOW -> TADW",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(CBOW -> TADW) + k-hop greedy matching",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Matched function pairs across two binaries",
-      "evaluationMetric": "# reports; # bugs found; true positive rate; false positive rate; # CVEs",
+      "evaluationMetric": "number of unique crashes; number of paths discovered; number of vulnerabilities/bugs exposed",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7423,7 +7533,7 @@
           "(CBOW -> TADW) + k-hop greedy matching"
         ],
         "inference::Detection": [
-          "# reports; # bugs found; true positive rate; false positive rate; # CVEs"
+          "number of unique crashes; number of paths discovered; number of vulnerabilities/bugs exposed"
         ],
         "analysis::Static": [
           "Disassembly | Call-site analysis"
@@ -7438,7 +7548,7 @@
           "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
-          "Element"
+          "Instruction/IR-level"
         ],
         "encoding::Dense": [
           "TF-IDF | Node feature mapping; adjacency matrix"
@@ -7479,13 +7589,14 @@
       "codeForm": "IR",
       "pathCount": 2,
       "relationship": "-->",
+      "forClaude": "Bag-of-nodes -> Graph2vec",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(Bag-of-nodes + clustering)  -> ( Graph2vec + clustering)",
-      "inferenceCategory": "Discovery",
+      "inferenceCategory": "Discovery; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Inconsistent code group flag",
-      "evaluationMetric": "number of unique crashes; number of paths discovered; number of vulnerabilities/bugs exposed",
+      "evaluationMetric": "number of bugs found; number of crashes found; edge coverage",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7516,7 +7627,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         },
         {
@@ -7548,7 +7660,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         }
       ],
@@ -7557,7 +7670,10 @@
           "(Bag-of-nodes + clustering)  -> ( Graph2vec + clustering)"
         ],
         "inference::Discovery": [
-          "number of unique crashes; number of paths discovered; number of vulnerabilities/bugs exposed"
+          "number of bugs found; number of crashes found; edge coverage"
+        ],
+        "inference::Clustering": [
+          "number of bugs found; number of crashes found; edge coverage"
         ],
         "analysis::Static": [
           "IR lifting; Data-dependence analysis | IR lifting; Data-dependence analysis"
@@ -7607,13 +7723,14 @@
       "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "Markov-chain-guided power scheduling",
-      "inferenceCategory": "Discovery",
+      "inferenceCategory": "Discovery; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Power schedule per seed; new test inputs",
-      "evaluationMetric": "number of bugs found; number of crashes found; edge coverage",
+      "evaluationMetric": "number of bugs found; edge coverage",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7636,7 +7753,8 @@
             "learning::Rule-based reasoning"
           ],
           "inference": [
-            "inference::Discovery"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         }
       ],
@@ -7645,7 +7763,10 @@
           "Markov-chain-guided power scheduling"
         ],
         "inference::Discovery": [
-          "number of bugs found; number of crashes found; edge coverage"
+          "number of bugs found; edge coverage"
+        ],
+        "inference::Clustering": [
+          "number of bugs found; edge coverage"
         ],
         "analysis::Security Testing": [
           "Fuzzing"
@@ -7680,13 +7801,14 @@
       "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "MLP",
-      "inferenceCategory": "Discovery",
+      "inferenceCategory": "Discovery; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Mutation targets predicted to increase coverage",
-      "evaluationMetric": "number of bugs found; edge coverage",
+      "evaluationMetric": "edge coverage; number of unique crashes",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7713,7 +7835,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         }
       ],
@@ -7722,7 +7845,10 @@
           "MLP"
         ],
         "inference::Discovery": [
-          "number of bugs found; edge coverage"
+          "edge coverage; number of unique crashes"
+        ],
+        "inference::Clustering": [
+          "edge coverage; number of unique crashes"
         ],
         "analysis::Security Testing": [
           "Fuzzing"
@@ -7763,13 +7889,14 @@
       "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "MLP  +  MLP decoders -> saliency-guided mutation",
-      "inferenceCategory": "Discovery",
+      "inferenceCategory": "Discovery; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Multi-task mutation targets",
-      "evaluationMetric": "edge coverage; number of unique crashes",
+      "evaluationMetric": "field boundary accuracy; field type Top-1 accuracy; field type Top-2 accuracy; basic block coverage; number of bugs found",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7798,7 +7925,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         }
       ],
@@ -7807,7 +7935,10 @@
           "MLP  +  MLP decoders -> saliency-guided mutation"
         ],
         "inference::Discovery": [
-          "edge coverage; number of unique crashes"
+          "field boundary accuracy; field type Top-1 accuracy; field type Top-2 accuracy; basic block coverage; number of bugs found"
+        ],
+        "inference::Clustering": [
+          "field boundary accuracy; field type Top-1 accuracy; field type Top-2 accuracy; basic block coverage; number of bugs found"
         ],
         "analysis::Security Testing": [
           "Fuzzing"
@@ -7848,13 +7979,14 @@
       "codeForm": "Fetched instruction, Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "MLP + PreFuzz edge selection + probabilistic byte selection -> mutation",
-      "inferenceCategory": "Discovery",
+      "inferenceCategory": "Discovery; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Edge-set / probabilistic byte mutations",
-      "evaluationMetric": "field boundary accuracy; field type Top-1 accuracy; field type Top-2 accuracy; basic block coverage; number of bugs found",
+      "evaluationMetric": "Precision; Recall; BLEU",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7883,7 +8015,8 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         }
       ],
@@ -7892,7 +8025,10 @@
           "MLP + PreFuzz edge selection + probabilistic byte selection -> mutation"
         ],
         "inference::Discovery": [
-          "field boundary accuracy; field type Top-1 accuracy; field type Top-2 accuracy; basic block coverage; number of bugs found"
+          "Precision; Recall; BLEU"
+        ],
+        "inference::Clustering": [
+          "Precision; Recall; BLEU"
         ],
         "analysis::Security Testing": [
           "Fuzzing"
@@ -7932,14 +8068,15 @@
       "isTopTier": true,
       "codeForm": "Fetched instruction, Assembly, IR",
       "pathCount": 2,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "N/A | CNN",
       "learningCategory": "Rule-based | Discriminative",
       "learningSubcategory": "Determinstic reasoning | Detection",
       "learningModel": "Minimum Cluster field-boundary inference -> CNN field-type classifier -> format-aware power scheduling + type-specific mutators",
-      "inferenceCategory": "Discovery",
+      "inferenceCategory": "Discovery; clustering",
       "inferenceSubcategory": "",
       "inferenceOutput": "Inferred input field grammar + new test inputs",
-      "evaluationMetric": "Precision; Recall; BLEU",
+      "evaluationMetric": "BLEU; ROUGE-L; METEOR",
       "pathNodeIds": [
         {
           "analysis": [
@@ -7961,15 +8098,14 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Rule-based reasoning",
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         },
         {
@@ -7994,15 +8130,14 @@
           "embedding": [
             "embedding::Context-dependent"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Rule-based reasoning",
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery"
+            "inference::Discovery",
+            "inference::Clustering"
           ]
         }
       ],
@@ -8014,7 +8149,10 @@
           "Minimum Cluster field-boundary inference -> CNN field-type classifier -> format-aware power scheduling + type-specific mutators"
         ],
         "inference::Discovery": [
-          "Precision; Recall; BLEU"
+          "BLEU; ROUGE-L; METEOR"
+        ],
+        "inference::Clustering": [
+          "BLEU; ROUGE-L; METEOR"
         ],
         "analysis::Dynamic": [
           "Dynamic taint analysis | Dynamic taint analysis"
@@ -8073,13 +8211,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "(Trasnformer-based (PalmTree) /Word2Vec/Trasnformer-based(Asm2Vec) -> GRU ) + GRU decoder",
       "inferenceCategory": "Summarization",
       "inferenceSubcategory": "",
       "inferenceOutput": "Natural-language summary",
-      "evaluationMetric": "BLEU; ROUGE-L; METEOR",
+      "evaluationMetric": "token accuracy; program accuracy",
       "pathNodeIds": [
         {
           "analysis": [
@@ -8118,7 +8257,7 @@
           "(Trasnformer-based (PalmTree) /Word2Vec/Trasnformer-based(Asm2Vec) -> GRU ) + GRU decoder"
         ],
         "inference::Summarization": [
-          "BLEU; ROUGE-L; METEOR"
+          "token accuracy; program accuracy"
         ],
         "analysis::Static": [
           "Disassembly; Call-site analysis; Data-flow analysis"
@@ -8136,7 +8275,7 @@
           "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
-          "Element"
+          "Instruction/IR-level"
         ],
         "embedding::Context-dependent": [
           "BERT-based (PalmTree)  | Word2Vec | Trasnformer-based(Asm2Vec) | GRU"
@@ -8162,13 +8301,14 @@
       "codeForm": "Assembly, Decompiled code",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "(HMA-HMP) + Transformer decoder",
       "inferenceCategory": "Summarization",
       "inferenceSubcategory": "",
       "inferenceOutput": "Multi-intent natural-language summary",
-      "evaluationMetric": "token accuracy; program accuracy",
+      "evaluationMetric": "Meaningful Variable Ratio (MVR); Effort Ratio (ER); Correct Rate of Comments (CR); Non-trivial Rate of Comments (NR); Optimized Name Ratio (ONR); user-study Likert scores; task-answer accuracy",
       "pathNodeIds": [
         {
           "analysis": [
@@ -8206,7 +8346,7 @@
           "(HMA-HMP) + Transformer decoder"
         ],
         "inference::Summarization": [
-          "token accuracy; program accuracy"
+          "Meaningful Variable Ratio (MVR); Effort Ratio (ER); Correct Rate of Comments (CR); Non-trivial Rate of Comments (NR); Optimized Name Ratio (ONR); user-study Likert scores; task-answer accuracy"
         ],
         "analysis::Static": [
           "Disassembly; Control-flow analysis; Decompilation; Data-flow analysis"
@@ -8253,13 +8393,14 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "Tree-LSTM +  AST tree decoder with attention -> neural error predictor",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "AST-based decompiled program",
-      "evaluationMetric": "Meaningful Variable Ratio (MVR); Effort Ratio (ER); Correct Rate of Comments (CR); Non-trivial Rate of Comments (NR); Optimized Name Ratio (ONR); user-study Likert scores; task-answer accuracy",
+      "evaluationMetric": "DNN operator inference accuracy; network topology correctness; dimension inference accuracy; parameter inference accuracy; recompilation behavioral equivalence",
       "pathNodeIds": [
         {
           "analysis": [
@@ -8297,7 +8438,7 @@
           "Tree-LSTM +  AST tree decoder with attention -> neural error predictor"
         ],
         "inference::Recovery": [
-          "Meaningful Variable Ratio (MVR); Effort Ratio (ER); Correct Rate of Comments (CR); Non-trivial Rate of Comments (NR); Optimized Name Ratio (ONR); user-study Likert scores; task-answer accuracy"
+          "DNN operator inference accuracy; network topology correctness; dimension inference accuracy; parameter inference accuracy; recompilation behavioral equivalence"
         ],
         "analysis::Static": [
           "Disassembly"
@@ -8312,7 +8453,7 @@
           "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
-          "Instruction"
+          "whole instruction"
         ],
         "embedding::Context-dependent": [
           "Tree-LSTM"
@@ -8338,13 +8479,14 @@
       "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-prompting",
       "learningModel": "LLM",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Refined decompiled code",
-      "evaluationMetric": "DNN operator inference accuracy; network topology correctness; dimension inference accuracy; parameter inference accuracy; recompilation behavioral equivalence",
+      "evaluationMetric": "Top-K label homogeneity; Relevance@K; Exact match; Jaccard index; Normalized edit similarity; mAP",
       "pathNodeIds": [
         {
           "analysis": [
@@ -8378,7 +8520,7 @@
           "LLM"
         ],
         "inference::Recovery": [
-          "DNN operator inference accuracy; network topology correctness; dimension inference accuracy; parameter inference accuracy; recompilation behavioral equivalence"
+          "Top-K label homogeneity; Relevance@K; Exact match; Jaccard index; Normalized edit similarity; mAP"
         ],
         "analysis::Static": [
           "Decompilation"
@@ -8412,14 +8554,15 @@
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 3,
-      "relationship": "+",
+      "relationship": "",
+      "forClaude": "attention-based LSTM | N/A | N/A",
       "learningCategory": "Discriminative | Rule-based reasoning | Rule-based reasoning",
       "learningSubcategory": "Classification | Deterministic reasoning | Deterministic reasoning",
       "learningModel": "LSTM with attention + callsite trace-based topology recovery -> taint-reduced symbolic execution + constraint-pattern recovery",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Decoded DNN operator sequence",
-      "evaluationMetric": "Top-K label homogeneity; Relevance@K; Exact match; Jaccard index; Normalized edit similarity; mAP",
+      "evaluationMetric": "MSE; localized MSE (LMSE); ROC curve; true positive rate (TPR); false positive rate (FPR); top-100 precision; Silhouette Coefficient; Davies-Bouldin Score; analyst-cluster match rate; highlighted-function percentage / search-space reduction",
       "pathNodeIds": [
         {
           "analysis": [
@@ -8441,9 +8584,7 @@
           "embedding": [
             "embedding::Context-dependent"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative",
             "learning::Rule-based reasoning"
@@ -8472,9 +8613,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative",
             "learning::Rule-based reasoning"
@@ -8503,9 +8642,7 @@
           "embedding": [
             "embedding::N/A"
           ],
-          "combine": [
-            "combine::+"
-          ],
+          "combine": [],
           "learning": [
             "learning::Discriminative",
             "learning::Rule-based reasoning"
@@ -8523,7 +8660,7 @@
           "LSTM with attention + callsite trace-based topology recovery -> taint-reduced symbolic execution + constraint-pattern recovery"
         ],
         "inference::Recovery": [
-          "Top-K label homogeneity; Relevance@K; Exact match; Jaccard index; Normalized edit similarity; mAP"
+          "MSE; localized MSE (LMSE); ROC curve; true positive rate (TPR); false positive rate (FPR); top-100 precision; Silhouette Coefficient; Davies-Bouldin Score; analyst-cluster match rate; highlighted-function percentage / search-space reduction"
         ],
         "analysis::Static": [
           "Disassembly"
@@ -8591,13 +8728,14 @@
       "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Gradient-boosted decision tree ensemble (XGBoost)",
-      "inferenceCategory": "Detection",
+      "inferenceCategory": "Classification",
       "inferenceSubcategory": "",
       "inferenceOutput": "Pairwise malware similarity score",
-      "evaluationMetric": "MSE; localized MSE (LMSE); ROC curve; true positive rate (TPR); false positive rate (FPR); top-100 precision; Silhouette Coefficient; Davies-Bouldin Score; analyst-cluster match rate; highlighted-function percentage / search-space reduction",
+      "evaluationMetric": "",
       "pathNodeIds": [
         {
           "analysis": [
@@ -8622,16 +8760,13 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection"
+            "inference::Classification"
           ]
         }
       ],
       "nodeReveal": {
         "learning::Discriminative": [
           "Gradient-boosted decision tree ensemble (XGBoost)"
-        ],
-        "inference::Detection": [
-          "MSE; localized MSE (LMSE); ROC curve; true positive rate (TPR); false positive rate (FPR); top-100 precision; Silhouette Coefficient; Davies-Bouldin Score; analyst-cluster match rate; highlighted-function percentage / search-space reduction"
         ],
         "analysis::Triage": [
           "Structural analysis; Binary profiling"
@@ -8669,10 +8804,11 @@
       "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
+      "forClaude": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "autoencoder + LMSE RoI detection + PCA + HDBSCAN clustering",
-      "inferenceCategory": "Clustering",
+      "inferenceCategory": "Classification",
       "inferenceSubcategory": "",
       "inferenceOutput": "Discovered malicious behavior clusters",
       "evaluationMetric": "",
@@ -8703,7 +8839,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Clustering"
+            "inference::Classification"
           ]
         }
       ],
