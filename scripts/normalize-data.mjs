@@ -181,6 +181,16 @@ function normTokUnit(u) {
   return clean(u);
 }
 
+function normSplitBasis(v) {
+  const s = clean(v).toLowerCase();
+  if (isSkip(s) || s === 'n' || s === 'a') return '';
+  if (s.startsWith('atomic')) return 'Atomic units';
+  if (s.startsWith('data-driven')) return 'Data-driven';
+  if (s.startsWith('rule-based')) return 'Rule-based decomposition';
+  if (s.startsWith('syntactic')) return 'Syntactic unit';
+  return clean(v);
+}
+
 function normEncoding(v) {
   const s = clean(v).toLowerCase();
   if (s.startsWith('dense')) return 'Dense';
@@ -209,19 +219,20 @@ const isSequenceForm = (form) => normForm(form) === 'Sequence';
 // `fixed` stages always show their full canonical node set (all possible
 // entries, even unused). `derived` stages collect their nodes from the data.
 const STAGES = [
-  { id: 'analysis',         name: 'Analysis',         order: 0, perPath: true,  expand: true,  expandLabel: 'Technique', fixed: ['Triage', 'Static', 'Dynamic', 'Security Testing', 'Hybrid'] },
+  { id: 'analysis',         name: 'Analysis',         order: 0, perPath: true,  expand: true,  expandLabel: 'Technique', fixed: ['Triage', 'Static', 'Dynamic', 'Security Testing'] },
   { id: 'artifact-class',   name: 'Artifact class',   order: 1, perPath: true,  expand: true, expandLabel: 'Artifact',
     fixed: ['Code representation', 'String literal', 'Text stream', 'Binary fact', 'Graph representation', 'Numerical statistic', 'Snapshot', 'Logical expression', 'Test set'] },
   { id: 'artifact-form',    name: 'Artifact form',    order: 2, perPath: true,  expand: true, expandLabel: 'Transformation',
     fixed: ['Sequence', 'Graph', 'Numeric descriptor', 'Image'] },
   { id: 'canonicalization', name: 'Canonicalization', order: 3, perPath: true,  expand: true, expandLabel: 'Method',
     fixed: ['Scale', 'Replace', 'Remove', 'Map', 'Transform', 'Extract'] },
-  { id: 'tokenization',     name: 'Tokenization',     order: 4, perPath: true,  expand: true, expandLabel: 'Technique', sequenceOnly: true },
+  { id: 'tokenization',     name: 'Tokenization',     order: 4, perPath: true,  expand: true, expandLabel: 'Token unit', sequenceOnly: true },
   { id: 'encoding',         name: 'Encoding',         order: 5, perPath: true,  expand: true, expandLabel: 'Technique', fixed: ['Sparse', 'Dense'] },
   { id: 'embedding',        name: 'Embedding',        order: 6, perPath: true,  expand: true, expandLabel: 'Technique', fixed: ['Context-dependent', 'Context-independent'] },
   { id: 'combine',          name: 'Learning model',   order: 7, perPath: false, expand: false, connector: true, fixed: ['-->', '+'] },
   { id: 'learning',         name: 'Learning',         order: 8, perPath: false, expand: true, expandLabel: 'Model', detailLabel: 'Subcategory' },
-  { id: 'inference',        name: 'Inference',        order: 9, perPath: false, expand: true, expandLabel: 'Metric' },
+  { id: 'inference',        name: 'Inference',        order: 9, perPath: false, expand: true, expandLabel: 'Metric',
+    fixed: ['Detection', 'Recovery', 'Discovery', 'Classification', 'Reconstruction', 'Clustering', 'Summarization', 'Restoration'] },
 ];
 
 /* ------------------------------- load ---------------------------------- */
@@ -264,14 +275,8 @@ function laneEntries(stageId, lane) {
     }
     case 'tokenization': {
       if (!lane.isSequence) return [];
-      const out = [];
-      for (const part of splitMulti(lane.tokenizationUnit)) {
-        const u = normTokUnit(part);
-        if (u && !out.some((x) => x.label === u)) {
-          out.push({ label: u, reveal: lane.tokenizationTechnique, detail: '' });
-        }
-      }
-      return out;
+      const b = normSplitBasis(lane.splitBasis);
+      return b ? [{ label: b, reveal: '', detail: '' }] : [];
     }
     case 'encoding': {
       const e = normEncoding(lane.encoding);
@@ -318,7 +323,7 @@ function revealCell(stageId, row) {
     case 'artifact-class':   return row['Artifact'];
     case 'artifact-form':    return row['Transformation'];
     case 'canonicalization': return row['Canonicalization_Method'];
-    case 'tokenization':     return row['Tokenization_Technique'];
+    case 'tokenization':     return row['Tokenization_Unit'];
     case 'encoding':         return row['Encoding examples'];
     case 'embedding':        return row['Embedding examples'];
     default:                 return '';
@@ -387,6 +392,7 @@ function buildPaper(row) {
       canonRaw: v('Canonicalization'),
       canonMethod: v('Canonicalization_Method'),
       isSequence: isSequenceForm(v('Artifact form')),
+      splitBasis: v('Split basis'),
       tokenizationUnit: v('Tokenization_Unit'),
       tokenizationTechnique: v('Tokenization_Technique'),
       encoding: v('Encoding'),
