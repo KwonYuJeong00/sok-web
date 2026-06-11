@@ -5,12 +5,12 @@ import type { Stage } from '../types';
 
 export const LAYOUT = {
   pad: 24,
-  headerH: 68,
+  headerH: 48,
   headerGap: 20,
   colW: 155,
   colGap: 40,
   connectorW: 48,   // narrow slot for the Learning-model +/--> marker
-  nodeH: 68,
+  nodeH: 82,
   nodeGap: 10,
 };
 

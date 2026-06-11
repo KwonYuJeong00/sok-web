@@ -37,6 +37,7 @@ export interface CategoryNode {
   stageId: string;
   label: string;
   paperCount: number;
+  transient?: boolean;
 }
 
 export interface Paper {
@@ -53,6 +54,7 @@ export interface Paper {
   codeForm: string;
   pathCount: number;
   relationship: string;
+  forClaude: string;
   learningCategory: string;
   learningSubcategory: string;
   learningModel: string;

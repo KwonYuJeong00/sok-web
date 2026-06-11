@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { cssVars } from '../lib/style';
-import { stageColor } from '../lib/colors';
+import { stageColor, pathColor } from '../lib/colors';
 import { LAYOUT } from '../lib/layout';
 import type { GraphLayout } from '../lib/layout';
 import type { GEdge } from '../lib/edges';
 import type { Stage, Paper } from '../types';
 import { CategoryNodeView } from './CategoryNode';
+import { computePathColorIndices } from '../lib/highlight';
 
 interface Props {
   stages: Stage[];
@@ -20,6 +21,9 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
   const paperSelected = !!paper;
 
   const toggle = (id: string) => setOpenId((cur) => (cur === id ? null : id));
+
+  // Artifact-form-based color index for each path; stable when paper is null.
+  const pathColorIdxs = paper ? computePathColorIndices(paper, stages) : [];
 
   return (
     <div className="graph-scroll" onClick={() => setOpenId(null)}>
@@ -62,7 +66,7 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
         </svg>
 
         {/* column headers */}
-        {stages.filter((s) => !s.connector).map((s, idx) => {
+        {stages.filter((s) => !s.connector).map((s) => {
           const sb = layout.stageBox.get(s.id)!;
           return (
             <div
@@ -73,7 +77,6 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
                 '--stage-color': stageColor(s.id),
               })}
             >
-              <span className="stage-order">{idx + 1}</span>
               <span className="stage-name">{s.name}</span>
               {s.sequenceOnly && <span className="stage-only">sequence only</span>}
             </div>
@@ -83,9 +86,45 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
         {/* nodes */}
         {stages.map((s) =>
           s.nodes.map((n) => {
-            // the connector marker only appears for a selected paper that uses it
             if (s.connector && !(paperSelected && nodeColors.has(n.id))) return null;
+            if (n.transient && !nodeColors.has(n.id)) return null;
             const box = layout.nodeBox.get(n.id)!;
+
+            // All hit non-connector cells show a single right-side strip divided
+            // by the paths that touch this node, each section coloured by its
+            // artifact-form index.
+            const touchingPaths = !s.connector && paper
+              ? paper.pathNodeIds
+                  .map((pathNodes, i) => (pathNodes[s.id] ?? []).includes(n.id) ? i : null)
+                  .filter((x): x is number => x !== null)
+              : [];
+
+            const stripeColors: string[] | undefined =
+              !s.connector && nodeColors.has(n.id) && touchingPaths.length > 0
+                ? touchingPaths.map((i) => pathColor(pathColorIdxs[i]))
+                : undefined;
+
+            // Per-path colored reveal entries for expandable popup boxes.
+            // Shows a small colored square (matching artifact-form color) before
+            // each path's methods. Only built when values differ across paths
+            // (|‑separated reveal) or when only one path touches this node.
+            const pathReveals =
+              !s.connector && s.expand && paper && nodeColors.has(n.id) && touchingPaths.length > 0
+                ? (() => {
+                    const raw = (paper.nodeReveal[n.id] ?? [])[0] ?? '';
+                    const parts = raw.split('|').map((p) => p.trim()).filter(Boolean);
+                    if (parts.length > 1 || touchingPaths.length === 1) {
+                      return touchingPaths
+                        .map((pi, idx) => ({
+                          color: pathColor(pathColorIdxs[pi]),
+                          text: parts[idx] ?? parts[0] ?? '',
+                        }))
+                        .filter((x) => x.text.length > 0);
+                    }
+                    return undefined;
+                  })()
+                : undefined;
+
             return (
               <CategoryNodeView
                 key={n.id}
@@ -95,14 +134,16 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
                 connector={s.connector}
                 paperSelected={paperSelected}
                 highlighted={nodeColors.has(n.id)}
-                hitColor={nodeColors.get(n.id)}
-                detail={paper?.nodeDetail[n.id]}
+                hitColor={nodeColors.has(n.id) ? '#6b7280' : undefined}
+                detail={s.connector && paper ? [paper.forClaude] : paper?.nodeDetail[n.id]}
                 expandable={s.expand && nodeColors.has(n.id)}
                 expandLabel={s.expandLabel}
                 detailLabel={s.detailLabel}
                 reveal={paper?.nodeReveal[n.id]}
+                pathReveals={pathReveals}
                 open={openId === n.id}
                 onToggle={() => toggle(n.id)}
+                stripeColors={stripeColors}
               />
             );
           }),

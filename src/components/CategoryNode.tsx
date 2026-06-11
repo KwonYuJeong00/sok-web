@@ -2,6 +2,20 @@ import { cssVars } from '../lib/style';
 import type { CategoryNode } from '../types';
 import type { Box } from '../lib/layout';
 
+function renderPopText(value: string, key: string) {
+  const parts = value.split(';').map((p) => p.trim()).filter(Boolean);
+  if (parts.length > 1) {
+    return (
+      <ol key={key} className="node-pop-list">
+        {parts.map((p, i) => <li key={i}>{p}{i < parts.length - 1 ? ';' : ''}</li>)}
+      </ol>
+    );
+  }
+  return <span key={key} className="node-pop-text">{value}</span>;
+}
+
+interface PathReveal { color: string; text: string; }
+
 interface Props {
   node: CategoryNode;
   box: Box;
@@ -15,20 +29,23 @@ interface Props {
   expandLabel: string;
   detailLabel: string;      // popup heading for the detail value
   reveal?: string[];        // click-to-expand value(s)
+  pathReveals?: PathReveal[]; // per-path reveal entries with artifact-form color prefix
   open: boolean;
   onToggle: () => void;
+  stripeColors?: string[];  // right-edge path-color strips (analysis column only)
 }
 
 export function CategoryNodeView(props: Props) {
   const {
     node, box, color, connector, paperSelected, highlighted, hitColor, detail, expandable,
-    expandLabel, detailLabel, reveal, open, onToggle,
+    expandLabel, detailLabel, reveal, pathReveals, open, onToggle, stripeColors,
   } = props;
 
   // Learning-model connector: a small pill (+ / -->) showing how the upstream
   // embeddings are combined. Only rendered when the selected paper uses it.
   if (connector) {
     const sequential = node.label.includes('>');
+    const label = detail?.[0];
     return (
       <div
         className="node is-connector"
@@ -37,6 +54,7 @@ export function CategoryNodeView(props: Props) {
         })}
         title={sequential ? 'Embeddings applied sequentially' : 'Embeddings combined in parallel'}
       >
+        {label && <span className="connector-label">{label}</span>}
         <span className="connector-mark">{node.label}</span>
       </div>
     );
@@ -69,21 +87,31 @@ export function CategoryNodeView(props: Props) {
       {highlighted && expandable && (
         <span className="node-expand">{open ? '−' : '+'} {expandLabel}</span>
       )}
+      {highlighted && stripeColors && stripeColors.length > 0 && (
+        <div className="node-stripes">
+          {stripeColors.map((c, i) => (
+            <div key={i} className="node-stripe" style={{ background: c }} />
+          ))}
+        </div>
+      )}
       {open && (
-        <div className="node-pop" role="dialog">
+        <div className={`node-pop${node.stageId === 'analysis' ? ' node-pop--left' : ''}`} role="dialog">
           {detail && detail.length > 0 && detailLabel && (
             <>
               <span className="node-pop-label">{detailLabel}</span>
-              {detail.map((d, i) => (
-                <span key={`d${i}`} className="node-pop-text">{d}</span>
-              ))}
+              {detail.map((d, i) => renderPopText(d, `d${i}`))}
             </>
           )}
           <span className="node-pop-label">{expandLabel}</span>
-          {reveal && reveal.length > 0 ? (
-            reveal.map((r, i) => (
-              <span key={`r${i}`} className="node-pop-text">{r}</span>
+          {pathReveals && pathReveals.length > 0 ? (
+            pathReveals.map(({ color: dotColor, text }, i) => (
+              <div key={i} className="node-pop-path">
+                <span className="node-pop-dot" style={{ background: dotColor }} />
+                <div className="node-pop-path-text">{renderPopText(text, `pr${i}`)}</div>
+              </div>
             ))
+          ) : reveal && reveal.length > 0 ? (
+            reveal.map((r, i) => renderPopText(r, `r${i}`))
           ) : (
             <span className="node-pop-text">N/A</span>
           )}
