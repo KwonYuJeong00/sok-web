@@ -41,7 +41,6 @@ export default function App() {
         ? { kind: 'none' }
         : { kind: 'paper', paperId: pid },
     );
-  const clearSelection = () => setSelection({ kind: 'none' });
 
   return (
     <div className="app">
@@ -50,8 +49,6 @@ export default function App() {
         filter={filter}
         onChange={setFilter}
         resultCount={filteredPids.size}
-        selectedPid={selectedPaper?.id ?? null}
-        onClearSelection={clearSelection}
       />
       <div className="body">
         <Sidebar
