@@ -53,7 +53,7 @@ export function CategoryNodeView(props: Props) {
         title={sequential ? 'Embeddings applied sequentially' : 'Embeddings combined in parallel'}
       >
         {label && <span className="connector-label">{label}</span>}
-        <span className="connector-mark">{node.label}</span>
+        <span className={`connector-mark${sequential ? ' connector-mark--seq' : ''}`}>{node.label}</span>
       </div>
     );
   }
