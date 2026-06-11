@@ -4,16 +4,16 @@
 //     paper. The same lane keeps its colour across every stage (requirement 11).
 
 const STAGE_COLORS: Record<string, string> = {
-  analysis:         '#475569', // slate-600
-  'artifact-class': '#1d4ed8', // blue-700
-  'artifact-form':  '#0369a1', // sky-700
-  canonicalization: '#0f766e', // teal-700
-  tokenization:     '#15803d', // green-700
-  encoding:         '#a16207', // yellow-700
-  embedding:        '#c2410c', // orange-700
-  combine:          '#57534e', // stone-600
-  learning:         '#b91c1c', // red-700
-  inference:        '#86198f', // fuchsia-800
+  analysis:         '#475569',
+  'artifact-class': '#475569',
+  'artifact-form':  '#475569',
+  canonicalization: '#475569',
+  tokenization:     '#475569',
+  encoding:         '#475569',
+  embedding:        '#475569',
+  combine:          '#475569',
+  learning:         '#475569',
+  inference:        '#475569',
 };
 
 // Distinct colours for the cells lit within a single column (parallel `|`
