@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T01:32:10.224Z",
+    "generatedAt": "2026-06-11T01:44:10.921Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -15,8 +15,8 @@
       "name": "Analysis",
       "order": 0,
       "perPath": true,
-      "expand": false,
-      "expandLabel": "",
+      "expand": true,
+      "expandLabel": "Technique",
       "detailLabel": "",
       "sequenceOnly": false,
       "connector": false,
