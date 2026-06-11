@@ -219,7 +219,7 @@ const isSequenceForm = (form) => normForm(form) === 'Sequence';
 // `fixed` stages always show their full canonical node set (all possible
 // entries, even unused). `derived` stages collect their nodes from the data.
 const STAGES = [
-  { id: 'analysis',         name: 'Analysis',         order: 0, perPath: true,  expand: true,  expandLabel: 'Technique', fixed: ['Triage', 'Static', 'Dynamic', 'Security Testing'] },
+  { id: 'analysis',         name: 'Analysis',         order: 0, perPath: true,  expand: true,  expandLabel: 'Method', fixed: ['Triage', 'Static', 'Dynamic', 'Security Testing'] },
   { id: 'artifact-class',   name: 'Artifact class',   order: 1, perPath: true,  expand: true, expandLabel: 'Artifact',
     fixed: ['Code representation', 'String literal', 'Text stream', 'Binary fact', 'Graph representation', 'Numerical statistic', 'Snapshot', 'Logical expression', 'Test set'] },
   { id: 'artifact-form',    name: 'Artifact form',    order: 2, perPath: true,  expand: true, expandLabel: 'Transformation',
@@ -227,8 +227,8 @@ const STAGES = [
   { id: 'canonicalization', name: 'Canonicalization', order: 3, perPath: true,  expand: true, expandLabel: 'Method',
     fixed: ['Scale', 'Replace', 'Remove', 'Map', 'Transform', 'Extract'] },
   { id: 'tokenization',     name: 'Tokenization',     order: 4, perPath: true,  expand: true, expandLabel: 'Token unit', sequenceOnly: true },
-  { id: 'encoding',         name: 'Encoding',         order: 5, perPath: true,  expand: true, expandLabel: 'Technique', fixed: ['Sparse', 'Dense'] },
-  { id: 'embedding',        name: 'Embedding',        order: 6, perPath: true,  expand: true, expandLabel: 'Technique', fixed: ['Context-dependent', 'Context-independent'] },
+  { id: 'encoding',         name: 'Encoding',         order: 5, perPath: true,  expand: true, expandLabel: 'Method', fixed: ['Sparse', 'Dense'] },
+  { id: 'embedding',        name: 'Embedding',        order: 6, perPath: true,  expand: true, expandLabel: 'Method', fixed: ['Context-dependent', 'Context-independent'] },
   { id: 'combine',          name: 'Learning model',   order: 7, perPath: false, expand: false, connector: true, fixed: ['-->', '+'] },
   { id: 'learning',         name: 'Learning',         order: 8, perPath: false, expand: true, expandLabel: 'Model', detailLabel: 'Subcategory' },
   { id: 'inference',        name: 'Inference',        order: 9, perPath: false, expand: true, expandLabel: 'Metric',
