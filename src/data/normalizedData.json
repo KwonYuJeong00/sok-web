@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T01:44:10.921Z",
+    "generatedAt": "2026-06-11T01:52:52.254Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -254,21 +254,15 @@
           "paperCount": 4
         },
         {
-          "id": "tokenization::Trace event",
+          "id": "tokenization::Trace-level",
           "stageId": "tokenization",
-          "label": "Trace event",
-          "paperCount": 3
+          "label": "Trace-level",
+          "paperCount": 4
         },
         {
           "id": "tokenization::Character",
           "stageId": "tokenization",
           "label": "Character",
-          "paperCount": 1
-        },
-        {
-          "id": "tokenization::Trace-level",
-          "stageId": "tokenization",
-          "label": "Trace-level",
           "paperCount": 1
         }
       ]
@@ -288,13 +282,13 @@
           "id": "encoding::Sparse",
           "stageId": "encoding",
           "label": "Sparse",
-          "paperCount": 45
+          "paperCount": 44
         },
         {
           "id": "encoding::Dense",
           "stageId": "encoding",
           "label": "Dense",
-          "paperCount": 50
+          "paperCount": 51
         }
       ]
     },
@@ -458,15 +452,15 @@
       "inferenceType": "detection",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BERT-based",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Location-level detection",
+      "inferenceOutput": "Per-byte/per-instruction boundary label",
       "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
@@ -514,6 +508,9 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "tokenization::Byte": [
+          "Byte-level"
+        ],
         "encoding::Sparse": [
           "One-hot"
         ],
@@ -537,15 +534,15 @@
       "inferenceType": "detection",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "RNN → R-GCN",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Location-level detection",
+      "inferenceOutput": "Per-instruction boundary label + per-function entry label",
       "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
@@ -625,6 +622,9 @@
         "artifact-form::Numeric descriptor": [
           "Code representations -> Numeric descriptor"
         ],
+        "canonicalization::Remove": [
+          "Numeric descriptor > Feature value removal"
+        ],
         "encoding::Dense": [
           "N/A | Node feature mapping"
         ],
@@ -636,6 +636,9 @@
         ],
         "artifact-form::Graph": [
           "Graph representation -> Graph"
+        ],
+        "canonicalization::Map": [
+          "Graph > Node attribute mapping; Edge attribute mapping; Node feature mapping"
         ]
       },
       "nodeDetail": {
@@ -654,15 +657,15 @@
       "inferenceType": "detection",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "RNN  → Transformer-based",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Location-level detection",
+      "inferenceOutput": "Per-byte/per-instruction boundary label",
       "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
@@ -740,6 +743,9 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence | Graph representation -> Sequence"
         ],
+        "tokenization::Byte": [
+          "Byte-level"
+        ],
         "embedding::Context-dependent": [
           "RNN | Transformer-based"
         ],
@@ -763,15 +769,15 @@
       "inferenceType": "detection",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BiRNN",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Location-level detection",
+      "inferenceOutput": "Per-byte/per-instruction boundary label",
       "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
@@ -819,6 +825,9 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "tokenization::Byte": [
+          "Byte-level"
+        ],
         "encoding::Sparse": [
           "One-hot"
         ],
@@ -842,15 +851,15 @@
       "inferenceType": "detection",
       "conference": "ESEC/FSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Probabilistic reasoning",
       "learningModel": "N/A",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Probabilistic structural recovery",
+      "inferenceOutput": "Per-address P(function-start) posterior",
       "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
@@ -905,6 +914,9 @@
         "artifact-form::Graph": [
           "Binary facts; Binary facts; Binary facts; Code representation; Graph representation-> Graph"
         ],
+        "canonicalization::Transform": [
+          "Relevant-subgraph filtering"
+        ],
         "encoding::Dense": [
           "Edge feature mapping"
         ]
@@ -925,15 +937,15 @@
       "inferenceType": "reconstruction",
       "conference": "S&P",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "N/A",
       "inferenceCategory": "Reconstruction",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Graph / dependency edge prediction",
+      "inferenceOutput": "Saliency-based input-byte -> sink dependency",
       "evaluationMetric": "hot byte accuracy; FPR",
       "pathNodeIds": [
         {
@@ -983,6 +995,9 @@
         ],
         "artifact-form::Numeric descriptor": [
           "Test sets; Binary facts -> Numeric descriptor"
+        ],
+        "canonicalization::Scale": [
+          "Numeric value scaling"
         ]
       },
       "nodeDetail": {
@@ -1001,15 +1016,15 @@
       "inferenceType": "reconstruction",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "N/A",
       "inferenceCategory": "Reconstruction",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Graph / dependency edge prediction",
+      "inferenceOutput": "Boolean taint propagation rules in DNF",
       "evaluationMetric": "instruction coverage; correctness",
       "pathNodeIds": [
         {
@@ -1071,15 +1086,15 @@
       "inferenceType": "reconstruction",
       "conference": "ESEC/FSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction, Assembly",
       "pathCount": 3,
       "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Transformer-based || CNN || CNN",
       "inferenceCategory": "Reconstruction",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Graph / dependency edge prediction",
+      "inferenceOutput": "Per-instruction memory-dependence label",
       "evaluationMetric": "Detect; Miss; FP",
       "pathNodeIds": [
         {
@@ -1195,11 +1210,23 @@
         "artifact-form::Sequence": [
           "Text streams  -> Sequence | Binary facts -> Sequence | Text streams -> Sequence"
         ],
+        "canonicalization::Remove": [
+          "element replacement"
+        ],
+        "tokenization::Element": [
+          "element"
+        ],
         "embedding::Context-dependent": [
           "Transformer-based"
         ],
         "artifact-class::Binary fact": [
           "instruction address"
+        ],
+        "canonicalization::Scale": [
+          "Byte value scaling | Byte value scaling"
+        ],
+        "tokenization::Byte": [
+          "Byte-level | Byte-level"
         ],
         "encoding::Dense": [
           "N/A | N/A"
@@ -1224,15 +1251,15 @@
       "inferenceType": "reconstruction",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "Hierachical BiLSTM",
       "inferenceCategory": "Reconstruction",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Graph / dependency edge prediction",
+      "inferenceOutput": "Per-byte memory region label (global/heap/stack/other)",
       "evaluationMetric": "Precision; Recall; F1 score",
       "pathNodeIds": [
         {
@@ -1282,6 +1309,12 @@
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
         ],
+        "canonicalization::Scale": [
+          "Byte value scaling"
+        ],
+        "tokenization::Byte": [
+          "Byte-level"
+        ],
         "encoding::Sparse": [
           "One-hot"
         ],
@@ -1305,15 +1338,15 @@
       "inferenceType": "detection",
       "conference": "FSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "REIL",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Jaccard similarity score / Z3 matches",
       "evaluationMetric": "Percentage ranked #1; Top-K match rate; matching accuracy",
       "pathNodeIds": [
         {
@@ -1387,15 +1420,15 @@
       "inferenceType": "detection",
       "conference": "AAAI",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BERT-based MPNN -> ResNet",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
       "evaluationMetric": "Rank1; MRR",
       "pathNodeIds": [
         {
@@ -1502,15 +1535,15 @@
       "inferenceType": "detection",
       "conference": "NeurIPS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 4,
       "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(Hierachical BiLSTM -> GGNN) || Hierachical-LSTM || Integer-LSTM",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
       "evaluationMetric": "Recall@1; Recall@10",
       "pathNodeIds": [
         {
@@ -1665,6 +1698,9 @@
         "artifact-class::String literal": [
           "Strings"
         ],
+        "tokenization::Character": [
+          "Character-level"
+        ],
         "artifact-class::Binary fact": [
           "constant"
         ]
@@ -1685,15 +1721,15 @@
       "inferenceType": "detection",
       "conference": "ICSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "GNN",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Ranked function list across inlining patterns",
       "evaluationMetric": "Accuracy; Precision; Recall; F1-score; AUC",
       "pathNodeIds": [
         {
@@ -1744,7 +1780,7 @@
           "Code representations; Graph representation -> Graph"
         ],
         "encoding::Dense": [
-          "Node attribute IDs; Node feature mapping"
+          "Node feature mapping"
         ],
         "embedding::Context-dependent": [
           "GNN"
@@ -1766,15 +1802,15 @@
       "inferenceType": "detection",
       "conference": "ICSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "i2v -> Structure2Vec",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
       "evaluationMetric": "Precision@K",
       "pathNodeIds": [
         {
@@ -1854,6 +1890,9 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Granuaility-based"
+        ],
         "embedding::Context-dependent": [
           "i2v | Structure2Vec"
         ],
@@ -1883,15 +1922,15 @@
       "inferenceType": "detection",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Pcode IR",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Bidirectional GGNN",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Ranked function list with cosine similarity",
       "evaluationMetric": "Recall@1; MRR",
       "pathNodeIds": [
         {
@@ -1943,6 +1982,9 @@
         "artifact-form::Graph": [
           "Code representations; Code representations; Graph representations; Graph representations -> Graph"
         ],
+        "canonicalization::Map": [
+          "Graph node-attribute editing"
+        ],
         "encoding::Sparse": [
           "Node attribute IDs; Edge attribute IDs"
         ],
@@ -1966,15 +2008,15 @@
       "inferenceType": "detection",
       "conference": "ICSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Source code, Decompiled code",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "Transformer-based",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
       "evaluationMetric": "MRR; Recall@K",
       "pathNodeIds": [
         {
@@ -2022,6 +2064,9 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
+        "tokenization::Subword (Pretrained-LLM)": [
+          "Built-in llm tokenizer | Built-in llm tokenizer"
+        ],
         "embedding::Context-dependent": [
           "Transformer-based"
         ]
@@ -2042,15 +2087,15 @@
       "inferenceType": "detection",
       "conference": "NeurIPS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "LLM2Vec",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Cosine similarity; threshold-based pair decision",
       "evaluationMetric": "MRR; Recall@1; Accuracy",
       "pathNodeIds": [
         {
@@ -2100,6 +2145,12 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Assembly instruction element replacement"
+        ],
+        "tokenization::Subword (Pretrained-LLM)": [
+          "Built-in llm tokenizer"
+        ],
         "embedding::Context-dependent": [
           "LLM2Vec"
         ]
@@ -2120,15 +2171,15 @@
       "inferenceType": "detection",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Structure2vec",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
       "evaluationMetric": "AUC; Precision@50; Top-K accuracy",
       "pathNodeIds": [
         {
@@ -2192,6 +2243,9 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations; String Literals; Binary facts -> Graph"
         ],
+        "canonicalization::Map": [
+          "Graph node-attribute editing"
+        ],
         "encoding::Dense": [
           "Node feature mapping"
         ],
@@ -2215,15 +2269,15 @@
       "inferenceType": "detection",
       "conference": "ICML",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "GNN",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
       "evaluationMetric": "Pair AUC; Triplet accuracy",
       "pathNodeIds": [
         {
@@ -2275,6 +2329,9 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations -> Graph"
         ],
+        "canonicalization::Map": [
+          "Graph node-attribute editing"
+        ],
         "encoding::Dense": [
           "Node feature mapping"
         ],
@@ -2298,15 +2355,15 @@
       "inferenceType": "detection",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "word2vec",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
       "evaluationMetric": "AUC; ROC",
       "pathNodeIds": [
         {
@@ -2356,6 +2413,12 @@
         "artifact-form::Sequence": [
           "Code representations-> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Assembly instruction element replacement"
+        ],
+        "tokenization::Instruction": [
+          "Instruction-level"
+        ],
         "embedding::Context-dependent": [
           "word2vec"
         ]
@@ -2376,15 +2439,15 @@
       "inferenceType": "detection",
       "conference": "S&P",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "PV-DM",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Cosine/Euclidean similarity; ranked function list",
       "evaluationMetric": "Precision@1; Recall@K; Precision-Recall curve",
       "pathNodeIds": [
         {
@@ -2438,6 +2501,12 @@
         "artifact-form::Sequence": [
           "Code representation; Graph representation -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Assembly instruction element replacement"
+        ],
+        "tokenization::Element": [
+          "Instruction-field-level"
+        ],
         "embedding::Context-independent": [
           "PV-DM"
         ]
@@ -2458,15 +2527,15 @@
       "inferenceType": "summarization",
       "conference": "NeurIPS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly, Decompiled code",
       "pathCount": 3,
       "relationship": "+",
       "learningCategory": "Generative | LLM-based",
       "learningSubcategory": "Generative | LLM-based prompting",
       "learningModel": "BERT-based  || BERT-based  | Transformer-based",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Recovered source/binary mapping",
       "evaluationMetric": "CHRF; GPT4-based functionality score; GPT4-based context relevance score; token-level precision; token-level recall; token-level F1; character-level BLEU; character-level ROUGE-L; character-level METEOR",
       "pathNodeIds": [
         {
@@ -2580,6 +2649,9 @@
         "artifact-form::Sequence": [
           "Code representations  -> Sequence | Code representations -> Sequence"
         ],
+        "tokenization::Instruction": [
+          "Delimiter/symbol-based (inherited from CodeArt: opcode/operand separation with <INST>)"
+        ],
         "encoding::Sparse": [
           "N/A | N/A"
         ],
@@ -2594,6 +2666,9 @@
         ],
         "encoding::Dense": [
           "adjacency matrix"
+        ],
+        "tokenization::Subword (Pretrained-LLM)": [
+          "Black-box LLM tokenizer (GPT-3.5 / Claude-3 / Gemini-Pro)"
         ]
       },
       "nodeDetail": {
@@ -2615,15 +2690,15 @@
       "inferenceType": "discovery",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "LLVM IR",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "N/A",
       "inferenceCategory": "Discovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Path / branch exploration",
+      "inferenceOutput": "Path priority regression score",
       "evaluationMetric": "line coverage/ELOC",
       "pathNodeIds": [
         {
@@ -2681,15 +2756,15 @@
       "inferenceType": "recovery",
       "conference": "S&P",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Probabilistic reasoning",
       "learningModel": "N/A",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Probabilistic structural recovery",
+      "inferenceOutput": "Posterior over variable type / struct field",
       "evaluationMetric": "Precision; Recall; F1; tree difference",
       "pathNodeIds": [
         {
@@ -2760,15 +2835,15 @@
       "inferenceType": "recovery",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Decompiled code",
       "pathCount": 3,
       "relationship": "+",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "Transformer-based || Transformer-based",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Probabilistic structural recovery",
+      "inferenceOutput": "Recovered variable/struct fact",
       "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
@@ -2886,6 +2961,12 @@
         "artifact-form::Sequence": [
           "Code representations; Binary facts -> Sequence | Code representations; Binary facts -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Decompiled identifier replacement"
+        ],
+        "tokenization::Subword (Pretrained-LLM)": [
+          "Built-in llm tokenizer"
+        ],
         "encoding::Sparse": [
           "N/A | N/A"
         ],
@@ -2897,6 +2978,9 @@
         ],
         "artifact-form::Graph": [
           "Graph representations; Graph representations; Binary fact; Graph representations -> Graph"
+        ],
+        "canonicalization::Transform": [
+          "Decompiled identifier replacement"
         ]
       },
       "nodeDetail": {
@@ -2915,15 +2999,15 @@
       "inferenceType": "recovery",
       "conference": "S&P",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Decompiled code",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Rule-based reasoning | LLM-based",
       "learningSubcategory": "Deterministic reasoning | LLM-based prompting",
       "learningModel": "N/A | N/A",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Probabilistic structural recovery",
+      "inferenceOutput": "Recovered variable/struct fact",
       "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
@@ -3016,6 +3100,9 @@
         ],
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
+        ],
+        "tokenization::Subword (Pretrained-LLM)": [
+          "Built-in llm tokenizer"
         ]
       },
       "nodeDetail": {
@@ -3037,15 +3124,15 @@
       "inferenceType": "recovery",
       "conference": "FSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly, Fetched instruction",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "Transformer-based  -> Transformer-based",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Type / symbol recovery (classification)",
+      "inferenceOutput": "Predicted variable type label",
       "evaluationMetric": "Accuracy; Precision; Recall; F1 score",
       "pathNodeIds": [
         {
@@ -3141,6 +3228,9 @@
         "artifact-form::Sequence": [
           "Code representations; Text streams; Text streams; Binary facts -> Sequence | Code representations -> Sequence"
         ],
+        "tokenization::Element": [
+          "Opcode/operand/punctuation tokenization; numeric constants normalized to hex"
+        ],
         "encoding::Sparse": [
           "N/A | N/A"
         ],
@@ -3164,15 +3254,15 @@
       "inferenceType": "recovery",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "VEX IR",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "RGCN",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Type / symbol recovery (classification)",
+      "inferenceOutput": "Predicted variable type label",
       "evaluationMetric": "Overall accuracy; struct accuracy; Precision; Recall; F1 score",
       "pathNodeIds": [
         {
@@ -3191,7 +3281,7 @@
           ],
           "tokenization": [],
           "encoding": [
-            "encoding::Sparse"
+            "encoding::Dense"
           ],
           "embedding": [
             "embedding::Context-dependent"
@@ -3224,8 +3314,8 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations; Graph representations; Graph representations -> Graph"
         ],
-        "encoding::Sparse": [
-          "Node feature mapping; Edge attribute IDs"
+        "encoding::Dense": [
+          "Node feature mapping; Edge feature mapping"
         ],
         "embedding::Context-dependent": [
           "RGCN"
@@ -3247,15 +3337,15 @@
       "inferenceType": "recovery",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Custom IR",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "N/A",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Probabilistic structural recovery",
+      "inferenceOutput": "Predicted variable type label",
       "evaluationMetric": "Precision; Recall; F1; mean score",
       "pathNodeIds": [
         {
@@ -3323,15 +3413,15 @@
       "inferenceType": "recovery",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "Word2Vec -> GRU",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Type / symbol recovery (classification)",
+      "inferenceOutput": "Per-argument count and type label",
       "evaluationMetric": "Precision; Recall; Accuracy; F1 score",
       "pathNodeIds": [
         {
@@ -3415,6 +3505,9 @@
         "artifact-form::Sequence": [
           "Code representations; Graph representations -> Sequence | Code representations -> Sequence"
         ],
+        "tokenization::Instruction": [
+          "Instruction-level (each instruction as one hex token, e.g., push %ebp -> 0x55; Sec 3.1)"
+        ],
         "encoding::Sparse": [
           "N/A | N/A"
         ],
@@ -3441,15 +3534,15 @@
       "inferenceType": "recovery",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Probabilistic reasoning",
       "learningModel": "N/A",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Probabilistic structural recovery",
+      "inferenceOutput": "Argument-count / type posterior",
       "evaluationMetric": "Precision; Recall; Accuracy; F1 score",
       "pathNodeIds": [
         {
@@ -3516,15 +3609,15 @@
       "inferenceType": "recovery",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "Transformer-based",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Symbol-name / pseudocode generation",
+      "inferenceOutput": "Generated function name (subword sequence)",
       "evaluationMetric": "Precision; Recall; F1 score",
       "pathNodeIds": [
         {
@@ -3574,6 +3667,9 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
+        "tokenization::Subword (Pretrained-LLM)": [
+          "Byte pair encoding (Subword (BPE))"
+        ],
         "embedding::Context-dependent": [
           "Transformer-based"
         ]
@@ -3594,15 +3690,15 @@
       "inferenceType": "recovery",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction, Assembly",
       "pathCount": 2,
       "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "Transformer-based || lookup layer",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Symbol-name / pseudocode generation",
+      "inferenceOutput": "Generated function name (subword sequence)",
       "evaluationMetric": "Precision; Recall; F1 score",
       "pathNodeIds": [
         {
@@ -3682,6 +3778,9 @@
         "artifact-form::Sequence": [
           "Text streams; Text streams -> Sequence"
         ],
+        "tokenization::Instruction": [
+          "Output label: camelCase + snake_case splitting + unigram LM word segmentation from CodeSearchNet 1.5M function-name corpus (Sec 4.2)"
+        ],
         "embedding::Context-dependent": [
           "Transformer-based"
         ],
@@ -3714,15 +3813,15 @@
       "inferenceType": "recovery",
       "conference": "S&P",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly, VEX IR",
       "pathCount": 3,
       "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "(LDP || BoostNE ) -> Autoencoder",
       "inferenceCategory": "Classification",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Multi-label classification",
+      "inferenceOutput": "Multi-hot function name label vector",
       "evaluationMetric": "Precision; Recall; F1; AUC",
       "pathNodeIds": [
         {
@@ -3862,15 +3961,15 @@
       "inferenceType": "recovery",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 3,
       "relationship": "+",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "BERT-based || BERT-based || ((LDP || BoostNE ) -> Autoencoder )",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Symbol-name / pseudocode generation",
+      "inferenceOutput": "Generated function name caption",
       "evaluationMetric": "Precision; Recall; F1; RougeL; Bleu; VarCLR",
       "pathNodeIds": [
         {
@@ -3987,6 +4086,9 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence | Code representations  -> Sequence"
         ],
+        "tokenization::Subword (Byte Pair Encoding)": [
+          "Instruction-level (inherited from PalmTree BERT tokenizer + CLAP tokenizer; Sec 4.1) | N/A (DEXTER produces statistical feature vector directly)"
+        ],
         "encoding::Sparse": [
           "N/A | N/A"
         ],
@@ -4025,15 +4127,15 @@
       "inferenceType": "recovery",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly, BAP-IR",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "N/A | N/A",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Probabilistic structural recovery",
+      "inferenceOutput": "Variable name posterior",
       "evaluationMetric": "Accuracy; Precision; Recall; F1 score",
       "pathNodeIds": [
         {
@@ -4128,6 +4230,9 @@
         ],
         "artifact-form::Graph": [
           "Graph representations -> Graph"
+        ],
+        "canonicalization::Map": [
+          "N"
         ]
       },
       "nodeDetail": {
@@ -4146,15 +4251,15 @@
       "inferenceType": "recovery",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Decompiled code",
       "pathCount": 2,
       "relationship": "+",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "Transformer-based || Transformer-based",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Symbol-name / pseudocode generation",
+      "inferenceOutput": "Variable name + variable type",
       "evaluationMetric": "Name Match; Type Match; prediction accuracy",
       "pathNodeIds": [
         {
@@ -4238,6 +4343,9 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence | Binary facts -> Sequence"
         ],
+        "tokenization::Subword (Byte Pair Encoding)": [
+          "Byte pair encoding (Subword (BPE))"
+        ],
         "encoding::Sparse": [
           "N/A | N/A"
         ],
@@ -4246,6 +4354,9 @@
         ],
         "artifact-class::Binary fact": [
           "Stack-frame layout"
+        ],
+        "tokenization::Custom rule": [
+          "Delimiter/symbol-based"
         ]
       },
       "nodeDetail": {
@@ -4264,15 +4375,15 @@
       "inferenceType": "recovery",
       "conference": "S&P",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "BERT-based",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Symbol-name / pseudocode generation",
+      "inferenceOutput": "Predicted variable name; predicted variable type",
       "evaluationMetric": "Top-1 accuracy; Top-3 accuracy; Top-5 accuracy; average edit distance (AED); character error rate (CER); Accuracy; F1",
       "pathNodeIds": [
         {
@@ -4322,6 +4433,9 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "tokenization::Subword (Byte Pair Encoding)": [
+          "Byte pair encoding (Subword (BPE))"
+        ],
         "embedding::Context-dependent": [
           "BERT-based"
         ]
@@ -4342,15 +4456,15 @@
       "inferenceType": "recovery",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-based finetuning",
       "learningModel": "Transformer-based",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Symbol-name / pseudocode generation",
+      "inferenceOutput": "Generated variable name sequence",
       "evaluationMetric": "Precision; Recall; GPT4Evaluator score",
       "pathNodeIds": [
         {
@@ -4404,6 +4518,12 @@
         "artifact-form::Sequence": [
           "Code representation; Graph representation -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Decompiled identifier replacement | N/A"
+        ],
+        "tokenization::Subword (Pretrained-LLM)": [
+          "Inherited LLM tokenizer (CodeGemma/CodeLlama Subword (BPE)) | Inherited LLM tokenizer (CodeGemma/CodeLlama Subword (BPE))"
+        ],
         "embedding::Context-dependent": [
           "Transformer-based"
         ]
@@ -4424,15 +4544,15 @@
       "inferenceType": "classification",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly, Decompiled code",
       "pathCount": 4,
       "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "N/A | N/A | N/A | N/A",
       "inferenceCategory": "Classification",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Multi-class classification",
+      "inferenceOutput": "Programmer ID label",
       "evaluationMetric": "Accuracy",
       "pathNodeIds": [
         {
@@ -4591,15 +4711,15 @@
       "inferenceType": "classification",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "N/A",
       "inferenceCategory": "Classification",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Multi-label classification",
+      "inferenceOutput": "Optimization-pass label vector",
       "evaluationMetric": "Recall; F-1 score",
       "pathNodeIds": [
         {
@@ -4662,15 +4782,15 @@
       "inferenceType": "detection",
       "conference": "S&P",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "N/A",
       "inferenceCategory": "Clustering",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Anomaly / drift detection via clustering",
+      "inferenceOutput": "Conformal credibility/confidence; rejection flag",
       "evaluationMetric": "F1; Precision; Recall; Area Under Time (AUT); rejection rate",
       "pathNodeIds": [
         {
@@ -4738,15 +4858,15 @@
       "inferenceType": "classification",
       "conference": "AAAI",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "N/A",
       "inferenceCategory": "Classification",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Multi-class classification",
+      "inferenceOutput": "Malware family label",
       "evaluationMetric": "Accuracy; F1 score; Logloss",
       "pathNodeIds": [
         {
@@ -4809,15 +4929,15 @@
       "inferenceType": "classification",
       "conference": "S&P",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "N/A",
       "inferenceCategory": "Classification",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Multi-class classification",
+      "inferenceOutput": "Malware family label",
       "evaluationMetric": "Accuracy; Precision; Recall; F1",
       "pathNodeIds": [
         {
@@ -4888,15 +5008,15 @@
       "inferenceType": "classification",
       "conference": "AAAI",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "N/A",
       "inferenceCategory": "Classification",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Multi-class classification",
+      "inferenceOutput": "Malware family label",
       "evaluationMetric": "Accuracy",
       "pathNodeIds": [
         {
@@ -4960,15 +5080,15 @@
       "inferenceType": "classification",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "N/A",
       "inferenceCategory": "Clustering",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Anomaly / drift detection via clustering",
+      "inferenceOutput": "p-value conformal score; rejection flag",
       "evaluationMetric": "Precision; Recall; F1-score",
       "pathNodeIds": [
         {
@@ -5029,15 +5149,15 @@
       "inferenceType": "detection",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction, Assembly",
       "pathCount": 2,
       "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Location-level detection",
+      "inferenceOutput": "Removable control-flow region",
       "evaluationMetric": "False positive ratio; false negative ratio; accuracy; reachable executable code bytes reduction",
       "pathNodeIds": [
         {
@@ -5140,15 +5260,15 @@
       "inferenceType": "detection",
       "conference": "ESEC/FSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 2,
       "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "CNN || TextCNN",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Location-level detection",
+      "inferenceOutput": "Per-API debloating decision",
       "evaluationMetric": "Prediction accuracy; FNR; code size reduction",
       "pathNodeIds": [
         {
@@ -5237,6 +5357,9 @@
         "artifact-form::Sequence": [
           "Test sets -> Sequence"
         ],
+        "tokenization::Custom rule": [
+          "Character"
+        ],
         "embedding::Context-independent": [
           "TextCNN"
         ]
@@ -5257,15 +5380,15 @@
       "inferenceType": "detection/clustering",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 3,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "((BERT-based -> GCN) -> ResNet)",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Vulnerable function candidates ranked by similarity",
       "evaluationMetric": "AUC; Recall@K; Precision; Recall",
       "pathNodeIds": [
         {
@@ -5375,6 +5498,12 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "canonicalization::Remove": [
+          "Assembly instruction element replacement"
+        ],
+        "tokenization::Element": [
+          "Instruction-level: opcode + 3 root-operand split per microcode triplet (left, right, dest)"
+        ],
         "embedding::Context-dependent": [
           "BERT-based | GCN"
         ],
@@ -5396,6 +5525,9 @@
         "artifact-form::Numeric descriptor": [
           "Numerical statistics -> Numeric descriptor"
         ],
+        "canonicalization::Scale": [
+          "Assembly instruction element replacement"
+        ],
         "embedding::Context-independent": [
           "ResNet"
         ]
@@ -5416,15 +5548,15 @@
       "inferenceType": "detection/clustering",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Vulnerable function candidates from codebook search",
       "evaluationMetric": "Recall rate; false positive rate",
       "pathNodeIds": [
         {
@@ -5516,15 +5648,15 @@
       "inferenceType": "detection/clustering",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "k-NN candidate functions",
       "evaluationMetric": "Percent correct; rank",
       "pathNodeIds": [
         {
@@ -5575,6 +5707,9 @@
         "artifact-form::Numeric descriptor": [
           "Code representations; Graph representations; Binary facts -> Numeric descriptor"
         ],
+        "canonicalization::Scale": [
+          "Numeric value scaling | N/A"
+        ],
         "encoding::Dense": [
           "count vectors"
         ]
@@ -5595,15 +5730,15 @@
       "inferenceType": "detection/clustering",
       "conference": "ESEC/FSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly, Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Structure2vec",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Ranking / Top-K retrieval",
+      "inferenceOutput": "Re-ranked vulnerable function candidates",
       "evaluationMetric": "Average rank; Top-1 candidates found; Top-5 candidates found",
       "pathNodeIds": [
         {
@@ -5655,6 +5790,9 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations -> Graph"
         ],
+        "canonicalization::Map": [
+          "N/A | Assembly instruction element replacement"
+        ],
         "encoding::Dense": [
           "Node feature mapping; adjacency matrix"
         ],
@@ -5678,15 +5816,15 @@
       "inferenceType": "discovery/clustering",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Matching",
+      "inferenceOutput": "Relevant TPC usage label per function",
       "evaluationMetric": "Precision; Recall; F1",
       "pathNodeIds": [
         {
@@ -5733,8 +5871,11 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations -> Graph"
         ],
+        "canonicalization::Transform": [
+          "N/A | N/A"
+        ],
         "encoding::Dense": [
-          "Edge attribute IDs"
+          "Edge feature mapping"
         ]
       },
       "nodeDetail": {
@@ -5753,15 +5894,15 @@
       "inferenceType": "detection/clustering",
       "conference": "ICLR",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "RNN-VAE",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Vulnerable/safe sample label",
       "evaluationMetric": "Accuracy; Recall; Precision; F1; AUC",
       "pathNodeIds": [
         {
@@ -5811,6 +5952,12 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "canonicalization::Remove": [
+          "Assembly instruction element removal"
+        ],
+        "tokenization::Instruction": [
+          "Instruction-field-level (opcode + instruction-information)"
+        ],
         "encoding::Sparse": [
           "one-hot"
         ],
@@ -5834,15 +5981,15 @@
       "inferenceType": "discovery/clustering",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "IR",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BERT-based | N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Similarity scoring",
+      "inferenceOutput": "Suspicious function similarity score",
       "evaluationMetric": "TP; FP; TPR; FPR; number of vulnerabilities",
       "pathNodeIds": [
         {
@@ -5955,15 +6102,15 @@
       "inferenceType": "detection",
       "conference": "AAAI",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 2,
       "relationship": "+",
       "learningCategory": "Reinforcement Learning",
       "learningSubcategory": "Reinforcement Learning",
       "learningModel": "attention-based LSTM | N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label with stopping policy",
       "evaluationMetric": "TPR at 1% FPR; false positive rate",
       "pathNodeIds": [
         {
@@ -5978,7 +6125,7 @@
           ],
           "canonicalization": [],
           "tokenization": [
-            "tokenization::Trace event"
+            "tokenization::Trace-level"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6039,6 +6186,9 @@
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
         ],
+        "tokenization::Trace-level": [
+          "Instruction-level"
+        ],
         "encoding::Sparse": [
           "N/A | N/A"
         ],
@@ -6065,15 +6215,15 @@
       "inferenceType": "detection",
       "conference": "AAAI",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Gated-CNN",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label",
       "evaluationMetric": "AUC; Accuracy; Recall at 0.1% FPR",
       "pathNodeIds": [
         {
@@ -6090,7 +6240,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Trace event"
+            "tokenization::Trace-level"
           ],
           "encoding": [
             "encoding::Dense"
@@ -6123,6 +6273,12 @@
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
         ],
+        "canonicalization::Remove": [
+          "Numeric value scaling"
+        ],
+        "tokenization::Trace-level": [
+          "Instruction-level"
+        ],
         "embedding::Context-dependent": [
           "Gated-CNN"
         ]
@@ -6143,15 +6299,15 @@
       "inferenceType": "detection",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "PV-DM",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label",
       "evaluationMetric": "Precision; Recall; F1-score",
       "pathNodeIds": [
         {
@@ -6201,6 +6357,12 @@
         "artifact-form::Sequence": [
           "Graph representation -> Sequence"
         ],
+        "canonicalization::Remove": [
+          "Event value replacement"
+        ],
+        "tokenization::Custom rule": [
+          "each node/edge label in causal path = one token"
+        ],
         "embedding::Context-independent": [
           "PV-DM"
         ]
@@ -6221,15 +6383,15 @@
       "inferenceType": "detection",
       "conference": "AAAI",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "lookup layer",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label",
       "evaluationMetric": "Accuracy; AUC",
       "pathNodeIds": [
         {
@@ -6277,6 +6439,9 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "tokenization::Byte": [
+          "Byte-level"
+        ],
         "embedding::Context-independent": [
           "lookup layer"
         ]
@@ -6297,15 +6462,15 @@
       "inferenceType": "detection",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "lookup layer",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label",
       "evaluationMetric": "TPR at 0.1% FPR; natural accuracy; attack success rate",
       "pathNodeIds": [
         {
@@ -6353,6 +6518,9 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "tokenization::Byte": [
+          "Byte-level"
+        ],
         "embedding::Context-independent": [
           "lookup layer"
         ]
@@ -6373,15 +6541,15 @@
       "inferenceType": "detection",
       "conference": "AAAI",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label",
       "evaluationMetric": "True Positive Rate; False Positive Rate; robustness",
       "pathNodeIds": [
         {
@@ -6447,15 +6615,15 @@
       "inferenceType": "detection",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "lookup layer",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label",
       "evaluationMetric": "TPR at 0.1% FPR; natural accuracy; attack success rate",
       "pathNodeIds": [
         {
@@ -6503,6 +6671,9 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "tokenization::Byte": [
+          "Byte-level"
+        ],
         "embedding::Context-independent": [
           "lookup layer"
         ]
@@ -6523,15 +6694,15 @@
       "inferenceType": "detection",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BERT-based -> GIN",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malware label adapted to drifted distribution",
       "evaluationMetric": "F1; Accuracy",
       "pathNodeIds": [
         {
@@ -6613,6 +6784,9 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "CFG vertex (basic block) ?? basic blocks form CFG nodes"
+        ],
         "embedding::Context-dependent": [
           "BERT-based (PalmTree) | GIN"
         ],
@@ -6621,6 +6795,9 @@
         ],
         "artifact-form::Graph": [
           "Graph representations -> Graph"
+        ],
+        "canonicalization::Map": [
+          "CFG vertex (basic block) ?? basic blocks form CFG nodes"
         ],
         "encoding::Dense": [
           "adjacency-matrix"
@@ -6642,15 +6819,15 @@
       "inferenceType": "detection",
       "conference": "AAAI",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Transformer-based",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label",
       "evaluationMetric": "Balanced Accuracy; Accuracy; Recall; F1-score",
       "pathNodeIds": [
         {
@@ -6700,6 +6877,12 @@
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
         ],
+        "canonicalization::Remove": [
+          "Per-feature-type segment (hierarchical splice of 11 feature types fed separately to the model)"
+        ],
+        "tokenization::Subword (Pretrained-LLM)": [
+          "Byte pair encoding (BPE)"
+        ],
         "embedding::Context-dependent": [
           "Transformer-based"
         ]
@@ -6720,15 +6903,15 @@
       "inferenceType": "detection",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 2,
       "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Transformer-based | N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label",
       "evaluationMetric": "Accuracy; FPR; Recall; Precision; F1-Score",
       "pathNodeIds": [
         {
@@ -6745,7 +6928,7 @@
             "canonicalization::Remove"
           ],
           "tokenization": [
-            "tokenization::Trace event"
+            "tokenization::Trace-level"
           ],
           "encoding": [
             "encoding::Sparse"
@@ -6808,6 +6991,12 @@
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
         ],
+        "canonicalization::Remove": [
+          "Behavior-sequence dynamic window (compressed by decoder-based Compressor up to 2048)"
+        ],
+        "tokenization::Trace-level": [
+          "OS event log-level"
+        ],
         "embedding::Context-dependent": [
           "Transformer-based"
         ],
@@ -6816,6 +7005,9 @@
         ],
         "artifact-form::Numeric descriptor": [
           "Numerical Statistics -> Numeric descriptor"
+        ],
+        "canonicalization::Scale": [
+          "File segment (512 / 1024 / 2048 byte segments) (multi-branch)"
         ]
       },
       "nodeDetail": {
@@ -6834,15 +7026,15 @@
       "inferenceType": "detection",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Sample-level detection",
+      "inferenceOutput": "Malicious/benign label",
       "evaluationMetric": "F1; Precision; Recall; Area Under Time (AUT); attack success rate (ASR)",
       "pathNodeIds": [
         {
@@ -6892,6 +7084,9 @@
         ],
         "artifact-form::Numeric descriptor": [
           "Binary Facts; Binary Facts; Binary Facts; Binary Facts;  Numerical Statistics; Numerical Statistics; String Literals-> Numeric descriptor"
+        ],
+        "canonicalization::Scale": [
+          "File-level (one inherited benchmark feature vector per sample)"
         ]
       },
       "nodeDetail": {
@@ -6910,15 +7105,15 @@
       "inferenceType": "detection",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "CBOW -> TADW",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Matching",
+      "inferenceOutput": "Matched function pairs across two binaries",
       "evaluationMetric": "Precision; Recall; F1-score",
       "pathNodeIds": [
         {
@@ -7000,6 +7195,9 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Token-level (opcodes + operands per instruction in random walks)"
+        ],
         "encoding::Dense": [
           "TF-IDF | Node feature mapping; adjacency matrix"
         ],
@@ -7011,6 +7209,9 @@
         ],
         "artifact-form::Graph": [
           "Graph representations -> Graph"
+        ],
+        "canonicalization::Transform": [
+          "Graph node merging across two ICFGs"
         ],
         "embedding::Context-dependent": [
           "Deepwalk"
@@ -7032,15 +7233,15 @@
       "inferenceType": "discovery/clustering",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "IR",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Bag-of-nodes -> Graph2vec",
       "inferenceCategory": "Discovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Inconsistency / novel-bug discovery",
+      "inferenceOutput": "Inconsistent code group flag",
       "evaluationMetric": "# reports; # bugs found; true positive rate; false positive rate; # CVEs",
       "pathNodeIds": [
         {
@@ -7125,6 +7326,9 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations -> Graph | Code representations; Graph representations -> Graph"
         ],
+        "canonicalization::Transform": [
+          "Function-level (one DDG per function; Constructs extracted from each function for every parameter and local variable)"
+        ],
         "encoding::Dense": [
           "Node feature mapping | Node feature mapping; adjacency matrix"
         ],
@@ -7151,15 +7355,15 @@
       "inferenceType": "discovery/clustering",
       "conference": "CCS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "N/A",
       "inferenceCategory": "Discovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Input generation / fuzzing",
+      "inferenceOutput": "Power schedule per seed; new test inputs",
       "evaluationMetric": "number of unique crashes; number of paths discovered; number of vulnerabilities/bugs exposed",
       "pathNodeIds": [
         {
@@ -7220,15 +7424,15 @@
       "inferenceType": "discovery/clustering",
       "conference": "S&P",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "N/A",
       "inferenceCategory": "Discovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Input generation / fuzzing",
+      "inferenceOutput": "Mutation targets predicted to increase coverage",
       "evaluationMetric": "number of bugs found; number of crashes found; edge coverage",
       "pathNodeIds": [
         {
@@ -7278,6 +7482,9 @@
         ],
         "artifact-form::Sequence": [
           "Test Sets; Numerical Statistics -> Sequence"
+        ],
+        "tokenization::Byte": [
+          "Byte-level"
         ]
       },
       "nodeDetail": {
@@ -7296,15 +7503,15 @@
       "inferenceType": "discovery/clustering",
       "conference": "ESEC/FSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "MLP",
       "inferenceCategory": "Discovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Input generation / fuzzing",
+      "inferenceOutput": "Multi-task mutation targets",
       "evaluationMetric": "number of bugs found; edge coverage",
       "pathNodeIds": [
         {
@@ -7354,6 +7561,12 @@
         "artifact-form::Sequence": [
           "Test sets -> Sequence"
         ],
+        "canonicalization::Scale": [
+          "File-level (input padded with 0x00 to the largest input length n in seed corpus; <=10KB threshold) | Edge-set level (3 separate bitmaps: edge_id + call_trace_id + approach_level; custom LLVM pass instrumented for each metric)"
+        ],
+        "tokenization::Byte": [
+          "Byte-level"
+        ],
         "embedding::Context-independent": [
           "MLP"
         ]
@@ -7374,15 +7587,15 @@
       "inferenceType": "discovery/clustering",
       "conference": "ICSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction, Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "MLP",
       "inferenceCategory": "Discovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Input generation / fuzzing",
+      "inferenceOutput": "Edge-set / probabilistic byte mutations",
       "evaluationMetric": "edge coverage; number of unique crashes",
       "pathNodeIds": [
         {
@@ -7432,6 +7645,12 @@
         "artifact-form::Sequence": [
           "Test sets -> Sequence"
         ],
+        "canonicalization::Scale": [
+          "File-level (input padded with 0x00 to the largest input length n in seed corpus; <=10KB threshold) | Edge-set level (3 separate bitmaps: edge_id + call_trace_id + approach_level; custom LLVM pass instrumented for each metric)"
+        ],
+        "tokenization::Byte": [
+          "Byte-level"
+        ],
         "embedding::Context-independent": [
           "MLP"
         ]
@@ -7452,15 +7671,15 @@
       "inferenceType": "discovery/clustering",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Fetched instruction, Assembly, IR",
       "pathCount": 2,
       "relationship": "-->",
       "learningCategory": "Rule-based | Discriminative",
       "learningSubcategory": "Determinstic reasoning | Detection",
       "learningModel": "N/A | CNN",
       "inferenceCategory": "Discovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Input generation / fuzzing",
+      "inferenceOutput": "Inferred input field grammar + new test inputs",
       "evaluationMetric": "field boundary accuracy; field type Top-1 accuracy; field type Top-2 accuracy; basic block coverage; number of bugs found",
       "pathNodeIds": [
         {
@@ -7545,6 +7764,9 @@
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
         ],
+        "tokenization::Trace-level": [
+          "Byte-level"
+        ],
         "analysis::Static": [
           "IR lifting; Call site analysis"
         ],
@@ -7589,15 +7811,15 @@
       "inferenceType": "summarization",
       "conference": "FSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "BERT-based or Word2Vec or Trasnformer-based",
       "inferenceCategory": "Summarization",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Function summarization",
+      "inferenceOutput": "Natural-language summary",
       "evaluationMetric": "Precision; Recall; BLEU",
       "pathNodeIds": [
         {
@@ -7651,6 +7873,12 @@
         "artifact-form::Sequence": [
           "Code representations; Graph representations; Graph representations-> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Function-level (FCFG = ICFG with selective callee expansion; functionality-relevant blocks identified per Algorithm 1 ?? block kept if (1) function has no arguments OR (2) contains operation directly/indirectly involving any function argument)"
+        ],
+        "tokenization::Element": [
+          "Instruction-field-level"
+        ],
         "embedding::Context-dependent": [
           "BERT-based (PalmTree)  | Word2Vec | Trasnformer-based(Asm2Vec) | GRU"
         ]
@@ -7671,15 +7899,15 @@
       "inferenceType": "summarization",
       "conference": "FSE",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly, Decompiled code",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "HMA-HMP",
       "inferenceCategory": "Summarization",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Function summarization",
+      "inferenceOutput": "Multi-intent natural-language summary",
       "evaluationMetric": "BLEU; ROUGE-L; METEOR",
       "pathNodeIds": [
         {
@@ -7731,8 +7959,11 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations; Code representations; Graph representation; Graph representation -> Graph"
         ],
+        "canonicalization::Transform": [
+          "Function-level (per-function CFG of basic blocks + jump edges) | Function-level (per-function AAST: AST nodes + CFG edges + DFG edges + NCS edges)"
+        ],
         "encoding::Dense": [
-          "node type IDs; edge type IDs; Node feature mapping; adjacency matrix"
+          "Node feature mapping; adjacency matrix"
         ],
         "embedding::Context-dependent": [
           "HMA-HMP"
@@ -7754,15 +7985,15 @@
       "inferenceType": "recovery",
       "conference": "NeurIPS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Generative",
       "learningSubcategory": "Generative",
       "learningModel": "Tree-LSTM",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Symbol-name / pseudocode generation",
+      "inferenceOutput": "AST-based decompiled program",
       "evaluationMetric": "token accuracy; program accuracy",
       "pathNodeIds": [
         {
@@ -7812,6 +8043,12 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Function-level (50000 randomly generated program pairs per benchmark; programs short S ~15 statements and long L ~30 statements; tree depth max 3; 10-20 percent token errors injected for EC stage; 35 percent tokens masked)"
+        ],
+        "tokenization::Instruction": [
+          "Instruction-level"
+        ],
         "embedding::Context-dependent": [
           "Tree-LSTM"
         ]
@@ -7832,15 +8069,15 @@
       "inferenceType": "recovery",
       "conference": "NDSS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Decompiled code",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "LLM-based",
       "learningSubcategory": "LLM-prompting",
       "learningModel": "N/A",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Symbol-name / pseudocode generation",
+      "inferenceOutput": "Refined decompiled code",
       "evaluationMetric": "Meaningful Variable Ratio (MVR); Effort Ratio (ER); Correct Rate of Comments (CR); Non-trivial Rate of Comments (NR); Optimized Name Ratio (ONR); user-study Likert scores; task-answer accuracy",
       "pathNodeIds": [
         {
@@ -7882,6 +8119,9 @@
         ],
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
+        ],
+        "tokenization::Subword (Pretrained-LLM)": [
+          "Built-in llm tokenizer"
         ]
       },
       "nodeDetail": {
@@ -7900,15 +8140,15 @@
       "inferenceType": "recovery",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 3,
       "relationship": "-->",
       "learningCategory": "Discriminative | Rule-based reasoning | Rule-based reasoning",
       "learningSubcategory": "Classification | Deterministic reasoning | Deterministic reasoning",
       "learningModel": "attention-based LSTM | N/A | N/A",
       "inferenceCategory": "Recovery",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Symbol-name / pseudocode generation",
+      "inferenceOutput": "Decoded DNN operator sequence",
       "evaluationMetric": "DNN operator inference accuracy; network topology correctness; dimension inference accuracy; parameter inference accuracy; recompilation behavioral equivalence",
       "pathNodeIds": [
         {
@@ -8020,6 +8260,9 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
         ],
+        "tokenization::Subword (Byte Pair Encoding)": [
+          "Byte pair encoding (BPE)"
+        ],
         "embedding::Context-dependent": [
           "attention-based LSTM"
         ],
@@ -8031,6 +8274,9 @@
         ],
         "artifact-form::Graph": [
           "Text Streams; Text Streams; Text Streams -> Graph"
+        ],
+        "canonicalization::Transform": [
+          "Per-callsite memory address (Intel Pin hooks every callsite at runtime to record input/output addresses)"
         ],
         "encoding::Dense": [
           "N/A | N/A"
@@ -8064,15 +8310,15 @@
       "inferenceType": "classification",
       "conference": "NeurIPS",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Byte",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "N/A",
       "inferenceCategory": "Detection",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Similarity scoring",
+      "inferenceOutput": "Pairwise malware similarity score",
       "evaluationMetric": "Top-K label homogeneity; Relevance@K; Exact match; Jaccard index; Normalized edit similarity; mAP",
       "pathNodeIds": [
         {
@@ -8138,15 +8384,15 @@
       "inferenceType": "classification",
       "conference": "USENIX Security",
       "isTopTier": true,
-      "codeForm": "",
+      "codeForm": "Assembly",
       "pathCount": 1,
       "relationship": "",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Autoencoder",
       "inferenceCategory": "Clustering",
-      "inferenceSubcategory": "",
-      "inferenceOutput": "",
+      "inferenceSubcategory": "Density / centroid-based clustering",
+      "inferenceOutput": "Discovered malicious behavior clusters",
       "evaluationMetric": "MSE; localized MSE (LMSE); ROC curve; true positive rate (TPR); false positive rate (FPR); top-100 precision; Silhouette Coefficient; Davies-Bouldin Score; analyst-cluster match rate; highlighted-function percentage / search-space reduction",
       "pathNodeIds": [
         {
@@ -8197,6 +8443,9 @@
         ],
         "artifact-form::Numeric descriptor": [
           "Code representaion; Graph representation -> Numeric descriptor"
+        ],
+        "canonicalization::Scale": [
+          "Function-level (per-function basic blocks from BinaryNinja CFG; m = first 20000 basic blocks per binary because 95 percent of dataset samples have <= 20K basic blocks)"
         ],
         "embedding::Context-independent": [
           "Autoencoder"
