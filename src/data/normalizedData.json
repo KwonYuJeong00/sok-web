@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 11,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T11:44:50.475Z",
+    "generatedAt": "2026-06-11T11:55:45.410Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -5971,7 +5971,7 @@
           "Node attribute mapping"
         ],
         "encoding::Dense": [
-          "Node feature mapping | N/A"
+          "Node feature mapping, adjacency matrix | N/A"
         ],
         "analysis::Triage": [
           "Binary profiling"
