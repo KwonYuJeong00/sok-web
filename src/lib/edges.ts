@@ -63,20 +63,17 @@ export function paperTraceEdges(
   type PairEntry = { aId: string; bId: string; stageFromId: string; stageToId: string; items: Array<{ color: string; pi: number }> };
   const pairMap = new Map<string, PairEntry>();
 
-  const isSequential = paper.relationship === '-->';
-  const lastPathIdx = paper.pathNodeIds.length - 1;
-
   paper.pathNodeIds.forEach((perStage, pi) => {
     const active = ordered.filter((s) => (perStage[s.id] || []).length > 0);
     for (let i = 0; i < active.length - 1; i++) {
       const from = active[i];
       const to = active[i + 1];
-      // Sequential (-->): middle paths (and the last path when N=2) do not draw
-      // embedding→connector — their color originates at the preceding connector.
-      // For N≥3 the last path draws its own embedding→last-connector edge (green
-      // in a 3-path chain), so we only skip when lastPathIdx===1 (N=2).
-      if (isSequential && from.id === 'embedding' && to.connector &&
-          pi > 0 && (pi < lastPathIdx || lastPathIdx === 1)) continue;
+      // Skip drawing embedding→connector for the path that is the "processor"
+      // in a sequential (->) connector: its color originates at the connector output.
+      if (from.id === 'embedding' && to.connector) {
+        const spec = paper.connectorGraph?.find((c) => c.id === to.id);
+        if (spec && spec.skipPath === pi) continue;
+      }
       const color = pathColor(pathColorIdxs[pi]);
 
       for (const aId of perStage[from.id]) {

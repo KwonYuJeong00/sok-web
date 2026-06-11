@@ -25,12 +25,6 @@ export function Header(props: Props) {
         <span className="result-count">
           <strong>{resultCount}</strong> / {meta.paperCount}
         </span>
-        {selectedPid && (
-          <button type="button" className="selected-pill" onClick={onClearSelection}>
-            <span className="sel-pid">{selectedPid}</span>
-            <span className="sel-x" aria-label="Clear selection">×</span>
-          </button>
-        )}
       </div>
     </header>
   );

@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 11,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T09:56:25.917Z",
+    "generatedAt": "2026-06-11T11:28:50.631Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -340,14 +340,14 @@
           "id": "combine::-->",
           "stageId": "combine",
           "label": "-->",
-          "paperCount": 10,
+          "paperCount": 11,
           "transient": false
         },
         {
           "id": "combine::+",
           "stageId": "combine",
           "label": "+",
-          "paperCount": 9,
+          "paperCount": 8,
           "transient": false
         }
       ]
@@ -367,6 +367,13 @@
           "id": "combine_1::-->",
           "stageId": "combine_1",
           "label": "-->",
+          "paperCount": 2,
+          "transient": false
+        },
+        {
+          "id": "combine_1::+",
+          "stageId": "combine_1",
+          "label": "+",
           "paperCount": 1,
           "transient": false
         }
@@ -464,13 +471,6 @@
           "stageId": "inference",
           "label": "Reconstruction",
           "paperCount": 4,
-          "transient": false
-        },
-        {
-          "id": "inference::Clustering",
-          "stageId": "inference",
-          "label": "Clustering",
-          "paperCount": 13,
           "transient": false
         },
         {
@@ -574,7 +574,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P003",
@@ -697,7 +698,14 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        }
+      ]
     },
     {
       "id": "P004",
@@ -809,7 +817,14 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        }
+      ]
     },
     {
       "id": "P005",
@@ -894,7 +909,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P007",
@@ -964,13 +980,13 @@
           "Disassembly; Call-site analysis"
         ],
         "artifact-class::Binary fact": [
-          "Header; sections; imports; assmebly; ICFG"
+          "Header; sections; imports"
         ],
         "artifact-class::Code representation": [
-          "Header; sections; imports; assmebly; ICFG"
+          "assmebly"
         ],
         "artifact-class::Graph representation": [
-          "Header; sections; imports; assmebly; ICFG"
+          "ICFG"
         ],
         "artifact-form::Graph": [
           "Binary facts; Binary facts; Binary facts; Code representation; Graph representation-> Graph"
@@ -986,7 +1002,8 @@
         "learning::Rule-based\nReasoning": [
           "Probabilistic reasoning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P008",
@@ -1055,10 +1072,10 @@
           "Behavioral monitoring"
         ],
         "artifact-class::Test set": [
-          "Mutated input; source-sink record"
+          "Mutated input"
         ],
         "artifact-class::Binary fact": [
-          "Mutated input; source-sink record"
+          "source-sink record"
         ],
         "artifact-form::Numeric descriptor": [
           "Test sets; Binary facts -> Numeric descriptor"
@@ -1071,7 +1088,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P011",
@@ -1134,10 +1152,10 @@
           "Forced execution; Dynamic taint analysis"
         ],
         "artifact-class::Binary fact": [
-          "Runtime-value state; taint map"
+          "Runtime-value state"
         ],
         "artifact-class::Snapshot": [
-          "Runtime-value state; taint map"
+          "taint map"
         ],
         "artifact-form::Numeric descriptor": [
           "Binary facts; snapshot-> Numeric descriptor"
@@ -1147,7 +1165,8 @@
         "learning::Rule-based\nReasoning": [
           "Deterministic reasoning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P012",
@@ -1317,7 +1336,14 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "||",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P013",
@@ -1407,7 +1433,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P015",
@@ -1476,16 +1503,16 @@
           "Symbolic execution"
         ],
         "artifact-class::Code representation": [
-          "Assembly; ICFG; IR; symbolic expression; pre/post-state values"
+          "Assembly; IR"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; ICFG; IR; symbolic expression; pre/post-state values"
+          "ICFG"
         ],
         "artifact-class::Logical expression": [
-          "Assembly; ICFG; IR; symbolic expression; pre/post-state values"
+          "symbolic expression"
         ],
         "artifact-class::Binary fact": [
-          "Assembly; ICFG; IR; symbolic expression; pre/post-state values"
+          "pre/post-state values"
         ],
         "artifact-form::Numeric descriptor": [
           "Code representations; Graph representations; Code representations;  Logical Expressions; Binary facts -> Numeric descriptor"
@@ -1495,7 +1522,8 @@
         "learning::Rule-based\nReasoning": [
           "Deterministic reasoning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P016",
@@ -1613,7 +1641,14 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        }
+      ]
     },
     {
       "id": "P017",
@@ -1657,15 +1692,11 @@
             "embedding::Context-dependent"
           ],
           "combine": [
-            "combine::+"
+            "combine::-->"
           ],
           "combine_1": [],
-          "learning": [
-            "learning::Discriminative"
-          ],
-          "inference": [
-            "inference::Detection"
-          ]
+          "learning": [],
+          "inference": []
         },
         {
           "analysis": [
@@ -1686,9 +1717,11 @@
             "embedding::Context-dependent"
           ],
           "combine": [
-            "combine::+"
+            "combine::-->"
           ],
-          "combine_1": [],
+          "combine_1": [
+            "combine_1::+"
+          ],
           "learning": [
             "learning::Discriminative"
           ],
@@ -1716,10 +1749,10 @@
           "embedding": [
             "embedding::Context-dependent"
           ],
-          "combine": [
-            "combine::+"
+          "combine": [],
+          "combine_1": [
+            "combine_1::+"
           ],
-          "combine_1": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -1745,10 +1778,10 @@
           "embedding": [
             "embedding::Context-dependent"
           ],
-          "combine": [
-            "combine::+"
+          "combine": [],
+          "combine_1": [
+            "combine_1::+"
           ],
-          "combine_1": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -1805,7 +1838,19 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        },
+        {
+          "id": "combine_1",
+          "type": "||",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P022",
@@ -1870,10 +1915,10 @@
           "Disassembly; Control-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; CFG"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; CFG"
+          "CFG"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representation -> Graph"
@@ -1889,7 +1934,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P023",
@@ -2012,7 +2058,14 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        }
+      ]
     },
     {
       "id": "P024",
@@ -2080,10 +2133,10 @@
           "Disassembly; IR lifting; Control-flow analysis; Data-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; IR; CFG; def-use chains"
+          "Assembly; IR"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; IR; CFG; def-use chains"
+          "CFG; def-use chains"
         ],
         "artifact-form::Graph": [
           "Code representations; Code representations; Graph representations; Graph representations -> Graph"
@@ -2105,7 +2158,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P025",
@@ -2187,7 +2241,8 @@
         "learning::LLM-based": [
           "LLM-based finetuning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P027",
@@ -2274,7 +2329,8 @@
         "learning::LLM-based": [
           "LLM-based finetuning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P028",
@@ -2347,16 +2403,16 @@
           "Binary profiling"
         ],
         "artifact-class::Code representation": [
-          "Assembly; CFG; strings; constants"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; CFG; strings; constants"
+          "CFG"
         ],
         "artifact-class::Text stream": [
-          "Assembly; CFG; strings; constants"
+          "strings"
         ],
         "artifact-class::Binary fact": [
-          "Assembly; CFG; strings; constants"
+          "constants"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; String Literals; Binary facts -> Graph"
@@ -2375,7 +2431,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P030",
@@ -2442,10 +2499,10 @@
           "Disassembly; Control-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; CFG"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; CFG"
+          "CFG"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations -> Graph"
@@ -2464,7 +2521,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P031",
@@ -2551,7 +2609,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P032",
@@ -2620,10 +2679,10 @@
           "Disassembly; Control-flow analysis; Call-site analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; ICFG"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; ICFG"
+          "ICFG"
         ],
         "artifact-form::Sequence": [
           "Code representation; Graph representation -> Sequence"
@@ -2642,7 +2701,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P038",
@@ -2800,12 +2860,20 @@
       },
       "nodeDetail": {
         "learning::Generative": [
-          "Generative | LLM-based prompting"
+          "Generative",
+          "LLM-based prompting"
         ],
         "learning::LLM-based": [
-          "Generative | LLM-based prompting"
+          "Generative"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "||",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P040",
@@ -2877,7 +2945,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P041",
@@ -2943,13 +3012,13 @@
           "Disassembly; Control-flow analysis; Data-flow analysis; Pointer/alias analysis; Stack-frame analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; CFG; DFG, def-use chains; points-to relations; Stack-frame layout"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; CFG; DFG, def-use chains; points-to relations; Stack-frame layout"
+          "CFG; DFG, def-use chains; points-to relations"
         ],
         "artifact-class::Binary fact": [
-          "Assembly; CFG; DFG, def-use chains; points-to relations; Stack-frame layout"
+          "Stack-frame layout"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations;  Graph representations; Graph representations; Binary Facts; Binary Facts-> Graph"
@@ -2965,7 +3034,8 @@
         "learning::Rule-based\nReasoning": [
           "Probabilistic reasoning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P042",
@@ -3103,10 +3173,10 @@
           "Decompilation; Stack-frame analysis | Decompilation; Stack-frame analysis | Data-flow analysis; Pointer/alias analysis; Call-site analysis"
         ],
         "artifact-class::Code representation": [
-          "Pseudocode; Stack-frame layout | Pseudocode; Stack-frame layout (variable slots, offsets)"
+          "Pseudocode"
         ],
         "artifact-class::Binary fact": [
-          "Pseudocode; Stack-frame layout | Pseudocode; Stack-frame layout (variable slots, offsets) | DFG, def-use chains; points-to relations; CG"
+          "Stack-frame layout | Stack-frame layout (variable slots, offsets) | CG"
         ],
         "artifact-form::Sequence": [
           "Code representations; Binary facts -> Sequence | Code representations; Binary facts -> Sequence"
@@ -3124,7 +3194,7 @@
           "Transformer-based | Transformer-based"
         ],
         "artifact-class::Graph representation": [
-          "DFG, def-use chains; points-to relations; CG"
+          "DFG, def-use chains; points-to relations"
         ],
         "artifact-form::Graph": [
           "Graph representations; Graph representations; Binary fact; Graph representations -> Graph"
@@ -3135,12 +3205,20 @@
       },
       "nodeDetail": {
         "learning::LLM-based": [
-          "LLM-based finetuning | Determinstic reasoning"
+          "LLM-based finetuning",
+          "Determinstic reasoning"
         ],
         "learning::Rule-based\nReasoning": [
-          "LLM-based finetuning | Determinstic reasoning"
+          "LLM-based finetuning"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "||",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P043",
@@ -3241,13 +3319,10 @@
           "Decompilation; IR lifting; Data-flow analysis; Call-site analysis; Stack-frame analysis | Decompilation"
         ],
         "artifact-class::Code representation": [
-          "Pseudocode; IR; DFG, def-use chains; CG; Stack-frame layout (variable slots, offsets) | Pseudocode"
+          "Pseudocode; IR | Pseudocode"
         ],
         "artifact-class::Graph representation": [
-          "Pseudocode; IR; DFG, def-use chains; CG; Stack-frame layout (variable slots, offsets)"
-        ],
-        "artifact-class::Binary fact": [
-          "Pseudocode; IR; DFG, def-use chains; CG; Stack-frame layout (variable slots, offsets)"
+          "DFG, def-use chains; CG; Stack-frame layout (variable slots, offsets)"
         ],
         "artifact-form::Graph": [
           "Code representations; Code representations; Graph representations; Graph representations;  Graph representations; Binary Facts -> Graph"
@@ -3267,12 +3342,13 @@
       },
       "nodeDetail": {
         "learning::Rule-based\nReasoning": [
-          "Deterministic reasoning | LLM-based prompting"
+          "Deterministic reasoning"
         ],
         "learning::LLM-based": [
-          "Deterministic reasoning | LLM-based prompting"
+          "LLM-based prompting"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P044",
@@ -3377,13 +3453,10 @@
           "Forced execution"
         ],
         "artifact-class::Code representation": [
-          "Assembly; Memory-access trace, runtime-value trace, instruction address | Assembly"
+          "Assembly"
         ],
         "artifact-class::Text stream": [
-          "Assembly; Memory-access trace, runtime-value trace, instruction address"
-        ],
-        "artifact-class::Binary fact": [
-          "Assembly; Memory-access trace, runtime-value trace, instruction address"
+          "Memory-access trace, runtime-value trace, instruction address"
         ],
         "artifact-form::Sequence": [
           "Code representations; Text streams; Text streams; Binary facts -> Sequence | Code representations -> Sequence"
@@ -3405,7 +3478,14 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        }
+      ]
     },
     {
       "id": "P048",
@@ -3472,10 +3552,10 @@
           "IR lifting; Control-flow analysis; Data-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "IR; CFG; DFG, def-use chains"
+          "IR"
         ],
         "artifact-class::Graph representation": [
-          "IR; CFG; DFG, def-use chains"
+          "CFG; DFG, def-use chains"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Graph representations; Graph representations -> Graph"
@@ -3494,7 +3574,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P049",
@@ -3560,13 +3641,10 @@
           "IR lifting; Data-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "IR; DFG, def-use chains, memory-access facts"
+          "IR"
         ],
         "artifact-class::Graph representation": [
-          "IR; DFG, def-use chains, memory-access facts"
-        ],
-        "artifact-class::Binary fact": [
-          "IR; DFG, def-use chains, memory-access facts"
+          "DFG, def-use chains, memory-access facts"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Graph representation; Binary facts-> Graph"
@@ -3579,7 +3657,8 @@
         "learning::Rule-based\nReasoning": [
           "Deterministic reasoning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P050",
@@ -3675,10 +3754,10 @@
           "Disassembly; Call-site analysis | Disassembly"
         ],
         "artifact-class::Code representation": [
-          "Assembly; CG | Assembly"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; CG"
+          "CG"
         ],
         "artifact-form::Sequence": [
           "Code representations; Graph representations -> Sequence | Code representations -> Sequence"
@@ -3700,7 +3779,14 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        }
+      ]
     },
     {
       "id": "P051",
@@ -3765,10 +3851,10 @@
           "Decompilation; Data-flow analysis; Call-site analysis"
         ],
         "artifact-class::Code representation": [
-          "Pseudocode; DFG, def-use chains; CG"
+          "Pseudocode"
         ],
         "artifact-class::Graph representation": [
-          "Pseudocode; DFG, def-use chains; CG"
+          "DFG, def-use chains; CG"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Graph representations; Graph representations -> Graph"
@@ -3784,7 +3870,8 @@
         "learning::Rule-based\nReasoning": [
           "Probabilistic reasoning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P054",
@@ -3871,7 +3958,8 @@
         "learning::LLM-based": [
           "LLM-based finetuning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P057",
@@ -4001,7 +4089,14 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "||",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P059",
@@ -4048,12 +4143,8 @@
             "combine::+"
           ],
           "combine_1": [],
-          "learning": [
-            "learning::Discriminative"
-          ],
-          "inference": [
-            "inference::Recovery"
-          ]
+          "learning": [],
+          "inference": []
         },
         {
           "analysis": [
@@ -4076,13 +4167,11 @@
           "combine": [
             "combine::+"
           ],
-          "combine_1": [],
-          "learning": [
-            "learning::Discriminative"
+          "combine_1": [
+            "combine_1::-->"
           ],
-          "inference": [
-            "inference::Recovery"
-          ]
+          "learning": [],
+          "inference": []
         },
         {
           "analysis": [
@@ -4106,10 +4195,10 @@
           "embedding": [
             "embedding::Context-independent"
           ],
-          "combine": [
-            "combine::+"
+          "combine": [],
+          "combine_1": [
+            "combine_1::-->"
           ],
-          "combine_1": [],
           "learning": [
             "learning::Discriminative"
           ],
@@ -4144,10 +4233,10 @@
           "Structrual analysis"
         ],
         "artifact-class::Code representation": [
-          "assembly; IR; imports; constants; tainted values"
+          "assembly; IR"
         ],
         "artifact-class::Binary fact": [
-          "assembly; IR; imports; constants; tainted values"
+          "imports; constants; tainted values"
         ],
         "canonicalization::Scale": [
           "feature value scaling"
@@ -4157,7 +4246,19 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "||",
+          "skipPath": null
+        },
+        {
+          "id": "combine_1",
+          "type": "->",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P062",
@@ -4294,7 +4395,7 @@
           "Disassembly; Control-dependence analysis; Data-dependence analysis | Disassembly | Control-flow analysis; call-site analysis; Disassembly; IR lifting; static taint analysis"
         ],
         "artifact-class::Code representation": [
-          "assembly | assembly | ICFG; assembly; IR; imports; constants; tainted values"
+          "assembly | assembly; IR"
         ],
         "artifact-form::Sequence": [
           "Code representations -> Sequence | Code representations  -> Sequence"
@@ -4315,10 +4416,10 @@
           "Structrual analysis"
         ],
         "artifact-class::Graph representation": [
-          "ICFG; assembly; IR; imports; constants; tainted values"
+          "ICFG"
         ],
         "artifact-class::Binary fact": [
-          "ICFG; assembly; IR; imports; constants; tainted values"
+          "imports; constants; tainted values"
         ],
         "artifact-form::Numeric descriptor": [
           "Graph representation; Code representations; Code representations; Binary facts; Binary facts; Binary facts -> Numeric descriptor"
@@ -4334,7 +4435,14 @@
         "learning::Generative": [
           "Generative"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "||",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P063",
@@ -4434,16 +4542,16 @@
           "Binary profiling"
         ],
         "artifact-class::Code representation": [
-          "IR; def-use chains; PDG; CG; Stack-frame layout; strings; constants"
+          "IR"
         ],
         "artifact-class::Graph representation": [
-          "IR; def-use chains; PDG; CG; Stack-frame layout; strings; constants | PDG"
+          "def-use chains; PDG; CG | PDG"
         ],
         "artifact-class::Binary fact": [
-          "IR; def-use chains; PDG; CG; Stack-frame layout; strings; constants"
+          "Stack-frame layout; constants"
         ],
         "artifact-class::Text stream": [
-          "IR; def-use chains; PDG; CG; Stack-frame layout; strings; constants"
+          "strings"
         ],
         "artifact-form::Numeric descriptor": [
           "Code representations; Graph representations; Graph representations;  Graph representations;  Binary facts; String literals; Binary facts -> Numeric descriptor"
@@ -4465,7 +4573,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P066",
@@ -4596,7 +4705,14 @@
         "learning::Generative": [
           "Generative"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "||",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P067",
@@ -4683,7 +4799,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P068",
@@ -4752,10 +4869,10 @@
           "Decompilation; call-site analysis"
         ],
         "artifact-class::Code representation": [
-          "Pseudocode; CG"
+          "Pseudocode"
         ],
         "artifact-class::Graph representation": [
-          "Pseudocode; CG"
+          "CG"
         ],
         "artifact-form::Sequence": [
           "Code representation; Graph representation -> Sequence"
@@ -4774,7 +4891,8 @@
         "learning::LLM-based": [
           "LLM-based finetuning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P070",
@@ -4925,13 +5043,13 @@
           "Structural analysis; Binary profiling"
         ],
         "artifact-class::Code representation": [
-          "Assembly; imports; strings | Pseudocode"
+          "Assembly | Pseudocode"
         ],
         "artifact-class::Binary fact": [
-          "Assembly; imports; strings"
+          "imports"
         ],
         "artifact-class::Text stream": [
-          "Assembly; imports; strings"
+          "strings"
         ],
         "artifact-form::Numeric descriptor": [
           "Code Representations; Binary Facts; String Literals -> Numeric descriptor | Graph representation -> Numeric descriptor | Code representation -> Numeric descriptor | Graph representation -> Numeric descriptor"
@@ -4950,7 +5068,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P075",
@@ -5027,7 +5146,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P081",
@@ -5093,13 +5213,13 @@
           "Structural analysis; Binary profiling"
         ],
         "artifact-class::Binary fact": [
-          "Header; sections; imports; exports; histogram; strings; entropy"
+          "Header; sections; imports; exports"
         ],
         "artifact-class::Numerical statistic": [
-          "Header; sections; imports; exports; histogram; strings; entropy"
+          "histogram; entropy"
         ],
         "artifact-class::Text stream": [
-          "Header; sections; imports; exports; histogram; strings; entropy"
+          "strings"
         ],
         "artifact-form::Numeric descriptor": [
           "Binary Facts; Binary Facts; Binary Facts; Binary Facts; Numerical Statistics; String Literals; Numerical Statistics -> Numeric descriptor"
@@ -5112,7 +5232,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P082",
@@ -5192,7 +5313,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P083",
@@ -5258,13 +5380,13 @@
           "Binary profiling; Structural analysis"
         ],
         "artifact-class::Numerical statistic": [
-          "entropy;  imports; strings; header"
+          "entropy"
         ],
         "artifact-class::Binary fact": [
-          "entropy;  imports; strings; header"
+          "imports; header"
         ],
         "artifact-class::Text stream": [
-          "entropy;  imports; strings; header"
+          "strings"
         ],
         "artifact-form::Numeric descriptor": [
           "Numerical Statistics; Binary Facts; String Literals; Binary Facts -> Numeric descriptor"
@@ -5280,7 +5402,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P084",
@@ -5345,10 +5468,10 @@
           "Structural analysis; Binary profiling"
         ],
         "artifact-class::Binary fact": [
-          "Header; sections; imports; exports; entropy"
+          "Header; sections; imports; exports"
         ],
         "artifact-class::Numerical statistic": [
-          "Header; sections; imports; exports; entropy"
+          "entropy"
         ],
         "artifact-form::Numeric descriptor": [
           "Binary Facts; Binary Facts; Binary Facts; Binary Facts; Numerical Statistics -> Numeric descriptor"
@@ -5361,7 +5484,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P087",
@@ -5436,7 +5560,8 @@
         "learning::Discriminative": [
           "Classification"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P093",
@@ -5532,10 +5657,10 @@
           "Disassembly; Control-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; CFG"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; CFG"
+          "CFG"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Text streams; Text streams -> Graph"
@@ -5557,7 +5682,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P094",
@@ -5656,7 +5782,7 @@
           "Fuzzing | Fuzzing"
         ],
         "artifact-class::Test set": [
-          "mutated input | mutated input"
+          "mutated input"
         ],
         "artifact-form::Image": [
           "Test sets -> Image"
@@ -5684,7 +5810,14 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "||",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P095",
@@ -5700,11 +5833,11 @@
       "codeForm": "Byte",
       "pathCount": 3,
       "relationship": "-->",
-      "forClaude": "((BERT-based -> GCN) -> ResNet)",
+      "forClaude": "(BERT-based -> GCN) -> ResNet",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "((BERT-based -> GCN) -> ResNet) + MLP classifier",
-      "inferenceCategory": "Detection; clustering",
+      "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Vulnerable function candidates ranked by similarity",
       "evaluationMetric": "AUC; Recall@K; Precision; Recall",
@@ -5794,8 +5927,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection",
-            "inference::Clustering"
+            "inference::Detection"
           ]
         }
       ],
@@ -5804,9 +5936,6 @@
           "((BERT-based -> GCN) -> ResNet) + MLP classifier"
         ],
         "inference::Detection": [
-          "AUC; Recall@K; Precision; Recall"
-        ],
-        "inference::Clustering": [
           "AUC; Recall@K; Precision; Recall"
         ],
         "analysis::Static": [
@@ -5859,7 +5988,19 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        },
+        {
+          "id": "combine_1",
+          "type": "->",
+          "skipPath": null
+        }
+      ]
     },
     {
       "id": "P096",
@@ -5879,7 +6020,7 @@
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Spectral clustering",
-      "inferenceCategory": "Detection; clustering",
+      "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Vulnerable function candidates from codebook search",
       "evaluationMetric": "Recall rate; false positive rate",
@@ -5908,8 +6049,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection",
-            "inference::Clustering"
+            "inference::Detection"
           ]
         },
         {
@@ -5936,8 +6076,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection",
-            "inference::Clustering"
+            "inference::Detection"
           ]
         }
       ],
@@ -5946,9 +6085,6 @@
           "Spectral clustering"
         ],
         "inference::Detection": [
-          "Recall rate; false positive rate"
-        ],
-        "inference::Clustering": [
           "Recall rate; false positive rate"
         ],
         "analysis::Static": [
@@ -5971,7 +6107,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P097",
@@ -5991,7 +6128,7 @@
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "KNN",
-      "inferenceCategory": "Detection; clustering",
+      "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "k-NN candidate functions",
       "evaluationMetric": "Percent correct; rank",
@@ -6022,8 +6159,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection",
-            "inference::Clustering"
+            "inference::Detection"
           ]
         }
       ],
@@ -6034,20 +6170,17 @@
         "inference::Detection": [
           "Percent correct; rank"
         ],
-        "inference::Clustering": [
-          "Percent correct; rank"
-        ],
         "analysis::Static": [
           "Disassembly; Call-site analysis; Stack-frame analysis; Control-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; ICFG; Stack-frame layout"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; ICFG; Stack-frame layout"
+          "ICFG"
         ],
         "artifact-class::Binary fact": [
-          "Assembly; ICFG; Stack-frame layout"
+          "Stack-frame layout"
         ],
         "artifact-form::Numeric descriptor": [
           "Code representations; Graph representations; Binary facts -> Numeric descriptor"
@@ -6063,7 +6196,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P098",
@@ -6083,7 +6217,7 @@
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "Structure2vec with SiameseNN (Gemini) + cosine top-M retrieval -> emulation semantic-signature Jaccard reordering",
-      "inferenceCategory": "Detection; clustering",
+      "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Re-ranked vulnerable function candidates",
       "evaluationMetric": "Average rank; Top-1 candidates found; Top-5 candidates found",
@@ -6115,8 +6249,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection",
-            "inference::Clustering"
+            "inference::Detection"
           ]
         }
       ],
@@ -6127,17 +6260,14 @@
         "inference::Detection": [
           "Average rank; Top-1 candidates found; Top-5 candidates found"
         ],
-        "inference::Clustering": [
-          "Average rank; Top-1 candidates found; Top-5 candidates found"
-        ],
         "analysis::Static": [
           "Disassembly; Control-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; CFG"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; CFG"
+          "CFG"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations -> Graph"
@@ -6156,7 +6286,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P101",
@@ -6176,7 +6307,7 @@
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "Datalog rule-driven checker",
-      "inferenceCategory": "Discovery; clustering",
+      "inferenceCategory": "Discovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Relevant TPC usage label per function",
       "evaluationMetric": "Precision; Recall; F1",
@@ -6206,8 +6337,7 @@
             "learning::Rule-based\nReasoning"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         }
       ],
@@ -6218,17 +6348,14 @@
         "inference::Discovery": [
           "Precision; Recall; F1"
         ],
-        "inference::Clustering": [
-          "Precision; Recall; F1"
-        ],
         "analysis::Static": [
           "Disassembly; Call-site analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; ICFG"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; ICFG"
+          "ICFG"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations -> Graph"
@@ -6244,7 +6371,8 @@
         "learning::Rule-based\nReasoning": [
           "Deterministic reasoning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P103",
@@ -6264,7 +6392,7 @@
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "RNN-VAE/MDSAE + mlp classifer",
-      "inferenceCategory": "Detection; clustering",
+      "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Vulnerable/safe sample label",
       "evaluationMetric": "Accuracy; Recall; Precision; F1; AUC",
@@ -6297,8 +6425,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Detection",
-            "inference::Clustering"
+            "inference::Detection"
           ]
         }
       ],
@@ -6307,9 +6434,6 @@
           "RNN-VAE/MDSAE + mlp classifer"
         ],
         "inference::Detection": [
-          "Accuracy; Recall; Precision; F1; AUC"
-        ],
-        "inference::Clustering": [
           "Accuracy; Recall; Precision; F1; AUC"
         ],
         "analysis::Static": [
@@ -6338,7 +6462,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P104",
@@ -6358,7 +6483,7 @@
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BERT-based + cosine similarity + fuzzy matching -> source candidate identification -> enhanced CFG + RDA/def-use graph reverse lookup + constraint checks",
-      "inferenceCategory": "Discovery; clustering",
+      "inferenceCategory": "Discovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Suspicious function similarity score",
       "evaluationMetric": "TP; FP; TPR; FPR; number of vulnerabilities",
@@ -6389,8 +6514,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         },
         {
@@ -6421,8 +6545,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         }
       ],
@@ -6431,9 +6554,6 @@
           "BERT-based + cosine similarity + fuzzy matching -> source candidate identification -> enhanced CFG + RDA/def-use graph reverse lookup + constraint checks"
         ],
         "inference::Discovery": [
-          "TP; FP; TPR; FPR; number of vulnerabilities"
-        ],
-        "inference::Clustering": [
           "TP; FP; TPR; FPR; number of vulnerabilities"
         ],
         "analysis::Triage": [
@@ -6455,13 +6575,13 @@
           "Disassembly; Call-site analysis; IR lifting; Data-flow analysis; Static taint analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; ICFG; IR; def-use chains; DDG; tainted values"
+          "Assembly; IR"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; ICFG; IR; def-use chains; DDG; tainted values"
+          "ICFG; def-use chains; DDG"
         ],
         "artifact-class::Binary fact": [
-          "Assembly; ICFG; IR; def-use chains; DDG; tainted values"
+          "tainted values"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Code representation; Graph representaiton; Graph representaiton; Binary facts -> Graph"
@@ -6474,7 +6594,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P107",
@@ -6567,7 +6688,7 @@
           "Behavioral monitoring | Behavioral monitoring"
         ],
         "artifact-class::Text stream": [
-          "API event trace; system event trace"
+          "API event trace"
         ],
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
@@ -6589,7 +6710,8 @@
         "learning::Reinforcement Learning": [
           "Reinforcement Learning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P108",
@@ -6676,7 +6798,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P109",
@@ -6767,7 +6890,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P110",
@@ -6849,7 +6973,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P113",
@@ -6931,7 +7056,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P114",
@@ -6995,13 +7121,13 @@
           "Structural analysis; Binary profiling"
         ],
         "artifact-class::Binary fact": [
-          "Header; sections; imports; exports; histogram; strings; entropy"
+          "Header; sections; imports; exports"
         ],
         "artifact-class::Numerical statistic": [
-          "Header; sections; imports; exports; histogram; strings; entropy"
+          "histogram; entropy"
         ],
         "artifact-class::Text stream": [
-          "Header; sections; imports; exports; histogram; strings; entropy"
+          "strings"
         ],
         "artifact-form::Numeric descriptor": [
           "Binary Facts; Binary Facts; Binary Facts; Binary Facts; Numerical Statistics; String Literals; Numerical Statistics-> Numeric descriptor"
@@ -7011,7 +7137,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P117",
@@ -7093,7 +7220,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P119",
@@ -7221,7 +7349,14 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        }
+      ]
     },
     {
       "id": "P120",
@@ -7290,7 +7425,7 @@
           "Behavioral monitoring"
         ],
         "artifact-class::Text stream": [
-          "API event trace; system event trace"
+          "API event trace"
         ],
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
@@ -7312,7 +7447,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P121",
@@ -7437,7 +7573,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P122",
@@ -7503,13 +7640,13 @@
           "Structural analysis; Binary profiling"
         ],
         "artifact-class::Binary fact": [
-          "Header; sections; imports; exports; histogram; entropy; strings"
+          "Header; sections; imports; exports"
         ],
         "artifact-class::Numerical statistic": [
-          "Header; sections; imports; exports; histogram; entropy; strings"
+          "histogram; entropy"
         ],
         "artifact-class::Text stream": [
-          "Header; sections; imports; exports; histogram; entropy; strings"
+          "strings"
         ],
         "artifact-form::Numeric descriptor": [
           "Binary Facts; Binary Facts; Binary Facts; Binary Facts;  Numerical Statistics; Numerical Statistics; String Literals-> Numeric descriptor"
@@ -7522,7 +7659,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P128",
@@ -7538,10 +7676,10 @@
       "codeForm": "Assembly",
       "pathCount": 2,
       "relationship": "-->",
-      "forClaude": "CBOW -> TADW",
+      "forClaude": "CBOW -> TADW (Deepwalk)",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
-      "learningModel": "(CBOW -> TADW) + k-hop greedy matching",
+      "learningModel": "(CBOW -> TADW (Deepwalk)) + k-hop greedy matching",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
       "inferenceOutput": "Matched function pairs across two binaries",
@@ -7610,7 +7748,7 @@
       ],
       "nodeReveal": {
         "learning::Discriminative": [
-          "(CBOW -> TADW) + k-hop greedy matching"
+          "(CBOW -> TADW (Deepwalk)) + k-hop greedy matching"
         ],
         "inference::Detection": [
           "Precision; Recall; F1-score"
@@ -7653,7 +7791,14 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        }
+      ]
     },
     {
       "id": "P130",
@@ -7673,7 +7818,7 @@
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "(Bag-of-nodes + clustering)  -> ( Graph2vec + clustering)",
-      "inferenceCategory": "Discovery; clustering",
+      "inferenceCategory": "Discovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Inconsistent code group flag",
       "evaluationMetric": "# reports; # bugs found; true positive rate; false positive rate; # CVEs",
@@ -7737,8 +7882,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         }
       ],
@@ -7749,17 +7893,14 @@
         "inference::Discovery": [
           "# reports; # bugs found; true positive rate; false positive rate; # CVEs"
         ],
-        "inference::Clustering": [
-          "# reports; # bugs found; true positive rate; false positive rate; # CVEs"
-        ],
         "analysis::Static": [
           "IR lifting; Data-dependence analysis | IR lifting; Data-dependence analysis"
         ],
         "artifact-class::Code representation": [
-          "IR; DDG | IR; DDG"
+          "IR"
         ],
         "artifact-class::Graph representation": [
-          "IR; DDG | IR; DDG"
+          "DDG"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations -> Graph | Code representations; Graph representations -> Graph"
@@ -7784,7 +7925,14 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": [
+        {
+          "id": "combine",
+          "type": "->",
+          "skipPath": 1
+        }
+      ]
     },
     {
       "id": "P131",
@@ -7804,7 +7952,7 @@
       "learningCategory": "Rule-based reasoning",
       "learningSubcategory": "Deterministic reasoning",
       "learningModel": "Markov-chain-guided power scheduling",
-      "inferenceCategory": "Discovery; clustering",
+      "inferenceCategory": "Discovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Power schedule per seed; new test inputs",
       "evaluationMetric": "number of unique crashes; number of paths discovered; number of vulnerabilities/bugs exposed",
@@ -7831,8 +7979,7 @@
             "learning::Rule-based\nReasoning"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         }
       ],
@@ -7841,9 +7988,6 @@
           "Markov-chain-guided power scheduling"
         ],
         "inference::Discovery": [
-          "number of unique crashes; number of paths discovered; number of vulnerabilities/bugs exposed"
-        ],
-        "inference::Clustering": [
           "number of unique crashes; number of paths discovered; number of vulnerabilities/bugs exposed"
         ],
         "analysis::Security Testing": [
@@ -7863,7 +8007,8 @@
         "learning::Rule-based\nReasoning": [
           "Deterministic reasoning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P132",
@@ -7883,7 +8028,7 @@
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "MLP",
-      "inferenceCategory": "Discovery; clustering",
+      "inferenceCategory": "Discovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Mutation targets predicted to increase coverage",
       "evaluationMetric": "number of bugs found; number of crashes found; edge coverage",
@@ -7914,8 +8059,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         }
       ],
@@ -7926,9 +8070,6 @@
         "inference::Discovery": [
           "number of bugs found; number of crashes found; edge coverage"
         ],
-        "inference::Clustering": [
-          "number of bugs found; number of crashes found; edge coverage"
-        ],
         "analysis::Security Testing": [
           "Fuzzing"
         ],
@@ -7936,10 +8077,10 @@
           "Execution tracing"
         ],
         "artifact-class::Test set": [
-          "Mutated input; Coverage maps"
+          "Mutated input"
         ],
         "artifact-class::Numerical statistic": [
-          "Mutated input; Coverage maps"
+          "Coverage maps"
         ],
         "artifact-form::Sequence": [
           "Test Sets; Numerical Statistics -> Sequence"
@@ -7952,7 +8093,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P134",
@@ -7972,7 +8114,7 @@
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "MLP  +  MLP decoders -> saliency-guided mutation",
-      "inferenceCategory": "Discovery; clustering",
+      "inferenceCategory": "Discovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Multi-task mutation targets",
       "evaluationMetric": "number of bugs found; edge coverage",
@@ -8005,8 +8147,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         }
       ],
@@ -8015,9 +8156,6 @@
           "MLP  +  MLP decoders -> saliency-guided mutation"
         ],
         "inference::Discovery": [
-          "number of bugs found; edge coverage"
-        ],
-        "inference::Clustering": [
           "number of bugs found; edge coverage"
         ],
         "analysis::Security Testing": [
@@ -8043,7 +8181,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P135",
@@ -8063,7 +8202,7 @@
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "MLP + PreFuzz edge selection + probabilistic byte selection -> mutation",
-      "inferenceCategory": "Discovery; clustering",
+      "inferenceCategory": "Discovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Edge-set / probabilistic byte mutations",
       "evaluationMetric": "edge coverage; number of unique crashes",
@@ -8096,8 +8235,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         }
       ],
@@ -8106,9 +8244,6 @@
           "MLP + PreFuzz edge selection + probabilistic byte selection -> mutation"
         ],
         "inference::Discovery": [
-          "edge coverage; number of unique crashes"
-        ],
-        "inference::Clustering": [
           "edge coverage; number of unique crashes"
         ],
         "analysis::Security Testing": [
@@ -8134,7 +8269,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P136",
@@ -8154,7 +8290,7 @@
       "learningCategory": "Rule-based | Discriminative",
       "learningSubcategory": "Determinstic reasoning | Detection",
       "learningModel": "Minimum Cluster field-boundary inference -> CNN field-type classifier -> format-aware power scheduling + type-specific mutators",
-      "inferenceCategory": "Discovery; clustering",
+      "inferenceCategory": "Discovery",
       "inferenceSubcategory": "",
       "inferenceOutput": "Inferred input field grammar + new test inputs",
       "evaluationMetric": "field boundary accuracy; field type Top-1 accuracy; field type Top-2 accuracy; basic block coverage; number of bugs found",
@@ -8185,8 +8321,7 @@
             "learning::Rule-based\nReasoning"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         },
         {
@@ -8217,8 +8352,7 @@
             "learning::Discriminative"
           ],
           "inference": [
-            "inference::Discovery",
-            "inference::Clustering"
+            "inference::Discovery"
           ]
         }
       ],
@@ -8232,14 +8366,11 @@
         "inference::Discovery": [
           "field boundary accuracy; field type Top-1 accuracy; field type Top-2 accuracy; basic block coverage; number of bugs found"
         ],
-        "inference::Clustering": [
-          "field boundary accuracy; field type Top-1 accuracy; field type Top-2 accuracy; basic block coverage; number of bugs found"
-        ],
         "analysis::Dynamic": [
           "Dynamic taint analysis | Dynamic taint analysis"
         ],
         "artifact-class::Text stream": [
-          "taint trace | taint trace; IR; CG; strings"
+          "taint trace | CG"
         ],
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
@@ -8254,10 +8385,10 @@
           "Behavior monitoring"
         ],
         "artifact-class::Code representation": [
-          "taint trace; IR; CG; strings"
+          "taint trace"
         ],
         "artifact-class::Graph representation": [
-          "taint trace; IR; CG; strings"
+          "IR"
         ],
         "artifact-form::Numeric descriptor": [
           "Text streams, Code representation; Graph representation; String Literals -> Numeric descriptor"
@@ -8271,12 +8402,13 @@
       },
       "nodeDetail": {
         "learning::Rule-based\nReasoning": [
-          "Determinstic reasoning | Detection"
+          "Determinstic reasoning"
         ],
         "learning::Discriminative": [
-          "Determinstic reasoning | Detection"
+          "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P141",
@@ -8345,10 +8477,10 @@
           "Disassembly; Call-site analysis; Data-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; ICFG; def-use chains"
+          "Assembly"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; ICFG; def-use chains"
+          "ICFG; def-use chains"
         ],
         "artifact-form::Sequence": [
           "Code representations; Graph representations; Graph representations-> Sequence"
@@ -8367,7 +8499,8 @@
         "learning::Generative": [
           "Generative"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P142",
@@ -8435,10 +8568,10 @@
           "Disassembly; Control-flow analysis; Decompilation; Data-flow analysis"
         ],
         "artifact-class::Code representation": [
-          "Assembly; CFG; Pseudocode; AST; DFG"
+          "Assembly; Pseudocode"
         ],
         "artifact-class::Graph representation": [
-          "Assembly; CFG; Pseudocode; AST; DFG"
+          "CFG; AST; DFG"
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Code representations; Graph representation; Graph representation -> Graph"
@@ -8460,7 +8593,8 @@
         "learning::Generative": [
           "Generative"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P144",
@@ -8547,7 +8681,8 @@
         "learning::Generative": [
           "Generative"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P146",
@@ -8624,7 +8759,8 @@
         "learning::LLM-based": [
           "LLM-prompting"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P148",
@@ -8766,7 +8902,7 @@
           "Execution tracing | Dynamic taint analysis"
         ],
         "artifact-class::Text stream": [
-          "Instruction trace; memory-access trace; runtime-value trace | Taint trace; Symbolic constraint; Symbolic expression"
+          "Instruction trace; memory-access trace; runtime-value trace | Taint trace"
         ],
         "artifact-form::Graph": [
           "Text Streams; Text Streams; Text Streams -> Graph"
@@ -8784,7 +8920,7 @@
           "Symbolic execution"
         ],
         "artifact-class::Logical expression": [
-          "Taint trace; Symbolic constraint; Symbolic expression"
+          "Symbolic constraint; Symbolic expression"
         ],
         "artifact-form::Numeric descriptor": [
           "Text Streams; Logical Expressions; Logical Expressions -> Numeric descriptor"
@@ -8792,12 +8928,13 @@
       },
       "nodeDetail": {
         "learning::Discriminative": [
-          "Classification | Deterministic reasoning | Deterministic reasoning"
+          "Classification"
         ],
         "learning::Rule-based\nReasoning": [
-          "Classification | Deterministic reasoning | Deterministic reasoning"
+          "Deterministic reasoning"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P150",
@@ -8861,13 +8998,13 @@
           "Structural analysis; Binary profiling"
         ],
         "artifact-class::Binary fact": [
-          "Header; sections; imports; exports; histogram; entropy; strings"
+          "Header; sections; imports; exports"
         ],
         "artifact-class::Numerical statistic": [
-          "Header; sections; imports; exports; histogram; entropy; strings"
+          "histogram; entropy"
         ],
         "artifact-class::Text stream": [
-          "Header; sections; imports; exports; histogram; entropy; strings"
+          "strings"
         ],
         "artifact-form::Numeric descriptor": [
           "Binary Facts; Binary Facts; Binary Facts; Binary Facts; Numerical Statistics; Numerical Statistics; String Literals-> Numeric descriptor"
@@ -8877,7 +9014,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     },
     {
       "id": "P151",
@@ -8944,10 +9082,10 @@
           "Disassembly; Call-site analysis"
         ],
         "artifact-class::Code representation": [
-          "assembly; ICFG"
+          "assembly"
         ],
         "artifact-class::Graph representation": [
-          "assembly; ICFG"
+          "ICFG"
         ],
         "artifact-form::Numeric descriptor": [
           "Code representaion; Graph representation -> Numeric descriptor"
@@ -8963,7 +9101,8 @@
         "learning::Discriminative": [
           "Detection"
         ]
-      }
+      },
+      "connectorGraph": []
     }
   ],
   "sidebar": [

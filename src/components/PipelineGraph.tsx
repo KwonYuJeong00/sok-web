@@ -112,7 +112,7 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
               !s.connector && s.expand && paper && nodeColors.has(n.id) && touchingPaths.length > 0
                 ? (() => {
                     const raw = (paper.nodeReveal[n.id] ?? [])[0] ?? '';
-                    const parts = raw.split('|').map((p) => p.trim()).filter(Boolean);
+                    const parts = raw.split(/(?<!\|)\|(?!\|)/).map((p) => p.trim()).filter(Boolean);
                     const reveals = touchingPaths
                       .map((pi, idx) => ({
                         color: pathColor(pathColorIdxs[pi]),
@@ -133,7 +133,7 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
                 paperSelected={paperSelected}
                 highlighted={nodeColors.has(n.id)}
                 hitColor={nodeColors.has(n.id) ? '#6b7280' : undefined}
-                detail={s.connector && paper && s.id === 'combine' ? [paper.forClaude] : paper?.nodeDetail[n.id]}
+                detail={s.connector ? undefined : paper?.nodeDetail[n.id]}
                 expandable={s.expand && nodeColors.has(n.id)}
                 expandLabel={s.expandLabel}
                 detailLabel={s.detailLabel}
@@ -146,6 +146,22 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
             );
           }),
         )}
+
+        {/* forClaude label: centered across the full embedding→learning gap */}
+        {paper && paper.connectorGraph.length > 0 && (() => {
+          const embBox = layout.stageBox.get('embedding');
+          const learnBox = layout.stageBox.get('learning');
+          if (!embBox || !learnBox) return null;
+          const cx = (embBox.x + embBox.w + learnBox.x) / 2;
+          return (
+            <div
+              className="connector-label connector-label--gap"
+              style={{ left: cx, top: layout.firstNodeY }}
+            >
+              {paper.forClaude}
+            </div>
+          );
+        })()}
       </div>
     </div>
   );
