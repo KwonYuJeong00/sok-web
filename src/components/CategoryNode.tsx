@@ -4,14 +4,10 @@ import type { Box } from '../lib/layout';
 
 function renderPopText(value: string, key: string) {
   const parts = value.split(';').map((p) => p.trim()).filter(Boolean);
-  if (parts.length > 1) {
-    return (
-      <ol key={key} className="node-pop-list">
-        {parts.map((p, i) => <li key={i}>{p}{i < parts.length - 1 ? ';' : ''}</li>)}
-      </ol>
-    );
-  }
-  return <span key={key} className="node-pop-text">{value}</span>;
+  const text = (parts.length > 1 ? parts.join('\n') : value)
+    .replace(/\s*-->/g, '\n-->')
+    .replace(/([^-])\s*->/g, '$1\n->');
+  return <span key={key} className="node-pop-text">{text}</span>;
 }
 
 interface PathReveal { color: string; text: string; }

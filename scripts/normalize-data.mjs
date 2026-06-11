@@ -183,7 +183,7 @@ function normTokUnit(u) {
 function normSplitBasis(v) {
   const s = clean(v).toLowerCase();
   if (isSkip(s) || s === 'n' || s === 'a') return '';
-  if (s.startsWith('atomic')) return 'Atomic units';
+  if (s.startsWith('atomic')) return 'Atomic unit';
   if (s.startsWith('data-driven')) return 'Data-driven segmentation';
   if (s.startsWith('rule-based')) return 'Rule-based decomposition';
   if (s.startsWith('syntactic')) return 'Syntactic unit';
@@ -212,6 +212,27 @@ function combineRelationship(learningModel) {
   if (/\+|⊕/.test(lm)) return '+';
   return '';
 }
+// When `for claude` has top-level single-`|` separators, independent embedding
+// branches feed different learning nodes. Each top-level segment is one branch;
+// within a branch, `||` means concatenation (those paths merge at the `+` node).
+// Returns null when there is only one branch (no per-path routing needed).
+// Returns null when the counted paths don't match pathCount (data inconsistency).
+function parsePathGroups(forClaude, pathCount) {
+  const branches = splitLanes(clean(forClaude));
+  if (branches.length <= 1) return null;
+  const branchPaths = branches.map(b => b.split(/\s*\|\|\s*/).filter(Boolean));
+  const total = branchPaths.reduce((s, p) => s + p.length, 0);
+  if (total !== pathCount) return null;
+  const pathGroup = [];
+  const groupHasConcat = [];
+  let pi = 0;
+  branchPaths.forEach((paths, gi) => {
+    groupHasConcat.push(paths.length > 1);
+    for (let j = 0; j < paths.length; j++) pathGroup[pi++] = gi;
+  });
+  return { pathGroup, groupHasConcat, groupCount: branches.length };
+}
+
 const isSequenceForm = (form) => normForm(form) === 'Sequence';
 
 /* ----------------------- pipeline stage metadata ----------------------- */
@@ -225,11 +246,12 @@ const STAGES = [
     fixed: ['Sequence', 'Graph', 'Numeric descriptor', 'Image'] },
   { id: 'canonicalization', name: 'Canonicalization', order: 3, perPath: true,  expand: true, expandLabel: 'Method',
     fixed: ['Scale', 'Replace', 'Remove', 'Map', 'Transform', 'Extract'] },
-  { id: 'tokenization',     name: 'Tokenization',     order: 4, perPath: true,  expand: true, expandLabel: 'Token unit', sequenceOnly: true },
+  { id: 'tokenization',     name: 'Tokenization',     order: 4, perPath: true,  expand: true, expandLabel: 'Unit', sequenceOnly: true },
   { id: 'encoding',         name: 'Encoding',         order: 5, perPath: true,  expand: true, expandLabel: 'Method', fixed: ['Sparse', 'Dense'] },
   { id: 'embedding',        name: 'Embedding',        order: 6, perPath: true,  expand: true, expandLabel: 'Method', fixed: ['Context-dependent', 'Context-independent'] },
-  { id: 'combine',          name: 'Learning model',   order: 7, perPath: false, expand: false, connector: true, fixed: ['-->', '+'] },
-  { id: 'learning',         name: 'Learning',         order: 8, perPath: false, expand: true, expandLabel: 'Model', detailLabel: 'Subcategory' },
+  { id: 'combine',          name: 'Learning model',   order: 7,   perPath: false, expand: false, connector: true, fixed: ['-->', '+'] },
+  { id: 'combine_1',        name: 'Learning model',   order: 7.5, perPath: false, expand: false, connector: true, fixed: ['-->'] },
+  { id: 'learning',         name: 'Learning',         order: 8,   perPath: false, expand: true, expandLabel: 'Model', detailLabel: 'Subcategory' },
   { id: 'inference',        name: 'Inference',        order: 9, perPath: false, expand: true, expandLabel: 'Metric',
     fixed: ['Detection', 'Recovery', 'Discovery', 'Classification', 'Reconstruction', 'Clustering', 'Summarization', 'Restoration'] },
 ];
@@ -306,10 +328,16 @@ function sharedEntries(stageId, paper) {
   switch (stageId) {
     case 'combine':
       return paper.relationship ? [{ label: paper.relationship, reveal: '', detail: '' }] : [];
+    case 'combine_1':
+      // Second connector only exists for sequential papers with 3+ paths.
+      return paper.relationship === '-->' && paper.pathCount > 2
+        ? [{ label: '-->', reveal: '', detail: '' }]
+        : [];
     case 'learning': {
       const out = [];
       for (const rawCat of splitMulti(paper.learningCategory)) {
-        const cat = rawCat === 'Rule-based' ? 'Rule-based reasoning' : rawCat;
+        const lcCat = rawCat.toLowerCase();
+        const cat = (lcCat === 'rule-based' || lcCat === 'rule-based reasoning') ? 'Rule-based\nReasoning' : rawCat;
         if (!out.some((x) => x.label === cat))
           out.push({ label: cat, reveal: paper.learningModel, detail: paper.learningSubcategory });
       }
@@ -361,6 +389,20 @@ function laneReveal(rawCell, touch, pathCount) {
   });
   if (parts.length === 1) return parts[0] === 'N/A' ? '' : parts[0];
   return parts.join(' | ');
+}
+
+// Canonicalization reveal: only the raw operation(s) whose canonShort maps to
+// `nodeLabel`, so each node shows only its own method, not sibling operations.
+function canonReveal(nodeLabel, lanes, touch) {
+  const parts = touch.map((i) => {
+    const matching = String(lanes[i].canonRaw ?? '').split(';')
+      .map((s) => s.trim()).filter((op) => canonShort(op) === nodeLabel);
+    return matching.length ? matching.join('; ') : '';
+  }).filter(Boolean);
+  const unique = [...new Set(parts)];
+  if (unique.length === 0) return '';
+  if (unique.length === 1) return unique[0];
+  return unique.join(' | ');
 }
 
 // Analysis reveal: the goal(s) of `phaseLabel` in each touching lane, by `|`.
@@ -478,6 +520,11 @@ function buildPaper(row) {
 
   // per-path nodes: record which input lanes touch each node id (lane order).
   const lanesByNode = {};
+  // When `for claude` has multiple top-level branches, paths in each branch
+  // connect only to that branch's combine/learning nodes, not to all of them.
+  const pathGroups = parsePathGroups(row['for claude'], pathCount);
+  const learningCatsByGroup = pathGroups ? splitLanes(paper.learningCategory) : null;
+
   for (let i = 0; i < pathCount; i++) {
     const perStage = {};
     for (const s of STAGES.filter((x) => x.perPath)) {
@@ -490,7 +537,44 @@ function buildPaper(row) {
       }
       perStage[s.id] = [...new Set(ids)];
     }
-    for (const s of STAGES.filter((x) => !x.perPath)) perStage[s.id] = sharedByStage[s.id];
+
+    if (pathGroups) {
+      const gi = pathGroups.pathGroup[i];
+      for (const s of STAGES.filter((x) => !x.perPath)) {
+        if (s.id === 'combine') {
+          // Only paths inside a concat branch (||) pass through the combine node.
+          perStage[s.id] = pathGroups.groupHasConcat[gi] ? sharedByStage[s.id] : [];
+        } else if (s.id === 'learning') {
+          const rawCat = (learningCatsByGroup[gi] ?? learningCatsByGroup[0] ?? '').trim();
+          const lcCat = rawCat.toLowerCase();
+          const cat = (lcCat === 'rule-based' || lcCat === 'rule-based reasoning')
+            ? 'Rule-based\nReasoning' : rawCat;
+          perStage[s.id] = cat && !isSkip(cat) ? [nid('learning', cat)] : [];
+        } else {
+          perStage[s.id] = sharedByStage[s.id];
+        }
+      }
+    } else {
+      for (const s of STAGES.filter((x) => !x.perPath)) {
+        if (paper.relationship === '-->') {
+          const K = pathCount - 1; // number of connector steps
+          if (s.connector) {
+            // Connector k is shared by path k (input) and path k+1 (output).
+            // combine = connector 0, combine_1 = connector 1, etc.
+            const k = s.id === 'combine' ? 0 : s.id === 'combine_1' ? 1 : -1;
+            perStage[s.id] = (k >= 0 && k < K && (i === k || i === k + 1))
+              ? sharedByStage[s.id]
+              : [];
+          } else {
+            // Learning/inference: only the last path carries the result forward.
+            perStage[s.id] = i !== pathCount - 1 ? [] : sharedByStage[s.id];
+          }
+        } else {
+          perStage[s.id] = sharedByStage[s.id];
+        }
+      }
+    }
+
     paper.pathNodeIds.push(perStage);
   }
 
@@ -502,7 +586,22 @@ function buildPaper(row) {
     const touch = [...new Set(lanesByNode[id])].sort((a, b) => a - b);
     addReveal(id, stageId === 'analysis'
       ? analysisReveal(label, lanes, touch)
-      : laneReveal(revealCell(stageId, row), touch, pathCount));
+      : stageId === 'canonicalization'
+        ? canonReveal(label, lanes, touch)
+        : laneReveal(revealCell(stageId, row), touch, pathCount));
+  }
+
+  // Single-path papers whose 'for claude' lists embedding alternatives
+  // (e.g. P141: "BERT-based or Word2Vec or Transformer-based") override the
+  // embedding reveal with the 'for claude' text, formatted one option per line.
+  if (pathCount === 1) {
+    const fc = clean(row['for claude']);
+    if (fc && !isSkip(fc) && /\bor\b/i.test(fc)) {
+      const formatted = fc.replace(/\s+or\s+/gi, '\nor ');
+      for (const embId of paper.pathNodeIds[0]['embedding'] ?? []) {
+        paper.nodeReveal[embId] = [formatted];
+      }
+    }
   }
 
   return paper;
