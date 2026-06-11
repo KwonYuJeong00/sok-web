@@ -2,33 +2,51 @@
 
 A static web app that visualises the AI-augmented binary-reversing pipeline as a
 **flow diagram**. Every stage is a column listing *all of its possible entries*
-(e.g. the 9 Artifact-class nodes). Pick a paper from the left and the entries it
-uses light up, connected column-to-column into a path. Papers with several
-inputs draw parallel, colour-coded paths that fuse through a `+` / `-->` marker
-just before **Learning**.
+(e.g. the 8 Artifact-class nodes). Pick a paper from the left sidebar and the
+entries it uses light up, connected column-to-column into a path. Papers with
+several inputs draw parallel, colour-coded paths that fuse through one or two
+`+` / `-->` connector markers just before **Learning**.
 
 **80 papers · 19 research domains · 10 pipeline stages · up to 4 parallel input paths.**
 
 ## Pipeline stages
 
 Each column shows a default label on its nodes. **Click a highlighted node** to
-reveal a secondary value in a popover — shown **verbatim** from the source sheet.
+reveal a secondary value in a popover — shown verbatim from the source sheet.
 
 | # | Column | Node shows (default) | Click reveals | CSV column(s) |
 |---|--------|----------------------|---------------|---------------|
 | 1 | **Analysis** | phase (Triage / Static / Dynamic / Security Testing) | analysis technique | `Analysis` |
-| 2 | **Artifact class** | one of 9 canonical classes (singular form) | the raw artifact(s) | `Artifact class`; `Analysis Artifact` |
+| 2 | **Artifact class** | one of 8 canonical classes | the artifact(s) belonging to that class | `Artifact class`; `Analysis Artifact` |
 | 3 | **Artifact form** | Sequence / Graph / Numeric descriptor / Image | the transformation chain | `Artifact form`; `Transformation` |
 | 4 | **Canonicalization** | short label — Scale / Replace / Remove / Map / Transform / Extract | the full method | `Canonicalization`; `Canonicalization_Method` |
 | 5 | **Tokenization** *(sequence inputs only)* | split basis | token unit | `Split basis`; `Token Unit` |
 | 6 | **Encoding** | Sparse / Dense | examples | `Encoding`; `Encoding examples` |
-| 7 | **Embedding** | Context-dependent / Context-independent | examples | `Embedding_Method`; `Embedding examples` |
-| 8 | **Learning** | learning category (Discriminative / Generative / LLM-based / …) | subcategory; model architecture | `Learning_Category`; `Learning_Subcategory`; `Learning_Model` |
+| 7 | **Embedding** | Context-dependent / Context-independent | embedding method examples | `Embedding_Method`; `Embedding examples` |
+| 7.5 | **Learning model** | `+` (parallel) or `-->` (sequential) | — | `for claude` |
+| 8 | **Learning** | learning category (Discriminative / Generative / LLM-based / …) | subcategory per path; model architecture | `Learning_Category`; `Learning_Subcategory`; `Learning_Model` |
 | 9 | **Inference** | inference category (Detection / Recovery / …) | evaluation metric | `Inference_Category`; `Evaluation_Metric` |
 
 Columns 1–7 are **per input path**; columns 8–9 are the **shared tail** where a
-paper's inputs fuse into one downstream model. Tokenization is skipped (no nodes)
-for non-sequence inputs.
+paper's inputs converge into one downstream model. Tokenization is skipped for
+non-sequence inputs.
+
+### Multi-input embedding relationships
+
+Papers with multiple embeddings show a **connector marker** between the Embedding
+and Learning columns. The `for claude` column encodes how the embeddings are
+combined as an expression, e.g.:
+
+| Expression | Meaning |
+|------------|---------|
+| `A \|\| B` | parallel fusion — both feed a single `+` node |
+| `A --> B` | sequential — A feeds `-->`, output colours the B path |
+| `(A \|\| B) -> C` | A and B fuse via `+`, then the result and C feed `-->` |
+| `(A --> B) \|\| C` | A feeds first `-->`, output and C fuse via `+` |
+
+Complex expressions produce **two connector markers** (up to two are supported).
+The embedding relationship label is centred across the full Embedding → Learning
+gap regardless of how many connectors are visible.
 
 ## Data
 
@@ -36,7 +54,7 @@ The build reads exactly **two** files from `source/`:
 
 - `ai_pipeline_final_sheet.csv` — the primary sheet, one row per paper.
 - `taxonomy definitions/domain_definition.csv` — scheme / tier / inference-type
-  per domain (D01–D26), used to build the sidebar tree and the per-paper tags.
+  per domain (D01–D26), used to build the sidebar tree and per-paper tags.
 
 The other files in `source/taxonomy definitions/` (`artifact_class.csv`,
 `inference_type.csv`, `tokenization_taxonomy.csv`, `domain_paper_map.csv`) are
@@ -140,13 +158,13 @@ sok-web/
 │       ├── tokenization_taxonomy.csv      reference taxonomy
 │       └── domain_paper_map.csv           reference (PID -> DID + venue)
 ├── scripts/
-│   ├── normalize-data.mjs                 CSV -> JSON
+│   ├── normalize-data.mjs                 CSV -> JSON (includes FC expression parser)
 │   └── audit.mjs                          ground-truth audit (npm run audit)
 ├── src/
 │   ├── App.tsx                            top-level state & composition
 │   ├── main.tsx                           React entry point
 │   ├── index.css                          all styles
-│   ├── types.ts                           shared TypeScript types
+│   ├── types.ts                           shared TypeScript types (incl. ConnectorSpec)
 │   ├── data/normalizedData.json           generated; safe to commit
 │   ├── lib/
 │   │   ├── data.ts                        loads the JSON + paper lookup
