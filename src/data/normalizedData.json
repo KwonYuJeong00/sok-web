@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 11,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T12:00:02.549Z",
+    "generatedAt": "2026-06-11T12:08:59.718Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -8757,7 +8757,7 @@
           "Code representation -> Sequence"
         ],
         "tokenization::Data-driven segmentation": [
-          "Subword (Pretrained-LLM"
+          "Subword (Pretrained-LLM)"
         ]
       },
       "nodeDetail": {

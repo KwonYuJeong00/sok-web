@@ -2,10 +2,11 @@ import { cssVars } from '../lib/style';
 import type { CategoryNode } from '../types';
 import type { Box } from '../lib/layout';
 
-function renderPopText(value: string, key: string) {
+function renderPopText(value: string, key: string, breakArrow = false) {
   const parts = value.split(';').map((p) => p.trim()).filter(Boolean);
   const text = (parts.length > 1 ? parts.join('\n') : value)
     .replace(/\s*-->/g, '\n-->')
+    .replace(breakArrow ? /([^-])\s*->/g : /(?!)/g, '$1\n->')
     .split('\n').map((l) => l.length > 0 ? l[0].toUpperCase() + l.slice(1) : l).join('\n');
   return <span key={key} className="node-pop-text">{text}</span>;
 }
@@ -29,12 +30,13 @@ interface Props {
   open: boolean;
   onToggle: () => void;
   stripeColors?: string[];  // right-edge path-color strips (analysis column only)
+  breakArrow?: boolean;     // insert newline before '->' in popup text
 }
 
 export function CategoryNodeView(props: Props) {
   const {
     node, box, color, connector, paperSelected, highlighted, hitColor, detail, expandable,
-    expandLabel, detailLabel, reveal, pathReveals, open, onToggle, stripeColors,
+    expandLabel, detailLabel, reveal, pathReveals, open, onToggle, stripeColors, breakArrow,
   } = props;
 
   // Learning-model connector: a small pill (+ / -->) showing how the upstream
@@ -95,7 +97,7 @@ export function CategoryNodeView(props: Props) {
           {detail && detail.length > 0 && detailLabel && (
             <>
               <span className="node-pop-label">{detailLabel}</span>
-              {detail.map((d, i) => renderPopText(d, `d${i}`))}
+              {detail.map((d, i) => renderPopText(d, `d${i}`, breakArrow))}
             </>
           )}
           <span className="node-pop-label">{expandLabel}</span>
@@ -103,11 +105,11 @@ export function CategoryNodeView(props: Props) {
             pathReveals.map(({ color: dotColor, text }, i) => (
               <div key={i} className="node-pop-path">
                 <span className="node-pop-dot" style={{ background: dotColor }} />
-                <div className="node-pop-path-text">{renderPopText(text, `pr${i}`)}</div>
+                <div className="node-pop-path-text">{renderPopText(text, `pr${i}`, breakArrow)}</div>
               </div>
             ))
           ) : reveal && reveal.length > 0 ? (
-            reveal.map((r, i) => renderPopText(r, `r${i}`))
+            reveal.map((r, i) => renderPopText(r, `r${i}`, breakArrow))
           ) : (
             <span className="node-pop-text">N/A</span>
           )}
