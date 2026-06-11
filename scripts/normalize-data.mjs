@@ -209,7 +209,7 @@ const isSequenceForm = (form) => normForm(form) === 'Sequence';
 // `fixed` stages always show their full canonical node set (all possible
 // entries, even unused). `derived` stages collect their nodes from the data.
 const STAGES = [
-  { id: 'analysis',         name: 'Analysis',         order: 0, perPath: true,  expand: false, expandLabel: '',     fixed: ['Triage', 'Static', 'Dynamic', 'Security Testing', 'Hybrid'] },
+  { id: 'analysis',         name: 'Analysis',         order: 0, perPath: true,  expand: true,  expandLabel: 'Technique', fixed: ['Triage', 'Static', 'Dynamic', 'Security Testing', 'Hybrid'] },
   { id: 'artifact-class',   name: 'Artifact class',   order: 1, perPath: true,  expand: true, expandLabel: 'Artifact',
     fixed: ['Code representation', 'String literal', 'Text stream', 'Binary fact', 'Graph representation', 'Numerical statistic', 'Snapshot', 'Logical expression', 'Test set'] },
   { id: 'artifact-form',    name: 'Artifact form',    order: 2, perPath: true,  expand: true, expandLabel: 'Transformation',
