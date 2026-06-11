@@ -5,12 +5,10 @@ interface Props {
   filter: FilterState;
   onChange: (f: FilterState) => void;
   resultCount: number;
-  selectedPid: string | null;
-  onClearSelection: () => void;
 }
 
 export function Header(props: Props) {
-  const { meta, filter, onChange, resultCount, selectedPid, onClearSelection } = props;
+  const { meta, filter, onChange, resultCount } = props;
   return (
     <header className="header">
       <h1 className="title">{meta.title}</h1>
