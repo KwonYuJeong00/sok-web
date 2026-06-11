@@ -16,11 +16,11 @@ reveal a secondary value in a popover — shown **verbatim** from the source she
 
 | # | Column | Node shows (default) | Click reveals | CSV column(s) |
 |---|--------|----------------------|---------------|---------------|
-| 1 | **Analysis** | analysis phase (Triage / Static / Dynamic / Security Testing / Hybrid) | — | `Analysis` |
-| 2 | **Artifact class** | one of 9 canonical classes (singular form) | the raw artifact(s) | `Artifact class`; `Artifact` |
+| 1 | **Analysis** | phase (Triage / Static / Dynamic / Security Testing) | analysis technique | `Analysis` |
+| 2 | **Artifact class** | one of 9 canonical classes (singular form) | the raw artifact(s) | `Artifact class`; `Analysis Artifact` |
 | 3 | **Artifact form** | Sequence / Graph / Numeric descriptor / Image | the transformation chain | `Artifact form`; `Transformation` |
 | 4 | **Canonicalization** | short label — Scale / Replace / Remove / Map / Transform / Extract | the full method | `Canonicalization`; `Canonicalization_Method` |
-| 5 | **Tokenization** *(sequence inputs only)* | the token unit | the technique | `Token Unit`; `Tokenization_Technique` |
+| 5 | **Tokenization** *(sequence inputs only)* | split basis | token unit | `Split basis`; `Token Unit` |
 | 6 | **Encoding** | Sparse / Dense | examples | `Encoding`; `Encoding examples` |
 | 7 | **Embedding** | Context-dependent / Context-independent | examples | `Embedding_Method`; `Embedding examples` |
 | 8 | **Learning** | learning category (Discriminative / Generative / LLM-based / …) | subcategory; model architecture | `Learning_Category`; `Learning_Subcategory`; `for claude` |
