@@ -18,7 +18,7 @@ export function Header(props: Props) {
         <input
           type="search"
           className="search"
-          placeholder="Search PID / method / title…"
+          placeholder="Search method / title…"
           value={filter.query}
           onChange={(e) => onChange({ query: e.target.value })}
         />

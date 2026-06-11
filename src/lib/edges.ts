@@ -63,11 +63,20 @@ export function paperTraceEdges(
   type PairEntry = { aId: string; bId: string; stageFromId: string; stageToId: string; items: Array<{ color: string; pi: number }> };
   const pairMap = new Map<string, PairEntry>();
 
+  const isSequential = paper.relationship === '-->';
+  const lastPathIdx = paper.pathNodeIds.length - 1;
+
   paper.pathNodeIds.forEach((perStage, pi) => {
     const active = ordered.filter((s) => (perStage[s.id] || []).length > 0);
     for (let i = 0; i < active.length - 1; i++) {
       const from = active[i];
       const to = active[i + 1];
+      // Sequential (-->): middle paths (and the last path when N=2) do not draw
+      // embedding→connector — their color originates at the preceding connector.
+      // For N≥3 the last path draws its own embedding→last-connector edge (green
+      // in a 3-path chain), so we only skip when lastPathIdx===1 (N=2).
+      if (isSequential && from.id === 'embedding' && to.connector &&
+          pi > 0 && (pi < lastPathIdx || lastPathIdx === 1)) continue;
       const color = pathColor(pathColorIdxs[pi]);
 
       for (const aId of perStage[from.id]) {
@@ -85,6 +94,11 @@ export function paperTraceEdges(
     }
   });
 
+  // Connector nodes (the +/--> pill) are a single visual element centered in
+  // their narrow box. All edges should converge/diverge at the pill's center
+  // rather than being fanned across the box height.
+  const connectorStageIds = new Set(stages.filter((s) => s.connector).map((s) => s.id));
+
   const edges: GEdge[] = [];
   let seq = 0;
 
@@ -93,12 +107,20 @@ export function paperTraceEdges(
     const B = layout.nodeBox.get(bId);
     if (!A || !B) continue;
 
+    const aIsConnector = connectorStageIds.has(stageFromId);
+    const bIsConnector = connectorStageIds.has(stageToId);
+
     for (const { color, pi } of items) {
-      const yA = stripY(aId, stageFromId, pi, paper, A);
-      const yB = stripY(bId, stageToId, pi, paper, B);
+      // connector→connector: exit right edge of A, enter left edge of B.
+      // connector→other: depart center of connector pill.
+      // other→connector: arrive at center of connector pill.
+      const xA = aIsConnector ? (bIsConnector ? A.x + A.w : A.x + A.w / 2) : A.x + A.w;
+      const yA = aIsConnector ? A.y + A.h / 2 : stripY(aId, stageFromId, pi, paper, A);
+      const xB = bIsConnector ? (aIsConnector ? B.x : B.x + B.w / 2) : B.x;
+      const yB = bIsConnector ? B.y + B.h / 2 : stripY(bId, stageToId, pi, paper, B);
       edges.push({
         id: `tr-${paper.id}-${seq++}`,
-        d: curve(A.x + A.w, yA, B.x, yB),
+        d: curve(xA, yA, xB, yB),
         kind: 'trace',
         color,
       });

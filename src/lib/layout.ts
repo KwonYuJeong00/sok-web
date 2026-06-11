@@ -24,26 +24,35 @@ export interface GraphLayout {
   nodeBox: Map<string, Box>;
 }
 
-export function computeLayout(stages: Stage[], showConnector = false): GraphLayout {
+export function computeLayout(stages: Stage[], connectorCount = 0): GraphLayout {
   const { pad, headerH, headerGap, colW, colGap, connectorW, nodeH, nodeGap } = LAYOUT;
   const stageBox = new Map<string, Box>();
   const nodeBox = new Map<string, Box>();
   const firstNodeY = pad + headerH + headerGap;
   let maxBottom = firstNodeY;
 
-  // The connector (Learning model) is not a full column. It only claims a narrow
-  // slot — widening the Embedding->Learning gap to host the +/--> marker — when
-  // the selected paper fuses multiple embeddings; otherwise it collapses so that
-  // gap matches every other inter-column gap.
+  // Connector stages (Learning model +/-->) only claim their narrow slot when
+  // the selected paper uses them. connectorCount says how many are visible.
+  // combine = index 0, combine_1 = index 1.
   const ordered = [...stages].sort((a, b) => a.order - b.order);
   let x = pad;
   for (const stage of ordered) {
     if (stage.connector) {
-      const w = showConnector ? connectorW : 0;
+      const idx = stage.id === 'combine' ? 0 : stage.id === 'combine_1' ? 1 : 99;
+      const show = idx < connectorCount;
+      const w = show ? connectorW : 0;
       stageBox.set(stage.id, { x, y: pad, w, h: headerH });
-      // markers share one row — only one is ever active for a given paper
-      for (const n of stage.nodes) nodeBox.set(n.id, { x, y: firstNodeY, w, h: nodeH });
-      if (showConnector) x += w + colGap;
+      if (show) {
+        // Single connector: widen the node box to span the full embedding→learning
+        // gap so CSS flex-centering places the pill at the true midpoint of the gap.
+        // Multiple connectors (P095): keep narrow boxes to avoid overlap.
+        const nodeW = connectorCount === 1 ? colGap + w + colGap : w;
+        const nodeX = connectorCount === 1 ? x - colGap : x;
+        for (const n of stage.nodes) nodeBox.set(n.id, { x: nodeX, y: firstNodeY, w: nodeW, h: nodeH });
+      } else {
+        for (const n of stage.nodes) nodeBox.set(n.id, { x, y: firstNodeY, w: 0, h: nodeH });
+      }
+      if (show) x += w + colGap;
       continue;
     }
     stageBox.set(stage.id, { x, y: pad, w: colW, h: headerH });

@@ -84,7 +84,6 @@ export function Sidebar({ sidebar, selectedPid, filteredPids, onSelect }: Props)
                               onClick={() => onSelect(p.id)}
                               title={p.title}
                             >
-                              <span className="leaf-pid">{p.id}</span>
                               <span className="leaf-title">{p.title}</span>
                               {p.venue && <span className="leaf-venue">{p.venue}</span>}
                             </button>

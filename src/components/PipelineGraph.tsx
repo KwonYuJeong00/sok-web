@@ -113,15 +113,13 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
                 ? (() => {
                     const raw = (paper.nodeReveal[n.id] ?? [])[0] ?? '';
                     const parts = raw.split('|').map((p) => p.trim()).filter(Boolean);
-                    if (parts.length > 1 || touchingPaths.length === 1) {
-                      return touchingPaths
-                        .map((pi, idx) => ({
-                          color: pathColor(pathColorIdxs[pi]),
-                          text: parts[idx] ?? parts[0] ?? '',
-                        }))
-                        .filter((x) => x.text.length > 0);
-                    }
-                    return undefined;
+                    const reveals = touchingPaths
+                      .map((pi, idx) => ({
+                        color: pathColor(pathColorIdxs[pi]),
+                        text: parts[idx] ?? parts[0] ?? '',
+                      }))
+                      .filter((x) => x.text.length > 0);
+                    return reveals.length > 0 ? reveals : undefined;
                   })()
                 : undefined;
 
@@ -135,7 +133,7 @@ export function PipelineGraph({ stages, layout, edges, paper, nodeColors }: Prop
                 paperSelected={paperSelected}
                 highlighted={nodeColors.has(n.id)}
                 hitColor={nodeColors.has(n.id) ? '#6b7280' : undefined}
-                detail={s.connector && paper ? [paper.forClaude] : paper?.nodeDetail[n.id]}
+                detail={s.connector && paper && s.id === 'combine' ? [paper.forClaude] : paper?.nodeDetail[n.id]}
                 expandable={s.expand && nodeColors.has(n.id)}
                 expandLabel={s.expandLabel}
                 detailLabel={s.detailLabel}

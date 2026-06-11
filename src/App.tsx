@@ -20,10 +20,14 @@ export default function App() {
   const selectedPaper =
     selection.kind === 'paper' ? paperById.get(selection.paperId) ?? null : null;
 
-  // The connector slot (and the wider Embedding->Learning gap) only exists when
-  // the selected paper fuses multiple embeddings; otherwise the gap is uniform.
-  const showConnector = !!selectedPaper?.relationship;
-  const layout = useMemo(() => computeLayout(data.stages, showConnector), [showConnector]);
+  // How many connector slots to show: 0 for single-embedding papers, 1 for
+  // parallel/2-path sequential, N-1 for N-path sequential chains.
+  const connectorCount = !selectedPaper?.relationship
+    ? 0
+    : selectedPaper.relationship === '-->' && selectedPaper.pathCount > 2
+      ? selectedPaper.pathCount - 1
+      : 1;
+  const layout = useMemo(() => computeLayout(data.stages, connectorCount), [connectorCount]);
   const backbone = useMemo(() => backboneEdges(data.stages, layout), [layout]);
   const filteredPids = useMemo(() => filterPapers(data.papers, filter), [filter]);
 
@@ -78,9 +82,7 @@ export default function App() {
 }
 
 function PaperInfoBar({ paper }: { paper: Paper }) {
-  const colorIdxs = paper.pathCount > 1
-    ? computePathColorIndices(paper, data.stages)
-    : [];
+  const colorIdxs = computePathColorIndices(paper, data.stages);
 
   return (
     <header className="info-bar">
@@ -89,23 +91,21 @@ function PaperInfoBar({ paper }: { paper: Paper }) {
         {paper.isTopTier && <span className="ib-tag">Top-tier</span>}
         {paper.conference && <span className="ib-tag">{paper.conference}</span>}
         {paper.year && <span className="ib-tag">{paper.year}</span>}
-        <span className="ib-tag">{paper.id}</span>
       </span>
       <span className="ib-title" title={paper.title}>{paper.title}</span>
-      {paper.pathCount > 1 && (
-        <span className="ib-legend">
-          {paper.pathNodeIds.map((per, i) => {
-            const formId = (per['artifact-form'] || [])[0];
-            const form = formId ? formId.split('::')[1] : `Input ${i + 1}`;
-            return (
-              <span key={i} className="ib-legend-item">
-                <span className="ib-legend-dot" style={cssVars({ '--accent': pathColor(colorIdxs[i]) })} />
-                {form}
-              </span>
-            );
-          })}
-        </span>
-      )}
+      <span className="ib-legend">
+        <span className="ib-legend-label">{paper.pathCount > 1 ? 'Artifacts' : 'Artifact'} ({paper.pathCount}):</span>
+        {paper.pathNodeIds.map((per, i) => {
+          const formId = (per['artifact-form'] || [])[0];
+          const form = formId ? formId.split('::')[1] : `Input ${i + 1}`;
+          return (
+            <span key={i} className="ib-legend-item">
+              <span className="ib-legend-dot" style={cssVars({ '--accent': pathColor(colorIdxs[i]) })} />
+              {form}
+            </span>
+          );
+        })}
+      </span>
     </header>
   );
 }
