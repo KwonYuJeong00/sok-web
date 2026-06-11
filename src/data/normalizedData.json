@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T01:28:21.837Z",
+    "generatedAt": "2026-06-11T01:32:10.224Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -369,7 +369,7 @@
           "id": "learning::Rule-based reasoning",
           "stageId": "learning",
           "label": "Rule-based reasoning",
-          "paperCount": 10
+          "paperCount": 11
         },
         {
           "id": "learning::LLM-based",
@@ -387,12 +387,6 @@
           "id": "learning::Reinforcement Learning",
           "stageId": "learning",
           "label": "Reinforcement Learning",
-          "paperCount": 1
-        },
-        {
-          "id": "learning::Rule-based",
-          "stageId": "learning",
-          "label": "Rule-based",
           "paperCount": 1
         }
       ]
@@ -7491,7 +7485,7 @@
             "combine::-->"
           ],
           "learning": [
-            "learning::Rule-based",
+            "learning::Rule-based reasoning",
             "learning::Discriminative"
           ],
           "inference": [
@@ -7524,7 +7518,7 @@
             "combine::-->"
           ],
           "learning": [
-            "learning::Rule-based",
+            "learning::Rule-based reasoning",
             "learning::Discriminative"
           ],
           "inference": [
@@ -7533,7 +7527,7 @@
         }
       ],
       "nodeReveal": {
-        "learning::Rule-based": [
+        "learning::Rule-based reasoning": [
           "N/A | CNN"
         ],
         "learning::Discriminative": [
@@ -7577,7 +7571,7 @@
         ]
       },
       "nodeDetail": {
-        "learning::Rule-based": [
+        "learning::Rule-based reasoning": [
           "Determinstic reasoning | Detection"
         ],
         "learning::Discriminative": [

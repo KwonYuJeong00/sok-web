@@ -292,7 +292,8 @@ function sharedEntries(stageId, paper) {
       return paper.relationship ? [{ label: paper.relationship, reveal: '', detail: '' }] : [];
     case 'learning': {
       const out = [];
-      for (const cat of splitMulti(paper.learningCategory)) {
+      for (const rawCat of splitMulti(paper.learningCategory)) {
+        const cat = rawCat === 'Rule-based' ? 'Rule-based reasoning' : rawCat;
         if (!out.some((x) => x.label === cat))
           out.push({ label: cat, reveal: paper.learningModel, detail: paper.learningSubcategory });
       }
