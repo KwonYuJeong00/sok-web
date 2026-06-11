@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T02:23:32.810Z",
+    "generatedAt": "2026-06-11T02:47:14.047Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -172,7 +172,7 @@
           "id": "canonicalization::Replace",
           "stageId": "canonicalization",
           "label": "Replace",
-          "paperCount": 16
+          "paperCount": 19
         },
         {
           "id": "canonicalization::Remove",
@@ -184,19 +184,19 @@
           "id": "canonicalization::Map",
           "stageId": "canonicalization",
           "label": "Map",
-          "paperCount": 8
+          "paperCount": 9
         },
         {
           "id": "canonicalization::Transform",
           "stageId": "canonicalization",
           "label": "Transform",
-          "paperCount": 13
+          "paperCount": 15
         },
         {
           "id": "canonicalization::Extract",
           "stageId": "canonicalization",
           "label": "Extract",
-          "paperCount": 0
+          "paperCount": 1
         }
       ]
     },
@@ -1939,6 +1939,7 @@
             "artifact-form::Graph"
           ],
           "canonicalization": [
+            "canonicalization::Transform",
             "canonicalization::Map"
           ],
           "tokenization": [],
@@ -1975,6 +1976,9 @@
         ],
         "artifact-form::Graph": [
           "Code representations; Code representations; Graph representations; Graph representations -> Graph"
+        ],
+        "canonicalization::Transform": [
+          "Structural transformation; node attribute mapping; edge attribute mapping"
         ],
         "canonicalization::Map": [
           "Structural transformation; node attribute mapping; edge attribute mapping"
@@ -3022,6 +3026,7 @@
             "artifact-form::Graph"
           ],
           "canonicalization": [
+            "canonicalization::Transform",
             "canonicalization::Map"
           ],
           "tokenization": [],
@@ -3098,6 +3103,9 @@
         ],
         "artifact-form::Graph": [
           "Code representations; Code representations; Graph representations; Graph representations;  Graph representations; Binary Facts -> Graph"
+        ],
+        "canonicalization::Transform": [
+          "Structural transformation; node attribute mapping; edge attribute mapping"
         ],
         "canonicalization::Map": [
           "Structural transformation; node attribute mapping; edge attribute mapping"
@@ -5479,6 +5487,7 @@
             "artifact-form::Sequence"
           ],
           "canonicalization": [
+            "canonicalization::Replace",
             "canonicalization::Remove"
           ],
           "tokenization": [
@@ -5574,6 +5583,9 @@
         ],
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
+        ],
+        "canonicalization::Replace": [
+          "Abstraction by replacement ; Filtering by removal"
         ],
         "canonicalization::Remove": [
           "Abstraction by replacement ; Filtering by removal"
@@ -6414,6 +6426,7 @@
             "artifact-form::Sequence"
           ],
           "canonicalization": [
+            "canonicalization::Replace",
             "canonicalization::Remove"
           ],
           "tokenization": [
@@ -6449,6 +6462,9 @@
         ],
         "artifact-form::Sequence": [
           "Graph representation -> Sequence"
+        ],
+        "canonicalization::Replace": [
+          "Abstraction by replacement ; Filtering by removal"
         ],
         "canonicalization::Remove": [
           "Abstraction by replacement ; Filtering by removal"
@@ -6937,6 +6953,7 @@
             "artifact-form::Sequence"
           ],
           "canonicalization": [
+            "canonicalization::Replace",
             "canonicalization::Remove"
           ],
           "tokenization": [
@@ -6972,6 +6989,9 @@
         ],
         "artifact-form::Sequence": [
           "Text streams -> Sequence"
+        ],
+        "canonicalization::Replace": [
+          "Abstraction by replacement ; Filtering by removal"
         ],
         "canonicalization::Remove": [
           "Abstraction by replacement ; Filtering by removal"
@@ -7357,6 +7377,7 @@
             "artifact-form::Graph"
           ],
           "canonicalization": [
+            "canonicalization::Extract",
             "canonicalization::Transform"
           ],
           "tokenization": [],
@@ -7388,6 +7409,7 @@
             "artifact-form::Graph"
           ],
           "canonicalization": [
+            "canonicalization::Extract",
             "canonicalization::Transform"
           ],
           "tokenization": [],
@@ -7426,6 +7448,9 @@
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations -> Graph | Code representations; Graph representations -> Graph"
+        ],
+        "canonicalization::Extract": [
+          "Subgraph extraction; Structural transformation | Subgraph extraction; Structural transformation"
         ],
         "canonicalization::Transform": [
           "Subgraph extraction; Structural transformation | Subgraph extraction; Structural transformation"
@@ -8025,6 +8050,7 @@
             "artifact-form::Graph"
           ],
           "canonicalization": [
+            "canonicalization::Map",
             "canonicalization::Transform"
           ],
           "tokenization": [],
@@ -8061,6 +8087,9 @@
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Code representations; Graph representation; Graph representation -> Graph"
+        ],
+        "canonicalization::Map": [
+          "Node attribute mapping; Edge attribute mapping; Structural transformation"
         ],
         "canonicalization::Transform": [
           "Node attribute mapping; Edge attribute mapping; Structural transformation"

@@ -270,8 +270,12 @@ function laneEntries(stageId, lane) {
       return f ? [{ label: f, reveal: lane.transformation, detail: '' }] : [];
     }
     case 'canonicalization': {
-      const s = canonShort(lane.canonRaw);
-      return s ? [{ label: s, reveal: lane.canonMethod, detail: '' }] : [];
+      const out = [];
+      for (const part of String(lane.canonRaw).split(';')) {
+        const s = canonShort(part);
+        if (s && !out.some((x) => x.label === s)) out.push({ label: s, reveal: lane.canonMethod, detail: '' });
+      }
+      return out;
     }
     case 'tokenization': {
       if (!lane.isSequence) return [];
