@@ -1,6 +1,5 @@
 Analysis Product Type,Description,Examples
 Code representations,Executable code at any abstraction level,"Raw bytes, disassembled instructions, lifted IR, decompiled presudocode"
-String literals,Human-readable string data,"URLs/IPs/domains, file paths"
 Text streams,Ordered sequences of runtime events,"instruction trace,memory access trace, API call trace, syscall trace, file I/O trace, registry access trace, process/thread trace, symbolic/concolic execution trace"
 Binary facts,Discrete facts about program elements,"Header fields, table entries, function boundaries, resolved call targets, data-flow facts, taint labels, stack frame layout, alias sets, type/struct information, compiler/packer/protector metadata, fuzzy hash signatures"
 Graph representations,Graphs over program elements,"CFG, ICFG, call graph, AST, def-use chains, DDG, CDG, PDG, points-to graph, taint propagation graph"

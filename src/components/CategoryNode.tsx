@@ -56,11 +56,6 @@ export function CategoryNodeView(props: Props) {
   const detailText =
     highlighted && !expandable && detail && detail.length ? detail.join('; ') : '';
 
-  const expandHint = [
-    detail && detail.length && detailLabel ? detailLabel : '',
-    expandLabel,
-  ].filter(Boolean).join('; ');
-
   const inner = (
     <>
       <span className="node-label">{node.label}</span>
@@ -68,8 +63,11 @@ export function CategoryNodeView(props: Props) {
       {!paperSelected && (
         <span className="node-count">{node.paperCount}</span>
       )}
+      {highlighted && expandable && detailLabel && detail && detail.length > 0 && (
+        <span className="node-expand">{open ? '−' : '+'} {detailLabel}</span>
+      )}
       {highlighted && expandable && (
-        <span className="node-expand">{open ? '−' : '+'} {expandHint}</span>
+        <span className="node-expand">{open ? '−' : '+'} {expandLabel}</span>
       )}
       {open && (
         <div className="node-pop" role="dialog">

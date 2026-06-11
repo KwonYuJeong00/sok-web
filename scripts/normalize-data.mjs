@@ -127,7 +127,6 @@ function normPhase(p) {
 
 const CLASS_MATCHERS = [
   ['code represent', 'Code representation'],
-  ['string', 'String literal'],
   ['text stream', 'Text stream'],
   ['graph represent', 'Graph representation'],
   ['binary fact', 'Binary fact'],
@@ -221,7 +220,7 @@ const isSequenceForm = (form) => normForm(form) === 'Sequence';
 const STAGES = [
   { id: 'analysis',         name: 'Analysis',         order: 0, perPath: true,  expand: true,  expandLabel: 'Method', fixed: ['Triage', 'Static', 'Dynamic', 'Security Testing'] },
   { id: 'artifact-class',   name: 'Artifact class',   order: 1, perPath: true,  expand: true, expandLabel: 'Artifact',
-    fixed: ['Code representation', 'String literal', 'Text stream', 'Binary fact', 'Graph representation', 'Numerical statistic', 'Snapshot', 'Logical expression', 'Test set'] },
+    fixed: ['Code representation', 'Text stream', 'Binary fact', 'Graph representation', 'Numerical statistic', 'Snapshot', 'Logical expression', 'Test set'] },
   { id: 'artifact-form',    name: 'Artifact form',    order: 2, perPath: true,  expand: true, expandLabel: 'Transformation',
     fixed: ['Sequence', 'Graph', 'Numeric descriptor', 'Image'] },
   { id: 'canonicalization', name: 'Canonicalization', order: 3, perPath: true,  expand: true, expandLabel: 'Method',
@@ -434,7 +433,7 @@ function buildPaper(row) {
     relationship: pathCount > 1 ? (combineRelationship(row['for claude']) || '+') : '',
     learningCategory: clean(row.Learning_Category),
     learningSubcategory: clean(row.Learning_Subcategory),
-    learningModel: clean(row['for claude']),
+    learningModel: clean(row['Learning_Model']),
     inferenceCategory: clean(row.Inference_Category),
     inferenceSubcategory: clean(row.Inference_Subcategory),
     inferenceOutput: clean(row.Inference_Output),
