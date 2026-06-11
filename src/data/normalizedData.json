@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T02:04:18.809Z",
+    "generatedAt": "2026-06-11T02:23:32.810Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -259,6 +259,12 @@
           "stageId": "encoding",
           "label": "Dense",
           "paperCount": 51
+        },
+        {
+          "id": "encoding::N/A",
+          "stageId": "encoding",
+          "label": "N/A",
+          "paperCount": 1
         }
       ]
     },
@@ -284,6 +290,12 @@
           "stageId": "embedding",
           "label": "Context-independent",
           "paperCount": 18
+        },
+        {
+          "id": "embedding::N/A",
+          "stageId": "embedding",
+          "label": "N/A",
+          "paperCount": 11
         }
       ]
     },
@@ -302,13 +314,13 @@
           "id": "combine::-->",
           "stageId": "combine",
           "label": "-->",
-          "paperCount": 15
+          "paperCount": 10
         },
         {
           "id": "combine::+",
           "stageId": "combine",
           "label": "+",
-          "paperCount": 14
+          "paperCount": 19
         }
       ]
     },
@@ -599,7 +611,7 @@
           "Code representations -> Numeric descriptor"
         ],
         "canonicalization::Remove": [
-          "Numeric descriptor > Feature value removal"
+          "Feature value removal"
         ],
         "encoding::Dense": [
           "N/A | Node feature mapping"
@@ -614,7 +626,7 @@
           "Graph representation -> Graph"
         ],
         "canonicalization::Map": [
-          "Graph > Node attribute mapping; Edge attribute mapping; Node feature mapping"
+          "Node attribute mapping; Edge attribute mapping"
         ]
       },
       "nodeDetail": {
@@ -891,7 +903,7 @@
           "Binary facts; Binary facts; Binary facts; Code representation; Graph representation-> Graph"
         ],
         "canonicalization::Transform": [
-          "Relevant-subgraph filtering"
+          "structural transformation"
         ],
         "encoding::Dense": [
           "Edge feature mapping"
@@ -973,7 +985,7 @@
           "Test sets; Binary facts -> Numeric descriptor"
         ],
         "canonicalization::Scale": [
-          "Numeric value scaling"
+          "Feature value scaling"
         ]
       },
       "nodeDetail": {
@@ -1187,7 +1199,7 @@
           "Text streams  -> Sequence | Binary facts -> Sequence | Text streams -> Sequence"
         ],
         "canonicalization::Remove": [
-          "element replacement"
+          "Filtering by removal"
         ],
         "tokenization::Syntactic unit": [
           "Element"
@@ -1870,7 +1882,7 @@
           "Code representation -> Sequence"
         ],
         "canonicalization::Replace": [
-          "Granuaility-based"
+          "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
           "instruction"
@@ -1965,7 +1977,7 @@
           "Code representations; Code representations; Graph representations; Graph representations -> Graph"
         ],
         "canonicalization::Map": [
-          "Graph node-attribute editing"
+          "Structural transformation; node attribute mapping; edge attribute mapping"
         ],
         "encoding::Sparse": [
           "Node attribute IDs; Edge attribute IDs"
@@ -2128,7 +2140,7 @@
           "Code representation -> Sequence"
         ],
         "canonicalization::Replace": [
-          "Assembly instruction element replacement"
+          "Abstraction by replacement"
         ],
         "tokenization::Data-driven": [
           "Subword (Pretrained-LLM)"
@@ -2226,7 +2238,7 @@
           "Code representations; Graph representations; String Literals; Binary facts -> Graph"
         ],
         "canonicalization::Map": [
-          "Graph node-attribute editing"
+          "Node attribute mapping; Edge attribute mapping"
         ],
         "encoding::Dense": [
           "Node feature mapping"
@@ -2312,7 +2324,7 @@
           "Code representations; Graph representations -> Graph"
         ],
         "canonicalization::Map": [
-          "Graph node-attribute editing"
+          "Node attribute mapping; Edge attribute mapping"
         ],
         "encoding::Dense": [
           "Node feature mapping"
@@ -2396,7 +2408,7 @@
           "Code representations-> Sequence"
         ],
         "canonicalization::Replace": [
-          "Assembly instruction element replacement"
+          "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
           "Instruction"
@@ -2484,7 +2496,7 @@
           "Code representation; Graph representation -> Sequence"
         ],
         "canonicalization::Replace": [
-          "Assembly instruction element replacement"
+          "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
           "element"
@@ -2797,6 +2809,9 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations;  Graph representations; Graph representations; Binary Facts; Binary Facts-> Graph"
         ],
+        "canonicalization::Transform": [
+          "Structural transformation"
+        ],
         "encoding::Dense": [
           "Edge feature mapping"
         ]
@@ -2912,7 +2927,9 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -2944,7 +2961,7 @@
           "Code representations; Binary facts -> Sequence | Code representations; Binary facts -> Sequence"
         ],
         "canonicalization::Replace": [
-          "Decompiled identifier replacement"
+          "Abstraction by replacement | Abstraction by replacement"
         ],
         "tokenization::Data-driven": [
           "Subword (Pretrained-LLM) | Subword (Pretrained-LLM)"
@@ -2962,7 +2979,7 @@
           "Graph representations; Graph representations; Binary fact; Graph representations -> Graph"
         ],
         "canonicalization::Transform": [
-          "Decompiled identifier replacement"
+          "Structural transformation"
         ]
       },
       "nodeDetail": {
@@ -2983,7 +3000,7 @@
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 2,
-      "relationship": "-->",
+      "relationship": "+",
       "learningCategory": "Rule-based reasoning | LLM-based",
       "learningSubcategory": "Deterministic reasoning | LLM-based prompting",
       "learningModel": "N/A | N/A",
@@ -3011,9 +3028,11 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Rule-based reasoning",
@@ -3044,7 +3063,7 @@
             "embedding::Context-dependent"
           ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Rule-based reasoning",
@@ -3079,6 +3098,9 @@
         ],
         "artifact-form::Graph": [
           "Code representations; Code representations; Graph representations; Graph representations;  Graph representations; Binary Facts -> Graph"
+        ],
+        "canonicalization::Map": [
+          "Structural transformation; node attribute mapping; edge attribute mapping"
         ],
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
@@ -3210,6 +3232,9 @@
         "artifact-form::Sequence": [
           "Code representations; Text streams; Text streams; Binary facts -> Sequence | Code representations -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Abstraction by replacement | Abstraction by replacement"
+        ],
         "tokenization::Syntactic unit": [
           "element | element"
         ],
@@ -3296,6 +3321,9 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations; Graph representations; Graph representations -> Graph"
         ],
+        "canonicalization::Transform": [
+          "Structural transformation"
+        ],
         "encoding::Dense": [
           "Node feature mapping; Edge feature mapping"
         ],
@@ -3377,6 +3405,9 @@
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Graph representation; Binary facts-> Graph"
+        ],
+        "canonicalization::Transform": [
+          "Structural transformation"
         ]
       },
       "nodeDetail": {
@@ -3571,6 +3602,9 @@
         "artifact-form::Graph": [
           "Code representations; Graph representations; Graph representations; Graph representations -> Graph"
         ],
+        "canonicalization::Transform": [
+          "Structural transformation"
+        ],
         "encoding::Dense": [
           "Edge feature mapping"
         ]
@@ -3648,6 +3682,9 @@
         ],
         "artifact-form::Sequence": [
           "Code representations -> Sequence"
+        ],
+        "canonicalization::Replace": [
+          "Abstraction by replacement"
         ],
         "tokenization::Data-driven": [
           "Subword (Pretrained-LLM)"
@@ -3759,6 +3796,9 @@
         ],
         "artifact-form::Sequence": [
           "Text streams; Text streams -> Sequence"
+        ],
+        "canonicalization::Replace": [
+          "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
           "Instruction"
@@ -3925,6 +3965,9 @@
         ],
         "artifact-class::Binary fact": [
           "assembly; IR; imports; constants; tainted values"
+        ],
+        "canonicalization::Scale": [
+          "feature value scaling"
         ]
       },
       "nodeDetail": {
@@ -4068,6 +4111,9 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence | Code representations  -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Abstraction by replacement | Abstraction by replacement"
+        ],
         "tokenization::Data-driven": [
           "Subword (BPE) | Subword (BPE)"
         ],
@@ -4088,6 +4134,9 @@
         ],
         "artifact-form::Numeric descriptor": [
           "Graph representation; Code representations; Code representations; Binary facts; Binary facts; Binary facts -> Numeric descriptor"
+        ],
+        "canonicalization::Scale": [
+          "feature value scaling"
         ],
         "embedding::Context-independent": [
           "(LDP || BoostNE ) -> Autoencoder )"
@@ -4111,7 +4160,7 @@
       "isTopTier": true,
       "codeForm": "Assembly, BAP-IR",
       "pathCount": 2,
-      "relationship": "-->",
+      "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Classification",
       "learningModel": "N/A | N/A",
@@ -4139,9 +4188,11 @@
           "encoding": [
             "encoding::Sparse"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Discriminative"
@@ -4167,9 +4218,11 @@
           "encoding": [
             "encoding::Sparse"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Discriminative"
@@ -4210,11 +4263,14 @@
         "encoding::Sparse": [
           "One-hot | Node attribute IDs, Edge attribute IDs"
         ],
+        "embedding::N/A": [
+          "N/A | N/A"
+        ],
         "artifact-form::Graph": [
           "Graph representations -> Graph"
         ],
         "canonicalization::Map": [
-          "N"
+          "node attribute mapping, edge attribute mapping"
         ]
       },
       "nodeDetail": {
@@ -4325,6 +4381,9 @@
         "artifact-form::Sequence": [
           "Code representations -> Sequence | Binary facts -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Abstraction by replacement | Abstraction by replacement"
+        ],
         "tokenization::Data-driven": [
           "Subword (BPE)"
         ],
@@ -4415,6 +4474,9 @@
         "artifact-form::Sequence": [
           "Code representation -> Sequence"
         ],
+        "canonicalization::Replace": [
+          "Abstraction by replacement"
+        ],
         "tokenization::Data-driven": [
           "Subword (BPE)"
         ],
@@ -4501,7 +4563,7 @@
           "Code representation; Graph representation -> Sequence"
         ],
         "canonicalization::Replace": [
-          "Decompiled identifier replacement | N/A"
+          "Abstraction by replacement"
         ],
         "tokenization::Data-driven": [
           "Subword (Pretrained-LLM)"
@@ -4555,7 +4617,9 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -4581,7 +4645,9 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -4607,7 +4673,9 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -4633,7 +4701,9 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -4672,6 +4742,9 @@
         ],
         "encoding::Dense": [
           "count vector;  frequency vector | count vector;  frequency vector | count  vector; frequency vector | frequency vector; TF-IDF"
+        ],
+        "embedding::N/A": [
+          "N/A | N/A | N/A | N/A"
         ],
         "artifact-class::Graph representation": [
           "CFG | AST"
@@ -4822,6 +4895,9 @@
         ],
         "artifact-form::Numeric descriptor": [
           "Binary Facts; Binary Facts; Binary Facts; Binary Facts; Numerical Statistics; String Literals; Numerical Statistics -> Numeric descriptor"
+        ],
+        "canonicalization::Scale": [
+          "Feature value scaling"
         ]
       },
       "nodeDetail": {
@@ -4973,6 +5049,9 @@
         "artifact-form::Numeric descriptor": [
           "Numerical Statistics; Binary Facts; String Literals; Binary Facts -> Numeric descriptor"
         ],
+        "canonicalization::Scale": [
+          "Feature value scaling"
+        ],
         "encoding::Dense": [
           "count vector"
         ]
@@ -5047,6 +5126,9 @@
         ],
         "artifact-form::Numeric descriptor": [
           "Binary Facts; Binary Facts; Binary Facts; Binary Facts; Numerical Statistics -> Numeric descriptor"
+        ],
+        "canonicalization::Scale": [
+          "Feature value scaling"
         ]
       },
       "nodeDetail": {
@@ -5163,7 +5245,9 @@
           "encoding": [
             "encoding::Sparse"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -5191,7 +5275,9 @@
           "encoding": [
             "encoding::Sparse"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -5218,6 +5304,9 @@
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Text streams; Text streams -> Graph"
+        ],
+        "canonicalization::Transform": [
+          "Structural transformation"
         ],
         "encoding::Sparse": [
           "Edge attribute IDs"
@@ -5332,6 +5421,9 @@
         ],
         "artifact-form::Image": [
           "Test sets -> Image"
+        ],
+        "canonicalization::Scale": [
+          "Image size scaling; pixel value scaling"
         ],
         "encoding::Dense": [
           "grayscale tensor | N/A"
@@ -5484,7 +5576,7 @@
           "Code representation -> Sequence"
         ],
         "canonicalization::Remove": [
-          "Assembly instruction element replacement"
+          "Abstraction by replacement ; Filtering by removal"
         ],
         "tokenization::Syntactic unit": [
           "Element"
@@ -5511,7 +5603,7 @@
           "Numerical statistics -> Numeric descriptor"
         ],
         "canonicalization::Scale": [
-          "Assembly instruction element replacement"
+          "feature value scaling"
         ],
         "embedding::Context-independent": [
           "ResNet"
@@ -5559,7 +5651,9 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -5585,7 +5679,9 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -5693,7 +5789,7 @@
           "Code representations; Graph representations; Binary facts -> Numeric descriptor"
         ],
         "canonicalization::Scale": [
-          "Numeric value scaling | N/A"
+          "Feature value scaling"
         ],
         "encoding::Dense": [
           "count vectors"
@@ -5776,7 +5872,7 @@
           "Code representations; Graph representations -> Graph"
         ],
         "canonicalization::Map": [
-          "N/A | Assembly instruction element replacement"
+          "Node attribute mapping; Edge attribute mapping"
         ],
         "encoding::Dense": [
           "Node feature mapping; adjacency matrix"
@@ -5857,7 +5953,7 @@
           "Code representations; Graph representations -> Graph"
         ],
         "canonicalization::Transform": [
-          "N/A | N/A"
+          "Structural transformation"
         ],
         "encoding::Dense": [
           "Edge feature mapping"
@@ -5938,7 +6034,7 @@
           "Code representation -> Sequence"
         ],
         "canonicalization::Remove": [
-          "Assembly instruction element removal"
+          "Filtering by removal"
         ],
         "tokenization::Syntactic unit": [
           "Instruction"
@@ -5968,7 +6064,7 @@
       "isTopTier": true,
       "codeForm": "IR",
       "pathCount": 2,
-      "relationship": "-->",
+      "relationship": "+",
       "learningCategory": "Discriminative",
       "learningSubcategory": "Detection",
       "learningModel": "BERT-based | N/A",
@@ -5998,7 +6094,7 @@
             "embedding::Context-dependent"
           ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Discriminative"
@@ -6023,10 +6119,14 @@
             "canonicalization::Transform"
           ],
           "tokenization": [],
-          "encoding": [],
-          "embedding": [],
+          "encoding": [
+            "encoding::N/A"
+          ],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Discriminative"
@@ -6072,6 +6172,9 @@
         ],
         "artifact-form::Graph": [
           "Code representations; Graph representations; Code representation; Graph representaiton; Graph representaiton; Binary facts -> Graph"
+        ],
+        "canonicalization::Transform": [
+          "Structural transformation"
         ]
       },
       "nodeDetail": {
@@ -6146,7 +6249,9 @@
           "encoding": [
             "encoding::Sparse"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -6262,7 +6367,7 @@
           "Text streams -> Sequence"
         ],
         "canonicalization::Remove": [
-          "Numeric value scaling"
+          "Filtering by removal"
         ],
         "tokenization::Syntactic unit": [
           "Trace-level"
@@ -6346,7 +6451,7 @@
           "Graph representation -> Sequence"
         ],
         "canonicalization::Remove": [
-          "Event value replacement"
+          "Abstraction by replacement ; Filtering by removal"
         ],
         "tokenization::Rule-based decomposition": [
           "Custom rule"
@@ -6773,7 +6878,7 @@
           "Code representations -> Sequence"
         ],
         "canonicalization::Replace": [
-          "CFG vertex (basic block) ?? basic blocks form CFG nodes"
+          "Abstraction by replacement"
         ],
         "tokenization::Data-driven": [
           "Subword (BPE)"
@@ -6788,7 +6893,7 @@
           "Graph representations -> Graph"
         ],
         "canonicalization::Map": [
-          "CFG vertex (basic block) ?? basic blocks form CFG nodes"
+          "Node attribute mapping"
         ],
         "encoding::Dense": [
           "adjacency-matrix"
@@ -6869,7 +6974,7 @@
           "Text streams -> Sequence"
         ],
         "canonicalization::Remove": [
-          "Per-feature-type segment (hierarchical splice of 11 feature types fed separately to the model)"
+          "Abstraction by replacement ; Filtering by removal"
         ],
         "tokenization::Data-driven": [
           "Subword (Pretrained-LLM"
@@ -6954,7 +7059,9 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
             "combine::+"
           ],
@@ -6983,7 +7090,7 @@
           "Text streams -> Sequence"
         ],
         "canonicalization::Remove": [
-          "Behavior-sequence dynamic window (compressed by decoder-based Compressor up to 2048)"
+          "Filtering by removal"
         ],
         "tokenization::Syntactic unit": [
           "Trace-level"
@@ -6998,7 +7105,7 @@
           "Numerical Statistics -> Numeric descriptor"
         ],
         "canonicalization::Scale": [
-          "File segment (512 / 1024 / 2048 byte segments) (multi-branch)"
+          "Feature value scaling"
         ]
       },
       "nodeDetail": {
@@ -7077,7 +7184,7 @@
           "Binary Facts; Binary Facts; Binary Facts; Binary Facts;  Numerical Statistics; Numerical Statistics; String Literals-> Numeric descriptor"
         ],
         "canonicalization::Scale": [
-          "File-level (one inherited benchmark feature vector per sample)"
+          "Feature value scaling"
         ]
       },
       "nodeDetail": {
@@ -7187,7 +7294,7 @@
           "Code representations -> Sequence"
         ],
         "canonicalization::Replace": [
-          "Token-level (opcodes + operands per instruction in random walks)"
+          "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
           "Element"
@@ -7205,7 +7312,7 @@
           "Graph representations -> Graph"
         ],
         "canonicalization::Transform": [
-          "Graph node merging across two ICFGs"
+          "Structural transformation"
         ],
         "embedding::Context-dependent": [
           "Deepwalk"
@@ -7321,7 +7428,7 @@
           "Code representations; Graph representations -> Graph | Code representations; Graph representations -> Graph"
         ],
         "canonicalization::Transform": [
-          "Function-level (one DDG per function; Constructs extracted from each function for every parameter and local variable)"
+          "Subgraph extraction; Structural transformation | Subgraph extraction; Structural transformation"
         ],
         "encoding::Dense": [
           "Node feature mapping | Node feature mapping; adjacency matrix"
@@ -7556,7 +7663,7 @@
           "Test sets -> Sequence"
         ],
         "canonicalization::Scale": [
-          "File-level (input padded with 0x00 to the largest input length n in seed corpus; <=10KB threshold) | Edge-set level (3 separate bitmaps: edge_id + call_trace_id + approach_level; custom LLVM pass instrumented for each metric)"
+          "Byte value scaling"
         ],
         "tokenization::Atomic units": [
           "Byte"
@@ -7640,7 +7747,7 @@
           "Test sets -> Sequence"
         ],
         "canonicalization::Scale": [
-          "File-level (input padded with 0x00 to the largest input length n in seed corpus; <=10KB threshold) | Edge-set level (3 separate bitmaps: edge_id + call_trace_id + approach_level; custom LLVM pass instrumented for each metric)"
+          "Byte value scaling"
         ],
         "tokenization::Atomic units": [
           "Byte"
@@ -7667,7 +7774,7 @@
       "isTopTier": true,
       "codeForm": "Fetched instruction, Assembly, IR",
       "pathCount": 2,
-      "relationship": "-->",
+      "relationship": "+",
       "learningCategory": "Rule-based | Discriminative",
       "learningSubcategory": "Determinstic reasoning | Detection",
       "learningModel": "N/A | CNN",
@@ -7693,9 +7800,11 @@
           "encoding": [
             "encoding::Sparse"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Rule-based reasoning",
@@ -7728,7 +7837,7 @@
             "embedding::Context-dependent"
           ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Rule-based reasoning",
@@ -7868,7 +7977,7 @@
           "Code representations; Graph representations; Graph representations-> Sequence"
         ],
         "canonicalization::Replace": [
-          "Function-level (FCFG = ICFG with selective callee expansion; functionality-relevant blocks identified per Algorithm 1 ?? block kept if (1) function has no arguments OR (2) contains operation directly/indirectly involving any function argument)"
+          "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
           "Element"
@@ -7954,7 +8063,7 @@
           "Code representations; Graph representations; Code representations; Graph representation; Graph representation -> Graph"
         ],
         "canonicalization::Transform": [
-          "Function-level (per-function CFG of basic blocks + jump edges) | Function-level (per-function AAST: AST nodes + CFG edges + DFG edges + NCS edges)"
+          "Node attribute mapping; Edge attribute mapping; Structural transformation"
         ],
         "encoding::Dense": [
           "Node feature mapping; adjacency matrix"
@@ -8038,7 +8147,7 @@
           "Code representation -> Sequence"
         ],
         "canonicalization::Replace": [
-          "Function-level (50000 randomly generated program pairs per benchmark; programs short S ~15 statements and long L ~30 statements; tree depth max 3; 10-20 percent token errors injected for EC stage; 35 percent tokens masked)"
+          "Abstraction by replacement"
         ],
         "tokenization::Syntactic unit": [
           "Instruction"
@@ -8136,7 +8245,7 @@
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 3,
-      "relationship": "-->",
+      "relationship": "+",
       "learningCategory": "Discriminative | Rule-based reasoning | Rule-based reasoning",
       "learningSubcategory": "Classification | Deterministic reasoning | Deterministic reasoning",
       "learningModel": "attention-based LSTM | N/A | N/A",
@@ -8166,7 +8275,7 @@
             "embedding::Context-dependent"
           ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Discriminative",
@@ -8193,9 +8302,11 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Discriminative",
@@ -8222,9 +8333,11 @@
           "encoding": [
             "encoding::Dense"
           ],
-          "embedding": [],
+          "embedding": [
+            "embedding::N/A"
+          ],
           "combine": [
-            "combine::-->"
+            "combine::+"
           ],
           "learning": [
             "learning::Discriminative",
@@ -8270,9 +8383,12 @@
           "Text Streams; Text Streams; Text Streams -> Graph"
         ],
         "canonicalization::Transform": [
-          "Per-callsite memory address (Intel Pin hooks every callsite at runtime to record input/output addresses)"
+          "Structural transformation"
         ],
         "encoding::Dense": [
+          "N/A | N/A"
+        ],
+        "embedding::N/A": [
           "N/A | N/A"
         ],
         "analysis::Security Testing": [
@@ -8439,7 +8555,7 @@
           "Code representaion; Graph representation -> Numeric descriptor"
         ],
         "canonicalization::Scale": [
-          "Function-level (per-function basic blocks from BinaryNinja CFG; m = first 20000 basic blocks per binary because 95 percent of dataset samples have <= 20K basic blocks)"
+          "Feature value scaling"
         ],
         "embedding::Context-independent": [
           "Autoencoder"

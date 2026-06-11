@@ -65,7 +65,7 @@ export function CategoryNodeView(props: Props) {
     <>
       <span className="node-label">{node.label}</span>
       {detailText && <span className="node-detail">{detailText}</span>}
-      {!paperSelected && node.paperCount > 0 && (
+      {!paperSelected && (
         <span className="node-count">{node.paperCount}</span>
       )}
       {highlighted && expandable && (
