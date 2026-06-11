@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 10,
     "maxPaths": 4,
-    "generatedAt": "2026-06-11T03:22:38.716Z",
+    "generatedAt": "2026-06-11T03:42:17.524Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -439,6 +439,7 @@
       "tier": "T1",
       "inferenceType": "detection",
       "conference": "NDSS",
+      "year": "2021",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -521,6 +522,7 @@
       "tier": "T1",
       "inferenceType": "detection",
       "conference": "USENIX Security",
+      "year": "2022",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 2,
@@ -595,9 +597,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "RNN → R-GCN"
-        ],
         "learning::Discriminative": [
           "RNN → R-GCN"
         ],
@@ -647,6 +646,7 @@
       "tier": "T1",
       "inferenceType": "detection",
       "conference": "USENIX Security",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 2,
@@ -719,9 +719,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "RNN  → Transformer-based"
-        ],
         "learning::Discriminative": [
           "RNN  → Transformer-based"
         ],
@@ -762,6 +759,7 @@
       "tier": "T1",
       "inferenceType": "detection",
       "conference": "USENIX Security",
+      "year": "2015",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -844,6 +842,7 @@
       "tier": "T1",
       "inferenceType": "detection",
       "conference": "ESEC/FSE",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -930,6 +929,7 @@
       "tier": "T2",
       "inferenceType": "reconstruction",
       "conference": "S&P",
+      "year": "2020",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 1,
@@ -1009,6 +1009,7 @@
       "tier": "T2",
       "inferenceType": "reconstruction",
       "conference": "NDSS",
+      "year": "2019",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 1,
@@ -1079,6 +1080,7 @@
       "tier": "T2",
       "inferenceType": "reconstruction",
       "conference": "ESEC/FSE",
+      "year": "2022",
       "isTopTier": true,
       "codeForm": "Fetched instruction, Assembly",
       "pathCount": 3,
@@ -1189,9 +1191,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "Transformer-based || CNN || CNN"
-        ],
         "learning::Discriminative": [
           "Transformer-based || CNN || CNN"
         ],
@@ -1247,6 +1246,7 @@
       "tier": "T2",
       "inferenceType": "reconstruction",
       "conference": "USENIX Security",
+      "year": "2019",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 1,
@@ -1334,6 +1334,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "FSE",
+      "year": "2016",
       "isTopTier": true,
       "codeForm": "REIL",
       "pathCount": 1,
@@ -1416,6 +1417,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "AAAI",
+      "year": "2020",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 2,
@@ -1488,9 +1490,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "BERT-based MPNN -> ResNet"
-        ],
         "learning::Discriminative": [
           "BERT-based MPNN -> ResNet"
         ],
@@ -1537,6 +1536,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "NeurIPS",
+      "year": "2020",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 4,
@@ -1665,9 +1665,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "(Hierachical BiLSTM -> GGNN) || Hierachical-LSTM || Integer-LSTM"
-        ],
         "learning::Discriminative": [
           "(Hierachical BiLSTM -> GGNN) || Hierachical-LSTM || Integer-LSTM"
         ],
@@ -1726,6 +1723,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "ICSE",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -1807,6 +1805,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "ICSE",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 2,
@@ -1881,9 +1880,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "i2v -> Structure2Vec"
-        ],
         "learning::Discriminative": [
           "i2v -> Structure2Vec"
         ],
@@ -1933,6 +1929,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "USENIX Security",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Pcode IR",
       "pathCount": 1,
@@ -2023,6 +2020,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "ICSE",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Source code, Decompiled code",
       "pathCount": 1,
@@ -2102,6 +2100,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "NeurIPS",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -2186,6 +2185,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "CCS",
+      "year": "2017",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -2284,6 +2284,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "ICML",
+      "year": "2019",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -2370,6 +2371,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "NDSS",
+      "year": "2019",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -2454,6 +2456,7 @@
       "tier": "T2",
       "inferenceType": "detection",
       "conference": "S&P",
+      "year": "2019",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -2542,6 +2545,7 @@
       "tier": "T4",
       "inferenceType": "summarization",
       "conference": "NeurIPS",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Assembly, Decompiled code",
       "pathCount": 3,
@@ -2647,9 +2651,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "BERT-based  || BERT-based  | Transformer-based"
-        ],
         "learning::Generative": [
           "BERT-based  || BERT-based  | Transformer-based"
         ],
@@ -2708,6 +2709,7 @@
       "tier": "T2",
       "inferenceType": "discovery",
       "conference": "CCS",
+      "year": "2021",
       "isTopTier": true,
       "codeForm": "LLVM IR",
       "pathCount": 1,
@@ -2774,6 +2776,7 @@
       "tier": "T2",
       "inferenceType": "recovery",
       "conference": "S&P",
+      "year": "2021",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -2856,6 +2859,7 @@
       "tier": "T2",
       "inferenceType": "recovery",
       "conference": "CCS",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 3,
@@ -2967,9 +2971,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "Transformer-based || Transformer-based"
-        ],
         "learning::LLM-based": [
           "Transformer-based || Transformer-based"
         ],
@@ -3025,6 +3026,7 @@
       "tier": "T2",
       "inferenceType": "recovery",
       "conference": "S&P",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 2,
@@ -3104,9 +3106,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "N/A | N/A"
-        ],
         "learning::Rule-based reasoning": [
           "N/A | N/A"
         ],
@@ -3162,6 +3161,7 @@
       "tier": "T2",
       "inferenceType": "recovery",
       "conference": "FSE",
+      "year": "2021",
       "isTopTier": true,
       "codeForm": "Assembly, Fetched instruction",
       "pathCount": 2,
@@ -3243,9 +3243,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "Transformer-based  -> Transformer-based"
-        ],
         "learning::Discriminative": [
           "Transformer-based  -> Transformer-based"
         ],
@@ -3298,6 +3295,7 @@
       "tier": "T2",
       "inferenceType": "recovery",
       "conference": "USENIX Security",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "VEX IR",
       "pathCount": 1,
@@ -3384,6 +3382,7 @@
       "tier": "T2",
       "inferenceType": "recovery",
       "conference": "USENIX Security",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Custom IR",
       "pathCount": 1,
@@ -3463,6 +3462,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "USENIX Security",
+      "year": "2017",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 2,
@@ -3538,9 +3538,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "Word2Vec -> GRU"
-        ],
         "learning::Discriminative": [
           "Word2Vec -> GRU"
         ],
@@ -3587,6 +3584,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "CCS",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 1,
@@ -3665,6 +3663,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "NDSS",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 1,
@@ -3749,6 +3748,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "CCS",
+      "year": "2022",
       "isTopTier": true,
       "codeForm": "Fetched instruction, Assembly",
       "pathCount": 2,
@@ -3823,9 +3823,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "Transformer-based || lookup layer"
-        ],
         "learning::Discriminative": [
           "Transformer-based || lookup layer"
         ],
@@ -3878,6 +3875,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "S&P",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Assembly, VEX IR",
       "pathCount": 3,
@@ -3980,9 +3978,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "(LDP || BoostNE ) -> Autoencoder"
-        ],
         "learning::Discriminative": [
           "(LDP || BoostNE ) -> Autoencoder"
         ],
@@ -4032,6 +4027,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "USENIX Security",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 3,
@@ -4143,9 +4139,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "BERT-based || BERT-based || ((LDP || BoostNE ) -> Autoencoder )"
-        ],
         "learning::Generative": [
           "BERT-based || BERT-based || ((LDP || BoostNE ) -> Autoencoder )"
         ],
@@ -4207,6 +4200,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "CCS",
+      "year": "2018",
       "isTopTier": true,
       "codeForm": "Assembly, BAP-IR",
       "pathCount": 2,
@@ -4283,9 +4277,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "N/A | N/A"
-        ],
         "learning::Discriminative": [
           "N/A | N/A"
         ],
@@ -4341,6 +4332,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "USENIX Security",
+      "year": "2022",
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 2,
@@ -4419,9 +4411,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "Transformer-based || Transformer-based"
-        ],
         "learning::Generative": [
           "Transformer-based || Transformer-based"
         ],
@@ -4471,6 +4460,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "S&P",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 1,
@@ -4555,6 +4545,7 @@
       "tier": "T3",
       "inferenceType": "recovery",
       "conference": "NDSS",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 1,
@@ -4643,6 +4634,7 @@
       "tier": "T4",
       "inferenceType": "classification",
       "conference": "NDSS",
+      "year": "2018",
       "isTopTier": true,
       "codeForm": "Assembly, Decompiled code",
       "pathCount": 4,
@@ -4772,9 +4764,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "N/A | N/A | N/A | N/A"
-        ],
         "learning::Discriminative": [
           "N/A | N/A | N/A | N/A"
         ],
@@ -4824,6 +4813,7 @@
       "tier": "T4",
       "inferenceType": "classification",
       "conference": "CCS",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -4895,6 +4885,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "S&P",
+      "year": "2022",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -4974,6 +4965,7 @@
       "tier": "T4",
       "inferenceType": "classification",
       "conference": "AAAI",
+      "year": "2022",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -5048,6 +5040,7 @@
       "tier": "T4",
       "inferenceType": "classification",
       "conference": "S&P",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -5130,6 +5123,7 @@
       "tier": "T4",
       "inferenceType": "classification",
       "conference": "AAAI",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -5205,6 +5199,7 @@
       "tier": "T4",
       "inferenceType": "classification",
       "conference": "USENIX Security",
+      "year": "2017",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -5274,6 +5269,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "CCS",
+      "year": "2019",
       "isTopTier": true,
       "codeForm": "Fetched instruction, Assembly",
       "pathCount": 2,
@@ -5392,6 +5388,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "ESEC/FSE",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 2,
@@ -5466,9 +5463,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "CNN || TextCNN"
-        ],
         "learning::Discriminative": [
           "CNN || TextCNN"
         ],
@@ -5518,6 +5512,7 @@
       "tier": "T4",
       "inferenceType": "detection/clustering",
       "conference": "NDSS",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 3,
@@ -5623,9 +5618,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "((BERT-based -> GCN) -> ResNet)"
-        ],
         "learning::Discriminative": [
           "((BERT-based -> GCN) -> ResNet)"
         ],
@@ -5693,6 +5685,7 @@
       "tier": "T4",
       "inferenceType": "detection/clustering",
       "conference": "CCS",
+      "year": "2016",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 2,
@@ -5797,6 +5790,7 @@
       "tier": "T4",
       "inferenceType": "detection/clustering",
       "conference": "NDSS",
+      "year": "2016",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -5879,6 +5873,7 @@
       "tier": "T4",
       "inferenceType": "detection/clustering",
       "conference": "ESEC/FSE",
+      "year": "2018",
       "isTopTier": true,
       "codeForm": "Assembly, Fetched instruction",
       "pathCount": 1,
@@ -5965,6 +5960,7 @@
       "tier": "T4",
       "inferenceType": "discovery/clustering",
       "conference": "USENIX Security",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -6043,6 +6039,7 @@
       "tier": "T4",
       "inferenceType": "detection/clustering",
       "conference": "ICLR",
+      "year": "2019",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -6130,6 +6127,7 @@
       "tier": "T4",
       "inferenceType": "discovery/clustering",
       "conference": "NDSS",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "IR",
       "pathCount": 2,
@@ -6206,9 +6204,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "BERT-based | N/A"
-        ],
         "learning::Discriminative": [
           "BERT-based | N/A"
         ],
@@ -6264,6 +6259,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "AAAI",
+      "year": "2020",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 2,
@@ -6336,9 +6332,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "attention-based LSTM | N/A"
-        ],
         "learning::Reinforcement Learning": [
           "attention-based LSTM | N/A"
         ],
@@ -6382,6 +6375,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "AAAI",
+      "year": "2020",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 1,
@@ -6466,6 +6460,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "NDSS",
+      "year": "2020",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 1,
@@ -6554,6 +6549,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "AAAI",
+      "year": "2021",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -6633,6 +6629,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "USENIX Security",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -6712,6 +6709,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "AAAI",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -6786,6 +6784,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "CCS",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -6865,6 +6864,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "NDSS",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 2,
@@ -6941,9 +6941,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "BERT-based -> GIN"
-        ],
         "learning::Discriminative": [
           "BERT-based -> GIN"
         ],
@@ -6996,6 +6993,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "AAAI",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 1,
@@ -7084,6 +7082,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "NDSS",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 2,
@@ -7160,9 +7159,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "Transformer-based | N/A"
-        ],
         "learning::Discriminative": [
           "Transformer-based | N/A"
         ],
@@ -7212,6 +7208,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "NDSS",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -7291,6 +7288,7 @@
       "tier": "T4",
       "inferenceType": "detection",
       "conference": "NDSS",
+      "year": "2020",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 2,
@@ -7367,9 +7365,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "CBOW -> TADW"
-        ],
         "learning::Discriminative": [
           "CBOW -> TADW"
         ],
@@ -7425,6 +7420,7 @@
       "tier": "T4",
       "inferenceType": "discovery/clustering",
       "conference": "USENIX Security",
+      "year": "2021",
       "isTopTier": true,
       "codeForm": "IR",
       "pathCount": 2,
@@ -7503,9 +7499,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::-->": [
-          "Bag-of-nodes -> Graph2vec"
-        ],
         "learning::Discriminative": [
           "Bag-of-nodes -> Graph2vec"
         ],
@@ -7555,6 +7548,7 @@
       "tier": "T4",
       "inferenceType": "discovery/clustering",
       "conference": "CCS",
+      "year": "2016",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 1,
@@ -7624,6 +7618,7 @@
       "tier": "T4",
       "inferenceType": "discovery/clustering",
       "conference": "S&P",
+      "year": "2019",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 1,
@@ -7703,6 +7698,7 @@
       "tier": "T4",
       "inferenceType": "discovery/clustering",
       "conference": "ESEC/FSE",
+      "year": "2020",
       "isTopTier": true,
       "codeForm": "Fetched instruction",
       "pathCount": 1,
@@ -7787,6 +7783,7 @@
       "tier": "T4",
       "inferenceType": "discovery/clustering",
       "conference": "ICSE",
+      "year": "2022",
       "isTopTier": true,
       "codeForm": "Fetched instruction, Assembly",
       "pathCount": 1,
@@ -7871,6 +7868,7 @@
       "tier": "T4",
       "inferenceType": "discovery/clustering",
       "conference": "USENIX Security",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Fetched instruction, Assembly, IR",
       "pathCount": 2,
@@ -7949,9 +7947,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "N/A | CNN"
-        ],
         "learning::Rule-based reasoning": [
           "N/A | CNN"
         ],
@@ -8016,6 +8011,7 @@
       "tier": "T4",
       "inferenceType": "summarization",
       "conference": "FSE",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -8104,6 +8100,7 @@
       "tier": "T4",
       "inferenceType": "summarization",
       "conference": "FSE",
+      "year": "2025",
       "isTopTier": true,
       "codeForm": "Assembly, Decompiled code",
       "pathCount": 1,
@@ -8194,6 +8191,7 @@
       "tier": "T5",
       "inferenceType": "recovery",
       "conference": "NeurIPS",
+      "year": "2019",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,
@@ -8278,6 +8276,7 @@
       "tier": "T5",
       "inferenceType": "recovery",
       "conference": "NDSS",
+      "year": "2024",
       "isTopTier": true,
       "codeForm": "Decompiled code",
       "pathCount": 1,
@@ -8349,6 +8348,7 @@
       "tier": "T5",
       "inferenceType": "recovery",
       "conference": "USENIX Security",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 3,
@@ -8456,9 +8456,6 @@
         }
       ],
       "nodeReveal": {
-        "combine::+": [
-          "attention-based LSTM | N/A | N/A"
-        ],
         "learning::Discriminative": [
           "attention-based LSTM | N/A | N/A"
         ],
@@ -8529,6 +8526,7 @@
       "tier": "T4",
       "inferenceType": "classification",
       "conference": "NeurIPS",
+      "year": "2023",
       "isTopTier": true,
       "codeForm": "Byte",
       "pathCount": 1,
@@ -8603,6 +8601,7 @@
       "tier": "T4",
       "inferenceType": "classification",
       "conference": "USENIX Security",
+      "year": "2021",
       "isTopTier": true,
       "codeForm": "Assembly",
       "pathCount": 1,

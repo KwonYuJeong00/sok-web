@@ -4,7 +4,7 @@ import { computeLayout } from './lib/layout';
 import { backboneEdges, paperTraceEdges } from './lib/edges';
 import { computeNodeColors } from './lib/highlight';
 import { filterPapers, EMPTY_FILTER, isFilterActive } from './lib/filters';
-import { pathColor, schemeColor } from './lib/colors';
+import { pathColor } from './lib/colors';
 import { cssVars } from './lib/style';
 import type { Selection, FilterState, Paper } from './types';
 import { Header } from './components/Header';
@@ -63,20 +63,7 @@ export default function App() {
           onSelect={selectPaper}
         />
         <main className="main-area">
-          {selectedPaper
-            ? <PaperInfoBar paper={selectedPaper} />
-            : (
-              <div className="empty-state">
-                <p className="empty-title">Pick a paper on the left to trace its pipeline.</p>
-                <p className="empty-sub">
-                  Every column lists all of its possible entries; selecting a paper lights
-                  up the entries it uses and connects them column-to-column. Multi-input
-                  papers draw parallel colour-coded paths that fuse through a{' '}
-                  <strong>+</strong> or <strong>{'-->'}</strong> marker before Learning.
-                  Click a highlighted node to reveal its underlying detail.
-                </p>
-              </div>
-            )}
+          {selectedPaper && <PaperInfoBar paper={selectedPaper} />}
           <PipelineGraph
             stages={data.stages}
             layout={layout}
@@ -93,18 +80,14 @@ export default function App() {
 function PaperInfoBar({ paper }: { paper: Paper }) {
   return (
     <header className="info-bar">
-      <span className="ib-pid">{paper.id}</span>
-      <span className="ib-title" title={paper.title}>{paper.title}</span>
       <span className="ib-meta">
-        <span className="ib-domain" style={cssVars({ '--scheme': schemeColor(paper.scheme) })}>
-          {paper.did} · {paper.domain}
-        </span>
-        {paper.scheme && (
-          <span className="ib-tag">{paper.scheme}</span>
-        )}
+        <span className="ib-tag">{paper.did} {paper.domain}</span>
+        {paper.isTopTier && <span className="ib-tag">Top-tier</span>}
         {paper.conference && <span className="ib-tag">{paper.conference}</span>}
-        {paper.isTopTier && <span className="ib-tag top">top-tier</span>}
+        {paper.year && <span className="ib-tag">{paper.year}</span>}
+        <span className="ib-tag">{paper.id}</span>
       </span>
+      <span className="ib-title" title={paper.title}>{paper.title}</span>
       {paper.pathCount > 1 && (
         <span className="ib-legend">
           {paper.pathNodeIds.map((per, i) => {
