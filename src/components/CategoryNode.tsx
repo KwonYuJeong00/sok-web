@@ -6,7 +6,7 @@ function renderPopText(value: string, key: string) {
   const parts = value.split(';').map((p) => p.trim()).filter(Boolean);
   const text = (parts.length > 1 ? parts.join('\n') : value)
     .replace(/\s*-->/g, '\n-->')
-    .replace(/([^-])\s*->/g, '$1\n->');
+    .split('\n').map((l) => l.length > 0 ? l[0].toUpperCase() + l.slice(1) : l).join('\n');
   return <span key={key} className="node-pop-text">{text}</span>;
 }
 

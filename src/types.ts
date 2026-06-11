@@ -40,6 +40,12 @@ export interface CategoryNode {
   transient?: boolean;
 }
 
+export interface ConnectorSpec {
+  id: string;           // 'combine' | 'combine_1' | 'combine_2'
+  type: '||' | '->';   // parallel (+) or sequential (-->)
+  skipPath: number | null; // which path index should NOT draw embedding→this connector
+}
+
 export interface Paper {
   id: string;
   did: string;
@@ -55,6 +61,7 @@ export interface Paper {
   pathCount: number;
   relationship: string;
   forClaude: string;
+  connectorGraph: ConnectorSpec[];
   learningCategory: string;
   learningSubcategory: string;
   learningModel: string;

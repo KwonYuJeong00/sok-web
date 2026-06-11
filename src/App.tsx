@@ -20,13 +20,7 @@ export default function App() {
   const selectedPaper =
     selection.kind === 'paper' ? paperById.get(selection.paperId) ?? null : null;
 
-  // How many connector slots to show: 0 for single-embedding papers, 1 for
-  // parallel/2-path sequential, N-1 for N-path sequential chains.
-  const connectorCount = !selectedPaper?.relationship
-    ? 0
-    : selectedPaper.relationship === '-->' && selectedPaper.pathCount > 2
-      ? selectedPaper.pathCount - 1
-      : 1;
+  const connectorCount = selectedPaper?.connectorGraph?.length ?? 0;
   const layout = useMemo(() => computeLayout(data.stages, connectorCount), [connectorCount]);
   const backbone = useMemo(() => backboneEdges(data.stages, layout), [layout]);
   const filteredPids = useMemo(() => filterPapers(data.papers, filter), [filter]);

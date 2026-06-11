@@ -205,12 +205,148 @@ function normEmbedding(v) {
 function combineRelationship(learningModel) {
   const lm = clean(learningModel);
   if (!lm) return '';
-  // `||` denotes parallel embedding streams -> combined ('+'); an arrow between
-  // embeddings denotes a sequential pipeline ('-->').
   if (/\|\|/.test(lm)) return '+';
   if (/-->|->|→|⇒|⟶/.test(lm)) return '-->';
   if (/\+|⊕/.test(lm)) return '+';
   return '';
+}
+
+/* -------- FC expression parser and connector graph builder -------------- */
+// Parses an embedding-relationship expression such as
+//   "(BiLSTM -> GGNN) || H-LSTM || I-LSTM"
+//   "(LDP || BoostNE) -> Autoencoder"
+//   "((BERT -> GCN) -> ResNet)"
+// into an AST of { t:'||'|'->'|'L', c:[...], n:string }.
+// Operator precedence: '->' binds tighter than '||' (like multiplication > addition).
+class FCParser {
+  constructor(str) {
+    this.s = str.trim().replace(/→|⇒|⟶/g, '->').replace(/-->/g, '->');
+    this.i = 0;
+  }
+  _ws() { while (this.i < this.s.length && /\s/.test(this.s[this.i])) this.i++; }
+  parse() { return this._par(); }
+  // parallel: lowest precedence, N-ary, left-associative
+  _par() {
+    const ch = [this._seq()];
+    while (true) {
+      this._ws();
+      if (this.s.startsWith('||', this.i)) { this.i += 2; ch.push(this._seq()); }
+      else break;
+    }
+    return ch.length === 1 ? ch[0] : { t: '||', c: ch };
+  }
+  // sequential: higher precedence, binary left-associative
+  _seq() {
+    let left = this._atom();
+    while (true) {
+      this._ws();
+      if (this.s.startsWith('->', this.i)) {
+        this.i += 2;
+        const right = this._atom();
+        left = { t: '->', c: [left, right] };
+      } else break;
+    }
+    return left;
+  }
+  _atom() {
+    this._ws();
+    if (this.i < this.s.length && this.s[this.i] === '(') {
+      this.i++;
+      const inner = this._par();
+      this._ws();
+      if (this.i < this.s.length && this.s[this.i] === ')') this.i++;
+      return inner;
+    }
+    let name = '';
+    while (this.i < this.s.length) {
+      if (this.s.startsWith('||', this.i) || this.s.startsWith('->', this.i) ||
+          this.s[this.i] === '(' || this.s[this.i] === ')') break;
+      name += this.s[this.i++];
+    }
+    return { t: 'L', n: name.trim() };
+  }
+}
+
+function fcLeaves(node) {
+  if (node.t === 'L') return [node.n];
+  return node.c.flatMap(fcLeaves);
+}
+
+// Build a connector graph from a parsed FC expression and the paper's pathCount.
+// If the leaf count exactly matches pathCount the full tree is used; otherwise a
+// single-connector fallback based on the top-level operator is returned.
+//
+// Returns { connectors, pathConnectors, terminalPaths } where:
+//   connectors      – ordered list of { id, type, skipPath } specs
+//   pathConnectors  – per-path list of connector ids that path touches
+//   terminalPaths   – which paths are also assigned learning/inference
+const _CONN_IDS = ['combine', 'combine_1', 'combine_2'];
+
+function buildConnectorGraph(ast, pathCount) {
+  if (!ast || pathCount < 2) return null;
+
+  const leaves = fcLeaves(ast);
+
+  // ---- full-tree path when leaves exactly match emb column entries ----
+  if (leaves.length === pathCount) {
+    // Assign left-to-right path indices to leaf nodes
+    let pidx = 0;
+    function assignIdx(node) {
+      if (node.t === 'L') { node.pi = pidx++; return; }
+      for (const c of node.c) assignIdx(c);
+    }
+    assignIdx(ast);
+
+    const connectors = [];
+    const pathConns = Array.from({ length: pathCount }, () => []);
+    let ci = 0;
+
+    // Returns { rightmost: pathIdx, isLeaf: bool }
+    function proc(node) {
+      if (node.t === 'L') return { rightmost: node.pi, isLeaf: true };
+      const crs = node.c.map(c => proc(c));
+      if (ci >= _CONN_IDS.length) throw new Error('too many connectors');
+      const connId = _CONN_IDS[ci++];
+      const type = node.t;
+      // For '->': if the left child is a single leaf the right child is the
+      // "processor" whose embedding does not draw an edge to this connector.
+      const skipPath = (type === '->' && crs[0].isLeaf)
+        ? crs[crs.length - 1].rightmost : null;
+      // Each child's rightmost path carries the output / intermediate edge
+      // through this connector.
+      for (const cr of crs) pathConns[cr.rightmost].push(connId);
+      connectors.push({ id: connId, type, skipPath });
+      return { rightmost: crs[crs.length - 1].rightmost, isLeaf: false };
+    }
+
+    let result;
+    try { result = proc(ast); } catch { return null; }
+
+    const lastConn = connectors[connectors.length - 1];
+    // For a terminal '||' every path that touches the connector flows to
+    // learning; for a terminal '->' only the rightmost does.
+    const terminalPaths = lastConn.type === '||'
+      ? pathConns.flatMap((cs, pi) => cs.includes(lastConn.id) ? [pi] : [])
+      : [result.rightmost];
+
+    return { connectors, pathConnectors: pathConns, terminalPaths };
+  }
+
+  // ---- simplified fallback: single connector from top-level operator ----
+  // Used when emb column entries don't 1:1 match the FC leaves (e.g. a
+  // sub-expression is treated as a single embedding node).
+  const topOp = ast.t === '||' ? '||' : (ast.t === '->' ? '->' : null);
+  if (!topOp) return null;
+  const skipPath = topOp === '->' ? pathCount - 1 : null;
+  const pathConns2 = Array.from({ length: pathCount }, () => ['combine']);
+  const terminalPaths2 = topOp === '->'
+    ? [pathCount - 1]
+    : Array.from({ length: pathCount }, (_, i) => i);
+  return {
+    connectors: [{ id: 'combine', type: topOp, skipPath }],
+    pathConnectors: pathConns2,
+    terminalPaths: terminalPaths2,
+  };
 }
 // When `for claude` has top-level single-`|` separators, independent embedding
 // branches feed different learning nodes. Each top-level segment is one branch;
@@ -250,10 +386,10 @@ const STAGES = [
   { id: 'encoding',         name: 'Encoding',         order: 5, perPath: true,  expand: true, expandLabel: 'Method', fixed: ['Sparse', 'Dense'] },
   { id: 'embedding',        name: 'Embedding',        order: 6, perPath: true,  expand: true, expandLabel: 'Method', fixed: ['Context-dependent', 'Context-independent'] },
   { id: 'combine',          name: 'Learning model',   order: 7,   perPath: false, expand: false, connector: true, fixed: ['-->', '+'] },
-  { id: 'combine_1',        name: 'Learning model',   order: 7.5, perPath: false, expand: false, connector: true, fixed: ['-->'] },
+  { id: 'combine_1',        name: 'Learning model',   order: 7.5, perPath: false, expand: false, connector: true, fixed: ['-->', '+'] },
   { id: 'learning',         name: 'Learning',         order: 8,   perPath: false, expand: true, expandLabel: 'Model', detailLabel: 'Subcategory' },
   { id: 'inference',        name: 'Inference',        order: 9, perPath: false, expand: true, expandLabel: 'Metric',
-    fixed: ['Detection', 'Recovery', 'Discovery', 'Classification', 'Reconstruction', 'Clustering', 'Summarization', 'Restoration'] },
+    fixed: ['Detection', 'Recovery', 'Discovery', 'Classification', 'Reconstruction', 'Summarization', 'Restoration'] },
 ];
 
 /* ------------------------------- load ---------------------------------- */
@@ -326,20 +462,22 @@ function laneEntries(stageId, lane) {
 
 function sharedEntries(stageId, paper) {
   switch (stageId) {
-    case 'combine':
+    case 'combine': {
+      const conn = paper.connectorGraph?.[0];
+      if (conn) return [{ label: conn.type === '->' ? '-->' : '+', reveal: '', detail: '' }];
       return paper.relationship ? [{ label: paper.relationship, reveal: '', detail: '' }] : [];
-    case 'combine_1':
-      // Second connector only exists for sequential papers with 3+ paths.
-      return paper.relationship === '-->' && paper.pathCount > 2
-        ? [{ label: '-->', reveal: '', detail: '' }]
-        : [];
+    }
+    case 'combine_1': {
+      const conn = paper.connectorGraph?.[1];
+      return conn ? [{ label: conn.type === '->' ? '-->' : '+', reveal: '', detail: '' }] : [];
+    }
     case 'learning': {
       const out = [];
       for (const rawCat of splitMulti(paper.learningCategory)) {
         const lcCat = rawCat.toLowerCase();
         const cat = (lcCat === 'rule-based' || lcCat === 'rule-based reasoning') ? 'Rule-based\nReasoning' : rawCat;
         if (!out.some((x) => x.label === cat))
-          out.push({ label: cat, reveal: paper.learningModel, detail: paper.learningSubcategory });
+          out.push({ label: cat, reveal: paper.learningModel, detail: '' });
       }
       return out;
     }
@@ -397,6 +535,25 @@ function canonReveal(nodeLabel, lanes, touch) {
   const parts = touch.map((i) => {
     const matching = String(lanes[i].canonRaw ?? '').split(';')
       .map((s) => s.trim()).filter((op) => canonShort(op) === nodeLabel);
+    return matching.length ? matching.join('; ') : '';
+  }).filter(Boolean);
+  const unique = [...new Set(parts)];
+  if (unique.length === 0) return '';
+  if (unique.length === 1) return unique[0];
+  return unique.join(' | ');
+}
+
+// Artifact-class reveal: only the artifact values whose class maps to nodeLabel.
+// Uses the raw (non-deduplicated) Artifact class column so the ';'-position sync
+// with the Artifact column is preserved (lanes[i].artifactClass is deduplicated
+// and therefore cannot be used for index-based zipping).
+function artifactReveal(nodeLabel, lanes, touch, row, pathCount) {
+  const parts = touch.map((i) => {
+    const rawClasses = alignLane(row['Artifact class'], i, pathCount).split(';').map((s) => normClass(s.trim()));
+    const artifacts = alignLane(row['Artifact'], i, pathCount).split(';').map((s) => s.trim());
+    const matching = rawClasses
+      .map((c, k) => (c === nodeLabel && artifacts[k] && !isSkip(artifacts[k])) ? artifacts[k] : null)
+      .filter(Boolean);
     return matching.length ? matching.join('; ') : '';
   }).filter(Boolean);
   const unique = [...new Set(parts)];
@@ -492,7 +649,23 @@ function buildPaper(row) {
     pathNodeIds: [],
     nodeReveal: {},
     nodeDetail: {},
+    // Connector graph: built below; stored here so sharedEntries can use it.
+    connectorGraph: [],
   };
+
+  // Build the connector graph from the FC expression before anything else so
+  // that sharedEntries (called next) can use paper.connectorGraph for labels.
+  let cgraph = null;
+  if (pathCount > 1) {
+    const fcStr = clean(row['for claude']);
+    if (fcStr) {
+      try {
+        const ast = new FCParser(fcStr).parse();
+        cgraph = buildConnectorGraph(ast, pathCount);
+      } catch { /* ignore parse errors, will fall back */ }
+    }
+    paper.connectorGraph = cgraph?.connectors ?? [];
+  }
 
   const addReveal = (id, v) => {
     if (isSkip(v)) return;
@@ -556,17 +729,21 @@ function buildPaper(row) {
       }
     } else {
       for (const s of STAGES.filter((x) => !x.perPath)) {
-        if (paper.relationship === '-->') {
-          const K = pathCount - 1; // number of connector steps
+        if (cgraph) {
           if (s.connector) {
-            // Connector k is shared by path k (input) and path k+1 (output).
-            // combine = connector 0, combine_1 = connector 1, etc.
+            perStage[s.id] = cgraph.pathConnectors[i].includes(s.id) ? sharedByStage[s.id] : [];
+          } else {
+            perStage[s.id] = cgraph.terminalPaths.includes(i) ? sharedByStage[s.id] : [];
+          }
+        } else if (paper.relationship === '-->') {
+          // Fallback for papers where connector graph could not be built.
+          const K = pathCount - 1;
+          if (s.connector) {
             const k = s.id === 'combine' ? 0 : s.id === 'combine_1' ? 1 : -1;
             perStage[s.id] = (k >= 0 && k < K && (i === k || i === k + 1))
               ? sharedByStage[s.id]
               : [];
           } else {
-            // Learning/inference: only the last path carries the result forward.
             perStage[s.id] = i !== pathCount - 1 ? [] : sharedByStage[s.id];
           }
         } else {
@@ -588,7 +765,22 @@ function buildPaper(row) {
       ? analysisReveal(label, lanes, touch)
       : stageId === 'canonicalization'
         ? canonReveal(label, lanes, touch)
-        : laneReveal(revealCell(stageId, row), touch, pathCount));
+        : stageId === 'artifact-class'
+          ? artifactReveal(label, lanes, touch, row, pathCount)
+          : laneReveal(revealCell(stageId, row), touch, pathCount));
+  }
+
+  // Learning subcategory: assign each learning node only the subcategory values
+  // from the paths that actually touch it, so shared nodes with different inputs
+  // show the right subcategory per path rather than the full joined string.
+  const subcatParts = splitLanes(paper.learningSubcategory);
+  if (subcatParts.length > 0) {
+    for (let i = 0; i < pathCount; i++) {
+      const nodeIds = paper.pathNodeIds[i]?.['learning'] ?? [];
+      const sub = clean(subcatParts[i] ?? subcatParts[0] ?? '');
+      if (!sub || isSkip(sub)) continue;
+      for (const id of nodeIds) addDetail(id, sub);
+    }
   }
 
   // Single-path papers whose 'for claude' lists embedding alternatives
