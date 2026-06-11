@@ -23,7 +23,7 @@ reveal a secondary value in a popover — shown **verbatim** from the source she
 | 5 | **Tokenization** *(sequence inputs only)* | split basis | token unit | `Split basis`; `Token Unit` |
 | 6 | **Encoding** | Sparse / Dense | examples | `Encoding`; `Encoding examples` |
 | 7 | **Embedding** | Context-dependent / Context-independent | examples | `Embedding_Method`; `Embedding examples` |
-| 8 | **Learning** | learning category (Discriminative / Generative / LLM-based / …) | subcategory; model architecture | `Learning_Category`; `Learning_Subcategory`; `for claude` |
+| 8 | **Learning** | learning category (Discriminative / Generative / LLM-based / …) | subcategory; model architecture | `Learning_Category`; `Learning_Subcategory`; `Learning_Model` |
 | 9 | **Inference** | inference category (Detection / Recovery / …) | evaluation metric | `Inference_Category`; `Evaluation_Metric` |
 
 Columns 1–7 are **per input path**; columns 8–9 are the **shared tail** where a
