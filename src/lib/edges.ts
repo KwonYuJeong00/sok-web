@@ -108,12 +108,11 @@ export function paperTraceEdges(
     const bIsConnector = connectorStageIds.has(stageToId);
 
     for (const { color, pi } of items) {
-      // connector→connector: exit right edge of A, enter left edge of B.
-      // connector→other: depart center of connector pill.
-      // other→connector: arrive at center of connector pill.
-      const xA = aIsConnector ? (bIsConnector ? A.x + A.w : A.x + A.w / 2) : A.x + A.w;
+      // Always use the pill center for connector endpoints so lines connect
+      // flush regardless of box width (pill is 36px centered in its box).
+      const xA = aIsConnector ? A.x + A.w / 2 : A.x + A.w;
       const yA = aIsConnector ? A.y + A.h / 2 : stripY(aId, stageFromId, pi, paper, A);
-      const xB = bIsConnector ? (aIsConnector ? B.x : B.x + B.w / 2) : B.x;
+      const xB = bIsConnector ? B.x + B.w / 2 : B.x;
       const yB = bIsConnector ? B.y + B.h / 2 : stripY(bId, stageToId, pi, paper, B);
       edges.push({
         id: `tr-${paper.id}-${seq++}`,
