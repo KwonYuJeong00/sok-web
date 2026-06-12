@@ -6,7 +6,7 @@
     "domainCount": 19,
     "stageCount": 11,
     "maxPaths": 4,
-    "generatedAt": "2026-06-12T04:58:04.964Z",
+    "generatedAt": "2026-06-12T05:42:08.453Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -394,14 +394,14 @@
           "id": "learning::Discriminative",
           "stageId": "learning",
           "label": "Discriminative",
-          "paperCount": 58,
+          "paperCount": 59,
           "transient": false
         },
         {
           "id": "learning::Rule-based\nReasoning",
           "stageId": "learning",
           "label": "Rule-based\nReasoning",
-          "paperCount": 12,
+          "paperCount": 13,
           "transient": false
         },
         {
@@ -4459,7 +4459,7 @@
       "pathCount": 2,
       "relationship": "",
       "forClaude": "N/A | N/A",
-      "learningCategory": "Discriminative",
+      "learningCategory": "Discriminative; Rule-based",
       "learningSubcategory": "Classification",
       "learningModel": "Extremely Randomized Trees -> CRF + MAP",
       "inferenceCategory": "Recovery",
@@ -4492,7 +4492,8 @@
           "combine": [],
           "combine_1": [],
           "learning": [
-            "learning::Discriminative"
+            "learning::Discriminative",
+            "learning::Rule-based\nReasoning"
           ],
           "inference": [
             "inference::Recovery"
@@ -4521,7 +4522,8 @@
           "combine": [],
           "combine_1": [],
           "learning": [
-            "learning::Discriminative"
+            "learning::Discriminative",
+            "learning::Rule-based\nReasoning"
           ],
           "inference": [
             "inference::Recovery"
@@ -4530,6 +4532,9 @@
       ],
       "nodeReveal": {
         "learning::Discriminative": [
+          "Extremely Randomized Trees -> CRF + MAP"
+        ],
+        "learning::Rule-based\nReasoning": [
           "Extremely Randomized Trees -> CRF + MAP"
         ],
         "inference::Recovery": [
@@ -4571,6 +4576,9 @@
       },
       "nodeDetail": {
         "learning::Discriminative": [
+          "Classification"
+        ],
+        "learning::Rule-based\nReasoning": [
           "Classification"
         ]
       },
@@ -4730,7 +4738,7 @@
       "relationship": "",
       "forClaude": "",
       "learningCategory": "Discriminative",
-      "learningSubcategory": "Classification",
+      "learningSubcategory": "Classification; probabilistic reasoning",
       "learningModel": "BERT-based + MLP classifier",
       "inferenceCategory": "Recovery",
       "inferenceSubcategory": "",
@@ -4797,7 +4805,7 @@
       },
       "nodeDetail": {
         "learning::Discriminative": [
-          "Classification"
+          "Classification; probabilistic reasoning"
         ]
       },
       "connectorGraph": []
@@ -6617,8 +6625,8 @@
       "pathCount": 2,
       "relationship": "",
       "forClaude": "attention-based LSTM | N/A",
-      "learningCategory": "Reinforcement Learning",
-      "learningSubcategory": "Reinforcement Learning",
+      "learningCategory": "Discriminative | Reinforcement Learning",
+      "learningSubcategory": "Classification; Reinforcement Learning",
       "learningModel": "attention-based LSTM + classifier + Actor-Critic",
       "inferenceCategory": "Detection",
       "inferenceSubcategory": "",
@@ -6648,7 +6656,7 @@
           "combine": [],
           "combine_1": [],
           "learning": [
-            "learning::Reinforcement Learning"
+            "learning::Discriminative"
           ],
           "inference": [
             "inference::Detection"
@@ -6683,6 +6691,9 @@
         }
       ],
       "nodeReveal": {
+        "learning::Discriminative": [
+          "attention-based LSTM + classifier + Actor-Critic"
+        ],
         "learning::Reinforcement Learning": [
           "attention-based LSTM + classifier + Actor-Critic"
         ],
@@ -6712,8 +6723,11 @@
         ]
       },
       "nodeDetail": {
+        "learning::Discriminative": [
+          "Classification; Reinforcement Learning"
+        ],
         "learning::Reinforcement Learning": [
-          "Reinforcement Learning"
+          "Classification; Reinforcement Learning"
         ]
       },
       "connectorGraph": []
@@ -8757,7 +8771,7 @@
           "Code representation -> Sequence"
         ],
         "tokenization::Data-driven segmentation": [
-          "Subword (Pretrained-LLM)"
+          "Subword (Pretrained-LLM"
         ]
       },
       "nodeDetail": {
