@@ -718,11 +718,15 @@ function buildPaper(row) {
           // Only paths inside a concat branch (||) pass through the combine node.
           perStage[s.id] = pathGroups.groupHasConcat[gi] ? sharedByStage[s.id] : [];
         } else if (s.id === 'learning') {
-          const rawCat = (learningCatsByGroup[gi] ?? learningCatsByGroup[0] ?? '').trim();
-          const lcCat = rawCat.toLowerCase();
-          const cat = (lcCat === 'rule-based' || lcCat === 'rule-based reasoning')
-            ? 'Rule-based\nReasoning' : rawCat;
-          perStage[s.id] = cat && !isSkip(cat) ? [nid('learning', cat)] : [];
+          const rawGroup = (learningCatsByGroup[gi] ?? learningCatsByGroup[0] ?? '').trim();
+          const nodeIds = [];
+          for (const rawCat of splitMulti(rawGroup)) {
+            const lcCat = rawCat.toLowerCase();
+            const cat = (lcCat === 'rule-based' || lcCat === 'rule-based reasoning')
+              ? 'Rule-based\nReasoning' : rawCat;
+            if (cat && !isSkip(cat)) nodeIds.push(nid('learning', cat));
+          }
+          perStage[s.id] = [...new Set(nodeIds)];
         } else {
           perStage[s.id] = sharedByStage[s.id];
         }
