@@ -7,7 +7,7 @@
     "stageCount": 11,
     "maxPaths": 4,
     "collectionCount": 246,
-    "generatedAt": "2026-08-14T14:21:01.511Z",
+    "generatedAt": "2026-08-14T14:33:42.127Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -11781,7 +11781,7 @@
         {
           "pid": "P091",
           "title": "MalFCS: An effective malware classification framework with automated feature extraction based on deep convolutional neural networks",
-          "venue": "Journal of Parallel and Distributed Computing",
+          "venue": "J. Parallel Distrib. Comput.",
           "year": "2020",
           "url": "https://doi.org/10.1016/j.jpdc.2020.03.012"
         },
@@ -11816,7 +11816,7 @@
         {
           "pid": "P088",
           "title": "Using Convolutional Neural Networks for Classification of Malware represented as Images",
-          "venue": "Journal of Computer Virology and Hacking Techniques",
+          "venue": "J. Comput. Virol. Hacking Tech",
           "year": "2019",
           "url": "https://doi.org/10.1007/s11416-018-0323-0"
         },
