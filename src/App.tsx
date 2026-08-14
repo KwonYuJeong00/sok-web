@@ -15,7 +15,7 @@ import { DomainOverview } from './components/DomainOverview';
 export default function App() {
   const [selection, setSelection] = useState<Selection>({ kind: 'none' });
   const [filter, setFilter] = useState<FilterState>(EMPTY_FILTER);
-  const [showOverview, setShowOverview] = useState(false);
+  const [showOverview, setShowOverview] = useState(true); // landing page
 
   const filterActive = isFilterActive(filter);
 

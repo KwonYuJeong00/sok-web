@@ -104,8 +104,8 @@ code {
   text-align: left; font-size: 13.5px; color: var(--text-mid);
 }
 .paper-leaf:hover { background: var(--surface-alt); color: var(--text); }
-.paper-leaf.is-selected { background: var(--surface-alt); color: var(--text); }
-.paper-leaf.is-selected .leaf-title { color: var(--text); }
+.paper-leaf.is-selected { background: var(--accent-bg); color: var(--accent); }
+.paper-leaf.is-selected .leaf-title { color: var(--accent); font-weight: 600; }
 .leaf-title {
   flex: 1; color: var(--text-mid); font-size: 13.5px; line-height: 1.3;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: break-word;
@@ -264,9 +264,11 @@ code {
 
 /* sidebar entry */
 .ov-toggle {
-  width: 100%; display: flex; align-items: baseline; gap: 8px; padding: 11px 13px;
+  width: 100%; display: flex; align-items: baseline; gap: 6px; padding: 11px 13px;
   text-align: left; background: var(--surface); border-bottom: 1px solid var(--border-strong);
 }
+/* empty arrow slot aligns the name with the scheme rows below */
+.ov-toggle .arrow { width: 12px; }
 .ov-toggle:hover { background: var(--surface-alt); }
 .ov-toggle.is-active { background: var(--accent-bg); box-shadow: inset 3px 0 0 var(--accent); }
 .ov-toggle-name {

@@ -76,6 +76,7 @@ export function Sidebar({
         onClick={onToggleOverview}
         aria-pressed={overviewOpen}
       >
+        <span className="arrow" />
         <span className="ov-toggle-name">Research Papers by Domain</span>
         <span className="ov-toggle-spacer" />
         <span className="ov-toggle-count">{collectionCount}</span>
