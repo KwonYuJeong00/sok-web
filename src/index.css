@@ -274,7 +274,7 @@ code {
   color: var(--text); white-space: nowrap;
 }
 .ov-toggle.is-active .ov-toggle-name { color: var(--accent); }
-.ov-toggle-sub { flex: 1; font-size: 12px; color: var(--text-muted); }
+.ov-toggle-spacer { flex: 1; }
 .ov-toggle-count {
   font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12.5px; font-weight: 600;
   color: var(--text-muted);
@@ -287,12 +287,7 @@ code {
   max-width: 1480px; margin: 0 auto 16px; padding: 16px 20px 8px;
   background: var(--surface); border: 1px solid var(--border-strong); border-radius: 3px;
 }
-.ov-title { font-size: 17px; font-weight: 600; color: var(--text); }
-.ov-sub { margin: 3px 0 4px; font-size: 13px; color: var(--text-muted); }
-.ov-note {
-  margin: 4px 0 8px; text-align: center; font-size: 12.5px; color: var(--text-muted);
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-}
+.ov-title { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
 
 /* pie */
 .ov-pie { display: block; width: 100%; height: auto; }
@@ -343,10 +338,8 @@ code {
 }
 .ov-dom-did { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; color: var(--text); }
 .ov-dom-name { flex: 1; font-weight: 600; color: var(--text); }
-.ov-dom-count {
-  font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12.5px; font-weight: 500;
-  color: var(--text-muted); white-space: nowrap;
-}
+/* paper count in parentheses beside the name — regular weight, muted */
+.ov-dom-paren { font-weight: 400; color: var(--text-muted); }
 /* fixed layout: identical column widths in every domain table */
 .ov-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13.5px; margin-top: 4px; }
 .ov-table th {
@@ -368,17 +361,11 @@ code {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 12.5px; font-variant-numeric: tabular-nums;
 }
-.ov-col-conf { width: 210px; }
+/* wide enough for the longest venue name on ONE line (55 mono chars);
+   the Paper Title column absorbs the rest and may wrap to two lines */
+.ov-col-conf { width: 435px; }
 .ov-col-year { width: 64px; white-space: nowrap; }
-td.ov-col-conf { color: var(--text-muted); }
-/* long venue names: scroll (drag) inside the fixed-width cell; full name on hover */
-.ov-venue {
-  display: block; white-space: nowrap; overflow-x: auto;
-  scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent;
-}
-.ov-venue::-webkit-scrollbar { height: 4px; }
-.ov-venue::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
-.ov-venue::-webkit-scrollbar-track { background: transparent; }
+td.ov-col-conf { color: var(--text-muted); white-space: nowrap; }
 
 /* grouped Others block */
 .ov-others {

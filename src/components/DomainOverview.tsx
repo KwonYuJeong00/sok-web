@@ -211,13 +211,17 @@ export function DomainOverview({ collection }: Props) {
       .getElementById(`dom-${target}`)
       ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
+  const years = collection
+    .flatMap((d) => d.papers.map((p) => parseInt(p.year, 10)))
+    .filter((y) => !Number.isNaN(y));
+  const yearRange = years.length ? `${Math.min(...years)}~${Math.max(...years)}` : '';
+
   return (
     <div className="overview-scroll">
       <section className="ov-card">
-        <h2 className="ov-title">Collected papers by research domain</h2>
-        <p className="ov-sub">
-          Click a slice or a label to jump to that domain&rsquo;s paper list.
-        </p>
+        <h2 className="ov-title">
+          Collected papers by research domain ({yearRange}); {total} papers
+        </h2>
         <svg
           className="ov-pie"
           viewBox={`0 0 ${W} ${H}`}
@@ -342,7 +346,6 @@ export function DomainOverview({ collection }: Props) {
             );
           })()}
         </svg>
-        <p className="ov-note">Paper collection as of August 2026 · {total} papers</p>
       </section>
 
       {/* per-domain paper tables — every defined domain, including empty ones */}
@@ -353,10 +356,7 @@ export function DomainOverview({ collection }: Props) {
         {otherDomains.length > 0 && (
           <section className="ov-others" id="dom-others">
             <h3 className="ov-others-head">
-              Others
-              <span className="ov-dom-count">
-                {othersTotal} {othersTotal === 1 ? 'paper' : 'papers'}
-              </span>
+              Others <span className="ov-dom-paren">({othersTotal})</span>
             </h3>
             {otherDomains.map((d) => (
               <DomainSection
@@ -387,32 +387,32 @@ function DomainSection({
       <h3 className="ov-dom-head">
         <span className="ov-dom-dot" style={{ background: color }} />
         <span className="ov-dom-did">{d.did}</span>
-        <span className="ov-dom-name">{d.name}</span>
-        <span className="ov-dom-count">
-          {d.paperCount} {d.paperCount === 1 ? 'paper' : 'papers'}
+        <span className="ov-dom-name">
+          {d.name} <span className="ov-dom-paren">({d.paperCount})</span>
         </span>
       </h3>
       <table className="ov-table">
         <thead>
           <tr>
             <th className="ov-col-n">#</th>
-            <th>Paper Title</th>
-            <th className="ov-col-conf">Conference &amp; Journal</th>
             <th className="ov-col-year">Year</th>
+            <th>Paper Title</th>
+            <th className="ov-col-conf">Conference / Journal</th>
           </tr>
         </thead>
         <tbody>
           {d.papers.length === 0 ? (
             <tr className="ov-row-na">
               <td className="ov-col-n">–</td>
+              <td className="ov-col-year">–</td>
               <td>N/A</td>
               <td className="ov-col-conf">–</td>
-              <td className="ov-col-year">–</td>
             </tr>
           ) : (
             d.papers.map((p, i) => (
               <tr key={p.pid}>
                 <td className="ov-col-n">{i + 1}</td>
+                <td className="ov-col-year">{p.year}</td>
                 <td>
                   {p.url ? (
                     <a
@@ -427,14 +427,7 @@ function DomainSection({
                     p.title
                   )}
                 </td>
-                <td className="ov-col-conf">
-                  {/* fixed-width cell; long venue names scroll (drag) and show
-                      the full name on hover */}
-                  <span className="ov-venue" title={p.venue}>
-                    {p.venue}
-                  </span>
-                </td>
-                <td className="ov-col-year">{p.year}</td>
+                <td className="ov-col-conf">{p.venue}</td>
               </tr>
             ))
           )}

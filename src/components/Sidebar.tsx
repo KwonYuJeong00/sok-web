@@ -49,8 +49,8 @@ export function Sidebar({
         onClick={onToggleOverview}
         aria-pressed={overviewOpen}
       >
-        <span className="ov-toggle-name">Domain Overview</span>
-        <span className="ov-toggle-sub">all collected papers</span>
+        <span className="ov-toggle-name">Research Papers by Domain</span>
+        <span className="ov-toggle-spacer" />
         <span className="ov-toggle-count">{collectionCount}</span>
       </button>
       {sidebar.map((group) => {
