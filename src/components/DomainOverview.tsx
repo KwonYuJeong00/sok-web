@@ -10,10 +10,13 @@
 // elbow-leader callout with "DID Domain name"; the four Others callouts are
 // additionally bundled by a "{" brace captioned "Others".
 import { useMemo, useState } from 'react';
+import { paperById } from '../lib/data';
 import type { CollectionDomain } from '../types';
 
 interface Props {
   collection: CollectionDomain[];
+  /** open the pipeline diagram for one of the 88 analysed papers */
+  onOpenPipeline: (pid: string) => void;
 }
 
 /* ------------------------------ geometry ------------------------------- */
@@ -177,7 +180,7 @@ function build(collection: CollectionDomain[], colorOf: Map<string, string>) {
 }
 
 /* ------------------------------ component ------------------------------ */
-export function DomainOverview({ collection }: Props) {
+export function DomainOverview({ collection, onOpenPipeline }: Props) {
   const [hot, setHot] = useState<string | null>(null);
 
   // Stable per-domain colour (position within its scheme over the FULL
@@ -351,7 +354,12 @@ export function DomainOverview({ collection }: Props) {
       {/* per-domain paper tables — every defined domain, including empty ones */}
       <div className="ov-tables">
         {mainDomains.map((d) => (
-          <DomainSection key={d.did} d={d} color={colorOf.get(d.did) ?? 'var(--border)'} />
+          <DomainSection
+            key={d.did}
+            d={d}
+            color={colorOf.get(d.did) ?? 'var(--border)'}
+            onOpenPipeline={onOpenPipeline}
+          />
         ))}
         {otherDomains.length > 0 && (
           <section className="ov-others" id="dom-others">
@@ -363,6 +371,7 @@ export function DomainOverview({ collection }: Props) {
                 key={d.did}
                 d={d}
                 color={colorOf.get(d.did) ?? 'var(--border)'}
+                onOpenPipeline={onOpenPipeline}
                 sub
               />
             ))}
@@ -376,10 +385,12 @@ export function DomainOverview({ collection }: Props) {
 function DomainSection({
   d,
   color,
+  onOpenPipeline,
   sub,
 }: {
   d: CollectionDomain;
   color: string;
+  onOpenPipeline: (pid: string) => void;
   sub?: boolean;
 }) {
   return (
@@ -395,6 +406,7 @@ function DomainSection({
         <thead>
           <tr>
             <th className="ov-col-n">#</th>
+            <th className="ov-col-pipe">Pipeline</th>
             <th className="ov-col-year">Year</th>
             <th>Paper Title</th>
             <th className="ov-col-conf">Conference / Journal</th>
@@ -404,6 +416,7 @@ function DomainSection({
           {d.papers.length === 0 ? (
             <tr className="ov-row-na">
               <td className="ov-col-n">–</td>
+              <td className="ov-col-pipe" />
               <td className="ov-col-year">–</td>
               <td>N/A</td>
               <td className="ov-col-conf">–</td>
@@ -412,6 +425,22 @@ function DomainSection({
             d.papers.map((p, i) => (
               <tr key={p.pid}>
                 <td className="ov-col-n">{i + 1}</td>
+                <td className="ov-col-pipe">
+                  {/* only the 88 analysed (top-tier) papers have a pipeline */}
+                  <button
+                    type="button"
+                    className="ov-pipe-btn"
+                    disabled={!paperById.has(p.pid)}
+                    onClick={() => onOpenPipeline(p.pid)}
+                    title={
+                      paperById.has(p.pid)
+                        ? 'Open the pipeline diagram for this paper'
+                        : 'No pipeline for this paper'
+                    }
+                  >
+                    Go
+                  </button>
+                </td>
                 <td className="ov-col-year">{p.year}</td>
                 <td>
                   {p.url ? (

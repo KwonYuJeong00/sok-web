@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cssVars } from '../lib/style';
 import { schemeColor } from '../lib/colors';
 import type { SidebarSchemeGroup } from '../types';
@@ -38,6 +38,33 @@ export function Sidebar({
       else next.add(key);
       return next;
     });
+
+  // When a paper is selected from outside the tree (e.g. an overview-table
+  // Pipeline button), expand its scheme + domain so the selection is visible.
+  useEffect(() => {
+    if (!selectedPid) return;
+    for (const g of sidebar) {
+      for (const d of g.domains) {
+        if (d.papers.some((p) => p.id === selectedPid)) {
+          setCollapsed((prev) => {
+            if (!prev.has(`d:${d.id}`) && !prev.has(`s:${g.scheme}`)) return prev;
+            const next = new Set(prev);
+            next.delete(`d:${d.id}`);
+            next.delete(`s:${g.scheme}`);
+            return next;
+          });
+        }
+      }
+    }
+  }, [selectedPid, sidebar]);
+
+  // After the tree re-renders expanded, bring the selected paper into view.
+  useEffect(() => {
+    if (!selectedPid) return;
+    document
+      .querySelector('.paper-leaf.is-selected')
+      ?.scrollIntoView({ block: 'nearest' });
+  }, [selectedPid, collapsed]);
 
   const isIn = (pid: string) => !filteredPids || filteredPids.has(pid);
 

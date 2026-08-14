@@ -46,6 +46,12 @@ export default function App() {
     );
   };
 
+  // From the overview tables: always open (never toggle off) the pipeline view.
+  const openPaperPipeline = (pid: string) => {
+    setShowOverview(false);
+    setSelection({ kind: 'paper', paperId: pid });
+  };
+
   return (
     <div className="app">
       <Header
@@ -66,7 +72,7 @@ export default function App() {
         />
         <main className="main-area">
           {showOverview ? (
-            <DomainOverview collection={data.collection} />
+            <DomainOverview collection={data.collection} onOpenPipeline={openPaperPipeline} />
           ) : (
             <>
               {selectedPaper && <PaperInfoBar paper={selectedPaper} />}
