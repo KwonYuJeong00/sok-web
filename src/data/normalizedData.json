@@ -7,7 +7,7 @@
     "stageCount": 11,
     "maxPaths": 4,
     "collectionCount": 246,
-    "generatedAt": "2026-08-14T07:35:36.172Z",
+    "generatedAt": "2026-08-14T08:22:41.084Z",
     "primarySource": "source/ai_pipeline_final_sheet.csv"
   },
   "stages": [
@@ -10906,32 +10906,11 @@
       "paperCount": 6,
       "papers": [
         {
-          "pid": "P005",
-          "title": "Recognizing Functions in Binaries with Neural Networks",
+          "pid": "P004",
+          "title": "Tady: A Neural Disassembler without Structural Constraint Violations",
           "venue": "USENIX Security",
-          "year": "2015",
-          "url": "https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/shin"
-        },
-        {
-          "pid": "P006",
-          "title": "Semantics-Aware Machine Learning for Function Recognition in Binary Code",
-          "venue": "ICSME",
-          "year": "2017",
-          "url": "https://doi.org/10.1109/icsme.2017.59"
-        },
-        {
-          "pid": "P002",
-          "title": "XDA: Accurate, Robust Disassembly with Transfer Learning",
-          "venue": "NDSS",
-          "year": "2021",
-          "url": "https://doi.org/10.14722/ndss.2021.23112"
-        },
-        {
-          "pid": "P003",
-          "title": "DeepDi: Learning a Relational Graph Convolutional Network Model on Instructions for Fast and Accurate Disassembly",
-          "venue": "USENIX Security",
-          "year": "2022",
-          "url": "https://www.usenix.org/conference/usenixsecurity22/presentation/yu-sheng"
+          "year": "2025",
+          "url": "https://www.usenix.org/conference/usenixsecurity25/presentation/qin"
         },
         {
           "pid": "P007",
@@ -10941,11 +10920,32 @@
           "url": "https://doi.org/10.1145/3611643.3616366"
         },
         {
-          "pid": "P004",
-          "title": "Tady: A Neural Disassembler without Structural Constraint Violations",
+          "pid": "P003",
+          "title": "DeepDi: Learning a Relational Graph Convolutional Network Model on Instructions for Fast and Accurate Disassembly",
           "venue": "USENIX Security",
-          "year": "2025",
-          "url": "https://www.usenix.org/conference/usenixsecurity25/presentation/qin"
+          "year": "2022",
+          "url": "https://www.usenix.org/conference/usenixsecurity22/presentation/yu-sheng"
+        },
+        {
+          "pid": "P002",
+          "title": "XDA: Accurate, Robust Disassembly with Transfer Learning",
+          "venue": "NDSS",
+          "year": "2021",
+          "url": "https://doi.org/10.14722/ndss.2021.23112"
+        },
+        {
+          "pid": "P006",
+          "title": "Semantics-Aware Machine Learning for Function Recognition in Binary Code",
+          "venue": "ICSME",
+          "year": "2017",
+          "url": "https://doi.org/10.1109/icsme.2017.59"
+        },
+        {
+          "pid": "P005",
+          "title": "Recognizing Functions in Binaries with Neural Networks",
+          "venue": "USENIX Security",
+          "year": "2015",
+          "url": "https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/shin"
         }
       ]
     },
@@ -10955,6 +10955,34 @@
       "scheme": "Foundation",
       "paperCount": 7,
       "papers": [
+        {
+          "pid": "P010",
+          "title": "LLM-Powered Static Binary Taint Analysis",
+          "venue": "TOSEM",
+          "year": "2025",
+          "url": "https://doi.org/10.1145/3711816"
+        },
+        {
+          "pid": "P009",
+          "title": "FITS: Inferring Intermediate Taint Sources for Effective Vulnerability Analysis of IoT Device Firmware",
+          "venue": "ASPLOS",
+          "year": "2023",
+          "url": "https://doi.org/10.1145/3623278.3624759"
+        },
+        {
+          "pid": "P012",
+          "title": "NeuDep: Neural Binary Memory Dependence Analysis",
+          "venue": "ESEC/FSE",
+          "year": "2022",
+          "url": "https://doi.org/10.1145/3540250.3549147"
+        },
+        {
+          "pid": "P008",
+          "title": "Neutaint: Efficient Dynamic Taint Analysis with Neural Networks",
+          "venue": "S&P",
+          "year": "2020",
+          "url": "https://doi.org/10.1109/sp40000.2020.00022"
+        },
         {
           "pid": "P013",
           "title": "DEEPVSA: Facilitating Value-set Analysis with Deep Learning for Postmortem Program Analysis",
@@ -10975,34 +11003,6 @@
           "venue": "ASE",
           "year": "2019",
           "url": "https://doi.org/10.1109/ase.2019.00090"
-        },
-        {
-          "pid": "P008",
-          "title": "Neutaint: Efficient Dynamic Taint Analysis with Neural Networks",
-          "venue": "S&P",
-          "year": "2020",
-          "url": "https://doi.org/10.1109/sp40000.2020.00022"
-        },
-        {
-          "pid": "P012",
-          "title": "NeuDep: Neural Binary Memory Dependence Analysis",
-          "venue": "ESEC/FSE",
-          "year": "2022",
-          "url": "https://doi.org/10.1145/3540250.3549147"
-        },
-        {
-          "pid": "P009",
-          "title": "FITS: Inferring Intermediate Taint Sources for Effective Vulnerability Analysis of IoT Device Firmware",
-          "venue": "ASPLOS",
-          "year": "2023",
-          "url": "https://doi.org/10.1145/3623278.3624759"
-        },
-        {
-          "pid": "P010",
-          "title": "LLM-Powered Static Binary Taint Analysis",
-          "venue": "TOSEM",
-          "year": "2025",
-          "url": "https://doi.org/10.1145/3711816"
         }
       ]
     },
@@ -11028,200 +11028,18 @@
       "paperCount": 37,
       "papers": [
         {
-          "pid": "P165",
-          "title": "BinDNN: Resilient Function Matching Using Deep Learning",
-          "venue": "SecureComm",
-          "year": "2016",
-          "url": "https://doi.org/10.1007/978-3-319-59608-2_29"
-        },
-        {
-          "pid": "P015",
-          "title": "BinGo: Cross-Architecture Cross-OS Binary Search",
-          "venue": "FSE",
-          "year": "2016",
-          "url": "https://doi.org/10.1145/2950290.2950350"
-        },
-        {
-          "pid": "P028",
-          "title": "Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection",
-          "venue": "CCS",
-          "year": "2017",
-          "url": "https://doi.org/10.1145/3133956.3134018"
-        },
-        {
-          "pid": "P166",
-          "title": "FOSSIL: A Resilient and Efficient System for Identifying FOSS Functions in Malware Binaries",
-          "venue": "ACM TOPS",
-          "year": "2018",
-          "url": "https://dl.acm.org/doi/10.1145/3175492"
-        },
-        {
-          "pid": "P154",
-          "title": "αDiff: Cross-version Binary Code Similarity Detection with DNN",
-          "venue": "ASE",
-          "year": "2018",
-          "url": "https://doi.org/10.1145/3238147.3238199"
-        },
-        {
-          "pid": "P032",
-          "title": "Asm2Vec: Boosting Static Representation Robustness for Binary Clone Search against Code Obfuscation and Compiler Optimization",
-          "venue": "S&P",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/sp.2019.00003"
-        },
-        {
-          "pid": "P030",
-          "title": "Graph matching networks for learning the similarity of graph structured objects",
-          "venue": "ICML",
-          "year": "2019",
-          "url": "https://proceedings.mlr.press/v97/li19d.html"
-        },
-        {
-          "pid": "P031",
-          "title": "Neural Machine Translation Inspired Binary Code Similarity Comparison beyond Function Pairs",
-          "venue": "NDSS",
-          "year": "2019",
-          "url": "https://doi.org/10.14722/ndss.2019.23492"
-        },
-        {
-          "pid": "P029",
-          "title": "Safe: Self-attentive function embeddings for binary similarity",
-          "venue": "DIMVA",
-          "year": "2019",
-          "url": "https://doi.org/10.1007/978-3-030-22038-9_15"
-        },
-        {
-          "pid": "P017",
-          "title": "CodeCMR: Cross-Modal Retrieval For Function-Level Binary Source Code Matching",
-          "venue": "NeurIPS",
-          "year": "2020",
-          "url": "https://proceedings.neurips.cc/paper/2020/hash/285f89b802bcb2651801455c86d78f2a-Abstract.html"
-        },
-        {
-          "pid": "P016",
-          "title": "Order Matters: Semantic-Aware Neural Networks for Binary Code Similarity Detection",
+          "pid": "P156",
+          "title": "BDLF-Qwen3: Enhanced Cross-Architecture Binary Function Similarity Detection Through Binary Dynamic Layer Fusion",
           "venue": "AAAI",
-          "year": "2020",
-          "url": "https://doi.org/10.1609/aaai.v34i01.5466"
+          "year": "2026",
+          "url": "https://doi.org/10.1609/aaai.v40i2.37094"
         },
         {
-          "pid": "P018",
-          "title": "Asteria: Deep Learning-based AST-Encoding for Cross-platform Binary Code Similarity Detection",
-          "venue": "DSN",
-          "year": "2021",
-          "url": "https://doi.org/10.1109/dsn48987.2021.00036"
-        },
-        {
-          "pid": "P167",
-          "title": "BinDeep: A Deep Learning Approach to Binary Code Similarity Detection",
-          "venue": "Expert Systems with Applications",
-          "year": "2021",
-          "url": "https://doi.org/10.1016/j.eswa.2020.114348"
-        },
-        {
-          "pid": "P168",
-          "title": "Codee: A Tensor Embedding Scheme for Binary Code Search",
-          "venue": "IEEE TSE",
-          "year": "2021",
-          "url": "https://doi.org/10.1109/tse.2021.3056139"
-        },
-        {
-          "pid": "P155",
-          "title": "Cross-Language Binary-Source Code Matching with Intermediate Representations",
-          "venue": "SANER",
-          "year": "2022",
-          "url": "https://doi.org/10.1109/saner53432.2022.00077"
-        },
-        {
-          "pid": "P035",
-          "title": "Exploring GNN Based Program Embedding Technologies for Binary Related Tasks",
-          "venue": "ICPC",
-          "year": "2022",
-          "url": "https://doi.org/10.1145/3524610.3527900"
-        },
-        {
-          "pid": "P034",
-          "title": "Improving Cross-Platform Binary Analysis using Representation Learning via Graph Alignment",
-          "venue": "ISSTA",
-          "year": "2022",
-          "url": "https://doi.org/10.1145/3533767.3534383"
-        },
-        {
-          "pid": "P169",
-          "title": "Investigating Graph Embedding Methods for Cross-Platform Binary Code Similarity Detection",
-          "venue": "EuroS&P",
-          "year": "2022",
-          "url": "https://doi.org/10.1109/eurosp53844.2022.00012"
-        },
-        {
-          "pid": "P019",
-          "title": "jTrans: jump-aware transformer for binary code similarity detection",
-          "venue": "ISSTA",
-          "year": "2022",
-          "url": "https://doi.org/10.1145/3533767.3534367"
-        },
-        {
-          "pid": "P170",
-          "title": "LibDB: An Effective and Efficient Framework for Detecting Third-Party Libraries in Binaries",
-          "venue": "MSR",
-          "year": "2022",
-          "url": "https://dl.acm.org/doi/10.1145/3524842.3528442"
-        },
-        {
-          "pid": "P020",
-          "title": "Practical Binary Code Similarity Detection with BERT-based Transferable Similarity Learning",
-          "venue": "ACSAC",
-          "year": "2022",
-          "url": "https://doi.org/10.1145/3564625.3567975"
-        },
-        {
-          "pid": "P171",
-          "title": "Asteria-Pro: Enhancing Deep Learning-based Binary Code Similarity Detection by Incorporating Domain Knowledge",
-          "venue": "ACM TOSEM",
-          "year": "2023",
-          "url": "https://doi.org/10.1145/3604611"
-        },
-        {
-          "pid": "P039",
-          "title": "CFG2VEC: Hierarchical Graph Neural Network for Cross-Architectural Software Reverse Engineering",
-          "venue": "ICSE-SEIP",
-          "year": "2023",
-          "url": "https://doi.org/10.1109/icse-seip58684.2023.00031"
-        },
-        {
-          "pid": "P172",
-          "title": "CodeFormer: A GNN-Nested Transformer Model for Binary Code Similarity Detection",
-          "venue": "Electronics",
-          "year": "2023",
-          "url": "https://doi.org/10.3390/electronics12071722"
-        },
-        {
-          "pid": "P173",
-          "title": "Enhancing DNN-Based Binary Code Function Search With Low-Cost Equivalence Checking",
-          "venue": "IEEE TSE",
-          "year": "2023",
-          "url": "https://doi.org/10.1109/tse.2022.3149240"
-        },
-        {
-          "pid": "P174",
-          "title": "GENTAL: Generative Denoising Skip-Gram Transformer for Unsupervised Binary Code Similarity Detection",
-          "venue": "IJCNN",
-          "year": "2023",
-          "url": "https://doi.org/10.1109/ijcnn54540.2023.10191550"
-        },
-        {
-          "pid": "P175",
-          "title": "Improving Binary Code Similarity Transformer Models by Semantics-Driven Instruction Deemphasis",
-          "venue": "ISSTA",
-          "year": "2023",
-          "url": "https://doi.org/10.1145/3597926.3598121"
-        },
-        {
-          "pid": "P021",
-          "title": "Learning Approximate Execution Semantics From Traces for Binary Function Similarity",
-          "venue": "TSE",
-          "year": "2023",
-          "url": "https://doi.org/10.1109/tse.2022.3231621"
+          "pid": "P027",
+          "title": "Transforming Generic Coder LLMs to Effective Binary Code Embedding Models for Similarity Detection",
+          "venue": "NeurIPS",
+          "year": "2025",
+          "url": "https://doi.org/10.52202/085713-5681"
         },
         {
           "pid": "P025",
@@ -11273,18 +11091,200 @@
           "url": "https://www.usenix.org/conference/usenixsecurity24/presentation/wang-jialai"
         },
         {
-          "pid": "P027",
-          "title": "Transforming Generic Coder LLMs to Effective Binary Code Embedding Models for Similarity Detection",
-          "venue": "NeurIPS",
-          "year": "2025",
-          "url": "https://doi.org/10.52202/085713-5681"
+          "pid": "P171",
+          "title": "Asteria-Pro: Enhancing Deep Learning-based Binary Code Similarity Detection by Incorporating Domain Knowledge",
+          "venue": "ACM TOSEM",
+          "year": "2023",
+          "url": "https://doi.org/10.1145/3604611"
         },
         {
-          "pid": "P156",
-          "title": "BDLF-Qwen3: Enhanced Cross-Architecture Binary Function Similarity Detection Through Binary Dynamic Layer Fusion",
+          "pid": "P039",
+          "title": "CFG2VEC: Hierarchical Graph Neural Network for Cross-Architectural Software Reverse Engineering",
+          "venue": "ICSE-SEIP",
+          "year": "2023",
+          "url": "https://doi.org/10.1109/icse-seip58684.2023.00031"
+        },
+        {
+          "pid": "P172",
+          "title": "CodeFormer: A GNN-Nested Transformer Model for Binary Code Similarity Detection",
+          "venue": "Electronics",
+          "year": "2023",
+          "url": "https://doi.org/10.3390/electronics12071722"
+        },
+        {
+          "pid": "P173",
+          "title": "Enhancing DNN-Based Binary Code Function Search With Low-Cost Equivalence Checking",
+          "venue": "IEEE TSE",
+          "year": "2023",
+          "url": "https://doi.org/10.1109/tse.2022.3149240"
+        },
+        {
+          "pid": "P174",
+          "title": "GENTAL: Generative Denoising Skip-Gram Transformer for Unsupervised Binary Code Similarity Detection",
+          "venue": "IJCNN",
+          "year": "2023",
+          "url": "https://doi.org/10.1109/ijcnn54540.2023.10191550"
+        },
+        {
+          "pid": "P175",
+          "title": "Improving Binary Code Similarity Transformer Models by Semantics-Driven Instruction Deemphasis",
+          "venue": "ISSTA",
+          "year": "2023",
+          "url": "https://doi.org/10.1145/3597926.3598121"
+        },
+        {
+          "pid": "P021",
+          "title": "Learning Approximate Execution Semantics From Traces for Binary Function Similarity",
+          "venue": "TSE",
+          "year": "2023",
+          "url": "https://doi.org/10.1109/tse.2022.3231621"
+        },
+        {
+          "pid": "P155",
+          "title": "Cross-Language Binary-Source Code Matching with Intermediate Representations",
+          "venue": "SANER",
+          "year": "2022",
+          "url": "https://doi.org/10.1109/saner53432.2022.00077"
+        },
+        {
+          "pid": "P035",
+          "title": "Exploring GNN Based Program Embedding Technologies for Binary Related Tasks",
+          "venue": "ICPC",
+          "year": "2022",
+          "url": "https://doi.org/10.1145/3524610.3527900"
+        },
+        {
+          "pid": "P034",
+          "title": "Improving Cross-Platform Binary Analysis using Representation Learning via Graph Alignment",
+          "venue": "ISSTA",
+          "year": "2022",
+          "url": "https://doi.org/10.1145/3533767.3534383"
+        },
+        {
+          "pid": "P169",
+          "title": "Investigating Graph Embedding Methods for Cross-Platform Binary Code Similarity Detection",
+          "venue": "EuroS&P",
+          "year": "2022",
+          "url": "https://doi.org/10.1109/eurosp53844.2022.00012"
+        },
+        {
+          "pid": "P019",
+          "title": "jTrans: jump-aware transformer for binary code similarity detection",
+          "venue": "ISSTA",
+          "year": "2022",
+          "url": "https://doi.org/10.1145/3533767.3534367"
+        },
+        {
+          "pid": "P170",
+          "title": "LibDB: An Effective and Efficient Framework for Detecting Third-Party Libraries in Binaries",
+          "venue": "MSR",
+          "year": "2022",
+          "url": "https://dl.acm.org/doi/10.1145/3524842.3528442"
+        },
+        {
+          "pid": "P020",
+          "title": "Practical Binary Code Similarity Detection with BERT-based Transferable Similarity Learning",
+          "venue": "ACSAC",
+          "year": "2022",
+          "url": "https://doi.org/10.1145/3564625.3567975"
+        },
+        {
+          "pid": "P018",
+          "title": "Asteria: Deep Learning-based AST-Encoding for Cross-platform Binary Code Similarity Detection",
+          "venue": "DSN",
+          "year": "2021",
+          "url": "https://doi.org/10.1109/dsn48987.2021.00036"
+        },
+        {
+          "pid": "P167",
+          "title": "BinDeep: A Deep Learning Approach to Binary Code Similarity Detection",
+          "venue": "Expert Systems with Applications",
+          "year": "2021",
+          "url": "https://doi.org/10.1016/j.eswa.2020.114348"
+        },
+        {
+          "pid": "P168",
+          "title": "Codee: A Tensor Embedding Scheme for Binary Code Search",
+          "venue": "IEEE TSE",
+          "year": "2021",
+          "url": "https://doi.org/10.1109/tse.2021.3056139"
+        },
+        {
+          "pid": "P017",
+          "title": "CodeCMR: Cross-Modal Retrieval For Function-Level Binary Source Code Matching",
+          "venue": "NeurIPS",
+          "year": "2020",
+          "url": "https://proceedings.neurips.cc/paper/2020/hash/285f89b802bcb2651801455c86d78f2a-Abstract.html"
+        },
+        {
+          "pid": "P016",
+          "title": "Order Matters: Semantic-Aware Neural Networks for Binary Code Similarity Detection",
           "venue": "AAAI",
-          "year": "2026",
-          "url": "https://doi.org/10.1609/aaai.v40i2.37094"
+          "year": "2020",
+          "url": "https://doi.org/10.1609/aaai.v34i01.5466"
+        },
+        {
+          "pid": "P032",
+          "title": "Asm2Vec: Boosting Static Representation Robustness for Binary Clone Search against Code Obfuscation and Compiler Optimization",
+          "venue": "S&P",
+          "year": "2019",
+          "url": "https://doi.org/10.1109/sp.2019.00003"
+        },
+        {
+          "pid": "P030",
+          "title": "Graph matching networks for learning the similarity of graph structured objects",
+          "venue": "ICML",
+          "year": "2019",
+          "url": "https://proceedings.mlr.press/v97/li19d.html"
+        },
+        {
+          "pid": "P031",
+          "title": "Neural Machine Translation Inspired Binary Code Similarity Comparison beyond Function Pairs",
+          "venue": "NDSS",
+          "year": "2019",
+          "url": "https://doi.org/10.14722/ndss.2019.23492"
+        },
+        {
+          "pid": "P029",
+          "title": "Safe: Self-attentive function embeddings for binary similarity",
+          "venue": "DIMVA",
+          "year": "2019",
+          "url": "https://doi.org/10.1007/978-3-030-22038-9_15"
+        },
+        {
+          "pid": "P166",
+          "title": "FOSSIL: A Resilient and Efficient System for Identifying FOSS Functions in Malware Binaries",
+          "venue": "ACM TOPS",
+          "year": "2018",
+          "url": "https://dl.acm.org/doi/10.1145/3175492"
+        },
+        {
+          "pid": "P154",
+          "title": "αDiff: Cross-version Binary Code Similarity Detection with DNN",
+          "venue": "ASE",
+          "year": "2018",
+          "url": "https://doi.org/10.1145/3238147.3238199"
+        },
+        {
+          "pid": "P028",
+          "title": "Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection",
+          "venue": "CCS",
+          "year": "2017",
+          "url": "https://doi.org/10.1145/3133956.3134018"
+        },
+        {
+          "pid": "P165",
+          "title": "BinDNN: Resilient Function Matching Using Deep Learning",
+          "venue": "SecureComm",
+          "year": "2016",
+          "url": "https://doi.org/10.1007/978-3-319-59608-2_29"
+        },
+        {
+          "pid": "P015",
+          "title": "BinGo: Cross-Architecture Cross-OS Binary Search",
+          "venue": "FSE",
+          "year": "2016",
+          "url": "https://doi.org/10.1145/2950290.2950350"
         }
       ]
     },
@@ -11310,25 +11310,11 @@
       "paperCount": 6,
       "papers": [
         {
-          "pid": "P178",
-          "title": "Statistical Reconstruction of Class Hierarchies in Binaries",
-          "venue": "ASPLOS",
-          "year": "2018",
-          "url": "https://doi.org/10.1145/3296957.3173202"
-        },
-        {
-          "pid": "P041",
-          "title": "OSPREY: Recovery of Variable and Data Structure via Probabilistic Analysis for Stripped Binary",
+          "pid": "P159",
+          "title": "CiRCLE: Recovering Complex Data Structures in Binaries beyond Fragmentation",
           "venue": "S&P",
-          "year": "2021",
-          "url": "https://doi.org/10.1109/sp40001.2021.00051"
-        },
-        {
-          "pid": "P042",
-          "title": "ReSym: Harnessing LLMs to Recover Variable and Data Structure Symbols from Stripped Binaries",
-          "venue": "CCS",
-          "year": "2024",
-          "url": "https://doi.org/10.1145/3658644.3670340"
+          "year": "2026",
+          "url": "https://doi.org/10.1109/sp63933.2026.00146"
         },
         {
           "pid": "P179",
@@ -11345,11 +11331,25 @@
           "url": "https://doi.org/10.1109/sp61157.2025.00193"
         },
         {
-          "pid": "P159",
-          "title": "CiRCLE: Recovering Complex Data Structures in Binaries beyond Fragmentation",
+          "pid": "P042",
+          "title": "ReSym: Harnessing LLMs to Recover Variable and Data Structure Symbols from Stripped Binaries",
+          "venue": "CCS",
+          "year": "2024",
+          "url": "https://doi.org/10.1145/3658644.3670340"
+        },
+        {
+          "pid": "P041",
+          "title": "OSPREY: Recovery of Variable and Data Structure via Probabilistic Analysis for Stripped Binary",
           "venue": "S&P",
-          "year": "2026",
-          "url": "https://doi.org/10.1109/sp63933.2026.00146"
+          "year": "2021",
+          "url": "https://doi.org/10.1109/sp40001.2021.00051"
+        },
+        {
+          "pid": "P178",
+          "title": "Statistical Reconstruction of Class Hierarchies in Binaries",
+          "venue": "ASPLOS",
+          "year": "2018",
+          "url": "https://doi.org/10.1145/3296957.3173202"
         }
       ]
     },
@@ -11360,39 +11360,11 @@
       "paperCount": 8,
       "papers": [
         {
-          "pid": "P180",
-          "title": "Estimating Types in Binaries using Predictive Modeling",
-          "venue": "POPL",
-          "year": "2016",
-          "url": "https://doi.org/10.1145/2914770.2837674"
-        },
-        {
-          "pid": "P046",
-          "title": "Type Learning for Binaries and Its Applications",
-          "venue": "IEEE Transactions on Reliability",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/tr.2018.2884143"
-        },
-        {
-          "pid": "P045",
-          "title": "TypeMiner: Recovering Types in Binary Programs using Machine Learning",
-          "venue": "DIMVA",
-          "year": "2019",
-          "url": "https://doi.org/10.1007/978-3-030-22038-9_14"
-        },
-        {
-          "pid": "P047",
-          "title": "CATI: Context-Assisted Type Inference from Stripped Binaries",
-          "venue": "DSN",
-          "year": "2020",
-          "url": "https://doi.org/10.1109/dsn48063.2020.00028"
-        },
-        {
-          "pid": "P044",
-          "title": "StateFormer: Fine-Grained Type Recovery from Binaries using Generative State Modeling",
-          "venue": "FSE",
-          "year": "2021",
-          "url": "https://doi.org/10.1145/3468264.3468607"
+          "pid": "P049",
+          "title": "TRex: Practical Type Reconstruction for Binary Code",
+          "venue": "USENIX Security",
+          "year": "2025",
+          "url": "https://www.usenix.org/conference/usenixsecurity25/presentation/bosamiya"
         },
         {
           "pid": "P048",
@@ -11409,11 +11381,39 @@
           "url": "https://doi.org/10.1145/3691620.3695502"
         },
         {
-          "pid": "P049",
-          "title": "TRex: Practical Type Reconstruction for Binary Code",
-          "venue": "USENIX Security",
-          "year": "2025",
-          "url": "https://www.usenix.org/conference/usenixsecurity25/presentation/bosamiya"
+          "pid": "P044",
+          "title": "StateFormer: Fine-Grained Type Recovery from Binaries using Generative State Modeling",
+          "venue": "FSE",
+          "year": "2021",
+          "url": "https://doi.org/10.1145/3468264.3468607"
+        },
+        {
+          "pid": "P047",
+          "title": "CATI: Context-Assisted Type Inference from Stripped Binaries",
+          "venue": "DSN",
+          "year": "2020",
+          "url": "https://doi.org/10.1109/dsn48063.2020.00028"
+        },
+        {
+          "pid": "P046",
+          "title": "Type Learning for Binaries and Its Applications",
+          "venue": "IEEE Transactions on Reliability",
+          "year": "2019",
+          "url": "https://doi.org/10.1109/tr.2018.2884143"
+        },
+        {
+          "pid": "P045",
+          "title": "TypeMiner: Recovering Types in Binary Programs using Machine Learning",
+          "venue": "DIMVA",
+          "year": "2019",
+          "url": "https://doi.org/10.1007/978-3-030-22038-9_14"
+        },
+        {
+          "pid": "P180",
+          "title": "Estimating Types in Binaries using Predictive Modeling",
+          "venue": "POPL",
+          "year": "2016",
+          "url": "https://doi.org/10.1145/2914770.2837674"
         }
       ]
     },
@@ -11424,11 +11424,11 @@
       "paperCount": 4,
       "papers": [
         {
-          "pid": "P050",
-          "title": "Neural Nets Can Learn Function Type Signatures From Binaries",
-          "venue": "USENIX Security",
-          "year": "2017",
-          "url": "https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/chua"
+          "pid": "P051",
+          "title": "Recover Function Signature from Combined Constraints",
+          "venue": "CCS",
+          "year": "2025",
+          "url": "https://doi.org/10.1145/3719027.3765089"
         },
         {
           "pid": "P182",
@@ -11445,11 +11445,11 @@
           "url": "https://dl.acm.org/doi/10.1145/3508398.3511502"
         },
         {
-          "pid": "P051",
-          "title": "Recover Function Signature from Combined Constraints",
-          "venue": "CCS",
-          "year": "2025",
-          "url": "https://doi.org/10.1145/3719027.3765089"
+          "pid": "P050",
+          "title": "Neural Nets Can Learn Function Type Signatures From Binaries",
+          "venue": "USENIX Security",
+          "year": "2017",
+          "url": "https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/chua"
         }
       ]
     },
@@ -11460,32 +11460,25 @@
       "paperCount": 9,
       "papers": [
         {
-          "pid": "P055",
-          "title": "Neural Reverse Engineering of Stripped Binaries using Augmented Control Flow Graphs",
-          "venue": "OOPSLA",
-          "year": "2020",
-          "url": "https://doi.org/10.1145/3428293"
+          "pid": "P054",
+          "title": "Beyond Classification: Inferring Function Names in Stripped Binaries via Domain Adapted LLMs",
+          "venue": "NDSS",
+          "year": "2025",
+          "url": "https://doi.org/10.14722/ndss.2025.240797"
         },
         {
-          "pid": "P053",
-          "title": "Probabilistic Naming of Functions in Stripped Binaries",
-          "venue": "ACSAC",
-          "year": "2020",
-          "url": "https://doi.org/10.1145/3427228.3427265"
+          "pid": "P062",
+          "title": "BLens: Contrastive Captioning of Binary Functions using Ensemble Embedding",
+          "venue": "USENIX Security",
+          "year": "2025",
+          "url": "https://www.usenix.org/conference/usenixsecurity25/presentation/benoit"
         },
         {
-          "pid": "P056",
-          "title": "A lightweight framework for function name reassignment based on large-scale stripped binaries",
-          "venue": "ISSTA",
-          "year": "2021",
-          "url": "https://doi.org/10.1145/3460319.3464804"
-        },
-        {
-          "pid": "P057",
-          "title": "SymLM: Predicting Function Names in Stripped Binaries via ContextSensitive Execution-Aware Code Embeddings",
-          "venue": "CCS",
-          "year": "2022",
-          "url": "https://dl.acm.org/doi/10.1145/3548606.3560612"
+          "pid": "P184",
+          "title": "llasm: Naming Functions in Binaries by Fusing Encoder-only and Decoder-only LLMs",
+          "venue": "TOSEM",
+          "year": "2024",
+          "url": "https://doi.org/10.1145/3702988"
         },
         {
           "pid": "P058",
@@ -11502,25 +11495,32 @@
           "url": "https://doi.org/10.1109/sp46215.2023.10179439"
         },
         {
-          "pid": "P184",
-          "title": "llasm: Naming Functions in Binaries by Fusing Encoder-only and Decoder-only LLMs",
-          "venue": "TOSEM",
-          "year": "2024",
-          "url": "https://doi.org/10.1145/3702988"
+          "pid": "P057",
+          "title": "SymLM: Predicting Function Names in Stripped Binaries via ContextSensitive Execution-Aware Code Embeddings",
+          "venue": "CCS",
+          "year": "2022",
+          "url": "https://dl.acm.org/doi/10.1145/3548606.3560612"
         },
         {
-          "pid": "P054",
-          "title": "Beyond Classification: Inferring Function Names in Stripped Binaries via Domain Adapted LLMs",
-          "venue": "NDSS",
-          "year": "2025",
-          "url": "https://doi.org/10.14722/ndss.2025.240797"
+          "pid": "P056",
+          "title": "A lightweight framework for function name reassignment based on large-scale stripped binaries",
+          "venue": "ISSTA",
+          "year": "2021",
+          "url": "https://doi.org/10.1145/3460319.3464804"
         },
         {
-          "pid": "P062",
-          "title": "BLens: Contrastive Captioning of Binary Functions using Ensemble Embedding",
-          "venue": "USENIX Security",
-          "year": "2025",
-          "url": "https://www.usenix.org/conference/usenixsecurity25/presentation/benoit"
+          "pid": "P055",
+          "title": "Neural Reverse Engineering of Stripped Binaries using Augmented Control Flow Graphs",
+          "venue": "OOPSLA",
+          "year": "2020",
+          "url": "https://doi.org/10.1145/3428293"
+        },
+        {
+          "pid": "P053",
+          "title": "Probabilistic Naming of Functions in Stripped Binaries",
+          "venue": "ACSAC",
+          "year": "2020",
+          "url": "https://doi.org/10.1145/3427228.3427265"
         }
       ]
     },
@@ -11530,6 +11530,34 @@
       "scheme": "Foundation",
       "paperCount": 6,
       "papers": [
+        {
+          "pid": "P068",
+          "title": "Unleashing the Power of Generative Model in Recovering Variable Names from Stripped Binary",
+          "venue": "NDSS",
+          "year": "2025",
+          "url": "https://doi.org/10.14722/ndss.2025.240276"
+        },
+        {
+          "pid": "P067",
+          "title": "“Len or index or count, anything but v1”: Predicting Variable Names in Decompilation Output with Transfer Learning",
+          "venue": "S&P",
+          "year": "2024",
+          "url": "https://doi.org/10.1109/sp54263.2024.00152"
+        },
+        {
+          "pid": "P066",
+          "title": "Augmenting Decompiler Output with Learned Variable Names and Types",
+          "venue": "USENIX Security",
+          "year": "2022",
+          "url": "https://www.usenix.org/conference/usenixsecurity22/presentation/chen-qibin"
+        },
+        {
+          "pid": "P065",
+          "title": "DIRE: A Neural Approach to Decompiled Identifier Naming",
+          "venue": "ASE",
+          "year": "2019",
+          "url": "https://doi.org/10.1109/ase.2019.00064"
+        },
         {
           "pid": "P063",
           "title": "Debin: Predicting Debug Information in Stripped Binaries",
@@ -11543,34 +11571,6 @@
           "venue": "ICPC",
           "year": "2018",
           "url": "https://dl.acm.org/doi/10.1145/3196321.3196330"
-        },
-        {
-          "pid": "P065",
-          "title": "DIRE: A Neural Approach to Decompiled Identifier Naming",
-          "venue": "ASE",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/ase.2019.00064"
-        },
-        {
-          "pid": "P066",
-          "title": "Augmenting Decompiler Output with Learned Variable Names and Types",
-          "venue": "USENIX Security",
-          "year": "2022",
-          "url": "https://www.usenix.org/conference/usenixsecurity22/presentation/chen-qibin"
-        },
-        {
-          "pid": "P067",
-          "title": "“Len or index or count, anything but v1”: Predicting Variable Names in Decompilation Output with Transfer Learning",
-          "venue": "S&P",
-          "year": "2024",
-          "url": "https://doi.org/10.1109/sp54263.2024.00152"
-        },
-        {
-          "pid": "P068",
-          "title": "Unleashing the Power of Generative Model in Recovering Variable Names from Stripped Binary",
-          "venue": "NDSS",
-          "year": "2025",
-          "url": "https://doi.org/10.14722/ndss.2025.240276"
         }
       ]
     },
@@ -11581,11 +11581,11 @@
       "paperCount": 3,
       "papers": [
         {
-          "pid": "P070",
-          "title": "When Coding Style Survives Compilation: De-anonymizing Programmers from Executable Binaries",
-          "venue": "NDSS",
-          "year": "2018",
-          "url": "https://doi.org/10.14722/ndss.2018.23304"
+          "pid": "P072",
+          "title": "BinMLM: Binary Authorship Verification with Flow-aware Mixture-of-Shared Language Model",
+          "venue": "SANER",
+          "year": "2022",
+          "url": "https://doi.org/10.1109/saner53432.2022.00120"
         },
         {
           "pid": "P185",
@@ -11595,11 +11595,11 @@
           "url": "https://doi.org/10.1016/j.diin.2019.01.028"
         },
         {
-          "pid": "P072",
-          "title": "BinMLM: Binary Authorship Verification with Flow-aware Mixture-of-Shared Language Model",
-          "venue": "SANER",
-          "year": "2022",
-          "url": "https://doi.org/10.1109/saner53432.2022.00120"
+          "pid": "P070",
+          "title": "When Coding Style Survives Compilation: De-anonymizing Programmers from Executable Binaries",
+          "venue": "NDSS",
+          "year": "2018",
+          "url": "https://doi.org/10.14722/ndss.2018.23304"
         }
       ]
     },
@@ -11610,18 +11610,25 @@
       "paperCount": 8,
       "papers": [
         {
-          "pid": "P186",
-          "title": "BinComp: A stratified approach to compiler provenance attribution",
-          "venue": "Digital Investigation (DFRWS)",
-          "year": "2015",
-          "url": "https://doi.org/10.1016/j.diin.2015.05.015"
+          "pid": "P075",
+          "title": "Improving Security Tasks Using Compiler Provenance Information Recovered At the Binary-Level",
+          "venue": "CCS",
+          "year": "2023",
+          "url": "https://doi.org/10.1145/3576915.3623098"
         },
         {
-          "pid": "P187",
-          "title": "HIMALIA: Recovering compiler optimization levels from binaries by deep learning",
-          "venue": "IntelliSys",
-          "year": "2019",
-          "url": "https://doi.org/10.1007/978-3-030-01054-6_3"
+          "pid": "P189",
+          "title": "Automatic Recovery of Fine-grained Compiler Artifacts at the Binary Level",
+          "venue": "USENIX ATC",
+          "year": "2022",
+          "url": "https://www.usenix.org/conference/atc22/presentation/du"
+        },
+        {
+          "pid": "P190",
+          "title": "BinProv: Binary Code Provenance Identification without Disassembly",
+          "venue": "RAID",
+          "year": "2022",
+          "url": "https://doi.org/10.1145/3545948.3545956"
         },
         {
           "pid": "P153",
@@ -11645,25 +11652,18 @@
           "url": "https://doi.org/10.1109/access.2021.3132950"
         },
         {
-          "pid": "P189",
-          "title": "Automatic Recovery of Fine-grained Compiler Artifacts at the Binary Level",
-          "venue": "USENIX ATC",
-          "year": "2022",
-          "url": "https://www.usenix.org/conference/atc22/presentation/du"
+          "pid": "P187",
+          "title": "HIMALIA: Recovering compiler optimization levels from binaries by deep learning",
+          "venue": "IntelliSys",
+          "year": "2019",
+          "url": "https://doi.org/10.1007/978-3-030-01054-6_3"
         },
         {
-          "pid": "P190",
-          "title": "BinProv: Binary Code Provenance Identification without Disassembly",
-          "venue": "RAID",
-          "year": "2022",
-          "url": "https://doi.org/10.1145/3545948.3545956"
-        },
-        {
-          "pid": "P075",
-          "title": "Improving Security Tasks Using Compiler Provenance Information Recovered At the Binary-Level",
-          "venue": "CCS",
-          "year": "2023",
-          "url": "https://doi.org/10.1145/3576915.3623098"
+          "pid": "P186",
+          "title": "BinComp: A stratified approach to compiler provenance attribution",
+          "venue": "Digital Investigation (DFRWS)",
+          "year": "2015",
+          "url": "https://doi.org/10.1016/j.diin.2015.05.015"
         }
       ]
     },
@@ -11674,32 +11674,179 @@
       "paperCount": 37,
       "papers": [
         {
-          "pid": "P191",
-          "title": "DeepSign: Deep Learning for Automatic Malware Signature Generation and Classification",
-          "venue": "IJCNN",
-          "year": "2015",
-          "url": "https://doi.org/10.1109/ijcnn.2015.7280815"
+          "pid": "P157",
+          "title": "Beyond Raw Bytes: Towards Large Malware Language Models",
+          "venue": "NDSS",
+          "year": "2026",
+          "url": "https://doi.org/10.14722/ndss.2026.230103"
         },
         {
-          "pid": "P192",
-          "title": "Deep Learning for Classification of Malware System Call Sequences",
-          "venue": "AJCAI",
-          "year": "2016",
-          "url": "https://doi.org/10.1007/978-3-319-50127-7_11"
+          "pid": "P162",
+          "title": "MalTree: Tracing Malware Evolution using Embeddings at Scale",
+          "venue": "ICML",
+          "year": "2026",
+          "url": "https://openreview.net/pdf?id=RYaAyLMKy7"
         },
         {
-          "pid": "P079",
-          "title": "MtNet: A Multi-Task Neural Network for Dynamic Malware Classification",
+          "pid": "P084",
+          "title": "MalCL: Leveraging GAN-Based Generative Replay to Combat Catastrophic Forgetting in Malware Classification",
+          "venue": "AAAI",
+          "year": "2025",
+          "url": "https://doi.org/10.1609/aaai.v39i1.32047"
+        },
+        {
+          "pid": "P150",
+          "title": "EMBERSim: A Large-Scale Databank for Boosting Similarity Search in Malware Analysis",
+          "venue": "NeurIPS",
+          "year": "2023",
+          "url": "https://doi.org/10.52202/075280-1161"
+        },
+        {
+          "pid": "P083",
+          "title": "From grim reality to practical solution: Malware classification in real-world noise",
+          "venue": "S&P",
+          "year": "2023",
+          "url": "https://doi.org/10.1109/sp46215.2023.10179453"
+        },
+        {
+          "pid": "P208",
+          "title": "Behavior-based ransomware classification: A particle swarm optimization wrapper-based approach for feature selection",
+          "venue": "Applied Soft Computing",
+          "year": "2022",
+          "url": "https://doi.org/10.1016/j.asoc.2022.108744"
+        },
+        {
+          "pid": "P210",
+          "title": "Dynamic prototype network based on sample adaptation for few-shot malware detection",
+          "venue": "IEEE TKDE",
+          "year": "2022",
+          "url": "https://doi.org/10.1109/tkde.2022.3142820"
+        },
+        {
+          "pid": "P209",
+          "title": "Proud-MAL: static analysis-based progressive framework for deep unsupervised malware classification of Windows portable executable",
+          "venue": "Complex & Intelligent Systems",
+          "year": "2022",
+          "url": "https://doi.org/10.1007/s40747-021-00560-1"
+        },
+        {
+          "pid": "P151",
+          "title": "DeepReflect: Discovering Malicious Functionality through Binary Reconstruction",
+          "venue": "USENIX Security",
+          "year": "2021",
+          "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/downing"
+        },
+        {
+          "pid": "P206",
+          "title": "Malware classification by learning semantic and structural features of control flow graphs",
+          "venue": "TrustCom",
+          "year": "2021",
+          "url": "https://doi.org/10.1109/trustcom53373.2021.00084"
+        },
+        {
+          "pid": "P207",
+          "title": "MCFT-CNN: Malware classification with fine-tune convolution neural networks using traditional and transfer learning in Internet of Things",
+          "venue": "Future Generation Computer Systems",
+          "year": "2021",
+          "url": "https://doi.org/10.1016/j.future.2021.06.029"
+        },
+        {
+          "pid": "P205",
+          "title": "Scrutinizer: Detecting Code Reuse in Malware via Decompilation and Machine Learning",
           "venue": "DIMVA",
-          "year": "2016",
-          "url": "https://doi.org/10.1007/978-3-319-40667-1_20"
+          "year": "2021",
+          "url": "https://doi.org/10.1007/978-3-030-80825-9_7"
         },
         {
-          "pid": "P080",
-          "title": "Novel Feature Extraction, Selection and Fusion for Effective Malware Family Classification",
+          "pid": "P077",
+          "title": "A Weak Coupling of Semi-Supervised Learning with Generative Adversarial Networks for Malware Classification",
+          "venue": "ICPR",
+          "year": "2020",
+          "url": "https://doi.org/10.1109/icpr48806.2021.9412832"
+        },
+        {
+          "pid": "P204",
+          "title": "Deep learning based sequential model for malware analysis using Windows exe API calls",
+          "venue": "PeerJ Comput. Sci.",
+          "year": "2020",
+          "url": "https://doi.org/10.7717/peerj-cs.285"
+        },
+        {
+          "pid": "P090",
+          "title": "IMCFN: Image-based malware classification using fine-tuned convolutional neural network architecture",
+          "venue": "Computer Networks",
+          "year": "2020",
+          "url": "https://doi.org/10.1016/j.comnet.2020.107138"
+        },
+        {
+          "pid": "P091",
+          "title": "MalFCS: An effective malware classification framework with automated feature extraction based on deep convolutional neural networks",
+          "venue": "Journal of Parallel and Distributed Computing",
+          "year": "2020",
+          "url": "https://doi.org/10.1016/j.jpdc.2020.03.012"
+        },
+        {
+          "pid": "P089",
+          "title": "Malware classification for the cloud via semi-supervised transfer learning",
+          "venue": "JISA",
+          "year": "2020",
+          "url": "https://doi.org/10.1016/j.jisa.2020.102661"
+        },
+        {
+          "pid": "P201",
+          "title": "Classifying malware represented as control flow graphs using deep graph convolutional neural network",
+          "venue": "IEEE/IFIP DSN",
+          "year": "2019",
+          "url": "https://doi.org/10.1109/dsn.2019.00020"
+        },
+        {
+          "pid": "P202",
+          "title": "How to Make Attention Mechanisms More Practical in Malware Classification",
+          "venue": "IEEE Access",
+          "year": "2019",
+          "url": "https://doi.org/10.1109/access.2019.2948358"
+        },
+        {
+          "pid": "P203",
+          "title": "Malware classification using image representation",
+          "venue": "CSCML",
+          "year": "2019",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-030-20951-3_6"
+        },
+        {
+          "pid": "P088",
+          "title": "Using Convolutional Neural Networks for Classification of Malware represented as Images",
+          "venue": "Journal of Computer Virology and Hacking Techniques",
+          "year": "2019",
+          "url": "https://doi.org/10.1007/s11416-018-0323-0"
+        },
+        {
+          "pid": "P082",
+          "title": "Classification of Malware by Using Structural Entropy on Convolutional Neural Networks",
+          "venue": "AAAI",
+          "year": "2018",
+          "url": "https://ojs.aaai.org/index.php/AAAI/article/view/11409"
+        },
+        {
+          "pid": "P198",
+          "title": "Deep learning at the shallow end: Malware classification for non-domain experts",
+          "venue": "Digital Investigation (DFRWS)",
+          "year": "2018",
+          "url": "https://doi.org/10.1016/j.diin.2018.04.024"
+        },
+        {
+          "pid": "P199",
+          "title": "Malware Analysis of Imaged Binary Samples by Convolutional Neural Network with Attention Mechanism",
           "venue": "CODASPY",
-          "year": "2016",
-          "url": "https://doi.org/10.1145/2857705.2857713"
+          "year": "2018",
+          "url": "https://doi.org/10.1145/3176258.3176335"
+        },
+        {
+          "pid": "P200",
+          "title": "Malware Classification with Deep Convolutional Neural Networks",
+          "venue": "NTMS",
+          "year": "2018",
+          "url": "https://ieeexplore.ieee.org/document/8328749"
         },
         {
           "pid": "P197",
@@ -11758,179 +11905,32 @@
           "url": "https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/jordaney"
         },
         {
-          "pid": "P082",
-          "title": "Classification of Malware by Using Structural Entropy on Convolutional Neural Networks",
-          "venue": "AAAI",
-          "year": "2018",
-          "url": "https://ojs.aaai.org/index.php/AAAI/article/view/11409"
+          "pid": "P192",
+          "title": "Deep Learning for Classification of Malware System Call Sequences",
+          "venue": "AJCAI",
+          "year": "2016",
+          "url": "https://doi.org/10.1007/978-3-319-50127-7_11"
         },
         {
-          "pid": "P198",
-          "title": "Deep learning at the shallow end: Malware classification for non-domain experts",
-          "venue": "Digital Investigation (DFRWS)",
-          "year": "2018",
-          "url": "https://doi.org/10.1016/j.diin.2018.04.024"
-        },
-        {
-          "pid": "P199",
-          "title": "Malware Analysis of Imaged Binary Samples by Convolutional Neural Network with Attention Mechanism",
-          "venue": "CODASPY",
-          "year": "2018",
-          "url": "https://doi.org/10.1145/3176258.3176335"
-        },
-        {
-          "pid": "P200",
-          "title": "Malware Classification with Deep Convolutional Neural Networks",
-          "venue": "NTMS",
-          "year": "2018",
-          "url": "https://ieeexplore.ieee.org/document/8328749"
-        },
-        {
-          "pid": "P201",
-          "title": "Classifying malware represented as control flow graphs using deep graph convolutional neural network",
-          "venue": "IEEE/IFIP DSN",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/dsn.2019.00020"
-        },
-        {
-          "pid": "P202",
-          "title": "How to Make Attention Mechanisms More Practical in Malware Classification",
-          "venue": "IEEE Access",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/access.2019.2948358"
-        },
-        {
-          "pid": "P203",
-          "title": "Malware classification using image representation",
-          "venue": "CSCML",
-          "year": "2019",
-          "url": "https://link.springer.com/chapter/10.1007/978-3-030-20951-3_6"
-        },
-        {
-          "pid": "P088",
-          "title": "Using Convolutional Neural Networks for Classification of Malware represented as Images",
-          "venue": "Journal of Computer Virology and Hacking Techniques",
-          "year": "2019",
-          "url": "https://doi.org/10.1007/s11416-018-0323-0"
-        },
-        {
-          "pid": "P077",
-          "title": "A Weak Coupling of Semi-Supervised Learning with Generative Adversarial Networks for Malware Classification",
-          "venue": "ICPR",
-          "year": "2020",
-          "url": "https://doi.org/10.1109/icpr48806.2021.9412832"
-        },
-        {
-          "pid": "P204",
-          "title": "Deep learning based sequential model for malware analysis using Windows exe API calls",
-          "venue": "PeerJ Comput. Sci.",
-          "year": "2020",
-          "url": "https://doi.org/10.7717/peerj-cs.285"
-        },
-        {
-          "pid": "P090",
-          "title": "IMCFN: Image-based malware classification using fine-tuned convolutional neural network architecture",
-          "venue": "Computer Networks",
-          "year": "2020",
-          "url": "https://doi.org/10.1016/j.comnet.2020.107138"
-        },
-        {
-          "pid": "P091",
-          "title": "MalFCS: An effective malware classification framework with automated feature extraction based on deep convolutional neural networks",
-          "venue": "Journal of Parallel and Distributed Computing",
-          "year": "2020",
-          "url": "https://doi.org/10.1016/j.jpdc.2020.03.012"
-        },
-        {
-          "pid": "P089",
-          "title": "Malware classification for the cloud via semi-supervised transfer learning",
-          "venue": "JISA",
-          "year": "2020",
-          "url": "https://doi.org/10.1016/j.jisa.2020.102661"
-        },
-        {
-          "pid": "P151",
-          "title": "DeepReflect: Discovering Malicious Functionality through Binary Reconstruction",
-          "venue": "USENIX Security",
-          "year": "2021",
-          "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/downing"
-        },
-        {
-          "pid": "P206",
-          "title": "Malware classification by learning semantic and structural features of control flow graphs",
-          "venue": "TrustCom",
-          "year": "2021",
-          "url": "https://doi.org/10.1109/trustcom53373.2021.00084"
-        },
-        {
-          "pid": "P207",
-          "title": "MCFT-CNN: Malware classification with fine-tune convolution neural networks using traditional and transfer learning in Internet of Things",
-          "venue": "Future Generation Computer Systems",
-          "year": "2021",
-          "url": "https://doi.org/10.1016/j.future.2021.06.029"
-        },
-        {
-          "pid": "P205",
-          "title": "Scrutinizer: Detecting Code Reuse in Malware via Decompilation and Machine Learning",
+          "pid": "P079",
+          "title": "MtNet: A Multi-Task Neural Network for Dynamic Malware Classification",
           "venue": "DIMVA",
-          "year": "2021",
-          "url": "https://doi.org/10.1007/978-3-030-80825-9_7"
+          "year": "2016",
+          "url": "https://doi.org/10.1007/978-3-319-40667-1_20"
         },
         {
-          "pid": "P208",
-          "title": "Behavior-based ransomware classification: A particle swarm optimization wrapper-based approach for feature selection",
-          "venue": "Applied Soft Computing",
-          "year": "2022",
-          "url": "https://doi.org/10.1016/j.asoc.2022.108744"
+          "pid": "P080",
+          "title": "Novel Feature Extraction, Selection and Fusion for Effective Malware Family Classification",
+          "venue": "CODASPY",
+          "year": "2016",
+          "url": "https://doi.org/10.1145/2857705.2857713"
         },
         {
-          "pid": "P210",
-          "title": "Dynamic prototype network based on sample adaptation for few-shot malware detection",
-          "venue": "IEEE TKDE",
-          "year": "2022",
-          "url": "https://doi.org/10.1109/tkde.2022.3142820"
-        },
-        {
-          "pid": "P209",
-          "title": "Proud-MAL: static analysis-based progressive framework for deep unsupervised malware classification of Windows portable executable",
-          "venue": "Complex & Intelligent Systems",
-          "year": "2022",
-          "url": "https://doi.org/10.1007/s40747-021-00560-1"
-        },
-        {
-          "pid": "P150",
-          "title": "EMBERSim: A Large-Scale Databank for Boosting Similarity Search in Malware Analysis",
-          "venue": "NeurIPS",
-          "year": "2023",
-          "url": "https://doi.org/10.52202/075280-1161"
-        },
-        {
-          "pid": "P083",
-          "title": "From grim reality to practical solution: Malware classification in real-world noise",
-          "venue": "S&P",
-          "year": "2023",
-          "url": "https://doi.org/10.1109/sp46215.2023.10179453"
-        },
-        {
-          "pid": "P084",
-          "title": "MalCL: Leveraging GAN-Based Generative Replay to Combat Catastrophic Forgetting in Malware Classification",
-          "venue": "AAAI",
-          "year": "2025",
-          "url": "https://doi.org/10.1609/aaai.v39i1.32047"
-        },
-        {
-          "pid": "P157",
-          "title": "Beyond Raw Bytes: Towards Large Malware Language Models",
-          "venue": "NDSS",
-          "year": "2026",
-          "url": "https://doi.org/10.14722/ndss.2026.230103"
-        },
-        {
-          "pid": "P162",
-          "title": "MalTree: Tracing Malware Evolution using Embeddings at Scale",
-          "venue": "ICML",
-          "year": "2026",
-          "url": "https://openreview.net/pdf?id=RYaAyLMKy7"
+          "pid": "P191",
+          "title": "DeepSign: Deep Learning for Automatic Malware Signature Generation and Classification",
+          "venue": "IJCNN",
+          "year": "2015",
+          "url": "https://doi.org/10.1109/ijcnn.2015.7280815"
         }
       ]
     },
@@ -11941,11 +11941,11 @@
       "paperCount": 3,
       "papers": [
         {
-          "pid": "P093",
-          "title": "Binary Control-Flow Trimming",
-          "venue": "CCS",
-          "year": "2019",
-          "url": "https://doi.org/10.1145/3319535.3345665"
+          "pid": "P094",
+          "title": "Input-Driven Dynamic Program Debloating for Code-Reuse Attack Mitigation",
+          "venue": "ESEC/FSE",
+          "year": "2023",
+          "url": "https://doi.org/10.1145/3611643.3616274"
         },
         {
           "pid": "P211",
@@ -11955,11 +11955,11 @@
           "url": "https://doi.org/10.1145/3385412.3386017"
         },
         {
-          "pid": "P094",
-          "title": "Input-Driven Dynamic Program Debloating for Code-Reuse Attack Mitigation",
-          "venue": "ESEC/FSE",
-          "year": "2023",
-          "url": "https://doi.org/10.1145/3611643.3616274"
+          "pid": "P093",
+          "title": "Binary Control-Flow Trimming",
+          "venue": "CCS",
+          "year": "2019",
+          "url": "https://doi.org/10.1145/3319535.3345665"
         }
       ]
     },
@@ -11969,55 +11969,6 @@
       "scheme": "Application",
       "paperCount": 10,
       "papers": [
-        {
-          "pid": "P097",
-          "title": "Discovre: Efficient cross-architecture identification of bugs in binary code.",
-          "venue": "NDSS",
-          "year": "2016",
-          "url": "https://doi.org/10.14722/ndss.2016.23185"
-        },
-        {
-          "pid": "P096",
-          "title": "Scalable Graph-based Bug Search for Firmware Images",
-          "venue": "CCS",
-          "year": "2016",
-          "url": "https://doi.org/10.1145/2976749.2978370"
-        },
-        {
-          "pid": "P099",
-          "title": "VMPBL: Identifying Vulnerable Functions Based on Machine Learning Combining Patched Information and Binary Comparison Technique by LCS",
-          "venue": "TrustCom/BigDataSE",
-          "year": "2018",
-          "url": "https://doi.org/10.1109/trustcom/bigdatase.2018.00114"
-        },
-        {
-          "pid": "P098",
-          "title": "Vulseeker-pro: Enhanced semantic learning based binary vulnerability seeker with emulation",
-          "venue": "ESEC/FSE",
-          "year": "2018",
-          "url": "https://doi.org/10.1145/3236024.3275524"
-        },
-        {
-          "pid": "P103",
-          "title": "Maximal Divergence Sequential Autoencoder for Binary Software Vulnerability Detection",
-          "venue": "ICLR",
-          "year": "2019",
-          "url": "https://openreview.net/forum?id=ByloIiCqYQ"
-        },
-        {
-          "pid": "P100",
-          "title": "BugGraph: Differentiating Source-Binary Code Similarity with Graph Triplet-Loss Network",
-          "venue": "AsiaCCS",
-          "year": "2021",
-          "url": "https://doi.org/10.1145/3433210.3437533"
-        },
-        {
-          "pid": "P212",
-          "title": "PG-VulNet: Detect Supply Chain Vulnerabilities in IoT Devices Using Pseudo-code and Graphs",
-          "venue": "ESEM",
-          "year": "2022",
-          "url": "https://doi.org/10.1145/3544902.3546240"
-        },
         {
           "pid": "P102",
           "title": "Binary Code Vulnerability Detection Based on Multi-Level Feature Fusion",
@@ -12038,6 +11989,55 @@
           "venue": "NDSS",
           "year": "2023",
           "url": "https://doi.org/10.14722/ndss.2023.24415"
+        },
+        {
+          "pid": "P212",
+          "title": "PG-VulNet: Detect Supply Chain Vulnerabilities in IoT Devices Using Pseudo-code and Graphs",
+          "venue": "ESEM",
+          "year": "2022",
+          "url": "https://doi.org/10.1145/3544902.3546240"
+        },
+        {
+          "pid": "P100",
+          "title": "BugGraph: Differentiating Source-Binary Code Similarity with Graph Triplet-Loss Network",
+          "venue": "AsiaCCS",
+          "year": "2021",
+          "url": "https://doi.org/10.1145/3433210.3437533"
+        },
+        {
+          "pid": "P103",
+          "title": "Maximal Divergence Sequential Autoencoder for Binary Software Vulnerability Detection",
+          "venue": "ICLR",
+          "year": "2019",
+          "url": "https://openreview.net/forum?id=ByloIiCqYQ"
+        },
+        {
+          "pid": "P099",
+          "title": "VMPBL: Identifying Vulnerable Functions Based on Machine Learning Combining Patched Information and Binary Comparison Technique by LCS",
+          "venue": "TrustCom/BigDataSE",
+          "year": "2018",
+          "url": "https://doi.org/10.1109/trustcom/bigdatase.2018.00114"
+        },
+        {
+          "pid": "P098",
+          "title": "Vulseeker-pro: Enhanced semantic learning based binary vulnerability seeker with emulation",
+          "venue": "ESEC/FSE",
+          "year": "2018",
+          "url": "https://doi.org/10.1145/3236024.3275524"
+        },
+        {
+          "pid": "P097",
+          "title": "Discovre: Efficient cross-architecture identification of bugs in binary code.",
+          "venue": "NDSS",
+          "year": "2016",
+          "url": "https://doi.org/10.14722/ndss.2016.23185"
+        },
+        {
+          "pid": "P096",
+          "title": "Scalable Graph-based Bug Search for Firmware Images",
+          "venue": "CCS",
+          "year": "2016",
+          "url": "https://doi.org/10.1145/2976749.2978370"
         }
       ]
     },
@@ -12048,151 +12048,102 @@
       "paperCount": 42,
       "papers": [
         {
-          "pid": "P105",
-          "title": "Deep neural network based malware detection using two dimensional binary program features",
-          "venue": "MALWARE",
-          "year": "2015",
-          "url": "https://doi.org/10.1109/malware.2015.7413680"
-        },
-        {
-          "pid": "P214",
-          "title": "Malware Classification with Recurrent Networks",
-          "venue": "IEEE ICASSP",
-          "year": "2015",
-          "url": "https://ieeexplore.ieee.org/document/7178304"
-        },
-        {
-          "pid": "P215",
-          "title": "DL4MD: A Deep Learning Framework for Intelligent Malware Detection",
-          "venue": "DMIN",
-          "year": "2016",
-          "url": "https://worldcomp-proceedings.com/proc/p2016/DMI8002.pdf"
-        },
-        {
-          "pid": "P216",
-          "title": "A Deep Recurrent Neural Network Based Approach for Internet of Things Malware Threat Hunting",
-          "venue": "Future Generation Computer Systems",
-          "year": "2018",
-          "url": "https://doi.org/10.1016/j.future.2018.03.007"
-        },
-        {
-          "pid": "P217",
-          "title": "Auto-detection of sophisticated malware using lazy-binding control flow graph and deep learning",
-          "venue": "Computers & Security",
-          "year": "2018",
-          "url": "https://doi.org/10.1016/j.cose.2018.02.006"
-        },
-        {
-          "pid": "P218",
-          "title": "Early-Stage Malware Prediction Using Recurrent Neural Networks",
-          "venue": "Computers & Security",
-          "year": "2018",
-          "url": "https://doi.org/10.1016/j.cose.2018.05.010"
-        },
-        {
-          "pid": "P219",
-          "title": "Neural Sequential Malware Detection with Parameters",
-          "venue": "IEEE ICASSP",
-          "year": "2018",
-          "url": "https://doi.org/10.1109/icassp.2018.8461583"
-        },
-        {
-          "pid": "P220",
-          "title": "Robust Neural Malware Detection Models for Emulation Sequence Learning",
-          "venue": "MILCOM",
-          "year": "2018",
-          "url": "https://doi.org/10.1109/milcom.2018.8599785"
-        },
-        {
-          "pid": "P221",
-          "title": "Zero-day Malware Detection Using Transferred Generative Adversarial Networks Based on Deep Autoencoders",
-          "venue": "Information Sciences",
-          "year": "2018",
-          "url": "https://doi.org/10.1016/j.ins.2018.04.092"
-        },
-        {
-          "pid": "P222",
-          "title": "ATMPA: Attacking Machine Learning-Based Malware Visualization Detection Methods via Adversarial Examples",
-          "venue": "IWQoS",
-          "year": "2019",
-          "url": "https://ieeexplore.ieee.org/document/9068615"
-        },
-        {
-          "pid": "P124",
-          "title": "Feature Selection for Malware Detection Based on Reinforcement Learning",
-          "venue": "IEEE Access",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/access.2019.2957429"
-        },
-        {
-          "pid": "P223",
-          "title": "MalDAE: Detecting and Explaining Malware Based on Correlation and Fusion of Static and Dynamic Characteristics",
-          "venue": "Computers & Security",
-          "year": "2019",
-          "url": "https://doi.org/10.1016/j.cose.2019.02.007"
-        },
-        {
-          "pid": "P224",
-          "title": "Robust Intelligent Malware Detection Using Deep Learning",
-          "venue": "IEEE Access",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/access.2019.2906934"
-        },
-        {
-          "pid": "P225",
-          "title": "A New Method for Ransomware Detection Based on PE Header Using Convolutional Neural Networks",
-          "venue": "ISCISC",
-          "year": "2020",
-          "url": "https://doi.org/10.1109/iscisc51277.2020.9261903"
-        },
-        {
-          "pid": "P107",
-          "title": "Actor Critic Deep Reinforcement Learning for Neural Malware Control",
-          "venue": "AAAI",
-          "year": "2020",
-          "url": "https://doi.org/10.1609/aaai.v34i01.5449"
-        },
-        {
-          "pid": "P226",
-          "title": "API Call Based Ransomware Dynamic Detection Approach Using TextCNN",
-          "venue": "ICBAIE",
-          "year": "2020",
-          "url": "https://doi.org/10.1109/icbaie49996.2020.00041"
-        },
-        {
-          "pid": "P108",
-          "title": "Dynamic Malware Analysis with Feature Engineering and Feature Learning",
-          "venue": "AAAI",
-          "year": "2020",
-          "url": "https://doi.org/10.1609/aaai.v34i01.5474"
-        },
-        {
-          "pid": "P109",
-          "title": "You Are What You Do: Hunting Stealthy Malware via Data Provenance Analysis",
+          "pid": "P122",
+          "title": "Density Boosts Everything: A One-stop Strategy for Improving Performance, Robustness, and Sustainability of Malware Detectors",
           "venue": "NDSS",
-          "year": "2020",
-          "url": "https://doi.org/10.14722/ndss.2020.24167"
+          "year": "2025",
+          "url": "https://doi.org/10.14722/ndss.2025.240336"
         },
         {
-          "pid": "P078",
-          "title": "AI-HydRa: Advanced hybrid approach using random forest and deep learning for malware classification",
-          "venue": "Information Sciences",
-          "year": "2021",
-          "url": "https://doi.org/10.1016/j.ins.2020.08.082"
+          "pid": "P121",
+          "title": "ERW-Radar: An Adaptive Detection System against Evasive Ransomware by Contextual Behavior Detection and Fine-grained Content Analysis",
+          "venue": "NDSS",
+          "year": "2025",
+          "url": "https://doi.org/10.14722/ndss.2025.230349"
         },
         {
-          "pid": "P110",
-          "title": "Classifying Sequences of Extreme Length with Constant Memory Applied to Malware Detection",
+          "pid": "P119",
+          "title": "Revisiting Concept Drift in Windows Malware Detection: Adaptation to Real Drifted Malware with Minimal Samples",
+          "venue": "NDSS",
+          "year": "2025",
+          "url": "https://doi.org/10.14722/ndss.2025.240830"
+        },
+        {
+          "pid": "P120",
+          "title": "SRDC: Semantics-based Ransomware Detection and Classifcation with LLM-assisted Pre-training",
           "venue": "AAAI",
-          "year": "2021",
-          "url": "https://doi.org/10.1609/aaai.v35i11.17131"
+          "year": "2025",
+          "url": "https://ojs.aaai.org/index.php/AAAI/article/view/35080"
         },
         {
-          "pid": "P227",
-          "title": "Malware Makeover: Breaking ML-based Static Analysis by Modifying Executable Bytes",
-          "venue": "ASIA CCS",
-          "year": "2021",
-          "url": "https://doi.org/10.1145/3433210.3453086"
+          "pid": "P235",
+          "title": "Adversarial Robustness of Deep Learning-based Malware Detectors via (De)Randomized Smoothing",
+          "venue": "IEEE Access",
+          "year": "2024",
+          "url": "https://doi.org/10.1109/access.2024.3392391"
+        },
+        {
+          "pid": "P236",
+          "title": "CAG-Malconv: A Byte-Level Malware Detection Method with CBAM and Attention-GRU",
+          "venue": "IEEE TNSM",
+          "year": "2024",
+          "url": "https://doi.org/10.1109/tnsm.2024.3424565"
+        },
+        {
+          "pid": "P237",
+          "title": "Overcoming the Lack of Labeled Data: Training Malware Detection Models Using Adversarial Domain Adaptation",
+          "venue": "Computers & Security",
+          "year": "2024",
+          "url": "https://doi.org/10.1016/j.cose.2024.103769"
+        },
+        {
+          "pid": "P238",
+          "title": "Ransomware Detection by Distinguishing API Call Sequences through LSTM and BERT Models",
+          "venue": "The Computer Journal",
+          "year": "2024",
+          "url": "https://doi.org/10.1093/comjnl/bxad005"
+        },
+        {
+          "pid": "P239",
+          "title": "SeMalBERT: Semantic-based Malware Detection with Bidirectional Encoder Representations from Transformers",
+          "venue": "Journal of Information Security and Applications (JISA)",
+          "year": "2024",
+          "url": "https://doi.org/10.1016/j.jisa.2023.103690"
+        },
+        {
+          "pid": "P117",
+          "title": "Training Robust ML-based Raw-Binary Malware Detectors in Hours, not Months",
+          "venue": "CCS",
+          "year": "2024",
+          "url": "https://doi.org/10.1145/3658644.3690208"
+        },
+        {
+          "pid": "P233",
+          "title": "A Malware Detection Framework Based on Semantic Information of Behavioral Features",
+          "venue": "Applied Sciences",
+          "year": "2023",
+          "url": "https://doi.org/10.3390/app132212528"
+        },
+        {
+          "pid": "P113",
+          "title": "Adversarial Training for Raw-Binary Malware Classifiers",
+          "venue": "USENIX Security",
+          "year": "2023",
+          "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/lucas"
+        },
+        {
+          "pid": "P114",
+          "title": "Feature-Space Bayesian Adversarial Learning Improved Malware Detector Robustness",
+          "venue": "AAAI",
+          "year": "2023",
+          "url": "https://doi.org/10.1609/aaai.v37i12.26727"
+        },
+        {
+          "pid": "P234",
+          "title": "Guided Malware Sample Analysis Based on Graph Neural Networks",
+          "venue": "IEEE Trans. Inf. Forensics Secur.",
+          "year": "2023",
+          "url": "https://doi.org/10.1109/tifs.2023.3283913"
         },
         {
           "pid": "P228",
@@ -12244,102 +12195,151 @@
           "url": "https://doi.org/10.1007/s10489-022-03244-6"
         },
         {
-          "pid": "P233",
-          "title": "A Malware Detection Framework Based on Semantic Information of Behavioral Features",
-          "venue": "Applied Sciences",
-          "year": "2023",
-          "url": "https://doi.org/10.3390/app132212528"
+          "pid": "P078",
+          "title": "AI-HydRa: Advanced hybrid approach using random forest and deep learning for malware classification",
+          "venue": "Information Sciences",
+          "year": "2021",
+          "url": "https://doi.org/10.1016/j.ins.2020.08.082"
         },
         {
-          "pid": "P113",
-          "title": "Adversarial Training for Raw-Binary Malware Classifiers",
-          "venue": "USENIX Security",
-          "year": "2023",
-          "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/lucas"
-        },
-        {
-          "pid": "P114",
-          "title": "Feature-Space Bayesian Adversarial Learning Improved Malware Detector Robustness",
+          "pid": "P110",
+          "title": "Classifying Sequences of Extreme Length with Constant Memory Applied to Malware Detection",
           "venue": "AAAI",
-          "year": "2023",
-          "url": "https://doi.org/10.1609/aaai.v37i12.26727"
+          "year": "2021",
+          "url": "https://doi.org/10.1609/aaai.v35i11.17131"
         },
         {
-          "pid": "P234",
-          "title": "Guided Malware Sample Analysis Based on Graph Neural Networks",
-          "venue": "IEEE Trans. Inf. Forensics Secur.",
-          "year": "2023",
-          "url": "https://doi.org/10.1109/tifs.2023.3283913"
+          "pid": "P227",
+          "title": "Malware Makeover: Breaking ML-based Static Analysis by Modifying Executable Bytes",
+          "venue": "ASIA CCS",
+          "year": "2021",
+          "url": "https://doi.org/10.1145/3433210.3453086"
         },
         {
-          "pid": "P235",
-          "title": "Adversarial Robustness of Deep Learning-based Malware Detectors via (De)Randomized Smoothing",
+          "pid": "P225",
+          "title": "A New Method for Ransomware Detection Based on PE Header Using Convolutional Neural Networks",
+          "venue": "ISCISC",
+          "year": "2020",
+          "url": "https://doi.org/10.1109/iscisc51277.2020.9261903"
+        },
+        {
+          "pid": "P107",
+          "title": "Actor Critic Deep Reinforcement Learning for Neural Malware Control",
+          "venue": "AAAI",
+          "year": "2020",
+          "url": "https://doi.org/10.1609/aaai.v34i01.5449"
+        },
+        {
+          "pid": "P226",
+          "title": "API Call Based Ransomware Dynamic Detection Approach Using TextCNN",
+          "venue": "ICBAIE",
+          "year": "2020",
+          "url": "https://doi.org/10.1109/icbaie49996.2020.00041"
+        },
+        {
+          "pid": "P108",
+          "title": "Dynamic Malware Analysis with Feature Engineering and Feature Learning",
+          "venue": "AAAI",
+          "year": "2020",
+          "url": "https://doi.org/10.1609/aaai.v34i01.5474"
+        },
+        {
+          "pid": "P109",
+          "title": "You Are What You Do: Hunting Stealthy Malware via Data Provenance Analysis",
+          "venue": "NDSS",
+          "year": "2020",
+          "url": "https://doi.org/10.14722/ndss.2020.24167"
+        },
+        {
+          "pid": "P222",
+          "title": "ATMPA: Attacking Machine Learning-Based Malware Visualization Detection Methods via Adversarial Examples",
+          "venue": "IWQoS",
+          "year": "2019",
+          "url": "https://ieeexplore.ieee.org/document/9068615"
+        },
+        {
+          "pid": "P124",
+          "title": "Feature Selection for Malware Detection Based on Reinforcement Learning",
           "venue": "IEEE Access",
-          "year": "2024",
-          "url": "https://doi.org/10.1109/access.2024.3392391"
+          "year": "2019",
+          "url": "https://doi.org/10.1109/access.2019.2957429"
         },
         {
-          "pid": "P236",
-          "title": "CAG-Malconv: A Byte-Level Malware Detection Method with CBAM and Attention-GRU",
-          "venue": "IEEE TNSM",
-          "year": "2024",
-          "url": "https://doi.org/10.1109/tnsm.2024.3424565"
-        },
-        {
-          "pid": "P237",
-          "title": "Overcoming the Lack of Labeled Data: Training Malware Detection Models Using Adversarial Domain Adaptation",
+          "pid": "P223",
+          "title": "MalDAE: Detecting and Explaining Malware Based on Correlation and Fusion of Static and Dynamic Characteristics",
           "venue": "Computers & Security",
-          "year": "2024",
-          "url": "https://doi.org/10.1016/j.cose.2024.103769"
+          "year": "2019",
+          "url": "https://doi.org/10.1016/j.cose.2019.02.007"
         },
         {
-          "pid": "P238",
-          "title": "Ransomware Detection by Distinguishing API Call Sequences through LSTM and BERT Models",
-          "venue": "The Computer Journal",
-          "year": "2024",
-          "url": "https://doi.org/10.1093/comjnl/bxad005"
+          "pid": "P224",
+          "title": "Robust Intelligent Malware Detection Using Deep Learning",
+          "venue": "IEEE Access",
+          "year": "2019",
+          "url": "https://doi.org/10.1109/access.2019.2906934"
         },
         {
-          "pid": "P239",
-          "title": "SeMalBERT: Semantic-based Malware Detection with Bidirectional Encoder Representations from Transformers",
-          "venue": "Journal of Information Security and Applications (JISA)",
-          "year": "2024",
-          "url": "https://doi.org/10.1016/j.jisa.2023.103690"
+          "pid": "P216",
+          "title": "A Deep Recurrent Neural Network Based Approach for Internet of Things Malware Threat Hunting",
+          "venue": "Future Generation Computer Systems",
+          "year": "2018",
+          "url": "https://doi.org/10.1016/j.future.2018.03.007"
         },
         {
-          "pid": "P117",
-          "title": "Training Robust ML-based Raw-Binary Malware Detectors in Hours, not Months",
-          "venue": "CCS",
-          "year": "2024",
-          "url": "https://doi.org/10.1145/3658644.3690208"
+          "pid": "P217",
+          "title": "Auto-detection of sophisticated malware using lazy-binding control flow graph and deep learning",
+          "venue": "Computers & Security",
+          "year": "2018",
+          "url": "https://doi.org/10.1016/j.cose.2018.02.006"
         },
         {
-          "pid": "P122",
-          "title": "Density Boosts Everything: A One-stop Strategy for Improving Performance, Robustness, and Sustainability of Malware Detectors",
-          "venue": "NDSS",
-          "year": "2025",
-          "url": "https://doi.org/10.14722/ndss.2025.240336"
+          "pid": "P218",
+          "title": "Early-Stage Malware Prediction Using Recurrent Neural Networks",
+          "venue": "Computers & Security",
+          "year": "2018",
+          "url": "https://doi.org/10.1016/j.cose.2018.05.010"
         },
         {
-          "pid": "P121",
-          "title": "ERW-Radar: An Adaptive Detection System against Evasive Ransomware by Contextual Behavior Detection and Fine-grained Content Analysis",
-          "venue": "NDSS",
-          "year": "2025",
-          "url": "https://doi.org/10.14722/ndss.2025.230349"
+          "pid": "P219",
+          "title": "Neural Sequential Malware Detection with Parameters",
+          "venue": "IEEE ICASSP",
+          "year": "2018",
+          "url": "https://doi.org/10.1109/icassp.2018.8461583"
         },
         {
-          "pid": "P119",
-          "title": "Revisiting Concept Drift in Windows Malware Detection: Adaptation to Real Drifted Malware with Minimal Samples",
-          "venue": "NDSS",
-          "year": "2025",
-          "url": "https://doi.org/10.14722/ndss.2025.240830"
+          "pid": "P220",
+          "title": "Robust Neural Malware Detection Models for Emulation Sequence Learning",
+          "venue": "MILCOM",
+          "year": "2018",
+          "url": "https://doi.org/10.1109/milcom.2018.8599785"
         },
         {
-          "pid": "P120",
-          "title": "SRDC: Semantics-based Ransomware Detection and Classifcation with LLM-assisted Pre-training",
-          "venue": "AAAI",
-          "year": "2025",
-          "url": "https://ojs.aaai.org/index.php/AAAI/article/view/35080"
+          "pid": "P221",
+          "title": "Zero-day Malware Detection Using Transferred Generative Adversarial Networks Based on Deep Autoencoders",
+          "venue": "Information Sciences",
+          "year": "2018",
+          "url": "https://doi.org/10.1016/j.ins.2018.04.092"
+        },
+        {
+          "pid": "P215",
+          "title": "DL4MD: A Deep Learning Framework for Intelligent Malware Detection",
+          "venue": "DMIN",
+          "year": "2016",
+          "url": "https://worldcomp-proceedings.com/proc/p2016/DMI8002.pdf"
+        },
+        {
+          "pid": "P105",
+          "title": "Deep neural network based malware detection using two dimensional binary program features",
+          "venue": "MALWARE",
+          "year": "2015",
+          "url": "https://doi.org/10.1109/malware.2015.7413680"
+        },
+        {
+          "pid": "P214",
+          "title": "Malware Classification with Recurrent Networks",
+          "venue": "IEEE ICASSP",
+          "year": "2015",
+          "url": "https://ieeexplore.ieee.org/document/7178304"
         }
       ]
     },
@@ -12350,18 +12350,11 @@
       "paperCount": 4,
       "papers": [
         {
-          "pid": "P240",
-          "title": "Learning binary representation for automatic patch detection",
-          "venue": "IEEE CCNC",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/ccnc.2019.8651721"
-        },
-        {
-          "pid": "P128",
-          "title": "DEEPBINDIFF: Learning Program-Wide Code Representations for Binary Diffing",
+          "pid": "P158",
+          "title": "BINALIGNER: Aligning Binary Code for Cross-Compilation Environment Diffing",
           "venue": "NDSS",
-          "year": "2020",
-          "url": "https://doi.org/10.14722/ndss.2020.24311"
+          "year": "2026",
+          "url": "https://doi.org/10.14722/ndss.2026.230649"
         },
         {
           "pid": "P129",
@@ -12371,11 +12364,18 @@
           "url": "https://ieeexplore.ieee.org/document/9470904"
         },
         {
-          "pid": "P158",
-          "title": "BINALIGNER: Aligning Binary Code for Cross-Compilation Environment Diffing",
+          "pid": "P128",
+          "title": "DEEPBINDIFF: Learning Program-Wide Code Representations for Binary Diffing",
           "venue": "NDSS",
-          "year": "2026",
-          "url": "https://doi.org/10.14722/ndss.2026.230649"
+          "year": "2020",
+          "url": "https://doi.org/10.14722/ndss.2020.24311"
+        },
+        {
+          "pid": "P240",
+          "title": "Learning binary representation for automatic patch detection",
+          "venue": "IEEE CCNC",
+          "year": "2019",
+          "url": "https://doi.org/10.1109/ccnc.2019.8651721"
         }
       ]
     },
@@ -12386,67 +12386,18 @@
       "paperCount": 13,
       "papers": [
         {
-          "pid": "P241",
-          "title": "Buffer overflow vulnerability prediction from x86 executables using static analysis and machine learning",
-          "venue": "COMPSAC",
-          "year": "2015",
-          "url": "https://doi.org/10.1109/compsac.2015.78"
+          "pid": "P160",
+          "title": "FirmAgent: Leveraging Fuzzing to Assist LLM Agents with IoT Firmware Vulnerability Discovery",
+          "venue": "NDSS",
+          "year": "2026",
+          "url": "https://doi.org/10.14722/ndss.2026.231943"
         },
         {
-          "pid": "P131",
-          "title": "Coverage-based Greybox Fuzzing as Markov Chain",
-          "venue": "CCS",
-          "year": "2016",
-          "url": "https://doi.org/10.1145/2976749.2978428"
-        },
-        {
-          "pid": "P242",
-          "title": "Toward large-scale vulnerability discovery using machine learning",
-          "venue": "CODASPY",
-          "year": "2016",
-          "url": "https://doi.org/10.1145/2857705.2857720"
-        },
-        {
-          "pid": "P243",
-          "title": "NeuFuzz: Efficient Fuzzing with Deep Neural Network",
-          "venue": "IEEE Access",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/access.2019.2903291"
-        },
-        {
-          "pid": "P132",
-          "title": "NEUZZ: Efficient Fuzzing with Neural Program Smoothing",
-          "venue": "S&P",
-          "year": "2019",
-          "url": "https://doi.org/10.1109/sp.2019.00052"
-        },
-        {
-          "pid": "P134",
-          "title": "MTFuzz: Fuzzing with a Multi-task Neural Network",
-          "venue": "ESEC/FSE",
-          "year": "2020",
-          "url": "https://doi.org/10.1145/3368089.3409723"
-        },
-        {
-          "pid": "P133",
-          "title": "V-Fuzz: Vulnerability Prediction-Assisted Evolutionary Fuzzing for Binary Programs",
-          "venue": "TCYB",
-          "year": "2020",
-          "url": "https://doi.org/10.1109/tcyb.2020.3013675"
-        },
-        {
-          "pid": "P130",
-          "title": "Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code",
-          "venue": "USENIX Security",
-          "year": "2021",
-          "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/ahmadi"
-        },
-        {
-          "pid": "P135",
-          "title": "Evaluating and Improving Neural Program-Smoothing-based Fuzzing",
-          "venue": "ICSE",
-          "year": "2022",
-          "url": "https://doi.org/10.1145/3510003.3510089"
+          "pid": "P104",
+          "title": "Faster and Better: Detecting Vulnerabilities in Linux-based IoT Firmware with Optimized Reaching Definition Analysis",
+          "venue": "NDSS",
+          "year": "2024",
+          "url": "https://doi.org/10.14722/ndss.2024.24346"
         },
         {
           "pid": "P136",
@@ -12463,18 +12414,67 @@
           "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/zhao-binbin"
         },
         {
-          "pid": "P104",
-          "title": "Faster and Better: Detecting Vulnerabilities in Linux-based IoT Firmware with Optimized Reaching Definition Analysis",
-          "venue": "NDSS",
-          "year": "2024",
-          "url": "https://doi.org/10.14722/ndss.2024.24346"
+          "pid": "P135",
+          "title": "Evaluating and Improving Neural Program-Smoothing-based Fuzzing",
+          "venue": "ICSE",
+          "year": "2022",
+          "url": "https://doi.org/10.1145/3510003.3510089"
         },
         {
-          "pid": "P160",
-          "title": "FirmAgent: Leveraging Fuzzing to Assist LLM Agents with IoT Firmware Vulnerability Discovery",
-          "venue": "NDSS",
-          "year": "2026",
-          "url": "https://doi.org/10.14722/ndss.2026.231943"
+          "pid": "P130",
+          "title": "Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code",
+          "venue": "USENIX Security",
+          "year": "2021",
+          "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/ahmadi"
+        },
+        {
+          "pid": "P134",
+          "title": "MTFuzz: Fuzzing with a Multi-task Neural Network",
+          "venue": "ESEC/FSE",
+          "year": "2020",
+          "url": "https://doi.org/10.1145/3368089.3409723"
+        },
+        {
+          "pid": "P133",
+          "title": "V-Fuzz: Vulnerability Prediction-Assisted Evolutionary Fuzzing for Binary Programs",
+          "venue": "TCYB",
+          "year": "2020",
+          "url": "https://doi.org/10.1109/tcyb.2020.3013675"
+        },
+        {
+          "pid": "P243",
+          "title": "NeuFuzz: Efficient Fuzzing with Deep Neural Network",
+          "venue": "IEEE Access",
+          "year": "2019",
+          "url": "https://doi.org/10.1109/access.2019.2903291"
+        },
+        {
+          "pid": "P132",
+          "title": "NEUZZ: Efficient Fuzzing with Neural Program Smoothing",
+          "venue": "S&P",
+          "year": "2019",
+          "url": "https://doi.org/10.1109/sp.2019.00052"
+        },
+        {
+          "pid": "P131",
+          "title": "Coverage-based Greybox Fuzzing as Markov Chain",
+          "venue": "CCS",
+          "year": "2016",
+          "url": "https://doi.org/10.1145/2976749.2978428"
+        },
+        {
+          "pid": "P242",
+          "title": "Toward large-scale vulnerability discovery using machine learning",
+          "venue": "CODASPY",
+          "year": "2016",
+          "url": "https://doi.org/10.1145/2857705.2857720"
+        },
+        {
+          "pid": "P241",
+          "title": "Buffer overflow vulnerability prediction from x86 executables using static analysis and machine learning",
+          "venue": "COMPSAC",
+          "year": "2015",
+          "url": "https://doi.org/10.1109/compsac.2015.78"
         }
       ]
     },
@@ -12485,18 +12485,18 @@
       "paperCount": 2,
       "papers": [
         {
-          "pid": "P137",
-          "title": "CryptoKnight: Generating and Modelling Compiled Cryptographic Primitives",
-          "venue": "Information",
-          "year": "2018",
-          "url": "https://doi.org/10.3390/info9090231"
-        },
-        {
           "pid": "P138",
           "title": "A Neural Network-Based Approach for Cryptographic Function Detection in Malware",
           "venue": "IEEE Access",
           "year": "2019",
           "url": "https://doi.org/10.1109/access.2020.2966860"
+        },
+        {
+          "pid": "P137",
+          "title": "CryptoKnight: Generating and Modelling Compiled Cryptographic Primitives",
+          "venue": "Information",
+          "year": "2018",
+          "url": "https://doi.org/10.3390/info9090231"
         }
       ]
     },
@@ -12507,18 +12507,11 @@
       "paperCount": 6,
       "papers": [
         {
-          "pid": "P139",
-          "title": "CP-BCS: Binary Code Summarization Guided by Control Flow Graph and Pseudo Code",
-          "venue": "EMNLP",
-          "year": "2023",
-          "url": "https://doi.org/10.18653/v1/2023.emnlp-main.911"
-        },
-        {
-          "pid": "P140",
-          "title": "Extending Source Code Pre-Trained Language Models to Summarise Decompiled Binaries",
-          "venue": "SANER",
-          "year": "2023",
-          "url": "https://doi.org/10.1109/saner56733.2023.00033"
+          "pid": "P142",
+          "title": "MiSum: Multi-modality Heterogeneous Code Graph Learning for Multi-intent Binary Code Summarization",
+          "venue": "FSE",
+          "year": "2025",
+          "url": "https://doi.org/10.1145/3715780"
         },
         {
           "pid": "P244",
@@ -12542,11 +12535,18 @@
           "url": "https://doi.org/10.52202/079017-3578"
         },
         {
-          "pid": "P142",
-          "title": "MiSum: Multi-modality Heterogeneous Code Graph Learning for Multi-intent Binary Code Summarization",
-          "venue": "FSE",
-          "year": "2025",
-          "url": "https://doi.org/10.1145/3715780"
+          "pid": "P139",
+          "title": "CP-BCS: Binary Code Summarization Guided by Control Flow Graph and Pseudo Code",
+          "venue": "EMNLP",
+          "year": "2023",
+          "url": "https://doi.org/10.18653/v1/2023.emnlp-main.911"
+        },
+        {
+          "pid": "P140",
+          "title": "Extending Source Code Pre-Trained Language Models to Summarise Decompiled Binaries",
+          "venue": "SANER",
+          "year": "2023",
+          "url": "https://doi.org/10.1109/saner56733.2023.00033"
         }
       ]
     },
@@ -12557,39 +12557,25 @@
       "paperCount": 12,
       "papers": [
         {
-          "pid": "P143",
-          "title": "Using Recurrent Neural Networks for Decompilation",
-          "venue": "SANER",
-          "year": "2018",
-          "url": "https://doi.org/10.1109/saner.2018.8330222"
+          "pid": "P161",
+          "title": "Idioms: A Simple and Effective Framework for Turbo-Charging Local Neural Decompilation with Well-Defined Types",
+          "venue": "NDSS",
+          "year": "2026",
+          "url": "https://doi.org/10.14722/ndss.2026.240795"
         },
         {
-          "pid": "P144",
-          "title": "Coda: An End-to-End Neural Program Decompiler",
-          "venue": "NeurIPS",
-          "year": "2019",
-          "url": "https://proceedings.neurips.cc/paper/2019/hash/093b60fd0557804c8ba0cbf1453da22f-Abstract.html"
+          "pid": "P163",
+          "title": "SK2Decompile: LLM-based Two-Phase Binary Decompilation from Skeleton to Skin",
+          "venue": "ICLR",
+          "year": "2026",
+          "url": "https://arxiv.org/pdf/2509.22114"
         },
         {
-          "pid": "P145",
-          "title": "Neutron: an attention-based neural decompiler",
-          "venue": "Cybersecurity",
-          "year": "2021",
-          "url": "https://doi.org/10.1186/s42400-021-00070-0"
-        },
-        {
-          "pid": "P245",
-          "title": "Boosting Neural Networks to Decompile Optimized Binaries",
-          "venue": "ACSAC",
-          "year": "2022",
-          "url": "https://doi.org/10.1145/3564625.3567998"
-        },
-        {
-          "pid": "P148",
-          "title": "Decompiling x86 Deep Neural Network Executables",
-          "venue": "USENIX Security",
-          "year": "2023",
-          "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/liu-zhibo"
+          "pid": "P248",
+          "title": "DecLLM: LLM-Augmented Recompilable Decompilation for Enabling Programmatic Use of Decompiled Code",
+          "venue": "ISSTA",
+          "year": "2025",
+          "url": "https://doi.org/10.1145/3728958"
         },
         {
           "pid": "P146",
@@ -12620,25 +12606,39 @@
           "url": "https://doi.org/10.1109/cgo57630.2024.10444788"
         },
         {
-          "pid": "P248",
-          "title": "DecLLM: LLM-Augmented Recompilable Decompilation for Enabling Programmatic Use of Decompiled Code",
-          "venue": "ISSTA",
-          "year": "2025",
-          "url": "https://doi.org/10.1145/3728958"
+          "pid": "P148",
+          "title": "Decompiling x86 Deep Neural Network Executables",
+          "venue": "USENIX Security",
+          "year": "2023",
+          "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/liu-zhibo"
         },
         {
-          "pid": "P161",
-          "title": "Idioms: A Simple and Effective Framework for Turbo-Charging Local Neural Decompilation with Well-Defined Types",
-          "venue": "NDSS",
-          "year": "2026",
-          "url": "https://doi.org/10.14722/ndss.2026.240795"
+          "pid": "P245",
+          "title": "Boosting Neural Networks to Decompile Optimized Binaries",
+          "venue": "ACSAC",
+          "year": "2022",
+          "url": "https://doi.org/10.1145/3564625.3567998"
         },
         {
-          "pid": "P163",
-          "title": "SK2Decompile: LLM-based Two-Phase Binary Decompilation from Skeleton to Skin",
-          "venue": "ICLR",
-          "year": "2026",
-          "url": "https://arxiv.org/pdf/2509.22114"
+          "pid": "P145",
+          "title": "Neutron: an attention-based neural decompiler",
+          "venue": "Cybersecurity",
+          "year": "2021",
+          "url": "https://doi.org/10.1186/s42400-021-00070-0"
+        },
+        {
+          "pid": "P144",
+          "title": "Coda: An End-to-End Neural Program Decompiler",
+          "venue": "NeurIPS",
+          "year": "2019",
+          "url": "https://proceedings.neurips.cc/paper/2019/hash/093b60fd0557804c8ba0cbf1453da22f-Abstract.html"
+        },
+        {
+          "pid": "P143",
+          "title": "Using Recurrent Neural Networks for Decompilation",
+          "venue": "SANER",
+          "year": "2018",
+          "url": "https://doi.org/10.1109/saner.2018.8330222"
         }
       ]
     },
@@ -12649,18 +12649,11 @@
       "paperCount": 4,
       "papers": [
         {
-          "pid": "P127",
-          "title": "LEMNA: Explaining Deep Learning based Security Applications",
+          "pid": "P115",
+          "title": "FINER: Enhancing State-of-the-art Classifiers with Feature Attribution to Facilitate Security Analysis",
           "venue": "CCS",
-          "year": "2018",
-          "url": "https://dl.acm.org/doi/10.1145/3243734.3243792"
-        },
-        {
-          "pid": "P249",
-          "title": "Explaining Vulnerabilities of Deep Learning to Adversarial Malware Binaries",
-          "venue": "ITASEC",
-          "year": "2019",
-          "url": "https://ceur-ws.org/Vol-2315/paper09.pdf"
+          "year": "2023",
+          "url": "https://doi.org/10.1145/3576915.3616599"
         },
         {
           "pid": "P250",
@@ -12670,11 +12663,18 @@
           "url": "https://doi.org/10.1109/dsn53405.2022.00028"
         },
         {
-          "pid": "P115",
-          "title": "FINER: Enhancing State-of-the-art Classifiers with Feature Attribution to Facilitate Security Analysis",
+          "pid": "P249",
+          "title": "Explaining Vulnerabilities of Deep Learning to Adversarial Malware Binaries",
+          "venue": "ITASEC",
+          "year": "2019",
+          "url": "https://ceur-ws.org/Vol-2315/paper09.pdf"
+        },
+        {
+          "pid": "P127",
+          "title": "LEMNA: Explaining Deep Learning based Security Applications",
           "venue": "CCS",
-          "year": "2023",
-          "url": "https://doi.org/10.1145/3576915.3616599"
+          "year": "2018",
+          "url": "https://dl.acm.org/doi/10.1145/3243734.3243792"
         }
       ]
     },
@@ -12685,46 +12685,18 @@
       "paperCount": 12,
       "papers": [
         {
-          "pid": "P251",
-          "title": "Instruction2vec: Efficient preprocessor of assembly code to detect software weakness with CNN",
-          "venue": "Applied Sciences",
-          "year": "2019",
-          "url": "https://doi.org/10.3390/app9194086"
+          "pid": "P149",
+          "title": "Nova: Generative language models for assembly code with hierarchical attention and contrastive learning",
+          "venue": "ICLR",
+          "year": "2025",
+          "url": "https://openreview.net/forum?id=4ytRL3HJrq"
         },
         {
-          "pid": "P033",
-          "title": "PalmTree: Learning an Assembly Language Model for Instruction Embedding",
-          "venue": "CCS",
-          "year": "2021",
-          "url": "https://doi.org/10.1145/3460120.3484587"
-        },
-        {
-          "pid": "P252",
-          "title": "sem2vec: Semantics-aware Assembly Tracelet Embedding",
-          "venue": "ACM TOSEM",
-          "year": "2022",
-          "url": "https://dl.acm.org/doi/10.1145/3569933"
-        },
-        {
-          "pid": "P116",
-          "title": "Can a Deep Learning Model for One Architecture Be Used for Others? Retargeted-Architecture Binary Code Analysis",
-          "venue": "USENIX Security",
-          "year": "2023",
-          "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/wang-junzhe"
-        },
-        {
-          "pid": "P052",
-          "title": "Hext5: Unified pre-training for stripped binary code information inference",
-          "venue": "ASE",
-          "year": "2023",
-          "url": "https://doi.org/10.1109/ase56229.2023.00099"
-        },
-        {
-          "pid": "P253",
-          "title": "Semantic-aware binary code representation with BERT",
-          "venue": "IEEE Access",
-          "year": "2023",
-          "url": "https://ieeexplore.ieee.org/document/10077368"
+          "pid": "P256",
+          "title": "Pre-training Representations of Binary Code Using Contrastive Learning",
+          "venue": "TMLR",
+          "year": "2025",
+          "url": "https://doi.org/10.36227/techrxiv.24061689.v1"
         },
         {
           "pid": "P254",
@@ -12755,18 +12727,46 @@
           "url": "https://doi.org/10.1016/j.neucom.2024.127273"
         },
         {
-          "pid": "P149",
-          "title": "Nova: Generative language models for assembly code with hierarchical attention and contrastive learning",
-          "venue": "ICLR",
-          "year": "2025",
-          "url": "https://openreview.net/forum?id=4ytRL3HJrq"
+          "pid": "P116",
+          "title": "Can a Deep Learning Model for One Architecture Be Used for Others? Retargeted-Architecture Binary Code Analysis",
+          "venue": "USENIX Security",
+          "year": "2023",
+          "url": "https://www.usenix.org/conference/usenixsecurity23/presentation/wang-junzhe"
         },
         {
-          "pid": "P256",
-          "title": "Pre-training Representations of Binary Code Using Contrastive Learning",
-          "venue": "TMLR",
-          "year": "2025",
-          "url": "https://doi.org/10.36227/techrxiv.24061689.v1"
+          "pid": "P052",
+          "title": "Hext5: Unified pre-training for stripped binary code information inference",
+          "venue": "ASE",
+          "year": "2023",
+          "url": "https://doi.org/10.1109/ase56229.2023.00099"
+        },
+        {
+          "pid": "P253",
+          "title": "Semantic-aware binary code representation with BERT",
+          "venue": "IEEE Access",
+          "year": "2023",
+          "url": "https://ieeexplore.ieee.org/document/10077368"
+        },
+        {
+          "pid": "P252",
+          "title": "sem2vec: Semantics-aware Assembly Tracelet Embedding",
+          "venue": "ACM TOSEM",
+          "year": "2022",
+          "url": "https://dl.acm.org/doi/10.1145/3569933"
+        },
+        {
+          "pid": "P033",
+          "title": "PalmTree: Learning an Assembly Language Model for Instruction Embedding",
+          "venue": "CCS",
+          "year": "2021",
+          "url": "https://doi.org/10.1145/3460120.3484587"
+        },
+        {
+          "pid": "P251",
+          "title": "Instruction2vec: Efficient preprocessor of assembly code to detect software weakness with CNN",
+          "venue": "Applied Sciences",
+          "year": "2019",
+          "url": "https://doi.org/10.3390/app9194086"
         }
       ]
     },
@@ -12777,18 +12777,11 @@
       "paperCount": 4,
       "papers": [
         {
-          "pid": "P257",
-          "title": "Detecting malware evolution using support vector machines",
-          "venue": "Expert Syst. Appl.",
-          "year": "2020",
-          "url": "https://doi.org/10.1016/j.eswa.2019.113022"
-        },
-        {
-          "pid": "P125",
-          "title": "CADE: Detecting and Explaining Concept Drift Samples for Security Applications",
+          "pid": "P118",
+          "title": "Detecting and Mitigating Sampling Bias in Cybersecurity with Unlabeled Data",
           "venue": "USENIX Security",
-          "year": "2021",
-          "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/yang-limin"
+          "year": "2024",
+          "url": "https://www.usenix.org/conference/usenixsecurity24/presentation/thirumuruganathan"
         },
         {
           "pid": "P111",
@@ -12798,11 +12791,18 @@
           "url": "https://doi.org/10.1609/aaai.v36i7.20757"
         },
         {
-          "pid": "P118",
-          "title": "Detecting and Mitigating Sampling Bias in Cybersecurity with Unlabeled Data",
+          "pid": "P125",
+          "title": "CADE: Detecting and Explaining Concept Drift Samples for Security Applications",
           "venue": "USENIX Security",
-          "year": "2024",
-          "url": "https://www.usenix.org/conference/usenixsecurity24/presentation/thirumuruganathan"
+          "year": "2021",
+          "url": "https://www.usenix.org/conference/usenixsecurity21/presentation/yang-limin"
+        },
+        {
+          "pid": "P257",
+          "title": "Detecting malware evolution using support vector machines",
+          "venue": "Expert Syst. Appl.",
+          "year": "2020",
+          "url": "https://doi.org/10.1016/j.eswa.2019.113022"
         }
       ]
     },

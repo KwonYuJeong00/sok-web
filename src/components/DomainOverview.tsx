@@ -397,7 +397,7 @@ function DomainSection({
           <tr>
             <th className="ov-col-n">#</th>
             <th>Paper Title</th>
-            <th className="ov-col-conf">Conference</th>
+            <th className="ov-col-conf">Conference &amp; Journal</th>
             <th className="ov-col-year">Year</th>
           </tr>
         </thead>
@@ -427,7 +427,13 @@ function DomainSection({
                     p.title
                   )}
                 </td>
-                <td className="ov-col-conf">{p.venue}</td>
+                <td className="ov-col-conf">
+                  {/* fixed-width cell; long venue names scroll (drag) and show
+                      the full name on hover */}
+                  <span className="ov-venue" title={p.venue}>
+                    {p.venue}
+                  </span>
+                </td>
                 <td className="ov-col-year">{p.year}</td>
               </tr>
             ))

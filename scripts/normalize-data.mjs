@@ -912,7 +912,7 @@ const collection = domainRows.map((d) => {
       year: clean(r.Year),
       url: urlByPid[clean(r.PID)] || undefined,
     }))
-    .sort((a, b) => a.year.localeCompare(b.year) || a.title.localeCompare(b.title));
+    .sort((a, b) => b.year.localeCompare(a.year) || a.title.localeCompare(b.title)); // newest first
   return {
     did,
     name: clean(d.Domain),
