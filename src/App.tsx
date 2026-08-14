@@ -10,10 +10,12 @@ import type { Selection, FilterState, Paper } from './types';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { PipelineGraph } from './components/PipelineGraph';
+import { DomainOverview } from './components/DomainOverview';
 
 export default function App() {
   const [selection, setSelection] = useState<Selection>({ kind: 'none' });
   const [filter, setFilter] = useState<FilterState>(EMPTY_FILTER);
+  const [showOverview, setShowOverview] = useState(false);
 
   const filterActive = isFilterActive(filter);
 
@@ -35,12 +37,14 @@ export default function App() {
     return [...backbone, ...paperTraceEdges(selectedPaper, data.stages, layout)];
   }, [selectedPaper, backbone, layout]);
 
-  const selectPaper = (pid: string) =>
+  const selectPaper = (pid: string) => {
+    setShowOverview(false); // picking a paper always returns to the pipeline view
     setSelection((prev) =>
       prev.kind === 'paper' && prev.paperId === pid
         ? { kind: 'none' }
         : { kind: 'paper', paperId: pid },
     );
+  };
 
   return (
     <div className="app">
@@ -56,16 +60,25 @@ export default function App() {
           selectedPid={selectedPaper?.id ?? null}
           filteredPids={filterActive ? filteredPids : null}
           onSelect={selectPaper}
+          overviewOpen={showOverview}
+          collectionCount={data.meta.collectionCount}
+          onToggleOverview={() => setShowOverview((v) => !v)}
         />
         <main className="main-area">
-          {selectedPaper && <PaperInfoBar paper={selectedPaper} />}
-          <PipelineGraph
-            stages={data.stages}
-            layout={layout}
-            edges={edges}
-            paper={selectedPaper}
-            nodeColors={nodeColors}
-          />
+          {showOverview ? (
+            <DomainOverview collection={data.collection} />
+          ) : (
+            <>
+              {selectedPaper && <PaperInfoBar paper={selectedPaper} />}
+              <PipelineGraph
+                stages={data.stages}
+                layout={layout}
+                edges={edges}
+                paper={selectedPaper}
+                nodeColors={nodeColors}
+              />
+            </>
+          )}
         </main>
       </div>
     </div>

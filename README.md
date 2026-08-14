@@ -7,7 +7,7 @@ entries it uses light up, connected column-to-column into a path. Papers with
 several inputs draw parallel, colour-coded paths that fuse through one or two
 `+` / `-->` connector markers just before **Learning**.
 
-**80 papers · 19 research domains · 10 pipeline stages · up to 4 parallel input paths.**
+**88 papers · 19 research domains · 10 pipeline stages · up to 4 parallel input paths.**
 
 ## Pipeline stages
 
@@ -50,31 +50,39 @@ gap regardless of how many connectors are visible.
 
 ## Data
 
-The build reads exactly **two** files from `source/`:
+The build reads these files from `source/`:
 
-- `ai_pipeline_final_sheet.csv` — the primary sheet, one row per paper.
+- `ai_pipeline_final_sheet.csv` — the primary sheet, one row per analysed paper.
 - `taxonomy definitions/domain_definition.csv` — scheme / tier / inference-type
   per domain (D01–D26), used to build the sidebar tree and per-paper tags.
+- `taxonomy definitions/domain_paper_map.csv` — the full paper collection
+  (PID → domain, title, venue, year) behind the Domain-overview page and the
+  per-paper year tags.
+- `taxonomy definitions/paper_links.csv` — optional PID → official publisher
+  URL map; linked from the overview tables.
 
 The other files in `source/taxonomy definitions/` (`artifact_class.csv`,
-`inference_type.csv`, `tokenization_taxonomy.csv`, `domain_paper_map.csv`) are
-**reference taxonomies** the normalizer's canonical lists are based on; they are
-documentation only and not read at build time.
+`inference_type.csv`, `tokenization_taxonomy.csv`) are **reference taxonomies**
+the normalizer's canonical lists are based on; they are documentation only and
+not read at build time.
 
-`scripts/normalize-data.mjs` reads the sheet at **build time** and emits
-`src/data/normalizedData.json`, which is imported straight into the bundle —
-nothing is fetched at runtime, so the deployed site is fully static. Values are
-preserved verbatim: only a column's **default node label** is normalised (canonical
-class, short canon label, phase, etc.); every **click-reveal** value comes directly
-from the sheet.
+**`source/` is kept out of git** (private raw data). `scripts/normalize-data.mjs`
+reads the sheets at **build time** and emits `src/data/normalizedData.json`,
+which **is** committed; when `source/` is absent — e.g. on the deploy server —
+the committed JSON is used as-is and the build still succeeds. Nothing is
+fetched at runtime, so the deployed site is fully static. Values are preserved
+verbatim: only a column's **default node label** is normalised (canonical
+class, short canon label, phase, etc.); every **click-reveal** value comes
+directly from the sheet.
 
 ### Updating the data
 
-1. Edit `source/ai_pipeline_final_sheet.csv` (or `domain_definition.csv`).
+1. Edit `source/ai_pipeline_final_sheet.csv` (or the taxonomy files) locally.
 2. `npm run normalize` — regenerate `src/data/normalizedData.json`.
 3. `npm run audit` — check the generated data against the sheet (flags dropped
    values, lane-count mismatches, and values that fall through normalisation).
-4. `npm run dev` (or `npm run build`) to see the change.
+4. `npm run dev` (or `npm run build`) to see the change, then commit the
+   regenerated JSON — the sheets themselves never enter git.
 
 ## Requirements
 
@@ -149,14 +157,15 @@ npm run dev -- --port 3000   # pick any free port
 
 ```
 sok-web/
-├── source/
+├── source/                                private data — NOT in git
 │   ├── ai_pipeline_final_sheet.csv        primary data (read at build)
 │   └── taxonomy definitions/
 │       ├── domain_definition.csv          domains (read at build)
+│       ├── domain_paper_map.csv           full collection (read at build)
+│       ├── paper_links.csv                official paper URLs (read at build)
 │       ├── artifact_class.csv             reference taxonomy
 │       ├── inference_type.csv             reference taxonomy
-│       ├── tokenization_taxonomy.csv      reference taxonomy
-│       └── domain_paper_map.csv           reference (PID -> DID + venue)
+│       └── tokenization_taxonomy.csv      reference taxonomy
 ├── scripts/
 │   ├── normalize-data.mjs                 CSV -> JSON (includes FC expression parser)
 │   └── audit.mjs                          ground-truth audit (npm run audit)

@@ -394,6 +394,18 @@ const STAGES = [
 
 /* ------------------------------- load ---------------------------------- */
 const PRIMARY = 'ai_pipeline_final_sheet.csv';
+
+// The raw sheets in source/ are kept out of git (private data). When they are
+// absent — e.g. on the deploy server — the committed normalizedData.json is
+// used as-is and this script becomes a no-op.
+if (!fs.existsSync(path.join(SRC, PRIMARY))) {
+  if (fs.existsSync(OUT)) {
+    console.log('source/ sheets not present — keeping committed src/data/normalizedData.json.');
+    process.exit(0);
+  }
+  throw new Error('source/ sheets missing and no committed normalizedData.json to fall back on.');
+}
+
 const summaryRows = asObjects(readTable(PRIMARY));
 const domainRows = asObjects(readTable('taxonomy definitions/domain_definition.csv'));
 const domainByDid = Object.fromEntries(domainRows.map((r) => [clean(r.Index), r]));
@@ -873,6 +885,44 @@ const sidebar = SCHEMES_ORDER.map((scheme) => {
   return { scheme, domains };
 }).filter((g) => g.domains.length > 0);
 
+/* ------------- full paper collection (domain_paper_map.csv) ------------- */
+// The Domain-overview page charts EVERY collected paper (all rows of
+// domain_paper_map.csv), not just the papers analysed in the primary sheet.
+// One entry per defined domain, in DID order; zero-paper domains keep an
+// empty list so the UI can decide what to show.
+// Official per-paper links (PID,URL) live in a separate file so re-exports of
+// domain_paper_map.csv from the source sheet never lose them. Optional.
+const LINKS = 'taxonomy definitions/paper_links.csv';
+const urlByPid = fs.existsSync(path.join(SRC, LINKS))
+  ? Object.fromEntries(
+      asObjects(readTable(LINKS))
+        .map((r) => [clean(r.PID), clean(r.URL)])
+        .filter(([pid, url]) => pid && url),
+    )
+  : {};
+
+const collection = domainRows.map((d) => {
+  const did = clean(d.Index);
+  const collPapers = paperMapRows
+    .filter((r) => clean(r.DID) === did && clean(r.PID))
+    .map((r) => ({
+      pid: clean(r.PID),
+      title: clean(r['Paper Title']),
+      venue: clean(r.Conference),
+      year: clean(r.Year),
+      url: urlByPid[clean(r.PID)] || undefined,
+    }))
+    .sort((a, b) => a.year.localeCompare(b.year) || a.title.localeCompare(b.title));
+  return {
+    did,
+    name: clean(d.Domain),
+    scheme: clean(d.Scheme) || 'Others',
+    paperCount: collPapers.length,
+    papers: collPapers,
+  };
+});
+const collectionCount = collection.reduce((n, d) => n + d.paperCount, 0);
+
 /* ------------------------------- meta ---------------------------------- */
 const pathCounts = papers.map((p) => p.pathCount);
 const data = {
@@ -883,12 +933,14 @@ const data = {
     domainCount: sidebar.reduce((n, g) => n + g.domains.length, 0),
     stageCount: stages.length,
     maxPaths: Math.max(1, ...pathCounts),
+    collectionCount,
     generatedAt: new Date().toISOString(),
     primarySource: `source/${PRIMARY}`,
   },
   stages,
   papers,
   sidebar,
+  collection,
 };
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -897,6 +949,7 @@ fs.writeFileSync(OUT, JSON.stringify(data, null, 2) + '\n');
 const hist = pathCounts.reduce((m, n) => ((m[n] = (m[n] || 0) + 1), m), {});
 console.log('OK  src/data/normalizedData.json');
 console.log(`    papers   : ${papers.length}   domains: ${data.meta.domainCount}   paths: ${JSON.stringify(hist)}`);
+console.log(`    collection: ${collectionCount} papers across ${collection.filter((d) => d.paperCount > 0).length} domains (overview page)`);
 for (const s of stages) {
   console.log(`    stage ${s.order} ${s.name.padEnd(16)} ${String(s.nodes.length).padStart(2)} nodes  [${s.nodes.map((n) => n.label).join(', ')}]`);
 }

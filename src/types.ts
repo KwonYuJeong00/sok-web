@@ -5,6 +5,9 @@ export interface NormalizedData {
   stages: Stage[];
   papers: Paper[];
   sidebar: SidebarSchemeGroup[];
+  /** Every collected paper (domain_paper_map.csv), grouped per domain — the
+   *  Domain-overview page; independent of the 88 pipeline-analysed papers. */
+  collection: CollectionDomain[];
 }
 
 export interface Meta {
@@ -14,8 +17,27 @@ export interface Meta {
   domainCount: number;
   stageCount: number;
   maxPaths: number;
+  /** total papers in the full collection (domain_paper_map.csv) */
+  collectionCount: number;
   generatedAt: string;
   primarySource: string;
+}
+
+/* ----- Domain-overview page (full collection) ----- */
+export interface CollectionPaper {
+  pid: string;
+  title: string;
+  venue: string;
+  year: string;
+  /** official publisher page (DOI / venue site); absent when not resolved */
+  url?: string;
+}
+export interface CollectionDomain {
+  did: string;
+  name: string;
+  scheme: string;       // Foundation | Application | Others
+  paperCount: number;
+  papers: CollectionPaper[];
 }
 
 /** A pipeline stage = one column of the flow diagram. */

@@ -47,6 +47,10 @@ const isSeq = (f) => normForm(f) === 'Sequence';
 // Map renamed source columns back to the logical names used here (kept in sync
 // with normalize-data.mjs COLUMN_ALIASES).
 const COLUMN_ALIASES = { 'Analysis Artifact': 'Artifact', 'Token Unit': 'Tokenization_Unit' };
+if (!fs.existsSync(CSV)) {
+  console.log('source/ sheets not present (kept out of git) — nothing to audit.');
+  process.exit(0);
+}
 const t = parseCSV(fs.readFileSync(CSV, 'utf8')).filter((r) => r.some((c) => c.trim() !== ''));
 const H = t[0].map((h) => { const x = h.trim(); return COLUMN_ALIASES[x] || x; });
 const rows = t.slice(1).map((r) => Object.fromEntries(H.map((h, i) => [h, (r[i] ?? '').trim()]))).filter((r) => r.PID);

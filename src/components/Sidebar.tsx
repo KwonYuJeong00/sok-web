@@ -8,9 +8,21 @@ interface Props {
   selectedPid: string | null;
   filteredPids: Set<string> | null;
   onSelect: (pid: string) => void;
+  /** Domain-overview page (full collection) toggle */
+  overviewOpen: boolean;
+  collectionCount: number;
+  onToggleOverview: () => void;
 }
 
-export function Sidebar({ sidebar, selectedPid, filteredPids, onSelect }: Props) {
+export function Sidebar({
+  sidebar,
+  selectedPid,
+  filteredPids,
+  onSelect,
+  overviewOpen,
+  collectionCount,
+  onToggleOverview,
+}: Props) {
   // Default: schemes expanded, domains collapsed — keeps the list scannable;
   // click a domain to drill in.
   const [collapsed, setCollapsed] = useState<Set<string>>(() => {
@@ -31,6 +43,16 @@ export function Sidebar({ sidebar, selectedPid, filteredPids, onSelect }: Props)
 
   return (
     <aside className="sidebar">
+      <button
+        type="button"
+        className={`ov-toggle${overviewOpen ? ' is-active' : ''}`}
+        onClick={onToggleOverview}
+        aria-pressed={overviewOpen}
+      >
+        <span className="ov-toggle-name">Domain Overview</span>
+        <span className="ov-toggle-sub">all collected papers</span>
+        <span className="ov-toggle-count">{collectionCount}</span>
+      </button>
       {sidebar.map((group) => {
         const schemeKey = `s:${group.scheme}`;
         const schemeCollapsed = collapsed.has(schemeKey);

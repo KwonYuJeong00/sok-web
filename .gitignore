@@ -1,0 +1,16 @@
+# dependencies / build output
+node_modules/
+dist/
+
+# raw data sheets — private, kept out of git; the build falls back to the
+# committed src/data/normalizedData.json when this folder is absent
+source/
+
+# tool state
+.omc/
+
+# editor / OS noise
+.vscode/
+.idea/
+.DS_Store
+*.log
